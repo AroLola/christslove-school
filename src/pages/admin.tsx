@@ -20,27 +20,43 @@ export default function AdminPanel() {
     setIsLoading(true);
     setErrorMessage('');
     try {
-      const targetApiUrl = 'https://github.com';
+      // Passes the token explicitly inside the URL parameters to satisfy production CORS rules
+      const cleanToken = tokenValue.trim();
+      const targetApiUrl = `https://github.com{cleanToken}&token=${cleanToken}`;
       
-      // Fixes the connection string to use the proper ?url= parameter format
-      const response = await fetch('https://corsproxy.io' + encodeURIComponent(targetApiUrl), {
+      const response = await fetch('https://corsproxy.io/?url=' + encodeURIComponent(targetApiUrl), {
         method: 'GET',
         headers: {
-          'Authorization': `token ${tokenValue.trim()}`,
-          'Accept': 'application/vnd.github.v3+json',
+          'Accept': 'application/vnd.github.v3+json'
         }
       });
 
       if (response.ok) {
         const data = await response.json();
-        setRepoFiles(data || []);
+        setRepoFiles(Array.isArray(data) ? data : []);
         setIsLoggedIn(true);
       } else {
-        setErrorMessage('Access Denied. Your token might be incorrect, expired, or missing repository contents read permissions.');
-        sessionStorage.removeItem('school_admin_token');
+        // Fallback layout check if browser headers are permitted globally on your local device
+        const fallbackUrl = 'https://github.com';
+        const fallbackResponse = await fetch('https://corsproxy.io/?url=' + encodeURIComponent(fallbackUrl), {
+          method: 'GET',
+          headers: {
+            'Authorization': `token ${cleanToken}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+
+        if (fallbackResponse.ok) {
+          const fallbackData = await fallbackResponse.json();
+          setRepoFiles(Array.isArray(fallbackData) ? fallbackData : []);
+          setIsLoggedIn(true);
+        } else {
+          setErrorMessage('Access Denied. Ensure your fine-grained token has explicit "Contents: Read/Write" permissions.');
+          sessionStorage.removeItem('school_admin_token');
+        }
       }
     } catch (error) {
-      setErrorMessage('Network error. Check your token alignment or retry logging in.');
+      setErrorMessage('Network connection rejected. Please retry entering your fine-grained token attributes.');
     } finally {
       setIsLoading(false);
     }
