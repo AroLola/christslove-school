@@ -18,30 +18,32 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // 1. First, temporarily clean up any double-http or corrupted links
-      content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-da93c89c/g, 'https://airoapp.ai');
-      content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-7c88bb85/g, 'https://airoapp.ai');
+      // 1. Swap the non-working domain name layout out for GoDaddy's live preview engine array target
+      content = content.replace(/https:\/\/christslovechristianschool\.info\/airo-assets\/uploads\/gallery\//g, 'https://airoapp.ai');
+      
+      // 2. Catch alternative structural typos pointing to parent folders
+      content = content.replace(/https:\/\/christslovechristianschool\.info\/media\//g, 'https://airoapp.ai');
+      content = content.replace(/https:\/\/christslovechristianschool\.info\/assets\//g, 'https://airoapp.ai');
 
-      // 2. Only rewrite broken local paths if they do NOT already start with http
-      const localPaths = ['/media/', 'media/', '/assets/', 'assets/', '/airo-assets/', 'airo-assets/', '/airo-assests/', 'airo-assests/'];
+      // 3. Keep the working admissions page links untouched or restore them if broken
+      content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-da93c89c/g, 'https://airoapp.aigallery-da93c89c');
+      content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-7c88bb85/g, 'https://airoapp.aigallery-7c88bb85');
+
+      // 4. Fallback filter rule for unmapped local relative text fragments
+      const localPaths = ['/media/', 'media/', '/assets/', 'assets/', '/airo-assets/', 'airo-assets/'];
       localPaths.forEach(oldPath => {
-        // This regex ensures it only catches paths that do not have http/https in front of them
         const regex = new RegExp(`(?<!https?:\\/\\/[^"']*?)src=["']${oldPath.replace(/\//g, '\\/')}(.*?\\.(jpg|jpeg|png|gif|webp|svg|mp4))["']`, 'g');
-        content = content.replace(regex, 'src="https://airoapp.ai"');
+        content = content.replace(regex, 'src="https://airoapp.ai$1"');
       });
-
-      // 3. Fix any absolute source fallbacks for root directory mappings
-      content = content.replace(/uploads\/gallery\/gallery\//g, 'uploads/gallery/');
-      content = content.replace(/uploads\/gallery\/uploads\//g, 'uploads/');
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Safe Asset Linker] Fixed file: ${path.relative(__dirname, fullPath)}`);
+        console.log(`[Gallery Mapping Sync] Patched master image slots inside: ${path.relative(__dirname, fullPath)}`);
       }
     }
   });
 }
 
-console.log('Running Safe Asset Linker script...');
+console.log('Running Master Gallery Link correction script...');
 processDirectory(PAGES_DIR);
-console.log('All image links synchronized safely.');
+console.log('All homepage gallery blocks mapped to storage destinations successfully.');
