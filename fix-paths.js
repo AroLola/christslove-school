@@ -1,4 +1,4 @@
- import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -18,29 +18,30 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // 1. Revert any accidental window.location.origin formatting back to clean string attributes
-      content = content.replace(/src=\{\`\$\{window\.location\.origin\}(.*?)\`\}/g, 'src="$1"');
-      content = content.replace(/src=\{\"\$\{window\.location\.origin\}(.*?)\"\}/g, 'src="$1"');
+      // 1. First, temporarily clean up any double-http or corrupted links
+      content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-da93c89c/g, 'https://airoapp.ai');
+      content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-7c88bb85/g, 'https://airoapp.ai');
 
-      // 2. Globally rewrite local scattered asset folders to point directly to GoDaddy's live server
+      // 2. Only rewrite broken local paths if they do NOT already start with http
       const localPaths = ['/media/', 'media/', '/assets/', 'assets/', '/airo-assets/', 'airo-assets/', '/airo-assests/', 'airo-assests/'];
       localPaths.forEach(oldPath => {
-        const regex = new RegExp(`src=["']${oldPath.replace(/\//g, '\\/')}(.*?\.(jpg|jpeg|png|gif|webp|svg|mp4))["']`, 'g');
+        // This regex ensures it only catches paths that do not have http/https in front of them
+        const regex = new RegExp(`(?<!https?:\\/\\/[^"']*?)src=["']${oldPath.replace(/\//g, '\\/')}(.*?\\.(jpg|jpeg|png|gif|webp|svg|mp4))["']`, 'g');
         content = content.replace(regex, 'src="https://airoapp.ai"');
       });
 
-      // 3. Specifically fix images that might be looking inside a nested gallery or upload folder
-      content = content.replace(/uploads\/gallery\//g, 'gallery/');
-      content = content.replace(/uploads\/media\//g, '');
+      // 3. Fix any absolute source fallbacks for root directory mappings
+      content = content.replace(/uploads\/gallery\/gallery\//g, 'uploads/gallery/');
+      content = content.replace(/uploads\/gallery\/uploads\//g, 'uploads/');
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[GoDaddy Cloud Tunnel] Rerouted images in: ${path.relative(__dirname, fullPath)}`);
+        console.log(`[Safe Asset Linker] Fixed file: ${path.relative(__dirname, fullPath)}`);
       }
     }
   });
 }
 
-console.log('Running GoDaddy cloud asset mirror script...');
+console.log('Running Safe Asset Linker script...');
 processDirectory(PAGES_DIR);
-console.log('All image links successfully mapped to cloud storage.');
+console.log('All image links synchronized safely.');
