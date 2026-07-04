@@ -23,8 +23,7 @@ function processDirectory(directory) {
       content = content.replace(/(url\(["'`]?)public\//g, '$1/');
 
       // 2. Fix missing leading forward slashes for scattered folders
-      const folders = ['media', 'assets', 'airo-assets', 'airo-assests'];
-      folders.forEach(folder => {
+      const folders = ['media', 'assets', 'airo-assets', 'airo-assests', 'airo-assets/uploads/gallery'];
         // Fixes paths like src="media/... or src="./media/... changing them to src="/media/...
         const regexSrc = new RegExp(`(src=["'\` ]|href=["'\` ])(\\.\\/|\\.\\.\\/)?(${folder}\\/)`, 'g');
         content = content.replace(regexSrc, '$1/$3');
