@@ -4,15 +4,15 @@
   "rewrites": [
     {
       "source": "/assets/(.*)",
-      "destination": "/dist/client/assets/$1"
+      "destination": "/assets/$1"
     },
     {
       "source": "/media/(.*)",
-      "destination": "/dist/client/media/$1"
+      "destination": "/media/$1"
     },
     {
       "source": "/(.*)",
-      "destination": "/dist/client/index.html"
+      "destination": "/index.html"
     }
   ]
 }
