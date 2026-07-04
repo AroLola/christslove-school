@@ -10,16 +10,12 @@ type EventSection = { id: string; name: string; media: MediaItem[] };
 type GalleryData = { photoEvents: EventSection[]; videoEvents: EventSection[] };
 type Tab = 'photos' | 'videos';
 
-// Hardcoded initial data so the gallery works on the live client site independently
 const INITIAL_GALLERY_DATA: GalleryData = {
   photoEvents: [
     {
       id: "event-1",
       name: "Classroom Activities",
-      media: [
-        // Add your production live photo URLs here as needed
-        // { id: "m-1", src: "https://your-image-host.com", caption: "Students learning" }
-      ]
+      media: []
     }
   ],
   videoEvents: [
@@ -40,23 +36,6 @@ export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState<Tab>('photos');
   const [activeEvent, setActiveEvent] = useState<string>('all');
   const [lightbox, setLightbox] = useState<{ items: MediaItem[]; index: number } | null>(null);
-  const [slideIndices, setSlideIndices] = useState<Record<string, number>>({});
-
-  // Auto-slideshow
-  useEffect(() => {
-    if (!data || lightbox !== null) return;
-    const events = activeTab === 'photos' ? data.photoEvents : data.videoEvents;
-    const timers = events.map(event => {
-      if (event.media.length <= 1) return null;
-      return setInterval(() => {
-        setSlideIndices(prev => ({
-          ...prev,
-          [event.id]: ((prev[event.id] ?? 0) + 1) % event.media.length,
-        }));
-      }, 4000);
-    });
-    return () => timers.forEach(t => t && clearInterval(t));
-  }, [data, activeTab, lightbox]);
 
   const tabKey = activeTab === 'photos' ? 'photoEvents' : 'videoEvents';
   const events = data ? data[tabKey] : [];
@@ -102,38 +81,20 @@ export default function GalleryPage() {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       {/* Hero */}
       <section className="bg-secondary py-16 md:py-20">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="font-heading text-3xl md:text-5xl font-bold text-secondary-foreground mb-4"
-          >
-            <h1 className="contents">Gallery</h1>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-secondary-foreground/70 text-lg max-w-xl mx-auto"
-          >
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 text-secondary-foreground">Gallery</h1>
+          <p className="text-secondary-foreground/70 text-lg max-w-xl mx-auto">
             A glimpse into life at Christ's Love Christian School
-          </motion.p>
+          </p>
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4">
 
           {/* Tab switcher */}
           <div className="flex justify-center mb-8">
@@ -153,13 +114,13 @@ export default function GalleryPage() {
             </div>
           </div>
 
-          {/* Event Filter dropdown / list */}
+          {/* Event Filters */}
           {events.length > 0 && (
             <div className="flex justify-center mb-12">
-              <div className="flex flex-wrap gap-2 justify-center max-w-2xl">
+              <div className="flex flex-wrap gap-2 justify-center">
                 <button
                   onClick={() => setActiveEvent('all')}
-                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${activeEvent === 'all' ? 'bg-foreground text-background border-foreground' : 'bg-background text-foreground/60 border-border hover:border-foreground/30'}`}
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${activeEvent === 'all' ? 'bg-foreground text-background border-foreground' : 'bg-background text-foreground/60 border-border'}`}
                 >
                   All Events
                 </button>
@@ -167,7 +128,7 @@ export default function GalleryPage() {
                   <button
                     key={e.id}
                     onClick={() => setActiveEvent(e.id)}
-                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${activeEvent === e.id ? 'bg-foreground text-background border-foreground' : 'bg-background text-foreground/60 border-border hover:border-foreground/30'}`}
+                    className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${activeEvent === e.id ? 'bg-foreground text-background border-foreground' : 'bg-background text-foreground/60 border-border'}`}
                   >
                     {e.name}
                   </button>
@@ -176,49 +137,94 @@ export default function GalleryPage() {
             </div>
           )}
 
-          {/* Gallery Content Rendering */}
+          {/* Media Uniform Grid Layout */}
           <div className="space-y-16">
-            {visibleEvents.map(event => {
-              const currentSlide = slideIndices[event.id] ?? 0;
-              return (
-                <div key={event.id} className="border-b border-border pb-12 last:border-0">
-                  <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 text-foreground">
-                      <FolderOpen className="text-primary" size={20} /> {event.name}
-                    </h2>
-                  </div>
+            {visibleEvents.map(event => (
+              <div key={event.id} className="border-b border-border pb-12 last:border-0">
+                <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2 mb-6 text-foreground">
+                  <FolderOpen className="text-primary" size={20} /> {event.name}
+                </h2>
 
-                  {event.media.length === 0 ? (
-                    <p className="text-muted-foreground text-sm italic">No media items in this album.</p>
-                  ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* Left: Slideshow */}
-                      <div className="relative aspect-video md:aspect-square bg-muted rounded-xl overflow-hidden shadow-sm group">
-                        {event.media.map((item, idx) => (
-                          <div
-                            key={item.id}
-                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-                          >
-                            {activeTab === 'photos' ? (
-                              <img
-                                src={item.src}
-                                alt={item.caption || event.name}
-                                className="w-full h-full object-cover cursor-pointer"
-                                onClick={() => openLightbox(event.media, idx)}
-                              />
-                            ) : (
-                              <video
-                                src={item.src}
-                                className="w-full h-full object-cover cursor-pointer"
-                                onClick={() => openLightbox(event.media, idx)}
-                                muted
-                                playsInline
-                              />
-                            )}
+                {event.media.length === 0 ? (
+                  <p className="text-muted-foreground text-sm italic">No media items available.</p>
+                ) : (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {event.media.map((item, idx) => (
+                      <div
+                        key={item.id}
+                        onClick={() => openLightbox(event.media, idx)}
+                        className="relative aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer group border border-border/40 hover:shadow-md transition-shadow"
+                      >
+                        {activeTab === 'photos' ? (
+                          <img 
+                            src={item.src} 
+                            alt={item.caption || ''} 
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                          />
+                        ) : (
+                          <div className="w-full h-full relative flex items-center justify-center bg-black">
+                            <video src={item.src} className="w-full h-full object-cover opacity-80" muted playsInline />
+                            <Video size={24} className="text-white drop-shadow absolute" />
                           </div>
-                        ))}
-                        <div className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2 py-1 rounded-full z-20 pointer-events-none">
-                          {currentSlide + 1} / {event.media.length}
-                        </div>
+                        )}
                       </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex flex-col items-center justify-center p-4 touch-none"
+          >
+            <button onClick={closeLightbox} className="absolute top-4 right-4 text-white/70 hover:text-white bg-white/10 p-2 rounded-full transition-colors z-50">
+              <X size={24} />
+            </button>
+
+            <div className="relative w-full max-w-5xl aspect-video max-h-[80vh] flex items-center justify-center">
+              {lightbox.items.length > 1 && (
+                <>
+                  <button onClick={prevLightbox} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all z-50">
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button onClick={nextLightbox} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all z-50">
+                    <ChevronRight size={24} />
+                  </button>
+                </>
+              )}
+
+              <div className="w-full h-full flex items-center justify-center select-none">
+                {activeTab === 'photos' ? (
+                  <img
+                    src={lightbox.items[lightbox.index].src}
+                    alt={lightbox.items[lightbox.index].caption || ''}
+                    className="max-w-full max-h-full object-contain rounded"
+                  />
+                ) : (
+                  <video
+                    src={lightbox.items[lightbox.index].src}
+                    controls
+                    autoPlay
+                    className="max-w-full max-h-full object-contain rounded"
+                  />
+                )}
+              </div>
+            </div>
+
+            {lightbox.items[lightbox.index].caption && (
+              <p className="text-white/80 mt-4 text-center max-w-xl text-sm md:text-base px-4">
+                {lightbox.items[lightbox.index].caption}
+              </p>
+            )}
+            <p className="text-white/40 text-xs mt-2">
+              {lightbox.index + 1} / {lightbox.items.length}
+            </p>
