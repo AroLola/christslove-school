@@ -3,6 +3,18 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/airo-assets/uploads/(.*)",
+      "destination": "/airo-assets/uploads/$1"
+    },
+    {
+      "source": "/assets/media/(.*)",
+      "destination": "/assets/media/$1"
+    },
+    {
+      "source": "/assets/uploads/(.*)",
+      "destination": "/assets/uploads/$1"
+    },
+    {
       "source": "/assets/(.*)",
       "destination": "/assets/$1"
     },
@@ -16,4 +28,3 @@
     }
   ]
 }
- 
