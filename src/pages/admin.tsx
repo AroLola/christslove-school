@@ -1,47 +1,34 @@
-import Dashboard from '../layouts/Dashboard';
-import { Settings, FileText } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function AdminPanel() {
-  const [token, setToken] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState<string>('');
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   if (!isLoggedIn) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
-        <div className="w-full max-w-md space-y-4 rounded-lg bg-white p-6 shadow-md">
-          <h2 className="text-xl font-bold text-center text-slate-800">School Site Admin</h2>
-          <input
-            type="password"
-            placeholder="Enter GitHub Access Token"
-            className="w-full rounded border p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={token}
-            onChange={(e) => setToken(e.target.value)}
-          />
-          <button 
-            onClick={() => token && setIsLoggedIn(true)}
-            className="w-full rounded bg-blue-600 p-2 text-white font-medium hover:bg-blue-700 transition"
-          >
-            Sign In
-          </button>
-        </div>
+      <div style={{ padding: '50px', textAlign: 'center', fontFamily: 'sans-serif' }}>
+        <h2>School Admin Login</h2>
+        <input 
+          type="password" 
+          placeholder="Enter Token" 
+          value={token} 
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setToken(e.target.value)}
+          style={{ padding: '10px', width: '250px', marginRight: '10px' }}
+        />
+        <button 
+          onClick={() => token && setIsLoggedIn(true)}
+          style={{ padding: '10px 20px', background: 'blue', color: 'white', border: 'none', cursor: 'pointer' }}
+        >
+          Login
+        </button>
       </div>
     );
   }
 
-  const config = {
-    sidebar: { logo: { text: "School Admin" } },
-    navigation: {
-      main: [
-        { title: 'Manage Pages', href: '/admin', icon: FileText, active: true },
-        { title: 'Settings', href: '/admin/settings', icon: Settings }
-      ]
-    },
-    header: { user: { name: 'Administrator', email: 'admin@school.com', initials: 'AD' } }
-  };
-
   return (
-    <Dashboard config={config as any}>
-      <div className="p-6 space-y-4">
-        <h1 className="text-2xl font-bold text-slate-800">Welcome to the School Website Manager</h1>
-        <p className="text-slate-600">Visual content fields can be wired here to update your frontend data models securely via the 
+    <div style={{ padding: '50px', fontFamily: 'sans-serif' }}>
+      <h1>School Website Admin Panel</h1>
+      <p>You are successfully logged in. We can add editing buttons here next.</p>
+    </div>
+  );
+}
