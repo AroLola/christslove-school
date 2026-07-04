@@ -18,32 +18,34 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // 1. Swap the non-working domain name layout out for GoDaddy's live preview engine array target
+      // 1. Remap the 12 broken gallery master slots from your old custom domain to GoDaddy's storage loop
       content = content.replace(/https:\/\/christslovechristianschool\.info\/airo-assets\/uploads\/gallery\//g, 'https://airoapp.ai');
       
-      // 2. Catch alternative structural typos pointing to parent folders
-      content = content.replace(/https:\/\/christslovechristianschool\.info\/media\//g, 'https://airoapp.ai');
-      content = content.replace(/https:\/\/christslovechristianschool\.info\/assets\//g, 'https://airoapp.ai');
+      // 2. Fix the broken header logo reference strings dynamically
+      content = content.replace(/src=["'](.*?)logo\.(png|jpg|jpeg|svg)["']/gi, 'src="https://airoapp.aigallery-da93c89c-81c8-4846-bdf8-9be9babd58f7.jpg"');
 
-      // 3. Keep the working admissions page links untouched or restore them if broken
+      // 3. Automated Footer Injection: Restore the erased footer logo if inside a Footer component structure
+      if (file.toLowerCase().includes('footer') && !content.includes('id="restored-footer-logo"')) {
+        content = content.replace(/(<\/footer>)/i, `
+          <div id="restored-footer-logo" className="flex justify-center items-center pt-4 border-t border-white/10 mt-4">
+            <img src="https://airoapp.aigallery-da93c89c-81c8-4846-bdf8-9be9babd58f7.jpg" alt="Christ's Love Christian School Logo" className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
+          </div>
+          $1
+        `);
+      }
+
+      // 4. Fallback filter rule to preserve working admissions pages
       content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-da93c89c/g, 'https://airoapp.aigallery-da93c89c');
       content = content.replace(/https:\/\/ti1ev20vl7\.preview\.c36\.airoapp\.ai\/airo-assets\/uploads\/gallery-7c88bb85/g, 'https://airoapp.aigallery-7c88bb85');
 
-      // 4. Fallback filter rule for unmapped local relative text fragments
-      const localPaths = ['/media/', 'media/', '/assets/', 'assets/', '/airo-assets/', 'airo-assets/'];
-      localPaths.forEach(oldPath => {
-        const regex = new RegExp(`(?<!https?:\\/\\/[^"']*?)src=["']${oldPath.replace(/\//g, '\\/')}(.*?\\.(jpg|jpeg|png|gif|webp|svg|mp4))["']`, 'g');
-        content = content.replace(regex, 'src="https://airoapp.ai$1"');
-      });
-
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Gallery Mapping Sync] Patched master image slots inside: ${path.relative(__dirname, fullPath)}`);
+        console.log(`[AIRO Restore Engine] Reconstructed layout paths inside: ${path.relative(__dirname, fullPath)}`);
       }
     }
   });
 }
 
-console.log('Running Master Gallery Link correction script...');
+console.log('Initializing AIRO layout repair pipeline...');
 processDirectory(PAGES_DIR);
-console.log('All homepage gallery blocks mapped to storage destinations successfully.');
+console.log('All image arrays, header references, and footer elements successfully patched.');
