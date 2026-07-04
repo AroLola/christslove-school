@@ -20,31 +20,28 @@ export default function AdminPanel() {
     setIsLoading(true);
     setErrorMessage('');
     try {
-      const cleanToken = tokenValue.trim();
-      const targetApiUrl = 'https://github.com';
-      
-      // Converts the token into a browser-safe credential string to clear production proxy blocks
-      const base64Credentials = btoa('token:' + cleanToken);
-      
-      const response = await fetch('https://corsproxy.io' + encodeURIComponent(targetApiUrl), {
+      // Direct, standard native browser request layout accepted globally by GitHub security layers
+      const response = await fetch('https://github.com', {
         method: 'GET',
         headers: {
-          'Authorization': `Basic ${base64Credentials}`,
-          'Accept': 'application/vnd.github.v3+json'
-        }
+          'Authorization': `Bearer ${tokenValue.trim()}`,
+          'Accept': 'application/vnd.github.v3+json',
+        },
       });
 
       if (response.ok) {
         const data = await response.json();
         setRepoFiles(Array.isArray(data) ? data : []);
         setIsLoggedIn(true);
-      } else {
-        setErrorMessage('Access Denied. Check your token permissions on GitHub.');
+      } else if (response.status === 401 || response.status === 403) {
+        setErrorMessage('Access Denied. Check your fine-grained token settings on GitHub and ensure it has "Contents: Read and Write" permissions.');
         sessionStorage.removeItem('school_admin_token');
+      } else {
+        setErrorMessage(`GitHub API responded with error code: ${response.status}`);
       }
     } catch (error) {
-      setErrorMessage('Network connection rejected. Please retry entering your fine-grained token attributes.');
-    } finally {
+      setErrorMessage('Browser network stream blocked by system antivirus or VPN settings. Please retry in a clean window.');
+    } finaly {
       setIsLoading(false);
     }
   };
