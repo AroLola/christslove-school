@@ -4,14 +4,12 @@ import HomePage from './pages/index';
 import AboutPage from './pages/about';
 import ProdNotFoundPage from './pages/_404';
 
-const NotFoundPage = import.meta.env.DEV
-  ? lazy(() => import('../dev-tools/src/PageNotFound'))
-  : ProdNotFoundPage;
-
+const NotFoundPage = import.meta.env.DEV ? lazy(() => import('../dev-tools/src/PageNotFound')) : ProdNotFoundPage;
 const AcademicsPage = lazy(() => import('./pages/academics'));
 const AdmissionsPage = lazy(() => import('./pages/admissions'));
 const ContactPage = lazy(() => import('./pages/contact'));
 const GalleryPage = lazy(() => import('./pages/gallery'));
+const AdminPage = lazy(() => import('./pages/admin')); // Our new admin dashboard page
 
 export const routes: RouteObject[] = [
   { path: '/', element: <HomePage /> },
@@ -20,8 +18,9 @@ export const routes: RouteObject[] = [
   { path: '/admissions', element: <AdmissionsPage /> },
   { path: '/contact', element: <ContactPage /> },
   { path: '/gallery', element: <GalleryPage /> },
+  { path: '/admin', element: <AdminPage /> }, // Direct dynamic path mapping
   { path: '*', element: <NotFoundPage /> },
 ];
 
-export type Path = '/' | '/about' | '/academics' | '/admissions' | '/contact';
+export type Path = '/' | '/about' | '/academics' | '/admissions' | '/contact' | '/admin';
 export type Params = Record<string, string | undefined>;
