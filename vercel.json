@@ -1,7 +1,35 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/_github-assets/(?<path>.*)",
+      "dest": "https://githubusercontent.com",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/media/(.*)",
+      "dest": "/media/$1"
+    },
+    {
+      "src": "/airo-assets/(.*)",
+      "dest": "/airo-assets/$1"
+    },
+    {
+      "src": "/airo-assests/(.*)",
+      "dest": "/airo-assests/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
