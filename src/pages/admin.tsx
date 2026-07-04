@@ -14,14 +14,30 @@ export default function AdminPanel() {
     setErrorMessage('');
     setTechnicalDetails('');
 
-    try {
-      // Standard format required by GitHub API to prevent browser security rejections
-      const response = await fetch('https://github.com', {
-        method: 'GET',
-        headers: {
-          'Authorization': `token ${token.trim()}`,
-          'Accept': 'application/vnd.github.v3+json',
-        }
+       try {
+      // Talks to your own server instead of GitHub directly, bypassing all browser blocks
+      const response = await fetch('/api/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: token.trim() })
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.ok) {
+        setRepoFiles(Array.isArray(result.data) ? result.data : []);
+        setIsLoggedIn(true);
+      } else {
+        setErrorMessage('Invalid token or repository access denied.');
+        setTechnicalDetails(`Server Status: ${result.status}`);
+      }
+    } catch (error: any) {
+      setErrorMessage('Local server routing failed.');
+      setTechnicalDetails(error?.message);
+    } finally {
+      setIsLoading(false);
+    }
+
       });
 
       if (response.ok) {
