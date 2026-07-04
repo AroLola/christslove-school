@@ -41,7 +41,7 @@ export default function AdminPanel() {
       }
     } catch (error) {
       setErrorMessage('Browser network stream blocked by system antivirus or VPN settings. Please retry in a clean window.');
-    } finaly {
+    } finally {
       setIsLoading(false);
     }
   };
