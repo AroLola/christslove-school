@@ -3,32 +3,89 @@ import React, { useState } from 'react';
 export default function AdminPanel() {
   const [token, setToken] = useState<string>('');
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+  const [repoFiles, setRepoFiles] = useState<any[]>([]);
+
+  // Connects directly to GitHub backend to verify your access token
+  const handleLogin = async () => {
+    if (!token) return;
+    setIsLoading(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('https://github.com', {
+        headers: {
+          Authorization: `token ${token}`,
+          Accept: 'application/vnd.github.v3+json',
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setRepoFiles(data); // Stores your website pages into the dashboard state
+        setIsLoggedIn(true);
+      } else {
+        setErrorMessage('Invalid GitHub Access Token. Please check permissions.');
+      }
+    } catch (error) {
+      setErrorMessage('Connection failed. Please check your network.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   if (!isLoggedIn) {
     return (
-      <div style={{ padding: '50px', textAlign: 'center', fontFamily: 'sans-serif' }}>
-        <h2>School Admin Login</h2>
-        <input 
-          type="password" 
-          placeholder="Enter Token" 
-          value={token} 
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setToken(e.target.value)}
-          style={{ padding: '10px', width: '250px', marginRight: '10px' }}
-        />
-        <button 
-          onClick={() => token && setIsLoggedIn(true)}
-          style={{ padding: '10px 20px', background: 'blue', color: 'white', border: 'none', cursor: 'pointer' }}
-        >
-          Login
-        </button>
+      <div style={{ padding: '50px', textAlign: 'center', fontFamily: 'sans-serif', backgroundColor: '#f8fafc', minHeight: '100vh' }}>
+        <div style={{ background: '#white', padding: '30px', display: 'inline-block', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}>
+          <h2 style={{ color: '#1e293b', marginBottom: '20px' }}>School Admin Login</h2>
+          <input 
+            type="password" 
+            placeholder="Paste your github_pat_ token" 
+            value={token} 
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setToken(e.target.value)}
+            style={{ padding: '12px', width: '280px', marginRight: '10px', borderRadius: '4px', border: '1px solid #cbd5e1' }}
+          />
+          <button 
+            onClick={handleLogin}
+            disabled={isLoading}
+            style={{ padding: '12px 24px', background: '#2563eb', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}
+          >
+            {isLoading ? 'Verifying...' : 'Login'}
+          </button>
+          {errorMessage && <p style={{ color: '#dc2626', marginTop: '15px', fontSize: '14px' }}>{errorMessage}</p>}
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '50px', fontFamily: 'sans-serif' }}>
-      <h1>School Website Admin Panel</h1>
-      <p>You are successfully logged in. We can add editing buttons here next.</p>
+    <div style={{ padding: '40px', fontFamily: 'sans-serif', color: '#1e293b' }}>
+      <header style={{ borderBottom: '2px solid #e2e8f0', paddingBottom: '20px', marginBottom: '20px' }}>
+        <h1>School Website Admin Panel</h1>
+        <p style={{ color: '#475569' }}>Connected Securely to Repository: <strong>AroLola/christslove-school</strong></p>
+      </header>
+      
+      <div style={{ display: 'flex', gap: '30px' }}>
+        {/* Sidebar displaying your live files */}
+        <div style={{ width: '250px', background: '#f1f5f9', padding: '20px', borderRadius: '6px' }}>
+          <h3 style={{ marginTop: '0' }}>Website Pages</h3>
+          <ul style={{ listStyle: 'none', padding: '0' }}>
+            {repoFiles.map((file: any) => (
+              <li key={file.path} style={{ padding: '8px 0', borderBottom: '1px solid #e2e8f0', fontSize: '14px', color: '#2563eb', cursor: 'pointer' }}>
+                📄 {file.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Workspace Display Area */}
+        <div style={{ flex: '1', background: '#f8fafc', padding: '20px', borderRadius: '6px', border: '1px dashed #cbd5e1' }}>
+          <h3>Editor Workspace</h3>
+          <p style={{ color: '#64748b' }}>Select a page from the left sidebar panel to begin editing text layouts or titles visually.</p>
+        </div>
+      </div>
     </div>
   );
 }
