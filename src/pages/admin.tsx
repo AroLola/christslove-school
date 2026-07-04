@@ -20,13 +20,16 @@ export default function AdminPanel() {
     setIsLoading(true);
     setErrorMessage('');
     try {
-      // Passes the token explicitly inside the URL parameters to satisfy production CORS rules
       const cleanToken = tokenValue.trim();
-      const targetApiUrl = `https://github.com{cleanToken}&token=${cleanToken}`;
+      const targetApiUrl = 'https://github.com';
       
-      const response = await fetch('https://corsproxy.io/?url=' + encodeURIComponent(targetApiUrl), {
+      // Converts the token into a browser-safe credential string to clear production proxy blocks
+      const base64Credentials = btoa('token:' + cleanToken);
+      
+      const response = await fetch('https://corsproxy.io' + encodeURIComponent(targetApiUrl), {
         method: 'GET',
         headers: {
+          'Authorization': `Basic ${base64Credentials}`,
           'Accept': 'application/vnd.github.v3+json'
         }
       });
@@ -36,24 +39,8 @@ export default function AdminPanel() {
         setRepoFiles(Array.isArray(data) ? data : []);
         setIsLoggedIn(true);
       } else {
-        // Fallback layout check if browser headers are permitted globally on your local device
-        const fallbackUrl = 'https://github.com';
-        const fallbackResponse = await fetch('https://corsproxy.io/?url=' + encodeURIComponent(fallbackUrl), {
-          method: 'GET',
-          headers: {
-            'Authorization': `token ${cleanToken}`,
-            'Accept': 'application/vnd.github.v3+json'
-          }
-        });
-
-        if (fallbackResponse.ok) {
-          const fallbackData = await fallbackResponse.json();
-          setRepoFiles(Array.isArray(fallbackData) ? fallbackData : []);
-          setIsLoggedIn(true);
-        } else {
-          setErrorMessage('Access Denied. Ensure your fine-grained token has explicit "Contents: Read/Write" permissions.');
-          sessionStorage.removeItem('school_admin_token');
-        }
+        setErrorMessage('Access Denied. Check your token permissions on GitHub.');
+        sessionStorage.removeItem('school_admin_token');
       }
     } catch (error) {
       setErrorMessage('Network connection rejected. Please retry entering your fine-grained token attributes.');
