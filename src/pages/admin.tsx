@@ -5,18 +5,21 @@ export default function AdminPanel() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [technicalDetails, setTechnicalDetails] = useState<string>('');
   const [repoFiles, setRepoFiles] = useState<any[]>([]);
 
   const handleLogin = async () => {
     if (!token) return;
     setIsLoading(true);
     setErrorMessage('');
+    setTechnicalDetails('');
 
     try {
-      // Clears CORS issues by utilizing the explicit token query parameter
-      const response = await fetch(`https://github.com{token}`, {
+      // Standard format required by GitHub API to prevent browser security rejections
+      const response = await fetch('https://github.com', {
         method: 'GET',
         headers: {
+          'Authorization': `token ${token.trim()}`,
           'Accept': 'application/vnd.github.v3+json',
         }
       });
@@ -26,24 +29,13 @@ export default function AdminPanel() {
         setRepoFiles(Array.isArray(data) ? data : []);
         setIsLoggedIn(true);
       } else {
-        // Fallback check if your token requires Bearer authentication style mapping
-        const retryResponse = await fetch('https://github.com', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Accept': 'application/vnd.github.v3+json',
-          },
-        });
-
-        if (retryResponse.ok) {
-          const retryData = await retryResponse.json();
-          setRepoFiles(Array.isArray(retryData) ? retryData : []);
-          setIsLoggedIn(true);
-        } else {
-          setErrorMessage('Invalid token or repository access denied. Ensure your token has "Contents: Read/Write" permissions.');
-        }
+        const errData = await response.json().catch(() => ({}));
+        setErrorMessage('Invalid token or repository access denied.');
+        setTechnicalDetails(`Status: ${response.status} - ${errData.message || 'Unauthorized'}`);
       }
-    } catch (error) {
-      setErrorMessage('Browser network check blocked. Try logging in using an Incognito window or clear your browser cache.');
+    } catch (error: any) {
+      setErrorMessage('Browser network check blocked. Please disable your ad-blocker or check your token formatting.');
+      setTechnicalDetails(error?.message || 'TypeError: Failed to fetch');
     } finally {
       setIsLoading(false);
     }
@@ -68,7 +60,13 @@ export default function AdminPanel() {
           >
             {isLoading ? 'Verifying...' : 'Login'}
           </button>
-          {errorMessage && <p style={{ color: '#dc2626', marginTop: '15px', fontSize: '14px', maxWidth: '320px', lineHeight: '1.4' }}>{errorMessage}</p>}
+          
+          {errorMessage && (
+            <div style={{ marginTop: '20px', maxWidth: '340px', background: '#fef2f2', padding: '15px', borderRadius: '6px', border: '1px solid #fee2e2', textAlign: 'left' }}>
+              <p style={{ color: '#dc2626', margin: '0 0 8px 0', fontSize: '14px', fontWeight: 'bold' }}>{errorMessage}</p>
+              {technicalDetails && <code style={{ color: '#991b1b', fontSize: '11px', display: 'block', wordBreak: 'break-all', background: '#fee2e2', padding: '4px', borderRadius: '4px' }}>Debug Info: {technicalDetails}</code>}
+            </div>
+          )}
         </div>
       </div>
     );
