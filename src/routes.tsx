@@ -9,7 +9,7 @@ const AcademicsPage = lazy(() => import('./pages/academics'));
 const AdmissionsPage = lazy(() => import('./pages/admissions'));
 const ContactPage = lazy(() => import('./pages/contact'));
 const GalleryPage = lazy(() => import('./pages/gallery'));
-const AdminPage = lazy(() => import('./pages/admin')); // Our new admin dashboard page
+const AdminPage = lazy(() => import('./pages/admin'));
 
 export const routes: RouteObject[] = [
   { path: '/', element: <HomePage /> },
@@ -18,9 +18,9 @@ export const routes: RouteObject[] = [
   { path: '/admissions', element: <AdmissionsPage /> },
   { path: '/contact', element: <ContactPage /> },
   { path: '/gallery', element: <GalleryPage /> },
-  { path: '/admin', element: <AdminPage /> }, // Direct dynamic path mapping
+  { path: '/admin', element: <AdminPage /> },
   { path: '*', element: <NotFoundPage /> },
 ];
 
-export type Path = '/' | '/about' | '/academics' | '/admissions' | '/contact' | '/admin';
+export type Path = '/' | '/about' | '/academics' | '/admissions' | '/contact' | '/gallery' | '/admin';
 export type Params = Record<string, string | undefined>;
