@@ -15,8 +15,7 @@ import { Home, Users, Settings, BarChart } from 'lucide-react';
 export default function DashboardPage() {
   return (
     <Dashboard config={{
-      sidebar: {
-        logo: { text: 'My App' },
+      { sidebar: { logo: { text: 'My App' } } },
         navigation: {
           main: [
             { title: 'Dashboard', href: '/', icon: Home, active: true },
