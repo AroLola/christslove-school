@@ -10,23 +10,37 @@ type EventSection = { id: string; name: string; media: MediaItem[] };
 type GalleryData = { photoEvents: EventSection[]; videoEvents: EventSection[] };
 type Tab = 'photos' | 'videos';
 
-async function fetchGallery(): Promise<GalleryData> {
-  const res = await fetch('/api/gallery');
-  return res.json();
-}
+// Hardcoded initial data so the gallery works on the live client site independently
+const INITIAL_GALLERY_DATA: GalleryData = {
+  photoEvents: [
+    {
+      id: "event-1",
+      name: "Classroom Activities",
+      media: [
+        // Add your production live photo URLs here as needed
+        // { id: "m-1", src: "https://your-image-host.com", caption: "Students learning" }
+      ]
+    }
+  ],
+  videoEvents: [
+    {
+      id: "video-1",
+      name: "School Events",
+      media: []
+    }
+  ]
+};
 
 export default function GalleryPage() {
   const title = "Gallery — Christ's Love Christian School";
   const description = "Browse photos and videos from Christ's Love Christian School — classroom moments, events, and community life.";
   const canonicalUrl = `${site}/gallery`;
 
-  const [data, setData] = useState<GalleryData | null>(null);
+  const [data] = useState<GalleryData>(INITIAL_GALLERY_DATA);
   const [activeTab, setActiveTab] = useState<Tab>('photos');
   const [activeEvent, setActiveEvent] = useState<string>('all');
   const [lightbox, setLightbox] = useState<{ items: MediaItem[]; index: number } | null>(null);
   const [slideIndices, setSlideIndices] = useState<Record<string, number>>({});
-
-  useEffect(() => { fetchGallery().then(setData); }, []);
 
   // Auto-slideshow
   useEffect(() => {
@@ -50,10 +64,12 @@ export default function GalleryPage() {
 
   const openLightbox = (items: MediaItem[], index: number) => setLightbox({ items, index });
   const closeLightbox = () => setLightbox(null);
+  
   const prevLightbox = useCallback(() => {
     if (!lightbox) return;
     setLightbox({ ...lightbox, index: (lightbox.index - 1 + lightbox.items.length) % lightbox.items.length });
   }, [lightbox]);
+
   const nextLightbox = useCallback(() => {
     if (!lightbox) return;
     setLightbox({ ...lightbox, index: (lightbox.index + 1) % lightbox.items.length });
@@ -176,7 +192,7 @@ export default function GalleryPage() {
                     <p className="text-muted-foreground text-sm italic">No media items in this album.</p>
                   ) : (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* Left: Slideshow (Spans 1 col on desktop) */}
+                      {/* Left: Slideshow */}
                       <div className="relative aspect-video md:aspect-square bg-muted rounded-xl overflow-hidden shadow-sm group">
                         {event.media.map((item, idx) => (
                           <div
@@ -206,8 +222,3 @@ export default function GalleryPage() {
                         </div>
                       </div>
 
-                      {/* Right: Grid of remaining photos (Spans 2 cols on desktop) */}
-                      <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-3 content-start">
-                        {event.media.map((item, idx) => (
-                          <div
-                            key={item.id}
