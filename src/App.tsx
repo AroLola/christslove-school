@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet, RouterProvider, createBrowserRouter, type RouteObject } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import RootLayout from './layouts/RootLayout';
 import Spinner from './components/Spinner';
 import { routes } from './routes';
@@ -29,6 +30,9 @@ const router = createBrowserRouter(routeTree);
 
 export default function App() {
   return (
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+      <Analytics />
+    </>
   );
 }
