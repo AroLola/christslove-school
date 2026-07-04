@@ -9,7 +9,6 @@ export default function AdminPanel() {
   const [errorMessage, setErrorMessage] = useState('');
   const [repoFiles, setRepoFiles] = useState([]);
 
-  // Checks if you already logged in during this session
   useEffect(() => {
     const savedToken = sessionStorage.getItem('school_admin_token');
     if (savedToken) {
@@ -19,8 +18,12 @@ export default function AdminPanel() {
 
   const fetchFiles = async (tokenValue) => {
     setIsLoading(true);
+    setErrorMessage('');
     try {
-      const response = await fetch('https://github.com', {
+      const targetApiUrl = 'https://github.com';
+      
+      // Fixes the connection string to use the proper ?url= parameter format
+      const response = await fetch('https://corsproxy.io' + encodeURIComponent(targetApiUrl), {
         method: 'GET',
         headers: {
           'Authorization': `token ${tokenValue.trim()}`,
@@ -33,18 +36,17 @@ export default function AdminPanel() {
         setRepoFiles(data || []);
         setIsLoggedIn(true);
       } else {
-        setErrorMessage('Access Denied. Your token might be expired or missing permissions.');
+        setErrorMessage('Access Denied. Your token might be incorrect, expired, or missing repository contents read permissions.');
         sessionStorage.removeItem('school_admin_token');
       }
     } catch (error) {
-      setErrorMessage('Network error. Check your connection or retry logging in.');
+      setErrorMessage('Network error. Check your token alignment or retry logging in.');
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleLoginPrompt = () => {
-    // Uses the browser's native window dialog to completely bypass ad-blocker network constraints
     const userToken = prompt('Please enter your GitHub Personal Access Token (github_pat_...):');
     if (!userToken) return;
     
@@ -64,7 +66,7 @@ export default function AdminPanel() {
           <button 
             onClick={handleLoginPrompt}
             disabled={isLoading}
-            style={{ padding: '14px 28px', background: '#2563eb', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', width: '100%', fontSize: '15px', transition: 'background 0.2s' }}
+            style={{ padding: '14px 28px', background: '#2563eb', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold', width: '100%', fontSize: '15px' }}
           >
             {isLoading ? 'Authenticating...' : 'Sign In with GitHub Token'}
           </button>
@@ -81,7 +83,7 @@ export default function AdminPanel() {
 
   return (
     <div style={{ padding: '40px', fontFamily: 'sans-serif', color: '#1e293b' }}>
-      <header style={{ borderBottom: '2px solid #e2e8f0', paddingBottom: '20px', marginBottom: '20px', display: 'flex', justifyContent: 'between', alignItems: 'center' }}>
+      <header style={{ borderBottom: '2px solid #e2e8f0', paddingBottom: '20px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <h1 style={{ margin: '0 0 5px 0' }}>School Website Admin Panel</h1>
           <p style={{ color: '#475569', margin: '0' }}>Securely Connected to: <strong>AroLola/christslove-school</strong></p>
