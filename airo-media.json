@@ -1,0 +1,264 @@
+{
+  "pages/home/hero": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2261384250",
+    "searchQuery": "elementary school children classroom learning bright cheerful Christian school",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2152266842",
+      "https://img1.wsimg.com/isteam/getty/2229618830"
+    ],
+    "userModified": true,
+    "createdAt": "2026-06-16T17:21:34.410Z",
+    "lastUpdated": "2026-06-18T19:22:26.698Z",
+    "gettyId": "2261384250",
+    "alternativeGettyIds": [
+      "2152266842",
+      "2229618830"
+    ],
+    "orientations": "horizontal",
+    "numberOfPeople": "group",
+    "minimumSize": "x_large"
+  },
+  "pages/home/values": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-values-b2b9bb1f.png",
+    "searchQuery": "christs love christian school emblem logo",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-values-c9779bb4.jpg",
+      "https://img1.wsimg.com/isteam/getty/1772381089",
+      "https://img1.wsimg.com/isteam/getty/2215936854",
+      "https://img1.wsimg.com/isteam/getty/521700683"
+    ],
+    "userModified": true,
+    "createdAt": "2026-06-16T17:21:38.027Z",
+    "lastUpdated": "2026-06-28T03:20:47.948Z",
+    "alternativeGettyIds": [
+      "",
+      "1772381089",
+      "2215936854",
+      "521700683"
+    ],
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "numberOfPeople": "group",
+    "minimumSize": "large",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-values-c9779bb4.jpg": "ti1ev20vl7_1781778420401_file_aLAwCZB99G.jpg",
+      "/airo-assets/uploads/pages-home-values-b2b9bb1f.png": "ti1ev20vl7_1782616847937_file_tDoAutWj81.png"
+    },
+    "caption": "christs love christian school emblem logo"
+  },
+  "pages/home/community": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-community-33a52433.jpg",
+    "searchQuery": "",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-community-457959e7.jpg",
+      "https://img1.wsimg.com/isteam/getty/2177952663",
+      "https://img1.wsimg.com/isteam/getty/1048326020",
+      "https://img1.wsimg.com/isteam/getty/2221642240"
+    ],
+    "userModified": true,
+    "createdAt": "2026-06-16T17:21:38.400Z",
+    "lastUpdated": "2026-06-22T16:15:52.891Z",
+    "alternativeGettyIds": [
+      "",
+      "2177952663",
+      "1048326020",
+      "2221642240"
+    ],
+    "orientations": "horizontal",
+    "moods": "warm,natural",
+    "numberOfPeople": "group",
+    "minimumSize": "large",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-community-457959e7.jpg": "ti1ev20vl7_1781775801083_file_ryJ71VnzXA.jpg",
+      "/airo-assets/uploads/pages-home-community-33a52433.jpg": "ti1ev20vl7_1782111761150_file_CBSxxYeU79.jpg"
+    }
+  },
+  "logo/primary": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/transparent-77d58d3f6be4348926294d3b7f13f51a/logo-christs-love-christian-school-77d58d.png",
+    "searchQuery": "",
+    "alternatives": [
+      "/airo-assets/uploads/airo-logo-shimmer-square.svg"
+    ],
+    "userModified": true,
+    "createdAt": "2026-06-16T17:21:48.314Z",
+    "lastUpdated": "2026-06-28T03:19:26.281Z"
+  },
+  "logo/horizontal": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/3bf88c47-dcc8-4a1a-bd34-6cf18a91af3f/horizontal-transparent-63e198c4582cf9eea8d18324007f3738/logo-logo-63e198.png",
+    "searchQuery": "",
+    "alternatives": [
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/ababfcef-9e88-4e37-b52f-d6cb2a41d28f/horizontal-transparent-19d27c9a9d123612be4cae646aeb50f0/logo-logo-19d27c.png",
+      "https://img1.wsimg.com/isteam/getty/1138264767",
+      "https://img1.wsimg.com/isteam/getty/2274668450",
+      "https://img1.wsimg.com/isteam/getty/2262622856",
+      "https://img1.wsimg.com/isteam/getty/2265122495"
+    ],
+    "userModified": true,
+    "createdAt": "2026-06-16T17:21:48.314Z",
+    "lastUpdated": "2026-06-28T03:19:26.281Z"
+  },
+  "logo/vertical": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-transparent-f6441579d25c43897aa779ea98251b3a/logo-christs-love-christian-school-f64415.png",
+    "searchQuery": "A classic emblem-style school crest for Christ's Love Christian School — a refin",
+    "alternatives": [
+      "/airo-assets/uploads/airo-logo-shimmer-vertical.svg"
+    ],
+    "solidUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-transparent-f6441579d25c43897aa779ea98251b3a/logo-christs-love-christian-school-f64415.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-solid-b0ad858dc1230e39eaa6597c606a53f6/logo-christs-love-christian-school-b0ad85.png"
+    },
+    "reversedUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-transparent-f6441579d25c43897aa779ea98251b3a/logo-christs-love-christian-school-f64415.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-reversed-a5b41ec3bc4f6ac419052428b8c9f50a/logo-christs-love-christian-school-a5b41e.png"
+    },
+    "reversedSolidUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-transparent-f6441579d25c43897aa779ea98251b3a/logo-christs-love-christian-school-f64415.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-reversed-solid-1df4f047e0d2cd54145ccfdc8e6d9aab/logo-christs-love-christian-school-1df4f0.png"
+    },
+    "mockupUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-transparent-f6441579d25c43897aa779ea98251b3a/logo-christs-love-christian-school-f64415.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-mockup-728b4ef70e351ae2ffdf5f40eb7ad917/logo-christs-love-christian-school-728b4e.png"
+    },
+    "landscapeMockupUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-transparent-f6441579d25c43897aa779ea98251b3a/logo-christs-love-christian-school-f64415.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-mockup-728b4ef70e351ae2ffdf5f40eb7ad917/logo-christs-love-christian-school-728b4e.png"
+    },
+    "logoSourceMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/38a8cb9a-7ea0-40f7-a641-e2ca13c15861/session/19a2cc80-005d-4530-8f63-21f038034ff6/vertical-transparent-f6441579d25c43897aa779ea98251b3a/logo-christs-love-christian-school-f64415.png": {
+        "sessionId": "19a2cc80-005d-4530-8f63-21f038034ff6",
+        "logoId": "77d58d3f"
+      }
+    },
+    "userModified": false,
+    "createdAt": "2026-06-16T17:21:48.314Z",
+    "lastUpdated": "2026-06-16T17:23:15.545Z"
+  },
+  "pages/home/students-enjoying-community-time-at-chri": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-457959e7.jpg",
+    "searchQuery": "large crowd of school children gathered outdoors",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-e3b0c442.jpg"
+    ],
+    "userModified": true,
+    "sourceRef": "src/pages/index.tsx:329",
+    "createdAt": "2026-06-18T19:28:07.436Z",
+    "lastUpdated": "2026-06-24T06:37:14.846Z",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-457959e7.jpg": "ti1ev20vl7_1781775801083_file_ryJ71VnzXA.jpg"
+    },
+    "caption": "large crowd of school children gathered outdoors"
+  },
+  "pages/home/faith-and-learning-at-christs-love-chris": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg",
+    "searchQuery": "girls team huddle hands together outdoor",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-faith-and-learning-at-christs-love-chris-c9779bb4.jpg",
+      "/airo-assets/uploads/pages-home-faith-and-learning-at-christs-love-chris-e3b0c442.jpg"
+    ],
+    "userModified": true,
+    "sourceRef": "src/pages/index.tsx:227",
+    "createdAt": "2026-06-18T19:28:22.636Z",
+    "lastUpdated": "2026-06-18T19:44:04.917Z",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-faith-and-learning-at-christs-love-chris-c9779bb4.jpg": "ti1ev20vl7_1781778420401_file_aLAwCZB99G.jpg",
+      "/airo-assets/uploads/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg": "ti1ev20vl7_1781811844911_file_fAzxNDH0Ms.jpg"
+    },
+    "caption": "girls team huddle hands together outdoor"
+  },
+  "pages/home/students-lined-up-at-christs-love-christ": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-457959e7.jpg",
+    "searchQuery": "group of young people celebrating together outdoors",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-0876d064.jpg",
+      "/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-37f8257f.jpg",
+      "/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-c07b3447.jpg"
+    ],
+    "userModified": true,
+    "sourceRef": "src/pages/index.tsx:78",
+    "createdAt": "2026-06-23T04:00:11.791Z",
+    "lastUpdated": "2026-06-24T09:31:19.045Z",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-37f8257f.jpg": "ti1ev20vl7_1782283280341_file_sEMReuT0hI.jpg",
+      "/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-0876d064.jpg": "ti1ev20vl7_1782293447443_file_7DFXUC-43F.jpg",
+      "/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-457959e7.jpg": "ti1ev20vl7_1781775801083_file_ryJ71VnzXA.jpg"
+    },
+    "caption": "group of young people celebrating together outdoors"
+  },
+  "pages/about/maganaem-erasmus": {
+    "mediaType": "image",
+    "currentUrl": "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-8b3d1ea8-8765-4779-9edf-c670dfe32b48.jpg",
+    "searchQuery": "christs love christian school emblem logo",
+    "alternatives": [],
+    "userModified": true,
+    "sourceRef": "src/pages/about.tsx:338",
+    "createdAt": "2026-06-24T09:26:37.161Z",
+    "lastUpdated": "2026-06-28T03:18:51.173Z",
+    "caption": "christs love christian school emblem logo"
+  },
+  "pages/home/students-enjoying-community-time-at-chri-2": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-2-2ce90b39.jpg",
+    "searchQuery": "sports team huddle hands together",
+    "alternatives": [
+      "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-2-695e1809.jpg",
+      "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-2-457959e7.jpg"
+    ],
+    "userModified": true,
+    "sourceRef": "src/pages/index.tsx:332",
+    "createdAt": "2026-06-24T18:11:30.318Z",
+    "lastUpdated": "2026-06-28T02:48:57.912Z",
+    "uploadSources": {
+      "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-2-695e1809.jpg": "ti1ev20vl7_1781811754383_file__hzvjtmd1m.jpg",
+      "/airo-assets/uploads/pages-home-students-enjoying-community-time-at-chri-2-2ce90b39.jpg": "ti1ev20vl7_1781811754383_file__hzvjtmd1m.jpg"
+    },
+    "caption": "sports team huddle hands together"
+  },
+  "layouts/header/christs-love-christian-school": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/layouts-header-christs-love-christian-school-b2b9bb1f.png",
+    "searchQuery": "christs love christian school emblem logo",
+    "alternatives": [
+      "/airo-assets/uploads/layouts-header-christs-love-christian-school-aea019d4.jpg"
+    ],
+    "userModified": true,
+    "sourceRef": "src/layouts/parts/Header.tsx:24",
+    "createdAt": "2026-06-28T03:21:02.541Z",
+    "lastUpdated": "2026-06-28T03:21:20.448Z",
+    "uploadSources": {
+      "/airo-assets/uploads/layouts-header-christs-love-christian-school-b2b9bb1f.png": "ti1ev20vl7_1782616847937_file_tDoAutWj81.png"
+    },
+    "caption": "christs love christian school emblem logo"
+  },
+  "layouts/footer/christs-love-christian-school": {
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/layouts-footer-christs-love-christian-school-2658fcbe.png",
+    "searchQuery": "christs love christian school emblem logo",
+    "alternatives": [
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-513cd61c.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-38ab8c55.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-6551e3ab.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-8f05c43b.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-b2b9bb1f.png",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-7f9e259a.jpg"
+    ],
+    "userModified": true,
+    "sourceRef": "src/layouts/parts/Footer.tsx:17",
+    "createdAt": "2026-06-28T03:21:43.757Z",
+    "lastUpdated": "2026-06-30T11:03:09.097Z",
+    "uploadSources": {
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-b2b9bb1f.png": "ti1ev20vl7_1782616847937_file_tDoAutWj81.png",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-8f05c43b.jpg": "ti1ev20vl7_1782617874360_file_h23csgsjmn.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-6551e3ab.jpg": "ti1ev20vl7_1782619077063_file_W-oJ1zaR45.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-38ab8c55.jpg": "ti1ev20vl7_1782623885792_file_Cq_EELfJyi.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg": "ti1ev20vl7_1782619077063_file_W-oJ1zaR45.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-513cd61c.jpg": "ti1ev20vl7_1782807003912_file_wm0CqB6WaY.jpg",
+      "/airo-assets/uploads/layouts-footer-christs-love-christian-school-2658fcbe.png": "ti1ev20vl7_1782809858903_file_06qAp5XcMC.png"
+    },
+    "caption": "christs love christian school emblem logo"
+  }
+}
