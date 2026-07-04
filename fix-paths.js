@@ -1,4 +1,4 @@
-import fs from 'fs';
+ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -18,30 +18,29 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // 1. Convert absolute GitHub raw URLs into our local proxy tunnel
-      content = content.replace(/https:\/\/raw\.githubusercontent\.com\/AroLola\/christslove-school\/main\/public\//g, '/_github-assets/');
-      content = content.replace(/https:\/\/raw\.githubusercontent\.com\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/main\/public\//g, '/_github-assets/');
-      
-      // 2. Wrap image src tags into the clean proxy format
-      content = content.replace(/src=["'](.*?\.(jpg|jpeg|png|gif|webp|svg|mp4))["']/g, (match, p1) => {
-        let cleanPath = p1.replace(/^\.\/|^\.\.\//, '').replace(/^public\//, '');
-        if (!cleanPath.startsWith('/') && !cleanPath.startsWith('http') && !cleanPath.startsWith('_github-assets')) {
-          cleanPath = '/' + cleanPath;
-        }
-        return `src={"\${window.location.origin}${cleanPath}"}`;
+      // 1. Revert any accidental window.location.origin formatting back to clean string attributes
+      content = content.replace(/src=\{\`\$\{window\.location\.origin\}(.*?)\`\}/g, 'src="$1"');
+      content = content.replace(/src=\{\"\$\{window\.location\.origin\}(.*?)\"\}/g, 'src="$1"');
+
+      // 2. Globally rewrite local scattered asset folders to point directly to GoDaddy's live server
+      const localPaths = ['/media/', 'media/', '/assets/', 'assets/', '/airo-assets/', 'airo-assets/', '/airo-assests/', 'airo-assests/'];
+      localPaths.forEach(oldPath => {
+        const regex = new RegExp(`src=["']${oldPath.replace(/\//g, '\\/')}(.*?\.(jpg|jpeg|png|gif|webp|svg|mp4))["']`, 'g');
+        content = content.replace(regex, 'src="https://airoapp.ai"');
       });
 
-      // 3. Fix structural folder names dynamically inside your code arrays
-      content = content.replace(/(['"`])public\/(media|assets|airo-assets|airo-assests)\//g, '$1/$2/');
+      // 3. Specifically fix images that might be looking inside a nested gallery or upload folder
+      content = content.replace(/uploads\/gallery\//g, 'gallery/');
+      content = content.replace(/uploads\/media\//g, '');
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Proxy Automation] Transformed paths in: ${path.relative(__dirname, fullPath)}`);
+        console.log(`[GoDaddy Cloud Tunnel] Rerouted images in: ${path.relative(__dirname, fullPath)}`);
       }
     }
   });
 }
 
-console.log('Running proxy route automation script...');
+console.log('Running GoDaddy cloud asset mirror script...');
 processDirectory(PAGES_DIR);
-console.log('Proxy layout applied successfully.');
+console.log('All image links successfully mapped to cloud storage.');
