@@ -165,7 +165,7 @@ return (
 
 
 
-             {/* Hover overlay text layout */} 
+                    {/* Hover overlay text layout */} 
         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10 pointer-events-none"> 
           <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
             <span>Click to view full flyer</span> 
@@ -177,12 +177,12 @@ return (
       </motion.div> 
     ))} 
 
-    {/* Dedicated Tab Lightbox Frame (Prevents missing-element expansion bugs) */} 
+    {/* Dedicated Tab Lightbox Frame */} 
     <div 
       id="tab-flyer-modal" 
       onClick={() => { 
-        const modal = document.getElementById('tab-flyer-modal'); 
-        if (modal) modal.style.display = 'none'; 
+        const modal = document.getElementById('tab-flyer-modal');
+        if (modal) modal.style.display = 'none';
       }} 
       className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
       style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
@@ -192,12 +192,11 @@ return (
         <p id="tab-flyer-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
       </div> 
       
-      {/* Lightbox Close Icon Button */} 
       <button 
         onClick={(e) => { 
           e.stopPropagation(); 
-          const modal = document.getElementById('tab-flyer-modal'); 
-          if (modal) modal.style.display = 'none'; 
+          const modal = document.getElementById('tab-flyer-modal');
+          if (modal) modal.style.display = 'none';
         }} 
         className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
       > 
@@ -206,6 +205,7 @@ return (
     </div> 
   </> 
 );
+
 
 
 
