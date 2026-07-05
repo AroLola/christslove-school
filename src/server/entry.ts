@@ -348,7 +348,6 @@ if (import.meta.env.PROD) {
 	});
 }
 
-export default app;
 
 // ── Testable helpers ──────────────────────────────────────────────────────────
 
