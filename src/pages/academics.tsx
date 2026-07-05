@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ChevronRight, BookOpen, Music, Globe, Calculator, Leaf, Palette } from 'lucide-react';
 
+
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } },
 };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
+
 
 const grades = [
   { grade: 'Kindergarten', ages: 'Ages 5–6', focus: 'Foundational literacy, numeracy, and faith basics through play-based learning and structured routines.' },
@@ -19,6 +21,7 @@ const grades = [
   { grade: 'Grade 6', ages: 'Ages 11–12', focus: 'Advanced literacy, introduction to algebra, physical science, world history, and apologetics.' },
   { grade: 'Grade 7', ages: 'Ages 12–13', focus: 'Rigorous academics across all subjects, critical thinking, leadership development, and preparation for high school.' },
 ];
+
 
 const subjects = [
   { icon: BookOpen, name: 'Bible & Faith', description: 'Daily Scripture, chapel, and applied Christian living woven through every grade.' },
@@ -33,12 +36,15 @@ const subjects = [
   { icon: BookOpen, name: 'French', description: 'Introduction to French language and culture beginning in Grade 4.' },
 ];
 
+
 const site = 'https://christslovechristianschool.info';
+
 
 export default function AcademicsPage() {
   const title = "Academics — Christ's Love Christian School";
   const description = "Explore our Kindergarten through Grade 7 curriculum at Christ's Love Christian School — rigorous academics grounded in Christian faith and values.";
   const canonicalUrl = `${site}/academics`;
+
 
   return (
     <>
@@ -52,6 +58,7 @@ export default function AcademicsPage() {
         <meta property="og:url" content={canonicalUrl} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
+
 
       {/* Page Header */}
       <section className="bg-secondary py-20 relative">
@@ -68,6 +75,7 @@ export default function AcademicsPage() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
       </section>
 
+
       {/* Philosophy */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8 max-w-3xl text-center">
@@ -83,6 +91,7 @@ export default function AcademicsPage() {
           </motion.div>
         </div>
       </section>
+
 
       {/* Subjects */}
       <section className="py-20 bg-muted">
@@ -104,6 +113,7 @@ export default function AcademicsPage() {
           </motion.div>
         </div>
       </section>
+
 
       {/* Grade by Grade */}
       <section className="py-20 bg-background">
@@ -133,6 +143,7 @@ export default function AcademicsPage() {
         </div>
       </section>
 
+
       {/* CTA */}
       <section className="py-16 bg-muted border-t border-border">
         <div className="container mx-auto px-4 lg:px-8 text-center">
@@ -153,3 +164,6 @@ export default function AcademicsPage() {
     </>
   );
 }
+
+
+
