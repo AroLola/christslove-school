@@ -1,4 +1,4 @@
- import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -23,10 +23,6 @@ function processDirectory(directory) {
         /src=["']\/airo-assets\/images\/layouts\/header\/christs-love-christian-school[^"']*?["']/g,
         'src="/media/layouts-header-christs-love-christian-school-aea019d4.jpg"'
       );
-      content = content.replace(
-        /['"]\/airo-assets\/images\/layouts\/header\/christs-love-christian-school['"]/g,
-        '"/media/layouts-header-christs-love-christian-school-aea019d4.jpg"'
-      );
 
       // 2. Keep your working Our Community photo intact
       content = content.replace(
@@ -39,7 +35,6 @@ function processDirectory(directory) {
         content = content.replace(/<div id="restored-footer-logo"[\s\S]*?<\/div>/g, '');
         content = content.replace(/<div className="flex flex-col md:flex-row items-center md:items-start[\s\S]*?<\/div>\s*<\/div>/g, '');
         content = content.replace(/<div className="flex flex-col md:flex-row items-center md:items-baseline[\s\S]*?<\/div>\s*<\/div>/g, '');
-        content = content.replace(/<div className="flex flex-col md:flex-row items-center[\s\S]*?<\/div>\s*<\/div>/g, '');
         
         if (content.includes('Nurturing minds') && !content.includes('md:float-left')) {
           content = content.replace(
@@ -61,22 +56,37 @@ function processDirectory(directory) {
         }
       }
 
-      // 4. DESKTOP WRAPPER REPAIR: Globally fix capitalized "Media" directory layouts across both grid states
-      content = content.replace(/\/assets\/Media\//g, '/assets/media/');
-      content = content.replace(/src=["']\/assets\/Media\/pages-home-values-c9779bb4\.jpg["']/g, 'src="/assets/media/pages-home-values-c9779bb4.jpg"');
+      // 4. GLOBAL DOMAIN MIRROR: Swap the broken domain for the working GoDaddy assets server
+      content = content.replace(
+        /https:\/\/www\.christslovechristianschool\.info\/airo-assets\/uploads\/gallery\//g,
+        'https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/'
+      );
+      content = content.replace(
+        /https:\/\/christslovechristianschool\.info\/airo-assets\/uploads\/gallery\//g,
+        'https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/'
+      );
 
-      // 5. DOMAIN REWRITE BRIDGE: Clean out any lingering unrouted custom domains blocking desktop views
-      content = content.replace(/https:\/\/www\.christslovechristianschool\.info\/assets\/media\//g, '/assets/media/');
-      content = content.replace(/https:\/\/christslovechristianschool\.info\/assets\/media\//g, '/assets/media/');
+      // 5. TARGETED REPAIR FOR REGIONAL SPELLING BEE: Lowercase case sensitivity correction
+      content = content.replace(/Regional-Spelling-Bee/g, 'regional-spelling-bee');
+
+      // 6. TARGETED OUR MISSION LANDING PAGE FIX: Ensure the mission photo routes to its live GoDaddy cloud counterpart
+      content = content.replace(
+        /src=["']\/assets\/media\/pages-home-values-c9779bb4\.jpg["']/g,
+        'src="https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-b5380486-77e8-4bee-9235-c8186d2f052a.jpg"'
+      );
+      content = content.replace(
+        /src=["']https:\/\/www\.christslovechristianschool\.info\/assets\/media\/pages-home-values-c9779bb4\.jpg["']/g,
+        'src="https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-b5380486-77e8-4bee-9235-c8186d2f052a.jpg"'
+      );
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Multi-Screen Sync Complete] Fixed desktop view attributes inside: ${file}`);
+        console.log(`[Global Cloud Sync] Swapped domains successfully inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running script normalization cleanup loop...');
+console.log('Running final global cloud asset domain realignment...');
 processDirectory(PAGES_DIR);
 console.log('Processing complete.');
