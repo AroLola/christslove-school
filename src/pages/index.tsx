@@ -486,73 +486,74 @@ export default function HomePage() {
         {/* AI_GUARDRAIL_SYSTEM_LOCK_END */}
 
 
-        // Pure JS Event handlers to open modal seamlessly bypassing React state limits
-        const handleCardClick = (src, label) => {
-          if (typeof document === 'undefined') return;
-          const modal = document.getElementById('global-gallery-modal');
-          const modalImg = document.getElementById('global-gallery-modal-img');
-          const modalTxt = document.getElementById('global-gallery-modal-txt');
-          if (modal && modalImg && modalTxt) {
-            modalImg.src = src;
-            modalTxt.innerText = label;
-            modal.style.display = 'flex';
-          }
-        };
+       // Pure JS Event handlers to open modal seamlessly bypassing React state limits 
+const handleCardClick = (src: any, label: any) => { 
+  if (typeof document === 'undefined') return; 
+  
+  const modal = document.getElementById('global-gallery-modal'); 
+  // Cast explicitly as 'any' to force the compiler to accept the .src asset path
+  const modalImg = document.getElementById('global-gallery-modal-img') as any; 
+  const modalTxt = document.getElementById('global-gallery-modal-txt'); 
+  
+  if (modal && modalImg && modalTxt) { 
+    modalImg.src = src; 
+    modalTxt.innerText = label; 
+    modal.style.display = 'flex'; 
+  } 
+};
 
 
-        return (
-          <>
-            {/* Grid Mapping Output */}
-            {galleryImages.map((img) => (
-              <motion.div
-                key={img.id}
-                variants={fadeUp}
-                onClick={() => handleCardClick(img.src, img.label)}
-                className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer"
-              >
-                <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-                  <img
-                    src={img.src}
-                    alt={img.label}
-                    style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
-                    className="transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
+      return (
+  <>
+    {/* Grid Mapping Output */} 
+    {galleryImages && galleryImages.map((img: any) => ( 
+      <motion.div 
+        key={img?.id} 
+        variants={fadeUp} 
+        // Optional chaining (?.) bypasses null pointer checks completely
+        onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
+        className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer" 
+      > 
+        <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+          <img 
+            // Provide explicit string fallbacks to guarantee non-null compilation states
+            src={img?.src || ''} 
+            alt={img?.label || 'Gallery Image'} 
+            style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
+            className="transition-transform duration-300 group-hover:scale-105" 
+          /> 
+        </div>
 
 
-                {/* Uses native CSS hover layer instead of state values to guarantee concealment */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10 pointer-events-none">
-                  <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider">
-                    <span>Click to expand</span>
-                  </div>
-                  <p className="text-white font-medium text-sm truncate w-full transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0">
-                    {img.label}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+        {/* Uses native CSS hover layer instead of state values to guarantee concealment */} 
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10 pointer-events-none"> 
+          <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
+            <span>Click to expand</span> 
+          </div> 
+          <p className="text-white font-medium text-sm truncate w-full transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0"> 
+            {img?.label || ''} 
+          </p> 
+        </div> 
+      </motion.div> 
+    ))}
 
 
-            {/* DOM-Isolated Full-Screen Expansion Frame */}
-            <div
-              id="global-gallery-modal"
-              onClick={() => { document.getElementById('global-gallery-modal').style.display = 'none'; }}
-              className="fixed inset-0 bg-black/95 z-[9999] flex flex-col items-center justify-center p-4 cursor-zoom-out select-none"
-              style={{ display: 'none', backdropFilter: 'blur(8px)' }}
-            >
-              {/* Image Container */}
-              <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none">
-                <img
-                  id="global-gallery-modal-img"
-                  src=""
-                  alt="Expanded view"
-                  className="max-w-full max-h-[75vh] object-contain rounded-md"
-                />
-                <p
-                  id="global-gallery-modal-txt"
-                  className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"
-                ></p>
-              </div>
+    {/* DOM-Isolated Full-Screen Expansion Frame */} 
+    <div 
+      id="global-gallery-modal" 
+      // FIX: Added safe element checking to bypass 'possibly null' compiler locks
+      onClick={() => { 
+        const modal = document.getElementById('global-gallery-modal');
+        if (modal) modal.style.display = 'none';
+      }} 
+      className="fixed inset-0 bg-black/95 z-[9999] flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
+      style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
+    > 
+      {/* Image Container */} 
+      <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
+        <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
+        <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full" ></p> 
+      </div>
 
 
               {/* Close Button Icon */}
