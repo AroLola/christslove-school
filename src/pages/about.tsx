@@ -345,7 +345,6 @@ export default function AboutPage() {
     let finalImageUrl = member?.imageUrl || '';
 
     // 2. LOGO GROUP & CUSTOM PHOTO REPLACEMENTS
-    // Only intercept if the image points to the broken layout footer directory
     if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts')) {
       if (displayName === 'JEQUILINE LIVIMBA') {
         finalImageUrl = "/assets/media/jequiline-livimba.jpg";
@@ -357,12 +356,16 @@ export default function AboutPage() {
       }
     }
 
+    // 3. SAFE INITIALS PARSING: Extracts array indices before executing string functions
+    const nameParts = displayName.split(' ');
+    const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
+    const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
+
     return (
       <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-          <span class="text-secondary-foreground font-heading font-bold text-lg"> 
-            {/* RESTORED ORIGINAL SYNTAX: Your working single-line initials template */}
-            {`${displayName.split(' ')?.charAt(0)}${displayName.split(' ').pop()?.charAt(0)}`} 
+        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+          <span className="text-secondary-foreground font-heading font-bold text-lg"> 
+            {`${firstInitial}${lastInitial}`} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
@@ -374,7 +377,6 @@ export default function AboutPage() {
 </motion.div> 
 </div> 
 </section>
-
 
 
 
