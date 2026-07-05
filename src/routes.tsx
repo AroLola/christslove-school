@@ -3,7 +3,7 @@ import { lazy } from 'react';
 import HomePage from './pages/index'; 
 import AboutPage from './pages/about'; 
 
-// FIX: Created a clean, functional inline component to bypass missing import locks
+// FIX: Created a clean component function to bypass missing import locks
 const NotFoundPage = () => (
   <div style={{ padding: '40px', textAlign: 'center', fontFamily: 'sans-serif' }}>
     <h1>404</h1>
@@ -25,7 +25,7 @@ export const routes: RouteObject[] = [
   { path: '/contact', element: <ContactPage /> }, 
   { path: '/gallery', element: <GalleryPage /> }, 
   { path: '/admin', element: <AdminPage /> }, 
-  { path: '*', element: <NotFoundPage /> }, 
+  { path: '*', element: <NotFoundPage /> }, // Rendered properly as a JSX Element
 ]; 
 
 export type Path = '/' | '/about' | '/academics' | '/admissions' | '/contact' | '/gallery' | '/admin'; 
