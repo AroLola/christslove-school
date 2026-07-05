@@ -212,12 +212,16 @@
           isPatching = false
         }
       })
-      observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['style']
-      })
+        // Start observing the Document Object Model
+    observer.observe(document.documentElement, { 
+      childList: true, 
+      subtree: true, 
+      attributes: true, 
+      attributeFilter: ['style', 'src'] // Added 'src' tracking for runtime assets
+    })
+  })
+})()
+
 
       // Re-fetch manifest periodically to pick up changes (dev mode only — HMR may not work due to CORS)
       // Use __AIRO_DEV_MODE__ flag set by dev-supervisor, falling back to localhost check
