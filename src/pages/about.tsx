@@ -366,10 +366,27 @@ export default function AboutPage() {
   return (
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
       
-      {/* LOOP 1: YOUR ORIGINAL WORKING VERSION FOR PROFILES WITH PICTURES */}
-      {staffWithPics.map((member) => <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> <span class="text-secondary-foreground font-heading font-bold text-lg"> {`${member.name.split(' ')?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} </span> </div> <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> <img src={member.imageUrl} alt={member.name} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> </motion.div> )}
+      {/* LOOP 1: PROFILES WITH PICTURES */}
+      {staffWithPics.map((member) => {
+        const nameParts = member.name ? member.name.split(' ') : [];
+        const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
+        const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
+        
+        return (
+          <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
+            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+              <span class="text-secondary-foreground font-heading font-bold text-lg"> 
+                {`${firstInitial}${lastInitial}`} 
+              </span> 
+            </div> 
+            <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
+            <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> 
+            <img src={member.imageUrl} alt={member.name} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> 
+          </motion.div>
+        );
+      })}
 
-      {/* LOOP 2: DEDICATED FRAMEWORK FOR PROFILES WITH LOGOS AND CUSTOM UPLOADS */}
+      {/* LOOP 2: PROFILES WITH LOGOS AND CUSTOM UPLOADS */}
       {staffWithLogos.map((member) => {
         let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
         
@@ -382,11 +399,15 @@ export default function AboutPage() {
           }
         }
 
+        const nameParts = member.name ? member.name.split(' ') : [];
+        const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
+        const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
+
         return (
           <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
             <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
               <span class="text-secondary-foreground font-heading font-bold text-lg"> 
-                {`${member.name.split(' ')?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
+                {`${firstInitial}${lastInitial}`} 
               </span> 
             </div> 
             <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
@@ -401,9 +422,6 @@ export default function AboutPage() {
 })()}
 </div> 
 </section>
-
-
-
 
 
 
