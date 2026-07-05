@@ -337,36 +337,33 @@ export default function AboutPage() {
           </motion.div>
 
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-           
-            {staff.map((member) =>
-            <motion.div
-              key={member.name}
-              variants={fadeUp}
-              className="bg-card border border-border rounded-lg p-7 shadow-sm">
-             
-                <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4">
-                 <span class="text-secondary-foreground font-heading font-bold text-lg">
-                   {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`}
-                 </span>
-                </div>
-                <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3>
-                <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p>
-                <img
-                src={member.imageUrl}
-                alt={member.name}
-                className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" />
-             
-              </motion.div>
-            )}
-          </motion.div>
-        </div>
-      </section>
+         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+  {staff.map((member) => <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
+    <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+      <span class="text-secondary-foreground font-heading font-bold text-lg"> 
+        {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
+      </span> 
+    </div> 
+    <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
+    <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> 
+    
+    <img 
+      src={
+        member.imageUrl.includes('layouts/footer')
+          ? member.name.includes('JEQUILINE')
+            ? "/assets/media/jequiline-livimba.jpg"
+            : member.name.includes('MARIA')
+              ? "/assets/media/maria-aukhumes.jpg"
+              : "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"
+          : member.imageUrl
+      } 
+      alt={member.name} 
+      className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" 
+    /> 
+  </motion.div> )} 
+</motion.div> 
+</div> 
+</section>
 
 
 
