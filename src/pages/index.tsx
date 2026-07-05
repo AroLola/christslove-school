@@ -538,10 +538,9 @@ const handleCardClick = (src: any, label: any) => {
     ))}
 
 
-    {/* DOM-Isolated Full-Screen Expansion Frame */} 
+     {/* DOM-Isolated Full-Screen Expansion Frame */} 
     <div 
       id="global-gallery-modal" 
-      // FIX: Added safe element checking to bypass 'possibly null' compiler locks
       onClick={() => { 
         const modal = document.getElementById('global-gallery-modal');
         if (modal) modal.style.display = 'none';
@@ -552,26 +551,24 @@ const handleCardClick = (src: any, label: any) => {
       {/* Image Container */} 
       <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
         <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
-        <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full" ></p> 
+        <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
       </div>
 
+      {/* Lightbox Close Button */}
+      <button 
+        onClick={(e) => {
+          e.stopPropagation();
+          const modal = document.getElementById('global-gallery-modal');
+          if (modal) modal.style.display = 'none';
+        }}
+        className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg"
+      >
+        &#x2715;
+      </button>
+    </div>
+  </>
+);
 
-              {/* Close Button Icon */}
-              <button
-                onClick={() => { document.getElementById('global-gallery-modal').style.display = 'none'; }}
-                className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg"
-              >
-                &#x2715;
-              </button>
-            </div>
-          </>
-        );
-      })()}
-    </motion.div>
-
-
-  </div>
-</section>
 
 
       {/* ── ENROLLMENT CTA ── */}
