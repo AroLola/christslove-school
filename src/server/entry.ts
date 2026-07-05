@@ -34,7 +34,28 @@ const app = express();
 app.set("trust proxy", true);
 
 app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+paste
+
+
+// =========================================================
+// PASTE STEP 1 (API ROUTING) & STEP 2 (STATIC ASSETS) HERE:
+// =========================================================
+app.get("/api/gallery", gallery_get_0);
+app.post("/api/gallery", gallery_post_1);
+app.post("/api/gallery/upload", gallery_upload_post_2);
+app.post("/api/gallery/upload-form", gallery_upload_form_post_3);
+app.get("/api/health", health_get_4);
+app.get("/api/maps/config", maps_config_get_5);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const clientBuildPath = join(process.cwd(), "dist", "client");
+app.use(express.static(clientBuildPath, { index: false }));
+// =========================================================
+
+// Line 60+: The remaining ~300 lines of your original file continue safely below...
+// export function registerAdSenseTextRoutes ... 
+
 
 // <api-registrations>
 app.get("/api/gallery", gallery_get_0);
@@ -372,3 +393,21 @@ export function renderSsrDocument(
     .replace("<!--app-head-->", () => headContent)
     .replace("<!--app-html-->", () => result.html);
 }
+
+// =========================================================
+// PASTE THIS AT THE ABSOLUTE BOTTOM OF YOUR FILE (LINE 375+):
+// =========================================================
+registerAdSenseTextRoutes(app, {
+  adsTxt: process.env.ADSENSE_ADS_TXT,
+  appAdsTxt: process.env.ADSENSE_APP_ADS_TXT,
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(join(clientBuildPath, "index.html"), (err) => {
+    if (err) {
+      res.status(500).send("index.html file was not found in build assets.");
+    }
+  });
+});
+
+export default app;
