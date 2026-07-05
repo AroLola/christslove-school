@@ -1,23 +1,9 @@
 {
-  "$schema": "https://vercel.sh",
   "version": 2,
-  "builds": [
-    {
-      "src": "src/server/entry.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "dist/client/**"
-      }
-    }
-  ],
+  "cleanUrls": true,
+  "framework": "vite",
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "src/server/entry.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "src/server/entry.ts"
-    }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
