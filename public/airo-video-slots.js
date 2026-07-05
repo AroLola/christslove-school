@@ -124,12 +124,50 @@
       if (!res.ok) return {}
       return res.json()
     })
-    .then(function (manifest) {
-      for (var key in manifest) {
-        if (manifest[key] && manifest[key].mediaType) {
-          mediaTypes[key] = manifest[key].mediaType
+        // Patch existing images
+    patchAll()
+
+    // Observe future DOM changes — childList for new nodes, attributes for style changes
+    var isPatching = false
+    var observer = new MutationObserver(function (mutations) {
+      if (isPatching) return
+      isPatching = true
+      
+      try {
+        for (var i = 0; i < mutations.length; i++) {
+          var mutation = mutations[i]
+          if (mutation.type === 'childList') {
+            var added = mutation.addedNodes
+            for (var j = 0; j < added.length; j++) {
+              var node = added[j]
+              
+              // Safe check to ensure it's an element node before parsing tags
+              if (node && node.nodeType === 1) { 
+                if (node.tagName === 'IMG') {
+                  patchImg(node)
+                } else {
+                  // Replaced .forEach with a traditional loop for safety across frames
+                  var imgs = node.querySelectorAll('img')
+                  for (var k = 0; k < imgs.length; k++) {
+                    patchImg(imgs[k])
+                  }
+                  
+                  // Check added elements for background-image video slots
+                  patchBgElement(node)
+                  var bgElements = node.querySelectorAll('[style*="background"]')
+                  for (var m = 0; m < bgElements.length; m++) {
+                    patchBgElement(bgElements[m])
+                  }
+                }
+              }
+            }
+          }
         }
+      } finally {
+        // CRUCIAL FIX: Unlocks the observer so it can process future updates
+        isPatching = false
       }
+    })
       // Patch existing images
       patchAll()
       // Observe future DOM changes — childList for new nodes, attributes for style changes
