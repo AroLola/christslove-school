@@ -61,22 +61,28 @@ function processDirectory(directory) {
         }
       }
 
-      // 4. MISSION ALIGNMENT CORRECTION: Redirect the non-existent values file path to your true custom image filename
+      // 4. PRECISE MISSION IMAGE FIX: Explicitly direct the code to pull the true local repository image file path
       if (file.toLowerCase().includes('index') || file.toLowerCase().includes('home')) {
+        // Direct any previous replacements back to the exact native repository asset path layout
         content = content.replace(
-          /\/assets\/media\/pages-home-values-c9779bb4\.jpg/g,
-          '/assets/media/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg'
+          /\/assets\/media\/pages-home-faith-and-learning-at-christs-love-chris-b8f78293\.jpg(?=["']\s+alt=["']Faith and learning)/g,
+          '/assets/media/pages-home-values-c9779bb4.jpg'
+        );
+        // Ensure standard string bindings map strictly here
+        content = content.replace(
+          /src=["']\/assets\/media\/pages-home-values-c9779bb4\.jpg["']/g,
+          'src="/assets/media/pages-home-values-c9779bb4.jpg"'
         );
       }
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Mission File Alignment Complete] Redirected missing layout dependencies inside: ${file}`);
+        console.log(`[True Mission Image Restored] Set target file path inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running script alignment pipeline...');
+console.log('Running direct link replacements for logos, community blocks, and true mission graphics...');
 processDirectory(PAGES_DIR);
 console.log('Processing complete.');
