@@ -1,6 +1,6 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion } from 'motion/react'; 
 import { ChevronRight, BookOpen, Heart, Star, Shield } from 'lucide-react';
 
 
@@ -340,58 +340,51 @@ export default function AboutPage() {
 {(() => {
   // 1. FILTER STAFF INTO TWO DISTINCT GROUPS BEFORE RENDERING
   const staffWithPics = staff.filter(member => {
-    if (!member) return false;
-    const upperName = member.name ? member.name.toUpperCase() : '';
+    if (!member || !member.name) return false;
+    const upperName = member.name.toUpperCase();
     
-    // EXPLICIT BYPASS: Force Jequiline and Maria out of the working array so they go to the placeholder/upload loop
+    // EXPLICIT BYPASS: Force Jequiline and Maria out of the working array so they go to Loop 2
     if (upperName.includes('JEQUILINE') || upperName.includes('MARIA')) {
       return false;
     }
     
-    return typeof member.imageUrl === 'string' && member.imageUrl.includes('uploads/gallery');
+    // Keep profiles that use the live GoDaddy/Airo uploads storage mirror
+    return typeof member.imageUrl === 'string' && (
+      member.imageUrl.includes('uploads/gallery') || 
+      member.imageUrl.includes('airoapp.ai')
+    );
   });
 
   const staffWithLogos = staff.filter(member => {
-    if (!member) return true;
-    const upperName = member.name ? member.name.toUpperCase() : '';
+    if (!member || !member.name) return true;
+    const upperName = member.name.toUpperCase();
     
-    // EXPLICIT MATCH: Force Jequiline and Maria straight into the logo loop for their real image overlays
+    // EXPLICIT MATCH: Force Jequiline and Maria straight into Loop 2 for their real image overlays
     if (upperName.includes('JEQUILINE') || upperName.includes('MARIA')) {
       return true;
     }
     
-    return typeof member.imageUrl !== 'string' || !member.imageUrl.includes('uploads/gallery');
+    // Send the remaining broken profiles here to receive the school logo placeholder
+    return typeof member.imageUrl !== 'string' || (
+      !member.imageUrl.includes('uploads/gallery') && 
+      !member.imageUrl.includes('airoapp.ai')
+    );
   });
 
   return (
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
       
-      {/* LOOP 1: PROFILES WITH PICTURES */}
-      {staffWithPics.map((member) => {
-        const nameParts = member.name ? member.name.split(' ') : [];
-        const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
-        const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
-        
-        return (
-          <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-              <span class="text-secondary-foreground font-heading font-bold text-lg"> 
-                {`${firstInitial}${lastInitial}`} 
-              </span> 
-            </div> 
-            <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
-            <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> 
-            <img src={member.imageUrl} alt={member.name} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> 
-          </motion.div>
-        );
-      })}
+      {/* LOOP 1: YOUR ORIGINAL WORKING VERSION FOR PROFILES WITH PICTURES */}
+      {staffWithPics.map((member) => <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> <span class="text-secondary-foreground font-heading font-bold text-lg"> {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} </span> </div> <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> <img src={member.imageUrl} alt={member.name} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> </motion.div> )}
 
-      {/* LOOP 2: PROFILES WITH LOGOS AND CUSTOM UPLOADS */}
+      {/* LOOP 2: DEDICATED FRAMEWORK FOR PROFILES WITH LOGOS AND CUSTOM UPLOADS */}
       {staffWithLogos.map((member) => {
+        // Universal fallback logo path for the other broken profiles
         let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
         
         if (member && member.name) {
           const upperName = member.name.toUpperCase();
+          // Precision match to target Jequiline and Maria's custom uploaded pictures
           if (upperName.includes('JEQUILINE')) {
             cleanUrl = "/assets/media/jequiline-livimba.jpg";
           } else if (upperName.includes('MARIA')) {
@@ -399,15 +392,11 @@ export default function AboutPage() {
           }
         }
 
-        const nameParts = member.name ? member.name.split(' ') : [];
-        const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
-        const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
-
         return (
           <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
             <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
               <span class="text-secondary-foreground font-heading font-bold text-lg"> 
-                {`${firstInitial}${lastInitial}`} 
+                {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
               </span> 
             </div> 
             <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
@@ -422,6 +411,7 @@ export default function AboutPage() {
 })()}
 </div> 
 </section>
+
 
 
 
