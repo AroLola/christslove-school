@@ -3,7 +3,7 @@ import { lazy } from 'react';
 import HomePage from './pages/index';
 import AboutPage from './pages/about';
 
-const NotFoundPage = import.meta.env.DEV ? lazy(() => import('../dev-tools/src/PageNotFound')) : ProdNotFoundPage;
+const NotFoundPage = ProdNotFoundPage;
 const AcademicsPage = lazy(() => import('./pages/academics'));
 const AdmissionsPage = lazy(() => import('./pages/admissions'));
 const ContactPage = lazy(() => import('./pages/contact'));
