@@ -1,4 +1,4 @@
- import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -34,16 +34,14 @@ function processDirectory(directory) {
         '/assets/media/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg'
       );
 
-      // 3. FLOAT MARGIN ADJUSTMENT FIX: Pulls text up 3-4 lines to align with logo top
+      // 3. Keep your working high-alignment Float Footer intact
       if (file.toLowerCase().includes('footer')) {
-        // Wipe all previous flex wrapper iterations cleanly to prevent injection blocks
         content = content.replace(/<div id="restored-footer-logo"[\s\S]*?<\/div>/g, '');
         content = content.replace(/<div className="flex flex-col md:flex-row items-center md:items-start[\s\S]*?<\/div>\s*<\/div>/g, '');
         content = content.replace(/<div className="flex flex-col md:flex-row items-center md:items-baseline[\s\S]*?<\/div>\s*<\/div>/g, '');
         content = content.replace(/<div className="flex flex-col md:flex-row items-center[\s\S]*?<\/div>\s*<\/div>/g, '');
         
-        // Find the "Nurturing minds" container block and mount the high-alignment layout
-        if (content.includes('Nurturing minds')) {
+        if (content.includes('Nurturing minds') && !content.includes('md:float-left')) {
           content = content.replace(
             /([<][p|div][^>]*?>\s*Nurturing minds[\s\S]*?<\/[p|div]>)/i,
             `<div className="block clearfix md:text-left text-center">
@@ -63,14 +61,22 @@ function processDirectory(directory) {
         }
       }
 
+      // 4. TARGETED MISSION IMAGE FIX: Points the extensionless values link directly to your verified media file
+      if (file.toLowerCase().includes('index') || file.toLowerCase().includes('home')) {
+        content = content.replace(
+          /src=["'][^"']*?pages-home-values-c9779bb4[^"']*?["']/g,
+          'src="/assets/media/pages-home-values-c9779bb4.jpg"'
+        );
+      }
+
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Text Raised & Aligned] Updated layout properties within: ${file}`);
+        console.log(`[Mission Image Fixed] Linked values asset inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running text elevation layout script...');
+console.log('Running direct link replacements for logos, community blocks, and mission graphics...');
 processDirectory(PAGES_DIR);
 console.log('Alignment processing complete.');
