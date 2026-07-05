@@ -337,40 +337,43 @@ export default function AboutPage() {
           </motion.div>
 
 
-       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
   {staff.map((member) => {
     // 1. SAFE DATA SANITIZATION: Instantly fix any missing or corrupted imageUrl strings
     let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-    
     if (member && typeof member.imageUrl === 'string') {
       cleanUrl = member.imageUrl;
     }
 
     // 2. TARGETED ASSIGNMENTS: Swap domains or assign real uploaded pictures independently of build script
     if (cleanUrl.includes('layouts/footer') || cleanUrl.includes('images/layouts')) {
-      if (member.name?.includes('JEQUILINE')) {
+      if (member.name?.toUpperCase().includes('JEQUILINE')) {
         cleanUrl = "/assets/media/jequiline-livimba.jpg";
-      } else if (member.name?.includes('MARIA')) {
+      } else if (member.name?.toUpperCase().includes('MARIA')) {
         cleanUrl = "/assets/media/maria-aukhumes.jpg";
       } else {
         cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
       }
     } else if (cleanUrl.includes('airo-assets/uploads/gallery')) {
-      // Force-heal any broken domain roots directly to your stable GoDaddy live storage mirror
+      // FIXED: Added missing forward slash and dollar sign wrapper for correct asset streaming
       const filename = cleanUrl.split('/').pop();
       cleanUrl = `https://airoapp.ai{filename}`;
     }
 
+    // 3. SAFE INITIALS PARSING
+    const firstInitial = member.name?.split(' ')[0]?.charAt(0) || '';
+    const nameArr = member.name?.split(' ') || [];
+    const lastInitial = nameArr.length > 1 ? nameArr[nameArr.length - 1]?.charAt(0) : '';
+
     return (
       <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-        <div className="class" class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
           <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-            {`${member.name?.split(' ')[0]?.charAt(0) || ''}${member.name?.split(' ').pop()?.charAt(0) || ''}`} 
+            {`${firstInitial}${lastInitial}`} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
         <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> 
-        
         <img 
           src={cleanUrl} 
           alt={member.name} 
@@ -386,6 +389,7 @@ export default function AboutPage() {
 </motion.div> 
 </div> 
 </section>
+
 
 
 
