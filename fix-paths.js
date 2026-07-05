@@ -1,4 +1,4 @@
-import fs from 'fs';
+ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -61,14 +61,17 @@ function processDirectory(directory) {
         }
       }
 
-      // 4. CRITICAL CASE-SENSITIVITY REPAIR: Automatically normalize capitalized "Media" to lowercase "media"
-      if (content.includes('/assets/Media/')) {
-        content = content.replace(/\/assets\/Media\//g, '/assets/media/');
-      }
+      // 4. DESKTOP WRAPPER REPAIR: Globally fix capitalized "Media" directory layouts across both grid states
+      content = content.replace(/\/assets\/Media\//g, '/assets/media/');
+      content = content.replace(/src=["']\/assets\/Media\/pages-home-values-c9779bb4\.jpg["']/g, 'src="/assets/media/pages-home-values-c9779bb4.jpg"');
+
+      // 5. DOMAIN REWRITE BRIDGE: Clean out any lingering unrouted custom domains blocking desktop views
+      content = content.replace(/https:\/\/www\.christslovechristianschool\.info\/assets\/media\//g, '/assets/media/');
+      content = content.replace(/https:\/\/christslovechristianschool\.info\/assets\/media\//g, '/assets/media/');
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Pristine Capitalization Sync] Restored lowercase directory pathing for: ${file}`);
+        console.log(`[Multi-Screen Sync Complete] Fixed desktop view attributes inside: ${file}`);
       }
     }
   });
