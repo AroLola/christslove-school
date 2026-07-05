@@ -1,7 +1,23 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/airo-assets/uploads/gallery/pages-home-values-c9779bb4.jpg",
+      "destination": "/assets/media/pages-home-values-c9779bb4.jpg"
+    },
+    {
+      "source": "/airo-assets/uploads/gallery/(.*)",
+      "destination": "/media/$1"
+    },
+    {
+      "source": "/media/pages-home-values-c9779bb4.jpg",
+      "destination": "/assets/media/pages-home-values-c9779bb4.jpg"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
