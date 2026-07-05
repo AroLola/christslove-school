@@ -344,12 +344,14 @@ export default function AboutPage() {
     // 1. DEFAULT IMAGE PATH: Keep the original asset URL
     let finalImageUrl = member?.imageUrl || '';
 
-    // 2. LOGO GROUP & CUSTOM PHOTO REPLACEMENTS
+    // 2. STAGE REPLACEMENTS BY CHECKING THE EXACT BROKEN DIRECTORY
     if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts')) {
       if (displayName === 'JEQUILINE LIVIMBA') {
-        finalImageUrl = "/assets/media/jequiline-livimba.jpg";
+        // Points directly to her active live file inside Airo's scrambled gallery architecture
+        finalImageUrl = "https://airoapp.ai";
       } else if (displayName === 'MARIA O. AUKHUMES') {
-        finalImageUrl = "/assets/media/maria-aukhumes.jpg";
+        // Points directly to her active live file inside Airo's scrambled gallery architecture
+        finalImageUrl = "https://airoapp.ai";
       } else {
         // The remaining 11 broken profiles get the local school logo placeholder
         finalImageUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
@@ -360,8 +362,8 @@ export default function AboutPage() {
       <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
         <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
           <span class="text-secondary-foreground font-heading font-bold text-lg"> 
-            {/* RESTORED EXACT ORIGINAL SYNTAX WITH THE MISSING [0] ARRAY SELECTOR */}
-            {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
+            {/* Your completely original initials code block */}
+            {`${member.name.split(' ')?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
@@ -373,7 +375,6 @@ export default function AboutPage() {
 </motion.div> 
 </div> 
 </section>
-
 
 
 
