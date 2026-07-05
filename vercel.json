@@ -1,26 +1,28 @@
 {
+  "$schema": "https://vercel.sh",
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/assets/media/pages-home-values-c9779bb4.jpg",
-      "destination": "/assets/media/pages-home-values-c9779bb4.jpg"
+    { 
+      "source": "/api/(.*)", 
+      "destination": "/api/$1" 
     },
-    {
-      "source": "/airo-assets/uploads/pages-home-values-c9779bb4.jpg",
-      "destination": "/assets/media/pages-home-values-c9779bb4.jpg"
+    { 
+      "source": "/assets/media/pages-home-values-c9779bb4.jpg", 
+      "destination": "/assets/media/pages-home-values-c9779bb4.jpg" 
     },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+    { 
+      "source": "/airo-assets/uploads/pages-home-values-c9779bb4.jpg", 
+      "destination": "/assets/media/pages-home-values-c9779bb4.jpg" 
+    },
+    { 
+      "source": "/assets/(.*)", 
+      "destination": "/assets/$1" 
+    },
+    { 
+      "source": "/(.*)", 
+      "destination": "/index.html" 
     }
-  ]
-}
-{
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
