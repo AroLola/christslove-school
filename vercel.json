@@ -4,15 +4,11 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/airo-assets/uploads/gallery/pages-home-values-c9779bb4.jpg",
+      "source": "/assets/media/pages-home-values-c9779bb4.jpg",
       "destination": "/assets/media/pages-home-values-c9779bb4.jpg"
     },
     {
-      "source": "/airo-assets/uploads/gallery/(.*)",
-      "destination": "/media/$1"
-    },
-    {
-      "source": "/media/pages-home-values-c9779bb4.jpg",
+      "source": "/airo-assets/uploads/pages-home-values-c9779bb4.jpg",
       "destination": "/assets/media/pages-home-values-c9779bb4.jpg"
     },
     {
