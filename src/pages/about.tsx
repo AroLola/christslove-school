@@ -339,13 +339,13 @@ export default function AboutPage() {
 
 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
   {staff.map((member) => {
-    // 1. SAFE DATA SANITIZATION: Instantly fix any missing or corrupted imageUrl strings
+    // 1. STABLE DATA SANITIZATION: Handle asset image targets cleanly
     let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
     if (member && typeof member.imageUrl === 'string') {
       cleanUrl = member.imageUrl;
     }
 
-    // 2. TARGETED ASSIGNMENTS: Swap domains or assign real uploaded pictures independently of build script
+    // 2. TARGETED ASSIGNMENTS: Map custom uploads or global mirror files safely
     if (cleanUrl.includes('layouts/footer') || cleanUrl.includes('images/layouts')) {
       if (member.name?.toUpperCase().includes('JEQUILINE')) {
         cleanUrl = "/assets/media/jequiline-livimba.jpg";
@@ -355,17 +355,24 @@ export default function AboutPage() {
         cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
       }
     } else if (cleanUrl.includes('airo-assets/uploads/gallery')) {
-      // FIXED: Added missing forward slash and dollar sign wrapper for correct asset streaming
       const filename = cleanUrl.split('/').pop();
       cleanUrl = `https://airoapp.ai{filename}`;
+    }
+
+    // 3. BULLETPROOF INITIALS ENGINE: Prevents array/string property crashes entirely
+    let initials = "CL";
+    if (member && typeof member.name === 'string' && member.name.trim()) {
+      const words = member.name.trim().split(/\s+/);
+      const first = words[0] ? words[0].charAt(0) : '';
+      const last = words.length > 1 ? words[words.length - 1].charAt(0) : '';
+      initials = `${first}${last}`.toUpperCase() || "CL";
     }
 
     return (
       <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
         <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
           <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-            {/* RESTORED ORIGINAL SYNTAX: Correctly reads string index before charAt to prevent browser crashes */}
-            {`${member.name?.split(' ')[0]?.charAt(0) || ''}${member.name?.split(' ').pop()?.charAt(0) || ''}`} 
+            {initials} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
@@ -375,7 +382,7 @@ export default function AboutPage() {
           alt={member.name} 
           className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" 
           onError={(e) => {
-            // Ultimate fallback rule: if the mirror ever returns a 404, fallback safely to the logo placeholder
+            // Ultimate fallback rule: if an image path fails to resolve, fallback safely to the logo placeholder
             e.currentTarget.src = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
           }}
         /> 
