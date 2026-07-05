@@ -126,42 +126,36 @@ const handleFlyerClick = (src: any, label: any) => {
   const modalImg = document.getElementById('tab-flyer-modal-img') as any; 
   const modalTxt = document.getElementById('tab-flyer-modal-txt'); 
   
-  // Optional chaining (?.) handles null-pointer check safety rules
-  if (modal && modalImg && modalTxt) { 
-    modalImg.src = src; 
-    modalTxt.innerText = label; 
-    modal.style.display = 'flex'; 
-  } 
-};
+  {/* Map over the protected flyers array data */} 
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+  {schoolFlyers && schoolFlyers.map((flyer: any) => ( 
+    <motion.div 
+      key={flyer?.id} 
+      variants={fadeUp} 
+      onClick={() => handleFlyerClick(flyer?.src || '', flyer?.label || '')} 
+      className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl bg-secondary border border-secondary-foreground/10 p-4 w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300" 
+    > 
+      <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+        <img 
+          src={flyer?.src || ''} 
+          alt={flyer?.label || 'School Flyer'} 
+          style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
+          className="transition-transform duration-300 group-hover:scale-[1.02]" 
+        /> 
+      </div> 
 
-
-
-
-return (
-  <>
-    {/* Map over the protected flyers array data */}
-    {schoolFlyers && schoolFlyers.map((flyer: any) => (
-      <motion.div
-        key={flyer?.id}
-        variants={fadeUp}
-        // Optional chaining (?.) bypasses null pointer checks completely
-        onClick={() => handleFlyerClick(flyer?.src || '', flyer?.label || '')}
-        className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl bg-secondary border border-secondary-foreground/10 p-4 w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
-      >
-        <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-          <img
-            // Provide string fallbacks so the browser never binds a null state
-            src={flyer?.src || ''}
-            alt={flyer?.label || 'School Flyer'}
-            style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
-            className="transition-transform duration-300 group-hover:scale-[1.02]"
-          />
-        </div>
-      </motion.div>
-    ))}
-  </>
-);
-
+      {/* Hover overlay text layout */} 
+      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10 pointer-events-none"> 
+        <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
+          <span>Click to view full flyer</span> 
+        </div> 
+        <p className="text-white font-medium text-base text-center bg-black/40 border border-white/10 px-4 py-2 rounded-lg backdrop-blur-sm w-full transform translate-y-2 transition-transform duration-300 group-hover:translate-y-0"> 
+          {flyer?.label || 'School Flyer'} 
+        </p> 
+      </div>
+    </motion.div> 
+  ))} 
+</div>
 
 
 
