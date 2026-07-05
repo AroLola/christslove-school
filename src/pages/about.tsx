@@ -356,16 +356,12 @@ export default function AboutPage() {
       }
     }
 
-    // 3. SAFE INITIALS PARSING: Extracts array indices before executing string functions
-    const nameParts = displayName.split(' ');
-    const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
-    const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
-
     return (
       <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-          <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-            {`${firstInitial}${lastInitial}`} 
+        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+          <span class="text-secondary-foreground font-heading font-bold text-lg"> 
+            {/* RESTORED EXACT ORIGINAL SYNTAX WITH THE MISSING [0] ARRAY SELECTOR */}
+            {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
