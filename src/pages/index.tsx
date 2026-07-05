@@ -489,7 +489,7 @@ export default function HomePage() {
             } 
           }; 
 
-          return ( 
+                return ( 
             <> 
               {/* Grid Mapping Output */} 
               {galleryImages && galleryImages.map((img: any) => ( 
@@ -505,36 +505,35 @@ export default function HomePage() {
                       alt={img?.label || 'Gallery Image'} 
                       style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
                       className="transition-transform duration-300 group-hover:scale-105" 
-                	/> 
-                  </div>
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                    <p className="text-white text-sm font-medium">{img?.label || ''}</p>
-                  </div>
+                    /> 
+                  </div> 
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"> 
+                    <p className="text-white text-sm font-medium">{img?.label || ''}</p> 
+                  </div> 
                 </motion.div> 
               ))} 
-            </>
+            </> 
           ); 
-        })()}
-      </motion.div>
-    </div>
-  </section>
+        })()} 
+      </motion.div> 
+    </div> 
+  </section> 
 
   {/* ── ENROLLMENT CTA ── */} 
   <section className="py-20 bg-background overflow-hidden"> 
     <div className="container mx-auto px-4 lg:px-8"> 
       <div className="relative bg-secondary rounded-2xl overflow-hidden"> 
         <div className="absolute top-0 left-0 right-0 h-1 bg-primary" /> 
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
-        
-        <div className="p-8 md:p-12 text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-4">Start Your Child's Journey with CLCS</h2>
-          <p className="text-white/80 mb-6">Partner with us to build a strong spiritual and academic foundation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-</>
-);
-}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" /> 
+        <div className="p-8 md:p-12 text-center max-w-2xl mx-auto"> 
+          <h2 className="text-3xl font-bold text-white mb-4">Start Your Child's Journey with CLCS</h2> 
+          <p className="text-white/80 mb-6">Partner with us to build a strong spiritual and academic foundation.</p> 
+        </div> 
+      </div> 
+    </div> 
+  </section> 
+</> 
+); 
+} 
 
 export default HomePage;
