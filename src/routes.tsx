@@ -2,7 +2,6 @@ import { RouteObject } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from './pages/index';
 import AboutPage from './pages/about';
-import ProdNotFoundPage from './pages/_404';
 
 const NotFoundPage = import.meta.env.DEV ? lazy(() => import('../dev-tools/src/PageNotFound')) : ProdNotFoundPage;
 const AcademicsPage = lazy(() => import('./pages/academics'));
