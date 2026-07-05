@@ -31,8 +31,8 @@ export default function GalleryPage() {
       </Helmet>
 
       <header className="text-center py-12 bg-secondary rounded-xl mb-8">
-        <h1 className="text-4xl font-bold mb-2">School Gallery</h1>
-        <p className="text-muted-foreground">Welcome to Christ's Love Christian School gallery view.</p>
+        <h1 className="text-4xl font-bold mb-2">Gallery</h1>
+        <p className="text-muted-foreground">Welcome to Christ's Love Christian School\'s Gallery view.</p>
       </header>
 
       <div className="flex justify-center gap-4 mb-8">
