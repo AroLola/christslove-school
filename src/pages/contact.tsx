@@ -10,7 +10,7 @@ const fadeUp = {
 };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
-const site = 'https://christslovchristianschool.info';
+const site = 'https://christslovechristianschool.info';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
