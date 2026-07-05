@@ -18,32 +18,39 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // 1. Fix the Header Logo extension layout block directly
-      content = content.replace(
-        /\/airo-assets\/images\/layouts\/header\/christs-love-christian-school(?!"|\.png|\.jpg|\.svg)/g,
-        '/airo-assets/images/layouts/header/christs-love-christian-school.png'
-      );
+      // 1. Transform the Header Logo tag into a smart self-healing fallback element
+      if (file.toLowerCase().includes('header') && content.includes('/airo-assets/images/layouts/header/christs-love-christian-school')) {
+        content = content.replace(
+          /<img\s+src="\/airo-assets\/images\/layouts\/header\/christs-love-christian-school"[^>]*\/>/g,
+          `<img 
+            src="/airo-assets/images/layouts/header/christs-love-christian-school.png" 
+            alt="Christ's Love Christian School" 
+            className="h-14 md:h-16 w-auto object-contain shrink-0 self-center"
+            onError={(e) => {
+              if (!e.currentTarget.src.endsWith('.jpg')) {
+                e.currentTarget.src = "/airo-assets/images/layouts/header/christs-love-christian-school.jpg";
+              }
+            }} 
+          />`
+        );
+      }
 
-      // 2. Clear out any accidental broken custom domain attachments on the header path
-      content = content.replace(
-        /https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/header\/christs-love-christian-school\.png/g,
-        '/airo-assets/images/layouts/header/christs-love-christian-school.png'
-      );
-
-      // 3. Fix the Homepage Values image extension we found earlier
-      content = content.replace(
-        /pages-home-values-c9779bb4(?!"|\.png|\.jpg|\.jpeg)/g,
-        'pages-home-values-c9779bb4.jpg'
-      );
+      // 2. Apply the exact same fallback strategy to your Homepage Values asset box
+      if (content.includes('pages-home-values-c9779bb4')) {
+        content = content.replace(
+          /src=["']([^"']*?pages-home-values-c9779bb4[^"']*?)["']/g,
+          `src="/assets/media/pages-home-values-c9779bb4.jpg" onError={(e) => { if(!e.currentTarget.src.endsWith('.png')) { e.currentTarget.src = "/assets/media/pages-home-values-c9779bb4.png"; } }}`
+        );
+      }
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Logo & Extension Fix] Patched string references inside: ${file}`);
+        console.log(`[Logo Strategy Tunneled] Injected safe fallbacks inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running extensionless string correction script...');
+console.log('Deploying automated extension file fallback routers...');
 processDirectory(PAGES_DIR);
-console.log('Logo alignment processing complete.');
+console.log('Fallback injection successfully complete.');
