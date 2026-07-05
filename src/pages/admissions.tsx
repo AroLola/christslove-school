@@ -88,48 +88,69 @@ export default function AdmissionsPage() {
                 { id: 2, src: "https://airoapp.ai", label: "2027 Admission & Enrollment Requirements" } 
               ]; 
 
-              return (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 w-full col-span-full">
-                  {schoolFlyers.map((flyer: any) => ( 
-                    <motion.div key={flyer?.id} variants={fadeUp} onClick={() => handleFlyerClick(flyer?.src || '', flyer?.label || '')} className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl bg-secondary border border-secondary-foreground/10 p-4 w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300" > 
-                      <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-                        <img src={flyer?.src || ''} alt={flyer?.label || 'School Flyer'} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-[1.02]" /> 
-                      </div> 
-                      {/* Hover overlay text layout */} 
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10 pointer-events-none"> 
-                        <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
-                          <span>Click to view full flyer</span> 
-                        </div> 
-                        <p className="text-white font-medium text-base text-center bg-black/40 border border-white/10 px-4 py-2 rounded-lg backdrop-blur-sm w-full transform translate-y-2 transition-transform duration-300 group-hover:translate-y-0"> 
-                          {flyer?.label || 'School Flyer'} 
-                        </p> 
-                      </div> 
-                    </motion.div> 
-                  ))} 
-                </div>
-              );
-            })()} 
-          </motion.div>
-        </div> 
-      </section>
+                       return (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 w-full col-span-full">
+              {schoolFlyers.map((flyer: any) => (
+                <motion.div
+                  key={flyer?.id}
+                  variants={fadeUp}
+                  onClick={() => handleFlyerClick(flyer?.src || '', flyer?.label || '')}
+                  className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl bg-secondary border border-secondary-foreground/10 p-4 w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
+                    <img src={flyer?.src || ''} alt={flyer?.label || 'School Flyer'} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-[1.02]" />
+                  </div>
+                  {/* Hover overlay text layout */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10 pointer-events-none">
+                    <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider">
+                      <span>Click to view full flyer</span>
+                    </div>
+                    <p className="text-white font-medium text-base text-center bg-black/40 border border-white/10 px-4 py-2 rounded-lg backdrop-blur-sm w-full transform translate-y-2 transition-transform duration-300 group-hover:translate-y-0">
+                      {flyer?.label || 'School Flyer'}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          );
+        })()}
+      </motion.div>
+    </div>
+  </section>
 
-      {/* Dedicated Tab Lightbox Frame */} 
-      <div id="tab-flyer-modal" onClick={() => { const modal = document.getElementById('tab-flyer-modal'); if (modal) modal.style.display = 'none'; }} className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" style={{ display: 'none', backdropFilter: 'blur(8px)' }} > 
-        <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
-          <img id="tab-flyer-modal-img" src="" alt="Expanded Flyer view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
-          <p id="tab-flyer-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
-        </div> 
-        <button onClick={(e) => { e.stopPropagation(); const modal = document.getElementById('tab-flyer-modal'); if (modal) modal.style.display = 'none'; }} className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" > &#x2715; </button> 
+  {/* Dedicated Tab Lightbox Frame */}
+  <div id="tab-flyer-modal" onClick={() => { const modal = document.getElementById('tab-flyer-modal'); if (modal) modal.style.display = 'none'; }} className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" style={{ display: 'none', backdropFilter: 'blur(8px)' }} >
+    <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none">
+      <img id="tab-flyer-modal-img" src="" alt="Expanded Flyer view" className="max-w-full max-h-[75vh] object-contain rounded-md" />
+      <p id="tab-flyer-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p>
+    </div>
+    <button onClick={(e) => { e.stopPropagation(); const modal = document.getElementById('tab-flyer-modal'); if (modal) modal.style.display = 'none'; }} className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" >
+      &#x2715;
+    </button>
+  </div>
+
+  {/* Who We Welcome */}
+  <section className="py-20 bg-background">
+    <div className="container mx-auto px-4 lg:px-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+          <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3">Who We Welcome</motion.p>
+          <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-secondary mb-6 leading-tight">Is CLCS Right for Your Family?</motion.h2>
+          <motion.p variants={fadeUp} className="text-foreground/80 text-lg leading-relaxed mb-5">
+            We welcome students from Kindergarten through Grade 7 whose families are seeking a Christ-centered education that integrates faith with academic excellence.
+          </motion.p>
+          <motion.p variants={fadeUp} className="text-foreground/70 leading-relaxed mb-6">
+            Our admissions process values families who want to partner closely with our school community to foster spiritual growth and moral character alongside critical learning skills.
+          </motion.p>
+        </motion.div>
+        
+        {/* Visual Content Placeholder Grid layout to balance the layout */}
+        <div className="relative w-full h-80 bg-secondary/10 rounded-2xl border border-secondary/20 flex items-center justify-center">
+          <span className="text-muted-foreground text-sm font-medium">Admissions Overview Graphics</span>
+        </div>
       </div>
-
-      {/* Who We Welcome */} 
-      <section className="py-20 bg-background"> 
-        <div className="container mx-auto px-4 lg:px-8"> 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
-              <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3">Who We Welcome</motion.p> 
-              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-secondary mb-6 leading-tight">Is CLCS Right for Your Family?</motion.h2> 
-              <motion.p variants={fadeUp} className="text-foreground/80 text-lg leading-relaxed mb-5"> 
-                We welcome students from Kindergarten through Grade 7 whose families are seeking a Christ-centered education that integrates faith with academic excellence. 
-              </motion.p> 
-              <motion.p variants={fadeUp} className="text-foreground/70 leading-relaxed mb-6"> 
+    </div>
+  </section>
+</>
+);
+}
