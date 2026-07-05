@@ -34,23 +34,23 @@ function processDirectory(directory) {
         '/assets/media/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg'
       );
 
-      // 3. SELF-HEALING LEFT-JUSTIFIED FOOTER INJECTION
+      // 3. BASELINE FOOTER ALIGNMENT FIX
       if (file.toLowerCase().includes('footer')) {
-        // Clear out any previous layout remnants to ensure clean injection loops
+        // Clear out any previous layout fragments to ensure clean injection loops
         content = content.replace(/<div id="restored-footer-logo"[\s\S]*?<\/div>/g, '');
         content = content.replace(/<div className="flex flex-col md:flex-row items-center md:items-start[\s\S]*?<\/div>\s*<\/div>/g, '');
+        content = content.replace(/<div className="flex flex-col md:flex-row items-center md:items-baseline[\s\S]*?<\/div>\s*<\/div>/g, '');
         
-        // Find the "Nurturing minds" container block and map the safety loop
+        // Find the "Nurturing minds" container block and map the baseline flex rule
         if (content.includes('Nurturing minds')) {
           content = content.replace(
             /([<][p|div][^>]*?>\s*Nurturing minds[\s\S]*?<\/[p|div]>)/i,
-            `<div className="flex flex-col md:flex-row items-center md:items-start gap-5 text-center md:text-left">
+            `<div className="flex flex-col md:flex-row items-center md:items-baseline gap-5 text-center md:text-left">
               <img 
                 src="/media/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg" 
                 alt="Christ's Love Christian School Footer Logo" 
                 className="h-16 w-auto object-contain shrink-0"
                 onError={(e) => {
-                  // If the 3f0c5b4e file name is typed wrong or missing, dynamically fallback to your verified working file path
                   if (!e.currentTarget.src.includes('aea019d4')) {
                     e.currentTarget.src = "/media/layouts-header-christs-love-christian-school-aea019d4.jpg";
                   }
@@ -64,12 +64,12 @@ function processDirectory(directory) {
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Self-Healing Footer Mounted] Processed component layout within: ${file}`);
+        console.log(`[Baseline Alignment Applied] Adjusted layout properties within: ${file}`);
       }
     }
   });
 }
 
-console.log('Running automated self-healing footer injection pipeline...');
+console.log('Running baseline footer text alignment script...');
 processDirectory(PAGES_DIR);
-console.log('Layout pipeline adjustments finalized.');
+console.log('Alignment processing complete.');
