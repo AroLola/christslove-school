@@ -337,7 +337,7 @@ export default function AboutPage() {
           </motion.div>
 
 
-     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+<motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
   {staff.map((member) => {
     // 1. SAFE DATA SANITIZATION: Instantly fix any missing or corrupted imageUrl strings
     let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
@@ -360,16 +360,12 @@ export default function AboutPage() {
       cleanUrl = `https://airoapp.ai{filename}`;
     }
 
-    // 3. SAFE INITIALS PARSING
-    const firstInitial = member.name?.split(' ')[0]?.charAt(0) || '';
-    const nameArr = member.name?.split(' ') || [];
-    const lastInitial = nameArr.length > 1 ? nameArr[nameArr.length - 1]?.charAt(0) : '';
-
     return (
       <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
         <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
           <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-            {`${firstInitial}${lastInitial}`} 
+            {/* RESTORED ORIGINAL SYNTAX: Correctly reads string index before charAt to prevent browser crashes */}
+            {`${member.name?.split(' ')[0]?.charAt(0) || ''}${member.name?.split(' ').pop()?.charAt(0) || ''}`} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
@@ -389,6 +385,7 @@ export default function AboutPage() {
 </motion.div> 
 </div> 
 </section>
+
 
 
 
