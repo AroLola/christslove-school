@@ -95,7 +95,7 @@ function processDirectory(directory) {
   });
 }
  
-// 7. TARGETED PROFILE REPAIR: Replace placeholders for specific staff members using your local .png asset
+  // 7. TARGETED PROFILE REPAIR: Replace placeholders for specific staff members using your local .png asset
       if (file.toLowerCase().includes('about') || file.toLowerCase().includes('staff') || file.toLowerCase().includes('index')) {
         // Targets Jequiline's image property string directly
         content = content.replace(
@@ -113,7 +113,6 @@ function processDirectory(directory) {
           '$1"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"'
         );
       }
-
 console.log('Running final asset sync loop with integrated placeholder parameters...');
 processDirectory(PAGES_DIR);
 console.log('Processing complete.');
