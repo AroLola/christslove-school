@@ -337,61 +337,59 @@ export default function AboutPage() {
           </motion.div>
 
 
-<motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
-  {staff.map((member) => {
-    // 1. STABLE DATA SANITIZATION: Handle asset image targets cleanly
-    let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-    if (member && typeof member.imageUrl === 'string') {
-      cleanUrl = member.imageUrl;
-    }
+{(() => {
+  // 1. FILTER STAFF INTO TWO DISTINCT GROUPS BEFORE RENDERING
+  const staffWithPics = staff.filter(member => 
+    member && 
+    typeof member.imageUrl === 'string' && 
+    member.imageUrl.includes('uploads/gallery')
+  );
 
-    // 2. TARGETED ASSIGNMENTS: Map custom uploads or global mirror files safely
-    if (cleanUrl.includes('layouts/footer') || cleanUrl.includes('images/layouts')) {
-      if (member.name?.toUpperCase().includes('JEQUILINE')) {
-        cleanUrl = "/assets/media/jequiline-livimba.jpg";
-      } else if (member.name?.toUpperCase().includes('MARIA')) {
-        cleanUrl = "/assets/media/maria-aukhumes.jpg";
-      } else {
-        cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-      }
-    } else if (cleanUrl.includes('airo-assets/uploads/gallery')) {
-      const filename = cleanUrl.split('/').pop();
-      cleanUrl = `https://airoapp.ai{filename}`;
-    }
+  const staffWithLogos = staff.filter(member => 
+    !member || 
+    typeof member.imageUrl !== 'string' || 
+    !member.imageUrl.includes('uploads/gallery')
+  );
 
-    // 3. BULLETPROOF INITIALS ENGINE: Prevents array/string property crashes entirely
-    let initials = "CL";
-    if (member && typeof member.name === 'string' && member.name.trim()) {
-      const words = member.name.trim().split(/\s+/);
-      const first = words[0] ? words[0].charAt(0) : '';
-      const last = words.length > 1 ? words[words.length - 1].charAt(0) : '';
-      initials = `${first}${last}`.toUpperCase() || "CL";
-    }
+  return (
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+      
+      {/* LOOP 1: YOUR ORIGINAL WORKING VERSION FOR PROFILES WITH PICTURES */}
+      {staffWithPics.map((member) => <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> <span class="text-secondary-foreground font-heading font-bold text-lg"> {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} </span> </div> <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> <img src={member.imageUrl} alt={member.name} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> </motion.div> )}
 
-    return (
-      <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-          <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-            {initials} 
-          </span> 
-        </div> 
-        <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
-        <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> 
-        <img 
-          src={cleanUrl} 
-          alt={member.name} 
-          className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" 
-          onError={(e) => {
-            // Ultimate fallback rule: if an image path fails to resolve, fallback safely to the logo placeholder
-            e.currentTarget.src = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-          }}
-        /> 
-      </motion.div>
-    );
-  })} 
-</motion.div> 
+      {/* LOOP 2: DEDICATED FRAMEWORK FOR PROFILES WITH LOGOS AND CUSTOM UPLOADS */}
+      {staffWithLogos.map((member) => {
+        let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
+        
+        if (member && member.name) {
+          const upperName = member.name.toUpperCase();
+          if (upperName.includes('JEQUILINE')) {
+            cleanUrl = "/assets/media/jequiline-livimba.jpg";
+          } else if (upperName.includes('MARIA')) {
+            cleanUrl = "/assets/media/maria-aukhumes.jpg";
+          }
+        }
+
+        return (
+          <motion.div key={member.name} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
+            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+              <span class="text-secondary-foreground font-heading font-bold text-lg"> 
+                {`${member.name.split(' ')[0]?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
+              </span> 
+            </div> 
+            <h3 className="font-heading text-lg text-secondary font-semibold">{member.name}</h3> 
+            <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{member.role}</p> 
+            <img src={cleanUrl} alt={member.name} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> 
+          </motion.div>
+        );
+      })}
+
+    </motion.div>
+  );
+})()}
 </div> 
 </section>
+
 
 
 
