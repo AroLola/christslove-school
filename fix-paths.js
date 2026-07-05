@@ -61,22 +61,22 @@ function processDirectory(directory) {
         }
       }
 
-      // 4. TARGETED MISSION IMAGE FIX: Points the extensionless values link directly to your verified media file
+      // 4. MISSION ALIGNMENT CORRECTION: Redirect the non-existent values file path to your true custom image filename
       if (file.toLowerCase().includes('index') || file.toLowerCase().includes('home')) {
         content = content.replace(
-          /src=["'][^"']*?pages-home-values-c9779bb4[^"']*?["']/g,
-          'src="/assets/media/pages-home-values-c9779bb4.jpg"'
+          /\/assets\/media\/pages-home-values-c9779bb4\.jpg/g,
+          '/assets/media/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg'
         );
       }
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Mission Image Fixed] Linked values asset inside: ${file}`);
+        console.log(`[Mission File Alignment Complete] Redirected missing layout dependencies inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running direct link replacements for logos, community blocks, and mission graphics...');
+console.log('Running script alignment pipeline...');
 processDirectory(PAGES_DIR);
-console.log('Alignment processing complete.');
+console.log('Processing complete.');
