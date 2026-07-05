@@ -4,20 +4,6 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PAGES_DIR = path.join(__dirname, 'src');
-const PUBLIC_MEDIA_DIR = path.join(__dirname, 'public', 'assets', 'media');
-
-// Step A: Dynamically scan the media folder and add .jpg to files missing extensions
-if (fs.existsSync(PUBLIC_MEDIA_DIR)) {
-  const files = fs.readdirSync(PUBLIC_MEDIA_DIR);
-  files.forEach(file => {
-    if (!file.includes('.')) {
-      const oldPath = path.join(PUBLIC_MEDIA_DIR, file);
-      const newPath = path.join(PUBLIC_MEDIA_DIR, `${file}.jpg`);
-      fs.renameSync(oldPath, newPath);
-      console.log(`[Extension Fix] Appended extension: ${file} -> ${file}.jpg`);
-    }
-  });
-}
 
 function processDirectory(directory) {
   if (!fs.existsSync(directory)) return;
@@ -32,21 +18,32 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // Ensure references to pages-home-values add the fixed extension natively
-      content = content.replace(/pages-home-values-c9779bb4(?!"|\.jpg)/g, 'pages-home-values-c9779bb4.jpg');
+      // 1. Fix the Header Logo extension layout block directly
+      content = content.replace(
+        /\/airo-assets\/images\/layouts\/header\/christs-love-christian-school(?!"|\.png|\.jpg|\.svg)/g,
+        '/airo-assets/images/layouts/header/christs-love-christian-school.png'
+      );
 
-      // Globally intercept local scattered layouts and convert them into absolute root directories
-      content = content.replace(/(src=["'`])public\//g, '$1/');
-      content = content.replace(/(src=["'`])assets\/media\//g, '$1/assets/media/');
+      // 2. Clear out any accidental broken custom domain attachments on the header path
+      content = content.replace(
+        /https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/header\/christs-love-christian-school\.png/g,
+        '/airo-assets/images/layouts/header/christs-love-christian-school.png'
+      );
+
+      // 3. Fix the Homepage Values image extension we found earlier
+      content = content.replace(
+        /pages-home-values-c9779bb4(?!"|\.png|\.jpg|\.jpeg)/g,
+        'pages-home-values-c9779bb4.jpg'
+      );
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Layout Linker] Rectified media extensions in: ${file}`);
+        console.log(`[Logo & Extension Fix] Patched string references inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running static file extension repair loop...');
+console.log('Running extensionless string correction script...');
 processDirectory(PAGES_DIR);
-console.log('Alignment processing complete.');
+console.log('Logo alignment processing complete.');
