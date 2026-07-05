@@ -61,28 +61,26 @@ function processDirectory(directory) {
         }
       }
 
-      // 4. PRECISE MISSION IMAGE FIX: Explicitly direct the code to pull the true local repository image file path
+      // 4. ABSOLUTE STATIC ROUTING: Force the Our Mission image block to point to the correct static asset
       if (file.toLowerCase().includes('index') || file.toLowerCase().includes('home')) {
-        // Direct any previous replacements back to the exact native repository asset path layout
-        content = content.replace(
-          /\/assets\/media\/pages-home-faith-and-learning-at-christs-love-chris-b8f78293\.jpg(?=["']\s+alt=["']Faith and learning)/g,
-          '/assets/media/pages-home-values-c9779bb4.jpg'
-        );
-        // Ensure standard string bindings map strictly here
         content = content.replace(
           /src=["']\/assets\/media\/pages-home-values-c9779bb4\.jpg["']/g,
-          'src="/assets/media/pages-home-values-c9779bb4.jpg"'
+          'src="/media/pages-home-values-c9779bb4.jpg"'
+        );
+        content = content.replace(
+          /src=["']\/assets\/media\/pages-home-faith-and-learning-at-christs-love-chris-b8f78293\.jpg["'](?=\s+alt=["']Faith and learning)/g,
+          'src="/media/pages-home-values-c9779bb4.jpg"'
         );
       }
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[True Mission Image Restored] Set target file path inside: ${file}`);
+        console.log(`[Static Path Fixed] Linked true mission graphic inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running direct link replacements for logos, community blocks, and true mission graphics...');
+console.log('Running static routing link corrections for core layout blocks...');
 processDirectory(PAGES_DIR);
 console.log('Processing complete.');
