@@ -538,7 +538,7 @@ const handleCardClick = (src: any, label: any) => {
     ))}
 
 
-     {/* DOM-Isolated Full-Screen Expansion Frame */} 
+        {/* DOM-Isolated Full-Screen Expansion Frame */} 
     <div 
       id="global-gallery-modal" 
       onClick={() => { 
@@ -569,6 +569,13 @@ const handleCardClick = (src: any, label: any) => {
   </>
 );
 
+// Close out the parent section layout structures that were left open
+      </div>
+    </section>
+  );
+};
+
+export default HomePage;
 
 
       {/* ── ENROLLMENT CTA ── */}
