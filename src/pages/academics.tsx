@@ -32,7 +32,7 @@ const subjects = [
   { icon: Music, name: 'Music & Arts', description: 'Creative expression through music, visual arts, and drama — celebrating God-given gifts.' },
   { icon: Palette, name: 'Physical Education', description: 'Healthy bodies, teamwork, and sportsmanship through structured physical activity.' },
   { icon: Palette, name: 'Afrikaans', description: 'Structured to assist learners to develop local language skills.' },
-  { icon: Palette, name: 'Physical Education', description: 'Early stage introduction to Portuguese lexicon and culture.' },
+  { icon: Palette, name: 'Portuguese', description: 'Early stage introduction to Portuguese lexicon and culture.' },
   { icon: BookOpen, name: 'French', description: 'Introduction to French language and culture beginning in Grade 4.' },
 ];
 
