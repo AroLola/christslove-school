@@ -18,7 +18,7 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // 1. Direct Swap: Keep your working Header Logo perfectly intact
+      // 1. Keep your working Header Logo perfectly intact
       content = content.replace(
         /src=["']\/airo-assets\/images\/layouts\/header\/christs-love-christian-school[^"']*?["']/g,
         'src="/media/layouts-header-christs-love-christian-school-aea019d4.jpg"'
@@ -28,13 +28,13 @@ function processDirectory(directory) {
         '"/media/layouts-header-christs-love-christian-school-aea019d4.jpg"'
       );
 
-      // 2. Targeted Community Image Fix: Keep your working Our Community photo intact
+      // 2. Keep your working Our Community photo intact
       content = content.replace(
         /\/airo-assets\/images\/pages\/home\/students-enjoying-community-time-at-chri-2/g,
         '/assets/media/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg'
       );
 
-      // 3. Keep your working high-alignment Float Footer intact
+      // 3. Keep your working high-alignment baseline Float Footer intact
       if (file.toLowerCase().includes('footer')) {
         content = content.replace(/<div id="restored-footer-logo"[\s\S]*?<\/div>/g, '');
         content = content.replace(/<div className="flex flex-col md:flex-row items-center md:items-start[\s\S]*?<\/div>\s*<\/div>/g, '');
@@ -61,26 +61,19 @@ function processDirectory(directory) {
         }
       }
 
-      // 4. ABSOLUTE STATIC ROUTING: Force the Our Mission image block to point to the correct static asset
-      if (file.toLowerCase().includes('index') || file.toLowerCase().includes('home')) {
-        content = content.replace(
-          /src=["']\/assets\/media\/pages-home-values-c9779bb4\.jpg["']/g,
-          'src="/media/pages-home-values-c9779bb4.jpg"'
-        );
-        content = content.replace(
-          /src=["']\/assets\/media\/pages-home-faith-and-learning-at-christs-love-chris-b8f78293\.jpg["'](?=\s+alt=["']Faith and learning)/g,
-          'src="/media/pages-home-values-c9779bb4.jpg"'
-        );
+      // 4. CRITICAL CASE-SENSITIVITY REPAIR: Automatically normalize capitalized "Media" to lowercase "media"
+      if (content.includes('/assets/Media/')) {
+        content = content.replace(/\/assets\/Media\//g, '/assets/media/');
       }
 
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Static Path Fixed] Linked true mission graphic inside: ${file}`);
+        console.log(`[Pristine Capitalization Sync] Restored lowercase directory pathing for: ${file}`);
       }
     }
   });
 }
 
-console.log('Running static routing link corrections for core layout blocks...');
+console.log('Running script normalization cleanup loop...');
 processDirectory(PAGES_DIR);
 console.log('Processing complete.');
