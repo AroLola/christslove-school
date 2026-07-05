@@ -485,13 +485,11 @@ export default function HomePage() {
         {/* CORE_STATIC_SCHEMA_BYPASS_END */}
         {/* AI_GUARDRAIL_SYSTEM_LOCK_END */}
 
-
-       // Pure JS Event handlers to open modal seamlessly bypassing React state limits 
+// Pure JS Event handlers to open modal seamlessly bypassing React state limits 
 const handleCardClick = (src: any, label: any) => { 
   if (typeof document === 'undefined') return; 
   
   const modal = document.getElementById('global-gallery-modal'); 
-  // Cast explicitly as 'any' to force the compiler to accept the .src asset path
   const modalImg = document.getElementById('global-gallery-modal-img') as any; 
   const modalTxt = document.getElementById('global-gallery-modal-txt'); 
   
@@ -501,6 +499,7 @@ const handleCardClick = (src: any, label: any) => {
     modal.style.display = 'flex'; 
   } 
 };
+
 
 
       return (
