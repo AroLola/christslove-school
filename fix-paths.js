@@ -95,28 +95,30 @@ function processDirectory(directory) {
   });
 }
  
-  // Ensure this code block sits INSIDE your existing file iteration loop (e.g., inside your file loop block)
-
-// 7. TARGETED PROFILE REPAIR: Replace placeholders for specific staff members using your local .png asset
+ // 7. TARGETED PROFILE REPAIR (Batch 1): Replace specific broken URLs for Jequiline and Maria
 if (typeof file !== 'undefined' && (file.toLowerCase().includes('about') || file.toLowerCase().includes('staff') || file.toLowerCase().includes('index'))) {
     
-    // Targets Jequiline's image property string directly
-    content = content.replace(
-        /(name:\s*['"]JEQUILINE\s+LIVIMBA['"][\s\S]*?imageUrl:\s*)["'][^"']*?["']/g,
-        '$1"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"'
-    );
+    // Broken link target from your script configuration
+    const brokenAiroUrl = "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school";
+    
+    // New local replacement path relative to Vercel's public build output folder
+    const localPlaceholder = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
 
-    // Targets Maria's image property string directly
-    content = content.replace(
-        /(name:\s*['"]MARIA\s+O\.\s+AUKHUMES['"][\s\S]*?imageUrl:\s*)["'][^"']*?["']/g,
-        '$1"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"'
-    );
+    // Targets Jequiline's object block cleanly by checking her name and substituting the broken string
+    if (content.includes('JEQUILINE LIVIMBA')) {
+        content = content.replace(
+            /(name:\s*['"]JEQUILINE\s+LIVIMBA['"][\s\S]*?imageUrl:\s*)["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g,
+            `$1"${localPlaceholder}"`
+        );
+    }
 
-    // Targets Nyasha's image property string directly
-    content = content.replace(
-        /(name:\s*['"]NYASHA\s+MUKOROKO['"][\s\S]*?imageUrl:\s*)["'][^"']:*?["']/g,
-        '$1"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"'
-    );
+    // Targets Maria's object block cleanly by checking her name and substituting the broken string
+    if (content.includes('MARIA O. AUKHUMES')) {
+        content = content.replace(
+            /(name:\s*['"]MARIA\s+O\.\s+AUKHUMES['"][\s\S]*?imageUrl:\s*)["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g,
+            `$1"${localPlaceholder}"`
+        );
+    }
 }
 
 console.log('Running final asset sync loop with integrated placeholder parameters...');
