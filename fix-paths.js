@@ -95,18 +95,18 @@ function processDirectory(directory) {
   });
 }
  
-// 7. UNIVERSAL STAFF PLACEHOLDER REPAIR: Fixes all profiles sharing the broken footer link
+// 7. DYNAMIC STAFF OBJECT REPAIR: Catch and fix malformed profile objects
 if (typeof file !== 'undefined' && (file.toLowerCase().includes('about') || file.toLowerCase().includes('staff') || file.toLowerCase().includes('index'))) {
     
-    // Exact broken URL string causing the broken image box
-    const targetBrokenUrl = "https://christslovechristianschool.info";
-    
-    // Your verified local logo file path
-    const targetLocalLogo = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-
-    // Perform a global split-and-join to instantly replace every single occurrence in the file
-    if (content.includes(targetBrokenUrl)) {
-        content = content.split(targetBrokenUrl).join(targetLocalLogo);
+    // Target the specific array blocks to prevent interference with layout elements
+    if (content.includes('staff') || content.includes('teachers')) {
+        
+        // Match the broken layout path whether it uses single or double quotes
+        const malformedUrlPattern = /["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g;
+        const freshPlaceholder = '"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"';
+        
+        // Inject a forced property overwrite for any object field mapping to the missing asset
+        content = content.replace(malformedUrlPattern, freshPlaceholder);
     }
 }
 
