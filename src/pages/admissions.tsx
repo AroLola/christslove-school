@@ -117,100 +117,100 @@ export default function AdmissionsPage() {
 
 
 
+// Self-contained browser-native click tracking events 
+const handleFlyerClick = (src: any, label: any) => { 
+  if (typeof document === 'undefined') return; 
+  
+  const modal = document.getElementById('tab-flyer-modal'); 
+  // Cast explicitly as an HTMLImageElement or 'any' so TS allows the .src property
+  const modalImg = document.getElementById('tab-flyer-modal-img') as any; 
+  const modalTxt = document.getElementById('tab-flyer-modal-txt'); 
+  
+  // Optional chaining (?.) handles null-pointer check safety rules
+  if (modal && modalImg && modalTxt) { 
+    modalImg.src = src; 
+    modalTxt.innerText = label; 
+    modal.style.display = 'flex'; 
+  } 
+};
 
-        // Self-contained browser-native click tracking events
-        const handleFlyerClick = (src, label) => {
-          if (typeof document === 'undefined') return;
+
+
+
+return (
+  <>
+    {/* Map over the protected flyers array data */}
+    {schoolFlyers && schoolFlyers.map((flyer: any) => (
+      <motion.div
+        key={flyer?.id}
+        variants={fadeUp}
+        // Optional chaining (?.) bypasses null pointer checks completely
+        onClick={() => handleFlyerClick(flyer?.src || '', flyer?.label || '')}
+        className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl bg-secondary border border-secondary-foreground/10 p-4 w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
+      >
+        <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
+          <img
+            // Provide string fallbacks so the browser never binds a null state
+            src={flyer?.src || ''}
+            alt={flyer?.label || 'School Flyer'}
+            style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
+            className="transition-transform duration-300 group-hover:scale-[1.02]"
+          />
+        </div>
+      </motion.div>
+    ))}
+  </>
+);
+
+
+
+
+        {/* Hover overlay text layout */} 
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10 pointer-events-none"> 
+          <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
+            <span>Click to view full flyer</span> 
+          </div> 
+          <p className="text-white font-medium text-base text-center bg-black/40 border border-white/10 px-4 py-2 rounded-lg backdrop-blur-sm w-full transform translate-y-2 transition-transform duration-300 group-hover:translate-y-0"> 
+            {flyer?.label || 'School Flyer'} 
+          </p> 
+        </div> 
+      </motion.div> 
+    ))} 
+
+    {/* Dedicated Tab Lightbox Frame (Prevents missing-element expansion bugs) */} 
+    <div 
+      id="tab-flyer-modal" 
+      // FIX: Added optional chaining (?.) to prevent possible null object check rules
+      onClick={() => { 
+        const modal = document.getElementById('tab-flyer-modal');
+        if (modal) modal.style.display = 'none';
+      }} 
+      className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
+      style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
+    > 
+      <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
+        <img id="tab-flyer-modal-img" src="" alt="Expanded Flyer view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
+        <p id="tab-flyer-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
+      </div> 
+      
+      {/* Lightbox Close Icon Button */} 
+      <button 
+        // FIX: Added optional chaining (?.) here as well
+        onClick={(e) => { 
+          e.stopPropagation(); // Prevents bubbling issues
           const modal = document.getElementById('tab-flyer-modal');
-          const modalImg = document.getElementById('tab-flyer-modal-img');
-          const modalTxt = document.getElementById('tab-flyer-modal-txt');
-          if (modal && modalImg && modalTxt) {
-            modalImg.src = src;
-            modalTxt.innerText = label;
-            modal.style.display = 'flex';
-          }
-        };
-
-
-
-
-        return (
-          <>
-            {/* Map over the protected flyers array data */}
-            {schoolFlyers.map((flyer) => (
-              <motion.div
-                key={flyer.id}
-                variants={fadeUp}
-                onClick={() => handleFlyerClick(flyer.src, flyer.label)}
-                className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl bg-secondary border border-secondary-foreground/10 p-4 w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
-              >
-                <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-                  <img
-                    src={flyer.src}
-                    alt={flyer.label}
-                    style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
-                    className="transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                </div>
-
-
-
-
-                {/* Hover overlay text layout */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10 pointer-events-none">
-                  <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider">
-                    <span>Click to view full flyer</span>
-                  </div>
-                  <p className="text-white font-medium text-base text-center bg-black/40 border border-white/10 px-4 py-2 rounded-lg backdrop-blur-sm w-full transform translate-y-2 transition-transform duration-300 group-hover:translate-y-0">
-                    {flyer.label}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-
-
-
-
-            {/* Dedicated Tab Lightbox Frame (Prevents missing-element expansion bugs) */}
-            <div
-              id="tab-flyer-modal"
-              onClick={() => { document.getElementById('tab-flyer-modal').style.display = 'none'; }}
-              className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none"
-              style={{ display: 'none', backdropFilter: 'blur(8px)' }}
-            >
-              <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none">
-                <img
-                  id="tab-flyer-modal-img"
-                  src=""
-                  alt="Expanded Flyer view"
-                  className="max-w-full max-h-[75vh] object-contain rounded-md"
-                />
-                <p
-                  id="tab-flyer-modal-txt"
-                  className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"
-                ></p>
-              </div>
-
-
-
-
-              {/* Lightbox Close Icon Button */}
-              <button
-                onClick={() => { document.getElementById('tab-flyer-modal').style.display = 'none'; }}
-                className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg"
-              >
-                &#x2715;
-              </button>
-            </div>
-          </>
-        );
-      })()}
-    </motion.div>
-
-
-
-
-  </div>
+          if (modal) modal.style.display = 'none';
+        }} 
+        className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
+      > 
+        &#x2715; 
+      </button> 
+    </div> 
+  </> 
+); 
+})()} 
+</motion.div> 
+</div> 
 </section>
 
 
