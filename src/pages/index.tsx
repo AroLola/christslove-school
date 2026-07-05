@@ -436,22 +436,30 @@ export default function HomePage() {
       </section>
 
 
- {/* ── ACHIEVEMENTS ── */}
-<section className="py-20 bg-secondary">
-  <div className="container mx-auto px-4 lg:px-8">
-   
-    {/* Heading Title Block */}
-     {/* Responsive 3-Column Image Grid Container */} 
-  <motion.div 
-    initial="hidden" 
-    whileInView="visible" 
-    viewport={{ once: true }} 
-    variants={stagger} 
-    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full" 
-  > 
-    {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER, COMPRESS, OR DELETE THIS INLINE ARRAY STRUCTURE */} 
-    {/* CORE_STATIC_SCHEMA_BYPASS_START */} 
-    {(() => { 
+  {/* ── ACHIEVEMENTS ── */} 
+  <section className="py-20 bg-secondary"> 
+    <div className="container mx-auto px-4 lg:px-8"> 
+      {/* Heading Title Block */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h2 className="font-heading text-4xl md:text-5xl text-white font-bold mb-4">Our Recent Achievements</h2>
+        <p className="text-white/80 text-lg">Celebrating the milestones, academic triumphs, and sports victories of our outstanding students.</p>
+      </div>
+    </div> 
+  </section> 
+
+  {/* Responsive 3-Column Image Grid Container */} 
+  <section className="py-12 bg-background">
+    <div className="container mx-auto px-4 lg:px-8">
+      <motion.div 
+        initial="hidden" 
+        whileInView="visible" 
+        viewport={{ once: true }} 
+        variants={stagger} 
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full" 
+      > 
+        {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER, COMPRESS, OR DELETE THIS INLINE ARRAY STRUCTURE */} 
+        {/* CORE_STATIC_SCHEMA_BYPASS_START */} 
+        {(() => { 
     const galleryImages = [ 
       { id: 1, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" }, 
       { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" }, 
@@ -466,55 +474,55 @@ export default function HomePage() {
       { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" }, 
       { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" } 
     ]; 
-   {/* CORE_STATIC_SCHEMA_BYPASS_END */} 
-      {/* AI_GUARDRAIL_SYSTEM_LOCK_END */} 
+    {/* CORE_STATIC_SCHEMA_BYPASS_END */} 
+          {/* AI_GUARDRAIL_SYSTEM_LOCK_END */} 
 
-      // Pure JS Event handlers to open modal seamlessly bypassing React state limits 
-      const handleCardClick = (src: any, label: any) => { 
-        if (typeof document === 'undefined') return; 
-        const modal = document.getElementById('global-gallery-modal'); 
-        const modalImg = document.getElementById('global-gallery-modal-img') as any; 
-        const modalTxt = document.getElementById('global-gallery-modal-txt'); 
-        if (modal && modalImg && modalTxt) { 
-          modalImg.src = src; 
-          modalTxt.innerText = label; 
-          modal.style.display = 'flex'; 
-        } 
-      }; 
+          const handleCardClick = (src: any, label: any) => { 
+            if (typeof document === 'undefined') return; 
+            const modal = document.getElementById('global-gallery-modal'); 
+            const modalImg = document.getElementById('global-gallery-modal-img') as any; 
+            const modalTxt = document.getElementById('global-gallery-modal-txt'); 
+            if (modal && modalImg && modalTxt) { 
+              modalImg.src = src; 
+              modalTxt.innerText = label; 
+              modal.style.display = 'flex'; 
+            } 
+          }; 
 
-      return ( 
-        <> 
-          {/* Grid Mapping Output */} 
-          {galleryImages && galleryImages.map((img: any) => ( 
-            <motion.div 
-              key={img?.id} 
-              variants={fadeUp} 
-              onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
-              className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer" 
-            > 
-              <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-                <img 
-                  src={img?.src || ''} 
-                  alt={img?.label || 'Gallery Image'} 
-                  style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
-                  className="transition-transform duration-300 group-hover:scale-105" 
-                /> 
-              </div>
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <p className="text-white text-sm font-medium">{img?.label || ''}</p>
-              </div>
-            </motion.div> 
-          ))} 
-        </>
-      ); 
-    })()}
-  </motion.div>
+          return ( 
+            <> 
+              {/* Grid Mapping Output */} 
+              {galleryImages && galleryImages.map((img: any) => ( 
+                <motion.div 
+                  key={img?.id} 
+                  variants={fadeUp} 
+                  onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
+                  className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer" 
+                > 
+                  <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+                    <img 
+                      src={img?.src || ''} 
+                      alt={img?.label || 'Gallery Image'} 
+                      style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
+                      className="transition-transform duration-300 group-hover:scale-105" 
+                	/> 
+                  </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <p className="text-white text-sm font-medium">{img?.label || ''}</p>
+                  </div>
+                </motion.div> 
+              ))} 
+            </>
+          ); 
+        })()}
+      </motion.div>
+    </div>
+  </section>
 
   {/* ── ENROLLMENT CTA ── */} 
   <section className="py-20 bg-background overflow-hidden"> 
     <div className="container mx-auto px-4 lg:px-8"> 
       <div className="relative bg-secondary rounded-2xl overflow-hidden"> 
-        {/* Gold accent bars */} 
         <div className="absolute top-0 left-0 right-0 h-1 bg-primary" /> 
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
         
