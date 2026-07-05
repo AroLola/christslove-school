@@ -77,36 +77,6 @@ function processDirectory(directory) {
                 content = content.replace(/\/assets\/Media\/pages-home-values-c9779bb4\.jpg/g, '/assets/media/pages-home-values-a45fcfc4.jpg');
             }
 
-            // 7. PRECISION STAFF REPAIR: Fixes placeholders explicitly without touching real image assets
-            const lowerFile = file.toLowerCase();
-            if (lowerFile.includes('about') || lowerFile.includes('staff') || lowerFile.includes('index')) {
-                
-                // Target absolute exact broken placeholder string paths wrapped cleanly inside their quotes
-                const brokenRootPatternDouble = /"https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school"/g;
-                const brokenRootPatternSingle = /'https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school'/g;
-                
-                const globalPlaceholderLogo = '"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"';
-
-                // Safely assign global fallback logo to any profile that has absolutely no extension parameter
-                content = content.replace(brokenRootPatternDouble, globalPlaceholderLogo);
-                content = content.replace(brokenRootPatternSingle, globalPlaceholderLogo);
-
-                // Specific Real Photo Upgrades for Jequiline and Maria
-                if (content.includes('JEQUILINE')) {
-                    content = content.replace(
-                        /(JEQUILINE\s+LIVIMBA[\s\S]*?imageUrl:\s*["'])\/assets\/media\/layouts-footer-christs-love-christian-school-2658fcbe\.png(["'])/i,
-                        `$1/assets/media/jequiline-livimba.jpg$2`
-                    );
-                }
-
-                if (content.includes('MARIA')) {
-                    content = content.replace(
-                        /(MARIA\s+O\.\s+AUKHUMES[\s\S]*?imageUrl:\s*["'])\/assets\/media\/layouts-footer-christs-love-christian-school-2658fcbe\.png(["'])/i,
-                        `$1/assets/media/maria-aukhumes.jpg$2`
-                    );
-                }
-            }
-
             // Save modifications cleanly
             if (content !== originalContent) {
                 fs.writeFileSync(fullPath, content, 'utf8');
@@ -116,6 +86,6 @@ function processDirectory(directory) {
     });
 }
 
-console.log('Running final asset sync loop with integrated placeholder parameters...');
+console.log('Running final asset sync loop...');
 processDirectory(PAGES_DIR);
 console.log('Processing complete.');
