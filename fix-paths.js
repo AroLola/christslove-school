@@ -95,6 +95,19 @@ function processDirectory(directory) {
   });
 }
 
+// 7. TARGETED STAFF PLACEHOLDER REPAIR: Swaps broken extensionless footer domain strings with your verified footer asset
+if (file.toLowerCase().includes('about') || file.toLowerCase().includes('staff') || file.toLowerCase().includes('index') || file.toLowerCase().includes('home')) {
+  content = content.replace(
+    /imageUrl:\s*["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g,
+    'imageUrl: "/media/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg"'
+  );
+  // Fallback catcher for alternative quotes or formatting variations
+  content = content.replace(
+    /["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g,
+    '"/media/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg"'
+  );
+}
+
 console.log('Running final global cloud asset domain realignment...');
 processDirectory(PAGES_DIR);
 console.log('Processing complete.');
