@@ -344,26 +344,28 @@ export default function AboutPage() {
     // 1. DEFAULT IMAGE PATH: Keep the original asset URL
     let finalImageUrl = member?.imageUrl || '';
 
-    // 2. STAGE REPLACEMENTS BY CHECKING THE EXACT BROKEN DIRECTORY
+    // 2. LOGO GROUP & CUSTOM PHOTO REPLACEMENTS
     if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts')) {
       if (displayName === 'JEQUILINE LIVIMBA') {
-        // Points directly to her active live file inside Airo's scrambled gallery architecture
         finalImageUrl = "https://airoapp.ai";
       } else if (displayName === 'MARIA O. AUKHUMES') {
-        // Points directly to her active live file inside Airo's scrambled gallery architecture
         finalImageUrl = "https://airoapp.ai";
       } else {
-        // The remaining 11 broken profiles get the local school logo placeholder
+        // The remaining broken profiles get the local school logo placeholder
         finalImageUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
       }
     }
 
+    // 3. BULLETPROOF INITIALS ENGINE: Safe from array split errors
+    const nameParts = displayName.split(' ');
+    const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
+    const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
+
     return (
       <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-          <span class="text-secondary-foreground font-heading font-bold text-lg"> 
-            {/* Your completely original initials code block */}
-            {`${member.name.split(' ')?.charAt(0)}${member.name.split(' ').pop()?.charAt(0)}`} 
+        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+          <span className="text-secondary-foreground font-heading font-bold text-lg"> 
+            {`${firstInitial}${lastInitial}`} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
@@ -375,8 +377,6 @@ export default function AboutPage() {
 </motion.div> 
 </div> 
 </section>
-
-
 
 
           {/* ── CTA ── */}
