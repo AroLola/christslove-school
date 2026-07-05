@@ -18,7 +18,7 @@ function processDirectory(directory) {
       let content = fs.readFileSync(fullPath, 'utf8');
       let originalContent = content;
 
-      // 1. Direct Swap: Point the Header Logo to the true, verified media folder asset path
+      // 1. Direct Swap: Keep your working Header Logo perfectly intact
       content = content.replace(
         /src=["']\/airo-assets\/images\/layouts\/header\/christs-love-christian-school[^"']*?["']/g,
         'src="/media/layouts-header-christs-love-christian-school-aea019d4.jpg"'
@@ -28,39 +28,42 @@ function processDirectory(directory) {
         '"/media/layouts-header-christs-love-christian-school-aea019d4.jpg"'
       );
 
-      // 2. Point the Footer Logo to the true, verified media folder asset path
-      if (file.toLowerCase().includes('footer')) {
-        if (!content.includes('layouts-footer-christs-love-christian-school-7f9e259a.jpg')) {
-          if (content.includes('/airo-assets/images/layouts/footer/')) {
-            content = content.replace(
-              /src=["']\/airo-assets\/images\/layouts\/footer\/[^"']*?["']/g,
-              'src="/media/layouts-footer-christs-love-christian-school-7f9e259a.jpg"'
-            );
-          } else {
-            content = content.replace(/(<\/footer>)/i, `
-              <div id="restored-footer-logo" className="flex justify-center items-center pb-6 border-b border-white/10 mb-6">
-                <img src="/media/layouts-footer-christs-love-christian-school-7f9e259a.jpg" alt="Christ's Love Christian School Footer Logo" className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" />
-              </div>
-              $1
-            `);
-          }
-        }
-      }
-
-      // 3. TARGETED COMMUNITY IMAGE FIX: Target ONLY the extensionless path inside the Our Community block
+      // 2. Targeted Community Image Fix: Keep your working Our Community photo intact
       content = content.replace(
         /\/airo-assets\/images\/pages\/home\/students-enjoying-community-time-at-chri-2/g,
         '/assets/media/pages-home-faith-and-learning-at-christs-love-chris-b8f78293.jpg'
       );
 
+      // 3. ADVANCED FOOTER RESTORATION: Wipe old centered containers and build a left-justified row layout
+      if (file.toLowerCase().includes('footer')) {
+        // Strip out previous script injections to prevent duplicates
+        content = content.replace(/<div id="restored-footer-logo"[\s\S]*?<\/div>/g, '');
+        
+        // Find the "Nurturing minds..." text block. We will wrap it inside a flex container with the new logo placed to its left.
+        if (content.includes('Nurturing minds')) {
+          // This expression captures the parent tag block wrapping the wording and structures the horizontal flex layout
+          content = content.replace(
+            /([<][p|div][^>]*?>\s*Nurturing minds[\s\S]*?<\/[p|div]>)/i,
+            `<div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
+              <img 
+                src="/media/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg" 
+                alt="Christ's Love Christian School Footer Logo" 
+                className="h-14 w-auto object-contain shrink-0" 
+              />
+              <div className="flex-1">$1</div>
+            </div>`
+          );
+        }
+      }
+
       if (content !== originalContent) {
         fs.writeFileSync(fullPath, content, 'utf8');
-        console.log(`[Targeted Repair] Placed Faith & Learning photo into Our Community section for: ${file}`);
+        console.log(`[Footer Relocated & Left-Justified] Updated code variables inside: ${file}`);
       }
     }
   });
 }
 
-console.log('Running targeted community layout replacements...');
+console.log('Running left-justified footer alignment script...');
 processDirectory(PAGES_DIR);
 console.log('Alignment processing complete.');
