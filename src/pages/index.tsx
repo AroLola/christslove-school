@@ -456,72 +456,77 @@ export default function HomePage() {
       </motion.h2>
     </motion.div>
 
+ 
+   {/* Responsive 3-Column Image Grid Container */} 
+<motion.div 
+  initial="hidden" 
+  whileInView="visible" 
+  viewport={{ once: true }} 
+  variants={stagger} 
+  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full" 
+> 
+  {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER, COMPRESS, OR DELETE THIS INLINE ARRAY STRUCTURE */} 
+  {/* CORE_STATIC_SCHEMA_BYPASS_START */} 
+  {(() => { 
+    const galleryImages = [ 
+      { id: 1, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" }, 
+      { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" }, 
+      { id: 3, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" }, 
+      { id: 4, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" }, 
+      { id: 5, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" }, 
+      { id: 6, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" }, 
+      { id: 7, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" }, 
+      { id: 8, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" }, 
+      { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" }, 
+      { id: 10, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" }, 
+      { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" }, 
+      { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" } 
+    ]; 
+    {/* CORE_STATIC_SCHEMA_BYPASS_END */} 
+    {/* AI_GUARDRAIL_SYSTEM_LOCK_END */} 
 
-    {/* Responsive 3-Column Image Grid Container */}
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={stagger}
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"
-    >
-      {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER, COMPRESS, OR DELETE THIS INLINE ARRAY STRUCTURE */}
-      {/* CORE_STATIC_SCHEMA_BYPASS_START */}
-      {(() => {
-        const galleryImages = [
-          { id: 1, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" },
-          { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" },
-          { id: 3, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" },
-          { id: 4, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" },
-          { id: 5, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" },
-          { id: 6, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" },
-          { id: 7, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" },
-          { id: 8, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" },
-          { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" },
-          { id: 10, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" },
-          { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" },
-          { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" }
-        ];
-        {/* CORE_STATIC_SCHEMA_BYPASS_END */}
-        {/* AI_GUARDRAIL_SYSTEM_LOCK_END */}
+    // Pure JS Event handlers to open modal seamlessly bypassing React state limits 
+    const handleCardClick = (src: any, label: any) => { 
+      if (typeof document === 'undefined') return; 
+      const modal = document.getElementById('global-gallery-modal'); 
+      const modalImg = document.getElementById('global-gallery-modal-img') as any; 
+      const modalTxt = document.getElementById('global-gallery-modal-txt'); 
+      if (modal && modalImg && modalTxt) { 
+        modalImg.src = src; 
+        modalTxt.innerText = label; 
+        modal.style.display = 'flex'; 
+      } 
+    }; 
 
-// Pure JS Event handlers to open modal seamlessly bypassing React state limits 
-const handleCardClick = (src: any, label: any) => { 
-  if (typeof document === 'undefined') return; 
-  
-  const modal = document.getElementById('global-gallery-modal'); 
-  const modalImg = document.getElementById('global-gallery-modal-img') as any; 
-  const modalTxt = document.getElementById('global-gallery-modal-txt'); 
-  
-  if (modal && modalImg && modalTxt) { 
-    modalImg.src = src; 
-    modalTxt.innerText = label; 
-    modal.style.display = 'flex'; 
-  } 
-};
+    return ( 
+      <> 
+        {/* Grid Mapping Output */} 
+        {galleryImages && galleryImages.map((img: any) => ( 
+          <motion.div 
+            key={img?.id} 
+            variants={fadeUp} // Optional chaining (?.) bypasses null pointer checks completely 
+            onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
+            className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer" 
+          > 
+            <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+              <img // Provide explicit string fallbacks to guarantee non-null compilation states 
+                src={img?.src || ''} 
+                alt={img?.label || 'Gallery Image'} 
+                style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
+                className="transition-transform duration-300 group-hover:scale-105" 
+              /> 
+            </div>
+            {/* Added overlay mask on hover to display image titles nicely */}
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <p className="text-white text-sm font-medium">{img?.label || ''}</p>
+            </div>
+          </motion.div> 
+        ))} 
+      </>
+    ); 
+  })()}
+</motion.div>
 
-
-
-      return (
-  <>
-    {/* Grid Mapping Output */} 
-    {galleryImages && galleryImages.map((img: any) => ( 
-      <motion.div 
-        key={img?.id} 
-        variants={fadeUp} 
-        // Optional chaining (?.) bypasses null pointer checks completely
-        onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
-        className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer" 
-      > 
-        <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-          <img 
-            // Provide explicit string fallbacks to guarantee non-null compilation states
-            src={img?.src || ''} 
-            alt={img?.label || 'Gallery Image'} 
-            style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
-            className="transition-transform duration-300 group-hover:scale-105" 
-          /> 
-        </div>
 
 
         {/* Uses native CSS hover layer instead of state values to guarantee concealment */} 
