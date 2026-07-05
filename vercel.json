@@ -1,28 +1,20 @@
 {
   "$schema": "https://vercel.sh",
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { 
-      "source": "/api/(.*)", 
-      "destination": "/api/$1" 
+  "builds": [
+    {
+      "src": "src/server/entry.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "src/server/entry.ts"
     },
-    { 
-      "source": "/assets/media/pages-home-values-c9779bb4.jpg", 
-      "destination": "/assets/media/pages-home-values-c9779bb4.jpg" 
-    },
-    { 
-      "source": "/airo-assets/uploads/pages-home-values-c9779bb4.jpg", 
-      "destination": "/assets/media/pages-home-values-c9779bb4.jpg" 
-    },
-    { 
-      "source": "/assets/(.*)", 
-      "destination": "/assets/$1" 
-    },
-    { 
-      "source": "/(.*)", 
-      "destination": "/index.html" 
+    {
+      "src": "/(.*)",
+      "dest": "src/server/entry.ts"
     }
   ]
 }
