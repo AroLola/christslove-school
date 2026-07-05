@@ -95,29 +95,18 @@ function processDirectory(directory) {
   });
 }
  
- // 7. TARGETED PROFILE REPAIR (Batch 1): Replace specific broken URLs for Jequiline and Maria
+// 7. UNIVERSAL STAFF PLACEHOLDER REPAIR: Fixes all profiles sharing the broken footer link
 if (typeof file !== 'undefined' && (file.toLowerCase().includes('about') || file.toLowerCase().includes('staff') || file.toLowerCase().includes('index'))) {
     
-    // Broken link target from your script configuration
-    const brokenAiroUrl = "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school";
+    // Exact broken URL string causing the broken image box
+    const targetBrokenUrl = "https://christslovechristianschool.info";
     
-    // New local replacement path relative to Vercel's public build output folder
-    const localPlaceholder = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
+    // Your verified local logo file path
+    const targetLocalLogo = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
 
-    // Targets Jequiline's object block cleanly by checking her name and substituting the broken string
-    if (content.includes('JEQUILINE LIVIMBA')) {
-        content = content.replace(
-            /(name:\s*['"]JEQUILINE\s+LIVIMBA['"][\s\S]*?imageUrl:\s*)["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g,
-            `$1"${localPlaceholder}"`
-        );
-    }
-
-    // Targets Maria's object block cleanly by checking her name and substituting the broken string
-    if (content.includes('MARIA O. AUKHUMES')) {
-        content = content.replace(
-            /(name:\s*['"]MARIA\s+O\.\s+AUKHUMES['"][\s\S]*?imageUrl:\s*)["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g,
-            `$1"${localPlaceholder}"`
-        );
+    // Perform a global split-and-join to instantly replace every single occurrence in the file
+    if (content.includes(targetBrokenUrl)) {
+        content = content.split(targetBrokenUrl).join(targetLocalLogo);
     }
 }
 
