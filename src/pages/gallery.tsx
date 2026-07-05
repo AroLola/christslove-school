@@ -1,4 +1,6 @@
- import { useState, useEffect, useCallback, useRef } from 'react';
+"use client";
+
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -7,19 +9,7 @@ import {
 } from 'lucide-react';
 
 
-
-
-
-
-
-
 const site = 'https://christslovechristianschool.info';
-
-
-
-
-
-
 
 
 type MediaItem = { id: string; src: string; caption?: string };
@@ -28,22 +18,10 @@ type GalleryData = { photoEvents: EventSection[]; videoEvents: EventSection[] };
 type Tab = 'photos' | 'videos';
 
 
-
-
-
-
-
-
 async function fetchGallery(): Promise<GalleryData> {
-  const res = await fetch('/api/gallery');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || ''}/api/gallery`);
   return res.json();
 }
-
-
-
-
-
-
 
 
 async function mutateGallery(body: object): Promise<GalleryData> {
@@ -56,23 +34,11 @@ async function mutateGallery(body: object): Promise<GalleryData> {
 }
 
 
-
-
-
-
-
-
 async function uploadFile(file: File): Promise<string> {
   // Use FormData for multipart upload — avoids JSON body size limits
   const formData = new FormData();
   formData.append('file', file);
   formData.append('filename', file.name);
-
-
-
-
-
-
 
 
   const res = await fetch('/api/gallery/upload-form', {
