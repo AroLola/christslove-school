@@ -336,104 +336,60 @@ export default function AboutPage() {
             </motion.p>
           </motion.div>
 
+<motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+  {staff.map((member) => {
+    const displayName = member?.name || '';
+    const displayRole = member?.role || '';
+    const upperName = displayName.toUpperCase();
 
-{(() => {
-  // 1. SAFE ARRAY FILTERING WITH COMPREHENSIVE NULL CHECKS
-  const staffWithPics = staff.filter(member => {
-    if (!member) return false;
-    const upperName = (member.name || '').toUpperCase();
-    
-    // Explicitly exclude Jequiline and Maria from Loop 1 so they fall into Loop 2
-    if (upperName.includes('JEQUILINE') || upperName.includes('MARIA')) {
-      return false;
+    // 1. DEFAULT IMAGE PATH: Keep the original asset url
+    let finalImageUrl = member?.imageUrl || '';
+
+    // 2. ASSIGN REAL PHOTOS OR FALLBACK LOGOS TO THE BROKEN PATH GROUP
+    // If the path points to the broken layout directory or is missing an extension:
+    if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts') || !finalImageUrl.includes('.')) {
+      if (upperName.includes('JEQUILINE')) {
+        // Assign Jequiline's real uploaded photo
+        finalImageUrl = "/assets/media/jequiline-livimba.jpg";
+      } else if (upperName.includes('MARIA')) {
+        // Assign Maria's real uploaded photo
+        finalImageUrl = "/assets/media/maria-aukhumes.jpg";
+      } else {
+        // Assign the school logo placeholder to the remaining 11 broken profiles
+        finalImageUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
+      }
     }
-    
-    // Match only true working profiles utilizing the live mirror paths
-    return typeof member.imageUrl === 'string' && (
-      member.imageUrl.includes('uploads/gallery') || 
-      member.imageUrl.includes('airoapp.ai')
+
+    // 3. SAFE INITIALS CALCULATOR
+    const nameParts = displayName.split(' ');
+    const firstInitial = nameParts[0]?.charAt(0) || '';
+    const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1]?.charAt(0) : '';
+
+    return (
+      <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
+        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+          <span className="text-secondary-foreground font-heading font-bold text-lg"> 
+            {`${firstInitial}${lastInitial}`}
+          </span> 
+        </div> 
+        <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
+        <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{displayRole}</p> 
+        <img 
+          src={finalImageUrl} 
+          alt={displayName} 
+          className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" 
+          onError={(e) => {
+            // Safe fallback if an image doesn't load on the live server
+            e.currentTarget.src = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
+          }}
+        /> 
+      </motion.div>
     );
-  });
-
-  const staffWithLogos = staff.filter(member => {
-    if (!member) return true;
-    const upperName = (member.name || '').toUpperCase();
-    
-    // Explicitly include Jequiline and Maria in the custom/placeholder loop
-    if (upperName.includes('JEQUILINE') || upperName.includes('MARIA')) {
-      return true;
-    }
-    
-    return typeof member.imageUrl !== 'string' || (
-      !member.imageUrl.includes('uploads/gallery') && 
-      !member.imageUrl.includes('airoapp.ai')
-    );
-  });
-
-  return (
-    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
-      
-      {/* LOOP 1: FOR GENUINE PROFILES WITH LIVE STORAGE PICTURES */}
-      {staffWithPics.map((member) => {
-        const displayName = member?.name || 'Staff Member';
-        const displayRole = member?.role || 'Educator';
-        const rawUrl = member?.imageUrl || '';
-        const nameParts = displayName.split(' ');
-        const firstInit = nameParts[0]?.charAt(0) || '';
-        const lastInit = nameParts.length > 1 ? nameParts[nameParts.length - 1]?.charAt(0) : '';
-
-        return (
-          <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-            <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-              <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-                {`${firstInit}${lastInit}`} 
-              </span> 
-            </div> 
-            <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
-            <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{displayRole}</p> 
-            <img src={rawUrl} alt={displayName} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> 
-          </motion.div>
-        );
-      })}
-
-      {/* LOOP 2: FOR PROFILES REQUIRING LOCAL LOGO PLACEHOLDERS & CUSTOM UPLOADS */}
-      {staffWithLogos.map((member) => {
-        const displayName = member?.name || 'Staff Member';
-        const displayRole = member?.role || 'Educator';
-        const nameParts = displayName.split(' ');
-        const firstInit = nameParts[0]?.charAt(0) || '';
-        const lastInit = nameParts.length > 1 ? nameParts[nameParts.length - 1]?.charAt(0) : '';
-
-        // Universal school logo placeholder fallback path
-        let cleanUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-        const upperName = displayName.toUpperCase();
-        
-        // Exact string overrides to inject your custom photo assets
-        if (upperName.includes('JEQUILINE')) {
-          cleanUrl = "/assets/media/jequiline-livimba.jpg";
-        } else if (upperName.includes('MARIA')) {
-          cleanUrl = "/assets/media/maria-aukhumes.jpg";
-        }
-
-        return (
-          <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-            <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-              <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-                {`${firstInit}${lastInit}`} 
-              </span> 
-            </div> 
-            <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
-            <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{displayRole}</p> 
-            <img src={cleanUrl} alt={displayName} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> 
-          </motion.div>
-        );
-      })}
-
-    </motion.div>
-  );
-})()}
+  })}
+</motion.div> 
 </div> 
 </section>
+
 
 
 
