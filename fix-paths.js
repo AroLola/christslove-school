@@ -95,20 +95,30 @@ function processDirectory(directory) {
   });
 }
  
-// 7. DYNAMIC STAFF OBJECT REPAIR: Catch and fix malformed profile objects
+// 7. AGGRESSIVE PROFILE REPAIR: Target by name and rewrite the next imageUrl field
 if (typeof file !== 'undefined' && (file.toLowerCase().includes('about') || file.toLowerCase().includes('staff') || file.toLowerCase().includes('index'))) {
     
-    // Target the specific array blocks to prevent interference with layout elements
-    if (content.includes('staff') || content.includes('teachers')) {
-        
-        // Match the broken layout path whether it uses single or double quotes
-        const malformedUrlPattern = /["']https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school["']/g;
-        const freshPlaceholder = '"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"';
-        
-        // Inject a forced property overwrite for any object field mapping to the missing asset
-        content = content.replace(malformedUrlPattern, freshPlaceholder);
+    const localLogo = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
+
+    // 1. Fix Jequiline Livimba
+    if (content.includes('JEQUILINE')) {
+        // Matches the name, skips any spaces/lines, finds imageUrl, and replaces its value completely
+        content = content.replace(
+            /(JEQUILINE\s+LIVIMBA[\s\S]*?imageUrl:\s*["']).*?([\s\S]*?["'])/i,
+            `$1${localLogo}$2`
+        );
+    }
+
+    // 2. Fix Maria O. Aukhumes
+    if (content.includes('MARIA')) {
+        // Matches the name, skips any spaces/lines, finds imageUrl, and replaces its value completely
+        content = content.replace(
+            /(MARIA\s+O\.\s+AUKHUMES[\s\S]*?imageUrl:\s*["']).*?([\s\S]*?["'])/i,
+            `$1${localLogo}$2`
+        );
     }
 }
+
 
 console.log('Running final asset sync loop with integrated placeholder parameters...');
 processDirectory(PAGES_DIR);
