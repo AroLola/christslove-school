@@ -498,142 +498,53 @@ export default function HomePage() {
       } 
     }; 
 
-    return ( 
-      <> 
-        {/* Grid Mapping Output */} 
-        {galleryImages && galleryImages.map((img: any) => ( 
-          <motion.div 
-            key={img?.id} 
-            variants={fadeUp} // Optional chaining (?.) bypasses null pointer checks completely 
-            onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
-            className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer" 
-          > 
-            <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-              <img // Provide explicit string fallbacks to guarantee non-null compilation states 
-                src={img?.src || ''} 
-                alt={img?.label || 'Gallery Image'} 
-                style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
-                className="transition-transform duration-300 group-hover:scale-105" 
-              /> 
+              return (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 w-full col-span-full">
+              {schoolFlyers.map((flyer: any) => (
+                <motion.div
+                  key={flyer?.id}
+                  variants={fadeUp}
+                  onClick={() => handleFlyerClick(flyer?.src || '', flyer?.label || '')}
+                  className="group relative flex flex-col items-center justify-center overflow-hidden rounded-xl bg-secondary border border-secondary-foreground/10 p-4 w-full h-[450px] sm:h-[500px] md:h-[550px] cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
+                    <img src={flyer?.src || ''} alt={flyer?.label || 'School Flyer'} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-[1.02]" />
+                  </div>
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 z-10 pointer-events-none">
+                    <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider">
+                      <span>Click to view full flyer</span>
+                    </div>
+                    <p className="text-white font-medium text-base text-center bg-black/40 border border-white/10 px-4 py-2 rounded-lg backdrop-blur-sm w-full transform translate-y-2 transition-transform duration-300 group-hover:translate-y-0">
+                      {flyer?.label || 'School Flyer'}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            {/* Added overlay mask on hover to display image titles nicely */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-              <p className="text-white text-sm font-medium">{img?.label || ''}</p>
-            </div>
-          </motion.div> 
-        ))} 
-      </>
-    ); 
-  })()}
-</motion.div>
-
-
-
-        {/* Uses native CSS hover layer instead of state values to guarantee concealment */} 
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10 pointer-events-none"> 
-          <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
-            <span>Click to expand</span> 
-          </div> 
-          <p className="text-white font-medium text-sm truncate w-full transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0"> 
-            {img?.label || ''} 
-          </p> 
-        </div> 
-      </motion.div> 
-    ))}
-
-
-        {/* DOM-Isolated Full-Screen Expansion Frame */} 
-    <div 
-      id="global-gallery-modal" 
-      onClick={() => { 
-        const modal = document.getElementById('global-gallery-modal');
-        if (modal) modal.style.display = 'none';
-      }} 
-      className="fixed inset-0 bg-black/95 z-[9999] flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
-      style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
-    > 
-      {/* Image Container */} 
-      <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
-        <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
-        <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
-      </div>
-
-      {/* Lightbox Close Button */}
-      <button 
-        onClick={(e) => {
-          e.stopPropagation();
-          const modal = document.getElementById('global-gallery-modal');
-          if (modal) modal.style.display = 'none';
-        }}
-        className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg"
-      >
-        &#x2715;
-      </button>
+          );
+        })()}
+      </motion.div>
     </div>
-  </>
-);
+  </section>
 
-// Close out the parent section layout structures that were left open
-      </div>
-    </section>
-  );
-};
-
-export default HomePage;
-
-
-      {/* ── ENROLLMENT CTA ── */}
-      <section className="py-20 bg-background overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="relative bg-secondary rounded-2xl overflow-hidden">
-            {/* Gold accent bar */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
-
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-              <div className="p-12 lg:p-16">
-                <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">
-                  Admissions Open
-                </p>
-                <h2 className="font-heading text-4xl md:text-5xl text-secondary-foreground mb-6 leading-tight">
-                  Begin Your Child's Journey in Faith
-                </h2>
-                <p className="text-secondary-foreground/70 text-lg leading-relaxed mb-8">
-                  We welcome families who share our commitment to faith, learning, and community. Spaces are limited — apply today to secure your child's place.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link
-                    to="/admissions"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors">
-                   
-                    Apply Now <ChevronRight size={18} />
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-secondary-foreground/30 text-secondary-foreground font-semibold rounded hover:border-primary hover:text-primary transition-colors">
-                   
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-
-
-              {/* Decorative side */}
-              <div className="hidden lg:flex items-center justify-center p-16 bg-secondary-foreground/5">
-                <div className="text-center">
-                  <div className="font-heading text-8xl text-primary/20 font-bold leading-none mb-2">K–7</div>
-                  <p className="text-secondary-foreground/50 text-sm tracking-widest uppercase">Kindergarten through Grade 7</p>
-                  <div className="mt-6 w-16 h-0.5 bg-primary mx-auto" />
-                  <p className="mt-4 text-secondary-foreground/40 text-xs italic">"Train up a child in the way he should go…"</p>
-                  <p className="text-primary/60 text-xs">Proverbs 22:6</p>
-                </div>
-              </div>
-            </div>
-          </div>
+  {/* ── ENROLLMENT CTA ── */} 
+  <section className="py-20 bg-background overflow-hidden"> 
+    <div className="container mx-auto px-4 lg:px-8"> 
+      <div className="relative bg-secondary rounded-2xl overflow-hidden"> 
+        {/* Gold accent bars */} 
+        <div className="absolute top-0 left-0 right-0 h-1 bg-primary" /> 
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
+        
+        {/* Inside content goes here */}
+        <div className="p-8 md:p-12 text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-white mb-4">Start Your Child's Journey with CLCS</h2>
+          <p className="text-white/80 mb-6">Partner with us to build a strong spiritual and academic foundation.</p>
         </div>
-      </section>
-    </>);
+      </div>
+    </div>
+  </section>
+</>
+);
+} // <--- This curly bracket safely closes your entire HomePage component function!
 
-
-}
+export default HomePage; // <--- The single default export statement remains at the absolute bottom
