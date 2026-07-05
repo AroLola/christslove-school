@@ -77,23 +77,21 @@ function processDirectory(directory) {
                 content = content.replace(/\/assets\/Media\/pages-home-values-c9779bb4\.jpg/g, '/assets/media/pages-home-values-a45fcfc4.jpg');
             }
 
-                        // 7. PRECISION STAFF REPAIR: Fixes placeholders explicitly without touching real image assets
+            // 7. PRECISION STAFF REPAIR: Fixes placeholders explicitly without touching real image assets
             const lowerFile = file.toLowerCase();
             if (lowerFile.includes('about') || lowerFile.includes('staff') || lowerFile.includes('index')) {
                 
-                // 1. Target the absolute exact broken placeholder string (with ending quote boundaries)
-                // This ensures that strings ending in .jpg or .png are ignored entirely!
+                // Target absolute exact broken placeholder string paths wrapped cleanly inside their quotes
                 const brokenRootPatternDouble = /"https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school"/g;
                 const brokenRootPatternSingle = /'https:\/\/christslovechristianschool\.info\/airo-assets\/images\/layouts\/footer\/christs-love-christian-school'/g;
                 
                 const globalPlaceholderLogo = '"/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"';
 
-                // Apply global fallback logo to any profile that has absolutely no image path extension
+                // Safely assign global fallback logo to any profile that has absolutely no extension parameter
                 content = content.replace(brokenRootPatternDouble, globalPlaceholderLogo);
                 content = content.replace(brokenRootPatternSingle, globalPlaceholderLogo);
 
-                // 2. Specific Real Photo Upgrades for Jequiline and Maria
-                // This manually swaps their logo placeholders out for the real files you uploaded
+                // Specific Real Photo Upgrades for Jequiline and Maria
                 if (content.includes('JEQUILINE')) {
                     content = content.replace(
                         /(JEQUILINE\s+LIVIMBA[\s\S]*?imageUrl:\s*["'])\/assets\/media\/layouts-footer-christs-love-christian-school-2658fcbe\.png(["'])/i,
@@ -109,6 +107,14 @@ function processDirectory(directory) {
                 }
             }
 
+            // Save modifications cleanly
+            if (content !== originalContent) {
+                fs.writeFileSync(fullPath, content, 'utf8');
+                console.log(`[Pristine Realignment Output] Modified assets inside: ${file}`);
+            }
+        }
+    });
+}
 
 console.log('Running final asset sync loop with integrated placeholder parameters...');
 processDirectory(PAGES_DIR);
