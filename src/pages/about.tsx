@@ -340,56 +340,40 @@ export default function AboutPage() {
   {staff.map((member) => {
     const displayName = member?.name || '';
     const displayRole = member?.role || '';
-    const upperName = displayName.toUpperCase();
 
-    // 1. DEFAULT IMAGE PATH: Keep the original asset url
+    // 1. DEFAULT IMAGE PATH: Keep the original asset URL
     let finalImageUrl = member?.imageUrl || '';
 
-    // 2. ASSIGN REAL PHOTOS OR FALLBACK LOGOS TO THE BROKEN PATH GROUP
-    // If the path points to the broken layout directory or is missing an extension:
-    if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts') || !finalImageUrl.includes('.')) {
-      if (upperName.includes('JEQUILINE')) {
-        // Assign Jequiline's real uploaded photo
+    // 2. LOGO GROUP & CUSTOM PHOTO REPLACEMENTS
+    // Only intercept if the image points to the broken layout footer directory
+    if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts')) {
+      if (displayName === 'JEQUILINE LIVIMBA') {
         finalImageUrl = "/assets/media/jequiline-livimba.jpg";
-      } else if (upperName.includes('MARIA')) {
-        // Assign Maria's real uploaded photo
+      } else if (displayName === 'MARIA O. AUKHUMES') {
         finalImageUrl = "/assets/media/maria-aukhumes.jpg";
       } else {
-        // Assign the school logo placeholder to the remaining 11 broken profiles
+        // The remaining 11 broken profiles get the local school logo placeholder
         finalImageUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
       }
     }
 
-    // 3. SAFE INITIALS CALCULATOR
-    const nameParts = displayName.split(' ');
-    const firstInitial = nameParts[0]?.charAt(0) || '';
-    const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1]?.charAt(0) : '';
-
     return (
       <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-          <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-            {`${firstInitial}${lastInitial}`}
+        <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
+          <span class="text-secondary-foreground font-heading font-bold text-lg"> 
+            {/* RESTORED ORIGINAL SYNTAX: Your working single-line initials template */}
+            {`${displayName.split(' ')?.charAt(0)}${displayName.split(' ').pop()?.charAt(0)}`} 
           </span> 
         </div> 
         <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
         <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{displayRole}</p> 
-        <img 
-          src={finalImageUrl} 
-          alt={displayName} 
-          className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" 
-          onError={(e) => {
-            // Safe fallback if an image doesn't load on the live server
-            e.currentTarget.src = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-          }}
-        /> 
+        <img src={finalImageUrl} alt={displayName} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> 
       </motion.div>
     );
   })}
 </motion.div> 
 </div> 
 </section>
-
 
 
 
