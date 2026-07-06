@@ -14,16 +14,14 @@
       "media": [
         { "id": "p-3", "src": "https://airoapp.ai", "caption": "Regional Spelling Bee Prize Winners" }
       ]
-    }
-  ],
+    },
    {
       "id": "academic-gallery-album",
       "name": "Academic Achievements",
       "media": [
         { "id": "p-4", "src": "https://airoapp.ai", "caption": "Regional Spelling Bee Prize Winners" }
       ]
-    }
-  ],
+    },
  {
     "id": "academic-gallery-album",
       "name": "Academic Achievements",
