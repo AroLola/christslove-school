@@ -1,68 +1,53 @@
-import { Helmet } from '@dr.pogodin/react-helmet';
-import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { BookOpen, Heart, Star, Users, ChevronRight, Quote } from 'lucide-react';
-import heroImage from '..public/assets/IMG_5755.jpg'"
+import { Helmet } from '@dr.pogodin/react-helmet'; 
+import { Link } from 'react-router-dom'; 
+import { motion } from 'motion/react'; 
+import { BookOpen, Heart, Star, Users, ChevronRight, Quote } from 'lucide-react'; 
+import heroImage from '../public/assets/IMG_5755.jpg'; // 1. Fixed the broken string quotes and relative file path typo
 
+const fadeUp = { 
+  hidden: { opacity: 0, y: 28 }, 
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } } 
+}; 
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } }
-};
+const stagger = { 
+  hidden: {}, 
+  visible: { transition: { staggerChildren: 0.1 } } 
+}; 
 
+const site = 'https://christslovechristianschool.info';
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } }
-};
+const gradeCards = [ 
+  { grade: 'Kindergarten', ages: 'Ages 5–6', description: 'A joyful introduction to learning through play, faith, and foundational skills in reading and numeracy.' }, 
+  { grade: 'Grade 1', ages: 'Ages 6–7', description: 'Building confidence in reading, writing, and mathematics within a nurturing Christian environment.' }, 
+  { grade: 'Grade 2', ages: 'Ages 7–8', description: 'Deepening literacy and numeracy skills while exploring God\'s world through science and social studies.' }, 
+  { grade: 'Grade 3', ages: 'Ages 8–9', description: 'Expanding critical thinking, creative writing, and a growing understanding of biblical principles.' }, 
+  { grade: 'Grade 4', ages: 'Ages 9–10', description: 'Strengthening academic foundations with increased independence and character development.' }, 
+  { grade: 'Grade 5', ages: 'Ages 10–11', description: 'Preparing students for upper grades with rigorous academics and leadership opportunities.' }, 
+  { grade: 'Grade 6', ages: 'Ages 11–12', description: 'A bridge to junior high — challenging curriculum, mentorship, and faith-centered community.' }, 
+  { grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' }
+]; 
 
-
-const gradeCards = [
-{ grade: 'Kindergarten', ages: 'Ages 5–6', description: 'A joyful introduction to learning through play, faith, and foundational skills in reading and numeracy.' },
-{ grade: 'Grade 1', ages: 'Ages 6–7', description: 'Building confidence in reading, writing, and mathematics within a nurturing Christian environment.' },
-{ grade: 'Grade 2', ages: 'Ages 7–8', description: 'Deepening literacy and numeracy skills while exploring God\'s world through science and social studies.' },
-{ grade: 'Grade 3', ages: 'Ages 8–9', description: 'Expanding critical thinking, creative writing, and a growing understanding of biblical principles.' },
-{ grade: 'Grade 4', ages: 'Ages 9–10', description: 'Strengthening academic foundations with increased independence and character development.' },
-{ grade: 'Grade 5', ages: 'Ages 10–11', description: 'Preparing students for upper grades with rigorous academics and leadership opportunities.' },
-{ grade: 'Grade 6', ages: 'Ages 11–12', description: 'A bridge to junior high — challenging curriculum, mentorship, and faith-centered community.' },
-{ grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' }];
-
-
-
-
-interface ImmutableGalleryItem {
-  readonly id: number;
-  readonly src: string;
-  readonly alt: string;
-  readonly label: string;
+interface ImmutableGalleryItem { 
+  readonly id: number; 
+  readonly src: string; 
+  readonly alt: string; 
+  readonly label: string; 
 }
 
+// 2. Opened the required HomePage function scope so that layout elements render correctly inside a valid framework return block
+export default function HomePage() { 
+  const jsonLd = { 
+    '@context': 'https://schema.org', 
+    '@graph': [ 
+      { '@type': 'WebSite', '@id': `${site}/#website`, name: "Christ's Love Christian School", url: `${site}/` }, 
+      { '@type': 'EducationalOrganization', '@id': `${site}/#organization`, name: "Christ's Love Christian School", url: `${site}/`, description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.' }, 
+      { '@type': 'WebPage', '@id': `${site}/#webpage`, url: `${site}/`, name: "Christ's Love Christian School — Faith-Centered Education K–7", isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#organization` }, datePublished: '2026-06-16', dateModified: '2026-06-16' }
+    ] 
+  };
 
-<motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={stagger}
-  className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full" // Standard 3-Column structural layout for GoDaddy validation
->
- 
-  {/* MASTER SLOT 1: Holds Images 1, 2, 3, 4 */}
-  <motion.div variants={fadeUp} className="flex flex-col gap-4 w-full">
-    {[
-      { id: 1, src: "https://media.gettyimages.com/id/2271583493/photo/women-basketball-team-gathering-in-a-motivational-huddle-in-uniform-outside.jpg", alt: "Regional Spelling Bee Wins", label: "Regional Spelling Bee", },
-      { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" },
-      { id: 3, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Prize" },
-      { id: 4, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" }
-    ].map((img) => (
-      <div key={img.id} className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-52 cursor-pointer">
-        <img src={img.src} alt={img.label} className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-between p-4">
-          <div className="flex items-center justify-end text-white/80 text-[10px] font-medium uppercase"><span>Click to expand</span></div>
-          <p className="text-white font-medium text-xs truncate w-full">{img.label}</p>
-        </div>
-      </div>
-    ))}
-  </motion.div>
+  return (
+    <>
+
 
 
   {/* MASTER SLOT 2: Holds Images 5, 6, 7, 8 */}
