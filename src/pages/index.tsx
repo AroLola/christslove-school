@@ -84,7 +84,7 @@ interface ImmutableGalleryItem {
   </motion.div>
 
 
-  {/* MASTER SLOT 3: Contains Images 9, 10, 11, 12 */}
+  {/* MASTER SLOT 3: Contains Images numbered 9, 10, 11, 12 */}
   <motion.div variants={fadeUp} className="flex flex-col gap-4 w-full">
     {[
       { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "U-13 Volleyball Champions" },
