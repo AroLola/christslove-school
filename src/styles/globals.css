@@ -1,106 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@600;700&family=Source+Sans+3:wght@400;500&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    /* Core Colors */
-    --background: 43 41% 97%;
-    --foreground: 0 0% 4%;
-    --card: 0 0% 100%;
-    --card-foreground: 221 47% 20%;
-    --popover: 43 41% 97%;
-    --popover-foreground: 0 0% 4%;
-    --primary: 45 60% 45%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 221 47% 20%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 45 29% 92%;
-    --muted-foreground: 220 14% 41%;
-    --accent: 44 54% 54%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 42 20% 83%;
-    --input: 42 20% 83%;
-    --ring: 45 60% 45%;
-
-    /* Extended Colors */
-    --chart-1: 45 61% 75%;
-    --chart-2: 45 60% 60%;
-    --chart-3: 45 60% 45%;
-    --chart-4: 45 60% 30%;
-    --chart-5: 45 61% 15%;
-
-    /* Sidebar Colors */
-    --sidebar: 45 29% 92%;
-    --sidebar-foreground: 0 0% 4%;
-    --sidebar-primary: 45 60% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 44 54% 54%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 42 20% 83%;
-    --sidebar-ring: 45 60% 45%;
-
-    /* Typography */
-    --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-heading: "Libre Baskerville", Georgia, serif;
-    --font-serif: ui-serif, Georgia, "Times New Roman", serif;
-    --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
-
-    /* Border Radius */
-    --radius: 0.5rem;
-
-    /* Shadows */
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-  }
-
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans;
+  /* Core Colors */
+  --background: 43 41% 97%;
+  --foreground: 0 0% 4%;
+  --card: 0 0% 100%;
   
-    font-family: var(--font-sans);
-  }
+  /* Richer Navy Blue (Was card-foreground, secondary, ring) */
+  --card-foreground: 221 65% 14%;       /* #0c1a3a - Deep Royal Navy */
+  --secondary: 221 65% 14%;             /* #0c1a3a - Deep Royal Navy */
+  --ring: 221 65% 14%;                  /* #0c1a3a - Deep Royal Navy */
+  --secondary-foreground: 0 0% 100%;
+  
+  /* Richer Accent Gold (Was primary, accent, ring, charts, sidebars) */
+  --primary: 38 68% 38%;                /* #a27519 - Warm Antique Gold */
+  --accent: 38 68% 38%;                 /* #a27519 - Warm Antique Gold */
+  --sidebar-primary: 38 68% 38%;        /* #a27519 - Warm Antique Gold */
+  --sidebar-ring: 38 68% 38%;           /* #a27519 - Warm Antique Gold */
+  --sidebar-accent: 38 68% 38%;          /* #a27519 - Warm Antique Gold */
+  --primary-foreground: 0 0% 100%;
+  --accent-foreground: 0 0% 100%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  
+  --popover: 43 41% 97%;
+  --popover-foreground: 0 0% 4%;
+  --muted: 45 29% 92%;
+  --muted-foreground: 220 14% 41%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 42 20% 83%;
+  --input: 42 20% 83%;
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading) !important;
-  }
-}
+  /* Extended Colors */
+  --chart-1: 38 68% 65%;
+  --chart-2: 38 68% 50%;
+  --chart-3: 38 68% 38%;
+  --chart-4: 38 68% 25%;
+  --chart-5: 38 68% 12%;
 
-/* Custom utility classes */
-@layer utilities {
-  .animate-in {
-    animation-duration: 0.2s;
-    animation-fill-mode: both;
-  }
-
-  .fade-in {
-    animation-name: fadeIn;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-}
-
-/* Unless told otherwise, keep it for smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+  /* Sidebar Colors */
+  --sidebar: 45 29% 92%;
+  --sidebar-foreground: 0 0% 4%;
+  --sidebar-border: 42 20% 83%;
