@@ -172,7 +172,7 @@ export default function HomePage() {
     <div className="relative container mx-auto px-4 lg:px-8 py-24"> 
       <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
         
-        {/* ✅ FIXED: Clean, properly structured headings and text content streams */} 
+        {/* ✅ FIXED: Clean, properly structured headings and text content streams for index pg*/} 
         <motion.h1 
           variants={fadeUp} 
           className="text-5xl md:text-6xl lg:text-7xl text-white leading-tight font-medium tracking-tight mb-6" 
