@@ -109,39 +109,44 @@ interface ImmutableGalleryItem {
 
 
      
-const site = 'https://christslovechristianschool.info';
+const site = 'https://christslovechristianschool.info'; 
 
-
-export default function HomePage() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-    { '@type': 'WebSite', '@id': `${site}/#website`, name: "Christ's Love Christian School", url: `${site}/` },
-    {
-      '@type': 'EducationalOrganization',
-      '@id': `${site}/#organization`,
-      name: "Christ's Love Christian School",
-      url: `${site}/`,
-      description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.'
-    },
-    {
-      '@type': 'WebPage',
-      '@id': `${site}/#webpage`,
-      url: `${site}/`,
-      name: "Christ's Love Christian School — Faith-Centered Education K–7",
-      isPartOf: { '@id': `${site}/#website` },
-      about: { '@id': `${site}/#organization` },
-      datePublished: '2026-06-16',
-      dateModified: '2026-06-16'
-    }]
-
-
+export default function HomePage() { 
+  const jsonLd = { 
+    '@context': 'https://schema.org', 
+    '@graph': [ 
+      { 
+        '@type': 'WebSite', 
+        '@id': `${site}/#website`, 
+        name: "Christ's Love Christian School", 
+        url: `${site}/` 
+      }, 
+      { 
+        '@type': 'EducationalOrganization', 
+        '@id': `${site}/#organization`, 
+        name: "Christ's Love Christian School", 
+        url: `${site}/`, 
+        description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.' 
+      }, 
+      { 
+        '@type': 'WebPage', 
+        '@id': `${site}/#webpage`, 
+        url: `${site}/`, 
+        name: "Christ's Love Christian School — Faith-Centered Education K–7", 
+        isPartOf: { '@id': `${site}/#website` }, 
+        about: { '@id': `${site}/#organization` }, 
+        datePublished: '2026-06-16', 
+        dateModified: '2026-06-16' 
+      }
+    ] 
   };
-
 
   return (
     <>
       <Helmet>
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
+      </Helmet>
         <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
         <meta name="description" content="A private Christian school nurturing students from Kindergarten through Grade 7 in academic excellence, character, and faith. Enroll today." />
         <link rel="canonical" href={`${site}/`} />
