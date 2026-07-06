@@ -238,79 +238,74 @@ export default function HomePage() {
       <h2 className="font-heading text-4xl md:text-5xl text-white font-bold mb-4">Our Recent Achievements</h2> 
       <p className="text-white/80 text-lg">Celebrating the milestones, academic triumphs, and sports victories of our outstanding students.</p> 
     </div> 
-    
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> 
       <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"> 
         <h3 className="text-xl font-bold text-white mb-2">Academic Excellence</h3> 
-        <p className="text-white/70 text-sm">Achieving top ranks in regional mathematics and language curriculum indices.</p> </div> 
+        <p className="text-white/70 text-sm">Achieving top ranks in regional mathematics and language curriculum indices.</p> 
+      </div> 
     </div> 
   </div> 
+</section> 
+
+{/* Responsive 3-Column Image Grid Container */} 
+<section className="py-12 bg-secondary border-b border-white/5 text-white"> 
+  <div className="container mx-auto px-4 lg:px-8"> 
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"> 
+      {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER, COMPRESS, OR DELETE THIS INLINE ARRAY STRUCTURE */} 
+      {/* CORE_STATIC_SCHEMA_BYPASS_START */} 
+      {(() => { 
+        const galleryImages = [ 
+          { id: 1, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" }, 
+          { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" }, 
+          { id: 3, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" }, 
+          { id: 4, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" }, 
+          { id: 5, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" }, 
+          { id: 6, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" }, 
+          { id: 7, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" }, 
+          { id: 8, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" }, 
+          { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" }, 
+          { id: 10, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" }, 
+          { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" }, 
+          { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" } 
+        ]; 
+        {/* CORE_STATIC_SCHEMA_BYPASS_END */} 
+        {/* AI_GUARDRAIL_SYSTEM_LOCK_END */} 
+
+        const handleCardClick = (src: string, label: string) => { 
+          if (typeof document === 'undefined') return; 
+          const modal = document.getElementById('global-gallery-modal'); 
+          const modalImg = document.getElementById('global-gallery-modal-img') as HTMLImageElement | null; 
+          const modalTxt = document.getElementById('global-gallery-modal-txt'); 
+          if (modal && modalImg && modalTxt) { 
+            modalImg.src = src; 
+            modalTxt.innerText = label; 
+            modal.style.display = 'flex'; 
+          } 
+        }; 
+
+        return ( 
+          <> 
+            {galleryImages.map((img) => ( 
+              <motion.div 
+                key={img.id} 
+                variants={fadeUp} 
+                onClick={() => handleCardClick(img.src, img.label)} 
+                className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer backdrop-blur-sm shadow-sm" 
+              > 
+                <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+                  <img src={img.src} alt={img.label} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
+                </div> 
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"> 
+                  <p className="text-white text-sm font-medium">{img.label}</p> 
+                </div> 
+              </motion.div> 
+            ))} 
+          </> 
+        ); 
+      })()} 
+    </motion.div> 
+  </div> 
 </section>
-
-        {/* Responsive 3-Column Image Grid Container */} 
-    <section className="py-12 bg-secondary border-b border-white/5 text-white"> 
-      <div className="container mx-auto px-4 lg:px-8"> 
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"> 
-          {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER, COMPRESS, OR DELETE THIS INLINE ARRAY STRUCTURE */} 
-          {/* CORE_STATIC_SCHEMA_BYPASS_START */} 
-          {(() => { 
-            const galleryImages = [ 
-              { id: 1, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" }, 
-              { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" }, 
-              { id: 3, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" }, 
-              { id: 4, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" }, 
-              { id: 5, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" }, 
-              { id: 6, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" }, 
-              { id: 7, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" }, 
-              { id: 8, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" }, 
-              { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" }, 
-              { id: 10, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" }, 
-              { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" }, 
-              { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" } 
-            ]; 
-            {/* CORE_STATIC_SCHEMA_BYPASS_END */} 
-            {/* AI_GUARDRAIL_SYSTEM_LOCK_END */} 
-
-            const handleCardClick = (src: string, label: string) => { 
-              if (typeof document === 'undefined') return; 
-              const modal = document.getElementById('global-gallery-modal'); 
-              const modalImg = document.getElementById('global-gallery-modal-img') as HTMLImageElement | null; 
-              const modalTxt = document.getElementById('global-gallery-modal-txt'); 
-              if (modal && modalImg && modalTxt) { 
-                modalImg.src = src; 
-                modalTxt.innerText = label; 
-                modal.style.display = 'flex'; 
-              } 
-            };
-
-            return (
-              <>
-                {galleryImages.map((img) => (
-                  <motion.div
-                    key={img.id}
-                    variants={fadeUp}
-                    onClick={() => handleCardClick(img.src, img.label)}
-                    className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer backdrop-blur-sm shadow-sm"
-                  >
-                    <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-                      <img
-                        src={img.src}
-                        alt={img.label}
-                        style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
-                        className="transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                      <p className="text-white text-sm font-medium">{img.label}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </>
-            );
-          })()} 
-        </motion.div> 
-      </div> 
-    </section>
 
             // Render the mapped array correctly inside the function scope execution block 
             return ( 
