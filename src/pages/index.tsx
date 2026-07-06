@@ -7,7 +7,7 @@ import heroImage from '../public/assets/IMG_5755.jpg'; // 1. Fixed the broken st
 const fadeUp = { 
   hidden: { opacity: 0, y: 28 }, 
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } } 
-}; 
+};
 
 const stagger = { 
   hidden: {}, 
