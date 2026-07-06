@@ -119,11 +119,11 @@ export default function HomePage() {
           </motion.div> 
         </div>
 
-        {/* Gold bottom accent */} 
+             {/* Gold bottom accent */} 
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" /> 
-      </section> {/* Fixed: Removed the orphaned redundant </div> tag to ensure the hero element layout container scales properly */}
+      </div> {/* Fixed: Swapped </section> to </div> to cleanly match the opening element layout container */}
 
-      {/* ── QUICK STATS ── */} 
+          {/* ── QUICK STATS ── */} 
       <section className="bg-secondary py-10 border-b border-white/5"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"> 
@@ -158,22 +158,22 @@ export default function HomePage() {
             </motion.p> 
           </motion.div> 
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"> 
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"> 
             {gradeCards.map((card) => ( 
               <motion.div 
                 key={card.grade} 
                 variants={fadeUp} 
                 whileHover={{ y: -4, transition: { duration: 0.2 } }} 
-                className="bg-white/5 border border-white/10 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm" {/* Fixed: Upgraded solid light cards to gorgeous translucent dark glass boxes */}
+                className="bg-white/5 border border-white/10 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm"
               > 
                 <div className="w-8 h-0.5 bg-primary mb-4" /> 
-                <h3 className="font-heading text-xl text-white font-semibold mb-1">{card.grade}</h3> {/* Fixed: Changed header string color from text-secondary to high-contrast white */}
+                <h3 className="font-heading text-xl text-white font-semibold mb-1">{card.grade}</h3> 
                 <p className="text-primary text-xs font-medium tracking-wide mb-3">{card.ages}</p> 
-                <p className="text-white/70 text-sm leading-relaxed">{card.description}</p> {/* Fixed: Changed card text body from muted-foreground to readable text-white/70 */}
+                <p className="text-white/70 text-sm leading-relaxed">{card.description}</p> 
               </motion.div> 
             ))} 
-          </motion.div> 
-        </div>
+          </motion.div>
+
       </section>
 
 
