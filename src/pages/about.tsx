@@ -72,7 +72,7 @@ const staff = [
 { name: 'KUDAKWASHE MUTASA', role: 'Teacher, Information & Communication', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-bb393c38-0792-41c9-94e4-2797ab38d943.jpg" },
 { name: 'REGINA MANGUNDU', role: 'Front Desk', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-357fb164-a36e-436d-9d28-eec8ddf03881.JPG" },
 { name: 'GENEFEFA GOTFRIED', role: 'Custodian', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-66546a9a-f7e7-4652-a3a7-ab72a2c98e13.jpg" },
-{ name: 'JEQUILINE LIVIMBA', role: 'Tuck Shop, Custodian', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
+{ name: 'JEQUILINE LIVIMBA', role: 'Tuck Shop, Custodian', imageUrl: "https://github.com/AroLola/christslove-school/blob/main/public/jequline%20supporting%20staff.jpg?raw=true" },
 { name: 'MARIA O. AUKHUMES', role: 'Cashier', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'NYASHA MUKOROKO', role: 'Driver, CareTaker, Handyman', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'PRISCA KOROMORA', role: 'Department Head, Junior Primary & Teacher, Grade 2, Green', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
