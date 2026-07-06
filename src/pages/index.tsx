@@ -166,10 +166,7 @@ export default function HomePage() {
             loading="eager" />
          
          
-
-
-         
-           {/* Overlay */} 
+    {/* Overlay */} 
     <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/30" /> 
     
     <div className="relative container mx-auto px-4 lg:px-8 py-24"> 
