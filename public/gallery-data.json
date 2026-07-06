@@ -2,7 +2,7 @@
   "photoEvents": [
     {
       "id": "sports-gallery-album",
-      "name": "Sports Day",
+      "name": "Sports",
       "media": [
         { "id": "p-1", "src": "https://airoapp.ai", "caption": "Athletics Event Highlights" },
         { "id": "p-2", "src": "https://airoapp.ai", "caption": "Team Relay Awards" }
