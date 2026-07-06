@@ -102,58 +102,59 @@ export default function GalleryPage() {
             ...event, 
             name, 
             media: event.media?.map((video: any) => { 
-              let caption = video.caption || '';
-              return { ...video, caption };
+              let caption = video.caption || ''; 
+              return { ...video, caption }; 
             }) || [] 
-          };
+          }; 
         }) || [] 
-      };
-      setData(cleanData);
-    });
-  }, []);
+      }; 
+      setData(cleanData); 
+    }); 
+  }, []); 
 
-  // ── RENDER NOTIFICATION TO FILL UP CUT-OFF ENDPOINTS ──
-  return (
-    <>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonicalUrl} />
-      </Helmet>
-
-      <div className="py-12 bg-background min-h-screen">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h1 className="font-heading text-4xl font-bold text-secondary mb-4">School Media Gallery</h1>
-            <p className="text-muted-foreground">Capturing moments of faith, learning, and victory at CLCS.</p>
-          </div>
-
-          {/* Render Active Statically Fed Photo Event Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
-            {data?.photoEvents?.[0]?.media?.map((img) => (
-              <motion.div 
-                key={img.id}
-                whileHover={{ scale: 1.02 }}
-                className="group relative overflow-hidden rounded-xl border border-secondary-foreground/10 bg-secondary/5 p-3 cursor-pointer shadow-sm"
-              >
-                <div className="relative w-full h-64 overflow-hidden rounded-lg bg-black/5 flex items-center justify-center">
-                  <img 
-                    src={img.src} 
-                    alt={img.caption || "School Gallery Asset"} 
-                    className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="mt-3">
-                  <p className="text-sm font-medium text-secondary/90">{img.caption || "School Event"}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
+  return ( 
+    <> 
+      <Helmet> 
+        <title>{title}</title> 
+        <meta name="description" content={description} /> 
+        <link rel="canonical" href={canonicalUrl} /> 
+      </Helmet> 
+      <div className="py-12 bg-background min-h-screen"> 
+        <div className="container mx-auto px-4"> 
+          <div className="text-center max-w-2xl mx-auto mb-12"> 
+            <h1 className="font-heading text-4xl font-bold text-secondary mb-4">School Media Gallery</h1> 
+            <p className="text-muted-foreground">Capturing moments of faith, learning, and victory at CLCS.</p> 
+          </div> 
+          
+          {/* ✅ FIXED: Correctly loops through the photo event sections to unpack the image arrays */} 
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"> 
+            {data?.photoEvents?.map((event: any) => 
+              event?.media?.map((img: any) => ( 
+                <motion.div 
+                  key={img.id} 
+                  whileHover={{ scale: 1.02 }} 
+                  className="group relative overflow-hidden rounded-xl border border-secondary-foreground/10 bg-secondary/5 p-3 cursor-pointer shadow-sm" 
+                > 
+                  <div className="relative w-full h-64 overflow-hidden rounded-lg bg-black/5 flex items-center justify-center"> 
+                    <img 
+                      src={img.src} 
+                      alt={img.caption || "School Gallery Asset"} 
+                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" 
+                    /> 
+                  </div> 
+                  <div className="mt-3"> 
+                    <p className="text-sm font-medium text-secondary/90">{img.caption || "School Event"}</p> 
+                  </div> 
+                </motion.div> 
+              ))
+            )} 
+          </div> 
+        </div> 
+      </div> 
+    </> 
+  ); 
 }
+
 
              
               // --- WRITE YOUR FREE CUSTOM DESCRIPTIONS HERE ---
