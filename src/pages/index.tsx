@@ -518,20 +518,49 @@ export default function HomePage() {
     </div> 
   </section> 
 
-   {/* ── ENROLLMENT CTA ── */} 
+    {/* ── ENROLLMENT CTA ── */} 
   <section className="py-20 bg-background overflow-hidden"> 
     <div className="container mx-auto px-4 lg:px-8"> 
       <div className="relative bg-secondary rounded-2xl overflow-hidden"> 
+        {/* Gold accent bar */} 
         <div className="absolute top-0 left-0 right-0 h-1 bg-primary" /> 
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" /> 
-        <div className="p-8 md:p-12 text-center max-w-2xl mx-auto"> 
-          <h2 className="text-3xl font-bold text-white mb-4">Start Your Child's Journey with CLCS</h2> 
-          <p className="text-white/80 mb-6">Partner with us to build a strong spiritual and academic foundation.</p> 
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0"> 
+          <div className="p-12 lg:p-16"> 
+            <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4"> 
+              Admissions Open 
+            </p> 
+            <h2 className="font-heading text-4xl md:text-5xl text-secondary-foreground mb-6 leading-tight"> 
+              Begin Your Child's Journey in Faith 
+            </h2> 
+            <p className="text-secondary-foreground/70 text-lg leading-relaxed mb-8"> 
+              We welcome families who share our commitment to faith, learning, and community. Spaces are limited — apply today to secure your child's place. 
+            </p> 
+            <div className="flex flex-wrap gap-4"> 
+              <Link to="/admissions" className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+                Apply Now <ChevronRight size={18} /> 
+              </Link> 
+              <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-secondary-foreground/30 text-secondary-foreground font-semibold rounded hover:border-primary hover:text-primary transition-colors"> 
+                Contact Us 
+              </Link> 
+            </div> 
+          </div> 
+
+          {/* Decorative side */} 
+          <div className="hidden lg:flex items-center justify-center p-16 bg-secondary-foreground/5"> 
+            <div className="text-center"> 
+              <div className="font-heading text-8xl text-primary/20 font-bold leading-none mb-2">K–7</div> 
+              <p className="text-secondary-foreground/50 text-sm tracking-widest uppercase">Kindergarten through Grade 7</p> 
+              <div className="mt-6 w-16 h-0.5 bg-primary mx-auto" /> 
+              <p className="mt-4 text-secondary-foreground/40 text-xs italic">"Train up a child in the way he should go…"</p> 
+              <p className="text-primary/60 text-xs">Proverbs 22:6</p> 
+            </div> 
+          </div> 
         </div> 
       </div> 
     </div> 
   </section> 
-</> // Re-adds the missing root closing fragment your page wrapper requires
+</>
 ); 
 }
-
