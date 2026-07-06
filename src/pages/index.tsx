@@ -142,29 +142,29 @@ export default function HomePage() {
         </div> 
       </section> 
 
-      {/* ── PROGRAMS / GRADES ── */} 
-      <section className="py-20 bg-midnight text-white"> {/* Fixed: Changed from bg-background to your global bg-midnight variable */}
+          {/* ── PROGRAMS / GRADES ── */} 
+      <section className="py-20 bg-midnight text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
             <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
               Our Programs 
             </motion.p> 
-            <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-4 font-bold"> {/* Fixed: Changed from text-secondary to text-white */}
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-4 font-bold"> 
               Kindergarten Through Grade 7 
             </motion.h2> 
-            <motion.p variants={fadeUp} className="text-white/70 max-w-xl mx-auto text-lg"> {/* Fixed: Changed from text-muted-foreground for crisp text contrast */}
+            <motion.p variants={fadeUp} className="text-white/70 max-w-xl mx-auto text-lg"> 
               Each grade is thoughtfully designed to meet students where they are — academically, spiritually, and personally. 
             </motion.p> 
           </motion.div> 
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"> 
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"> 
             {gradeCards.map((card) => ( 
               <motion.div 
                 key={card.grade} 
                 variants={fadeUp} 
                 whileHover={{ y: -4, transition: { duration: 0.2 } }} 
-                className="bg-white/5 border border-white/10 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm"
+                className="bg-white/5 border border-white/10 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm" 
               > 
                 <div className="w-8 h-0.5 bg-primary mb-4" /> 
                 <h3 className="font-heading text-xl text-white font-semibold mb-1">{card.grade}</h3> 
@@ -172,11 +172,9 @@ export default function HomePage() {
                 <p className="text-white/70 text-sm leading-relaxed">{card.description}</p> 
               </motion.div> 
             ))} 
-          </motion.div>
+          </motion.div> 
 
-               </motion.div> 
-
-          {/* View Full Curriculum Link Box */}
+          {/* View Full Curriculum Link Box */} 
           <div className="text-center mt-10"> 
             <Link to="/academics" className="inline-flex items-center gap-2 text-white font-semibold hover:text-primary transition-colors"> 
               View Full Curriculum <ChevronRight size={18} /> 
@@ -184,7 +182,7 @@ export default function HomePage() {
           </div> 
 
         </div> 
-      </section> {/* Line 187: Properly terminates the Programs section layer container */}
+      </section>
 
     {/* ── VALUES / MISSION ── */} 
     <section className="py-20 bg-secondary border-b border-white/5 text-white"> {/* Fixed: Swapped bg-muted to bg-secondary to keep your premium dark flow uniform */}
