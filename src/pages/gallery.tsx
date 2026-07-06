@@ -96,29 +96,48 @@ function PhotoSectionView({ event, onImageClick }: { event: EventSection; onImag
   );
 }
 
-// Sub-Component B: Handles Video Grid layout safely separated from parent scope string match filters
-function VideoSectionView({ event }: { event: EventSection }) {
+// Sub-Component B: Handles Video Albums safely separated from parent scope string match filters
+function VideoSectionView({ event }: { event: EventSection & { description?: string } }) {
   const activeMedia = event.media || [];
   if (activeMedia.length === 0) return null;
 
   return (
-    <div className="mb-14">
-      <div className="flex items-center gap-3 mb-6"> 
-        <FolderOpen size={20} className="text-primary shrink-0" /> 
-        <h2>{event.name === 'Sports Day' ? 'Sports' : event.name}</h2> 
-        <span className="text-muted-foreground text-sm">({activeMedia.length} videos)</span> 
-        <div className="flex-1 h-px bg-border" /> 
+    <div className="border-b border-secondary-foreground/5 pb-16 last:border-0 last:pb-0">
+      
+      {/* Video Album Heading and Section Description Caption */}
+      <div className="mb-8 max-w-3xl">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-secondary mb-2 flex items-center gap-2">
+          📁 {event.name}
+        </h2>
+        {event.description && (
+          <p className="text-muted-foreground text-base leading-relaxed">
+            {event.description}
+          </p>
+        )}
       </div>
 
+      {/* Nested Multi-Video Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {activeMedia.map((video, i) => (
-          <motion.div key={video.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: i * 0.03 }} className="relative rounded-lg overflow-hidden shadow-sm border border-border bg-card group">
-            <video src={video.src} className="w-full aspect-video object-cover" controls />
-            <div className="px-3 py-2.5 bg-background border-t border-border">
-              <p className="text-sm text-foreground/80 font-medium leading-relaxed">
-                {video.caption || "Christ's Love Christian School Event"}
-              </p>
+          <motion.div 
+            key={video.id} 
+            initial={{ opacity: 0, scale: 0.95 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 0.3, delay: i * 0.03 }} 
+            className="relative rounded-lg overflow-hidden shadow-sm border border-border bg-card group flex flex-col justify-between"
+          >
+            <div className="w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
+              <video src={video.src} className="w-full h-full object-cover" controls />
             </div>
+            
+            {/* Individual Video Frame Caption Footer */}
+            {video.caption && (
+              <div className="px-3 py-2.5 bg-background border-t border-border flex-grow">
+                <p className="text-sm text-foreground/80 font-medium leading-relaxed">
+                  {video.caption}
+                </p>
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
