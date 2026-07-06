@@ -118,38 +118,39 @@ export function PhotoSectionView({ event, onImageClick }: { event: EventSection;
   ); 
 }
 
-         {/* Nested Multi-Video Grid */} 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
-        {activeMedia.map((video, i) => ( 
-          <motion.div 
-            key={video.id} 
-            initial={{ opacity: 0, scale: 0.95 }} 
-            animate={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.3, delay: i * 0.03 }} 
-            className="relative rounded-lg overflow-hidden shadow-sm border border-white/10 bg-white/5 backdrop-blur-sm group flex flex-col justify-between" 
-          > 
-            <div className="w-full aspect-video bg-black flex items-center justify-center overflow-hidden"> 
-              <video 
-                src={video.src.startsWith('hhttps') ? video.src.replace('hhttps://', 'https://') : video.src} 
-                className="w-full h-full object-cover" 
-                controls 
-              /> 
-            </div> 
+                    {/* Nested Multi-Video Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {activeMedia.map((video, i) => (
+                <motion.div
+                  key={video.id}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: i * 0.03 }}
+                  className="relative rounded-lg overflow-hidden shadow-sm border border-white/10 bg-white/5 backdrop-blur-sm group flex flex-col justify-between"
+                >
+                  <div className="w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
+                    <video
+                      src={video.src.startsWith('hhttps') ? video.src.replace('hhttps://', 'https://') : video.src}
+                      className="w-full h-full object-cover"
+                      controls
+                    />
+                  </div>
 
-            {/* Individual Video Frame Caption Footer */} 
-            {video.caption && ( 
-              <div className="px-3 py-2.5 bg-black/40 border-t border-white/10 flex-grow"> 
-                <p className="text-sm text-white/90 font-medium leading-relaxed"> 
-                  {video.caption} 
-                </p> 
-              </div> 
-            )} 
-          </motion.div> 
-        ))} 
-      </div> 
-    </div> 
-  ); 
-}
+                  {/* Individual Video Frame Caption Footer */}
+                  {video.caption && (
+                    <div className="px-3 py-2.5 bg-black/40 border-t border-white/10 flex-grow">
+                      <p className="text-sm text-white/90 font-medium leading-relaxed">
+                        {video.caption}
+                      </p>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        );
+      }
+
 
 
 // Main Page Master Default Export Component Wrapper 
