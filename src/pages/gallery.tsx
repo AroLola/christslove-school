@@ -427,13 +427,7 @@ export default function GalleryPage() {
                 {event.name}
               </button>
             ))}
-            {/* Add new event */}
-            <button
-              onClick={() => setShowNewEvent(v => !v)}
-              className="px-4 py-1.5 rounded-full text-sm font-medium border border-dashed border-primary text-primary hover:bg-primary/5 transition-colors flex items-center gap-1"
-            >
-              <Plus size={14} /> New Event
-            </button>
+            
           </div>
 
 
