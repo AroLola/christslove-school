@@ -99,7 +99,7 @@ export default function HomePage() {
         </div> 
       </section> 
 
-            {/* ── PROGRAMS / GRADES ── */} 
+             {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
@@ -137,6 +137,7 @@ export default function HomePage() {
               <img src="/assets/media/pages-home-values-c9779bb4.jpg" alt="Faith and learning at Christ's Love Christian School" className="w-full h-auto object-contain rounded-lg shadow-lg" loading="lazy" width={800} height={480} /> 
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
             </motion.div>
+
 
 
         {/* Text Content Block */} 
