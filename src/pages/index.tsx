@@ -209,28 +209,27 @@ export default function HomePage() {
     </div>
 
 
-        {/* Gold bottom accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
-      </section>
+              {/* Gold bottom accent */} 
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" /> 
+      </div> {/* Fixed: Changed from </section> to </div> to correctly close the parent container */}
 
-
-      {/* ── QUICK STATS ── */}
-      <section className="bg-secondary py-10">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-            { value: 'K–7', label: 'Grade Levels' },
-            { value: '10+', label: 'Years of Excellence' },
-            { value: '100%', label: 'Faith-Centered' },
-            { value: 'Small', label: 'Class Sizes' }].
-            map((stat) =>
-            <div key={stat.label} className="text-secondary-foreground">
-                <div className="font-heading text-3xl md:text-4xl text-primary font-bold">{stat.value}</div>
-                <div className="text-secondary-foreground/70 text-sm mt-1 tracking-wide">{stat.label}</div>
-              </div>
-            )}
-          </div>
-        </div>
+      {/* ── QUICK STATS ── */} 
+      <section className="bg-secondary py-10"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"> 
+            {[ 
+              { value: 'K–7', label: 'Grade Levels' }, 
+              { value: '10+', label: 'Years of Excellence' }, 
+              { value: '100%', label: 'Faith-Centered' }, 
+              { value: 'Small', label: 'Class Sizes' }
+            ].map((stat) => (
+              <div key={stat.label} className="text-secondary-foreground"> 
+                <div className="font-heading text-3xl md:text-4xl text-primary font-bold">{stat.value}</div> 
+                <div className="text-secondary-foreground/70 text-sm mt-1 tracking-wide">{stat.label}</div> 
+              </div> 
+            ))} 
+          </div> 
+        </div> 
       </section>
 
 
