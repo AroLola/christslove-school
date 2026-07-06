@@ -53,7 +53,7 @@ export default function ContactPage() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
       </section>
 
-      {/* Contact Content */}
+      {/* Contact Contents*/}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
