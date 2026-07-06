@@ -1,18 +1,29 @@
 {
   "photoEvents": [
     {
-      "id": "sports-gallery-album",
-      "name": "Sports",
+      "id": "school-life-gallery-album",
+      "name": "School Life",
       "media": [
-        { "id": "p-1", "src": "https://airoapp.ai", "caption": "Athletics Event Highlights" },
-        { "id": "p-2", "src": "https://airoapp.ai", "caption": "Team Relay Awards" }
+        { "id": "p-1", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "p-2", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
+        { "id": "p-3", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "p-4", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
+        { "id": "p-5", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "p-6", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
+        { "id": "p-7", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "p-8", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
+        { "id": "p-9", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "p-10", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
+        { "id": "p-11", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "p-12", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
+        { "id": "p-13", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" }
       ]
     },
     {
       "id": "sports-gallery-album",
       "name": "Sports",
       "media": [
-        { "id": "p-3", "src": "https://airoapp.ai", "caption": "Regional Spelling Bee Prize Winners" }
+        { "id": "p-3", "src": "https://airoapp.ai", "caption": "Athletics Event Highlights" }
       ]
     },
    {
