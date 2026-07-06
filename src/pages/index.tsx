@@ -141,22 +141,28 @@ export default function HomePage() {
     ] 
   };
 
-  return (
+    return (
     <>
       <Helmet>
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
         <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
         <meta name="description" content="A private Christian school nurturing students from Kindergarten through Grade 7 in academic excellence, character, and faith. Enroll today." />
         <link rel="canonical" href={`${site}/`} />
+        
+        {/* Open Graph / Facebook */}
         <meta property="og:title" content="Christ's Love Christian School" />
         <meta property="og:description" content="Nurturing minds, hearts, and faith from Kindergarten through Grade 7." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${site}/`} />
+        
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
+        
+        {/* Schema JSON-LD Data */}
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
+      {/* ── HERO ── */}
+      <section className="relative flex items-center overflow-hidden" style={{ minHeight: '88vh' }}>
 
       {/* ── HERO ── */}
       <section className="relative flex items-center overflow-hidden" style={{ minHeight: '88vh' }}>
