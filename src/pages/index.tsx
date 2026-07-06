@@ -140,7 +140,7 @@ export default function HomePage() {
 
 
 
-        {/* Text Content Block */} 
+           {/* Text Content Block */} 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
           <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
             Our Mission 
@@ -171,65 +171,65 @@ export default function HomePage() {
               </motion.div> 
             ))} 
           </motion.div> 
-        {/* Our Story Button Link Call */} 
-        <motion.div variants={fadeUp}> 
-          <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
-            Our Story <ChevronRight size={18} /> 
-          </Link> 
+
+          {/* Our Story Button Link Call */} 
+          <motion.div variants={fadeUp}> 
+            <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+              Our Story <ChevronRight size={18} /> 
+            </Link> 
+          </motion.div> 
         </motion.div> 
-      </motion.div> 
+      </div> 
     </div> 
-  </div> 
-</section> 
+  </section> 
 
-{/* ── COMMUNITY ── */} 
-<section className="py-20 bg-midnight text-white"> 
-  <div className="container mx-auto px-4 lg:px-8"> 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-      
-      {/* Text Area Content Layout */} 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
-        <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
-          Our Community 
-        </motion.p> 
-        <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
-          More Than a School —<br />A Family 
-        </motion.h2> 
-        <motion.p variants={fadeUp} className="text-white/80 text-lg leading-relaxed mb-6"> 
-          When you join Christ's Love, you join a community of families who share your values and your vision for your children's future. From chapel mornings to school events, we grow together. 
-        </motion.p> 
-        <motion.p variants={fadeUp} className="text-white/70 leading-relaxed mb-8"> 
-          Our small class sizes mean every student is known by name, celebrated for their strengths, and supported through every challenge. This is what Christian education looks like. 
-        </motion.p> 
-        <motion.div variants={fadeUp}> 
-          <Link to="/admissions" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
-            Start Your Application <ChevronRight size={18} /> 
-          </Link> 
+  {/* ── COMMUNITY ── */} 
+  <section className="py-20 bg-midnight text-white"> 
+    <div className="container mx-auto px-4 lg:px-8"> 
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+        
+        {/* Text Area Content Layout */} 
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
+          <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
+            Our Community 
+          </motion.p> 
+          <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+            More Than a School —<br />A Family 
+          </motion.h2> 
+          <motion.p variants={fadeUp} className="text-white/80 text-lg leading-relaxed mb-6"> 
+            When you join Christ's Love, you join a community of families who share your values and your vision for your children's future. From chapel mornings to school events, we grow together. 
+          </motion.p> 
+          <motion.p variants={fadeUp} className="text-white/70 leading-relaxed mb-8"> 
+            Our small class sizes mean every student is known by name, celebrated for their strengths, and supported through every challenge. This is what Christian education looks like. 
+          </motion.p> 
+          <motion.div variants={fadeUp}> 
+            <Link to="/admissions" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+              Start Your Application <ChevronRight size={18} /> 
+            </Link> 
+          </motion.div> 
         </motion.div> 
-      </motion.div> 
 
-      {/* Image Grid with Offset Framing */} 
-      <motion.div 
-        initial={{ opacity: 0, x: 30 }} 
-        whileInView={{ opacity: 1, x: 0 }} 
-        viewport={{ once: true }} 
-        transition={{ duration: 0.5, ease: 'easeOut' }} 
-        className="relative"
-      > 
-        <img 
-          src="/airo-assets/images/pages/home/students-enjoying-community-time-at-chri-2" 
-          alt="Students enjoying community time at Christ's Love Christian School" 
-          className="w-full h-[440px] object-cover rounded-lg shadow-lg" 
-          loading="lazy" 
-          width={900} 
-          height={440} 
-        /> 
-        <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/40 rounded-lg -z-10" /> 
-      </motion.div> 
-
+        {/* Image Grid with Offset Framing */} 
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }} 
+          whileInView={{ opacity: 1, x: 0 }} 
+          viewport={{ once: true }} 
+          transition={{ duration: 0.5, ease: 'easeOut' }} 
+          className="relative" 
+        > 
+          <img 
+            src="/airo-assets/images/pages/home/students-enjoying-community-time-at-chri-2" 
+            alt="Students enjoying community time at Christ's Love Christian School" 
+            className="w-full h-[440px] object-cover rounded-lg shadow-lg" 
+            loading="lazy" 
+            width={900} 
+            height={440} 
+          /> 
+          <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/40 rounded-lg -z-10" /> 
+        </motion.div> 
+      </div> 
     </div> 
-  </div> 
-</section> 
+  </section>
 
 {/* ── ACHIEVEMENTS ── */} 
 <section className="py-20 bg-secondary text-white w-full border-t border-white/5"> 
