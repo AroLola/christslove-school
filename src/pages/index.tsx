@@ -286,3 +286,289 @@ export default function HomePage() {
   </> 
 ); 
 }
+      {/* ── PROGRAMS / GRADES ── */} 
+      <section className="py-20 bg-midnight text-white"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
+            <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> Our Programs </motion.p> 
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-4 font-bold"> Kindergarten Through Grade 7 </motion.h2> 
+            <motion.p variants={fadeUp} className="text-white/70 max-w-xl mx-auto text-lg"> Each grade is thoughtfully designed to meet students where they are — academically, spiritually, and personally. </motion.p> 
+          </motion.div> 
+          
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"> 
+            {gradeCards.map((card) => ( 
+              <motion.div key={card.grade} variants={fadeUp} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="bg-white/5 border border-white/10 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm" > 
+                <div className="w-8 h-0.5 bg-primary mb-4" /> 
+                <h3 className="font-heading text-xl text-white font-semibold mb-1">{card.grade}</h3> 
+                <p className="text-primary text-xs font-medium tracking-wide mb-3">{card.ages}</p> 
+                <p className="text-white/70 text-sm leading-relaxed">{card.description}</p> 
+              </motion.div> 
+            ))} 
+          </motion.div> 
+
+          {/* View Full Curriculum Link Box */} 
+          <div className="text-center mt-10"> 
+            <Link to="/academics" className="inline-flex items-center gap-2 text-white font-semibold hover:text-primary transition-colors"> 
+              View Full Curriculum <ChevronRight size={18} /> 
+            </Link> 
+          </div> 
+        </div> 
+      </section> 
+
+      {/* ── VALUES / MISSION ── */} 
+      <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+            
+            {/* Image Block with Gold Framing */} 
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, ease: 'easeOut' }} 
+              className="relative" 
+            > 
+              <img 
+                src="/assets/media/pages-home-values-c9779bb4.jpg" 
+                alt="Faith and learning at Christ's Love Christian School" 
+                className="w-full h-auto object-contain rounded-lg shadow-lg" 
+                loading="lazy" 
+                width={800} 
+                height={480} 
+              /> 
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+            </motion.div> 
+
+            {/* Text Content Block */} 
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
+              <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
+                Our Mission 
+              </motion.p> 
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+                Rooted in Faith,<br />Built for Life 
+              </motion.h2> 
+              <motion.p variants={fadeUp} className="text-white/80 text-lg leading-relaxed mb-6"> 
+                At Christ's Love Christian School, we believe every child is uniquely created by God with gifts, purpose, and potential. Our mission is to provide an exceptional education that honors Christ in every subject, every interaction, and every moment of the school day. 
+              </motion.p> 
+              <motion.p variants={fadeUp} className="text-white/60 leading-relaxed mb-8"> 
+                We partner with families to raise students who are academically prepared, spiritually grounded, and ready to serve their communities with integrity and compassion. 
+              </motion.p> 
+
+              {/* Core Values Sub-Grid */} 
+              <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"> 
+                {[ 
+                  { icon: BookOpen, label: 'Academic Excellence' }, 
+                  { icon: Heart, label: 'Faith Formation' }, 
+                  { icon: Star, label: 'Character Development' }, 
+                  { icon: Users, label: 'Community & Family' } 
+                ].map(({ icon: Icon, label }) => ( 
+                  <motion.div key={label} variants={fadeUp} className="flex items-center gap-3"> 
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0"> 
+                      <Icon size={16} className="text-primary" /> 
+                    </div> 
+                    <span className="text-white font-medium text-sm">{label}</span> 
+                  </motion.div> 
+                ))} 
+              </motion.div> 
+
+              {/* Our Story Button Link Call */} 
+              <motion.div variants={fadeUp}> 
+                <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+                  Our Story <ChevronRight size={18} /> 
+                </Link> 
+              </motion.div> 
+            </motion.div> 
+
+          </div> 
+        </div> 
+      </section> 
+
+      {/* ── COMMUNITY ── */} 
+      <section className="py-20 bg-midnight text-white"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+            
+            {/* Text Area Content Layout */} 
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
+              <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
+                Our Community 
+              </motion.p> 
+              <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+                More Than a School —<br />A Family 
+              </motion.h2> 
+              <motion.p variants={fadeUp} className="text-white/80 text-lg leading-relaxed mb-6"> 
+                When you join Christ's Love, you join a community of families who share your values and your vision for your children's future. From chapel mornings to school events, we grow together. 
+              </motion.p> 
+              <motion.p variants={fadeUp} className="text-white/70 leading-relaxed mb-8"> 
+                Our small class sizes mean every student is known by name, celebrated for their strengths, and supported through every challenge. This is what Christian education looks like. 
+              </motion.p> 
+              <motion.div variants={fadeUp}> 
+                <Link to="/admissions" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+                  Start Your Application <ChevronRight size={18} /> 
+                </Link> 
+              </motion.div> 
+            </motion.div> 
+
+            {/* Image Grid with Offset Framing */} 
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, ease: 'easeOut' }} 
+              className="relative" 
+            > 
+              <img 
+                src="/airo-assets/images/pages/home/students-enjoying-community-time-at-chri-2" 
+                alt="Students enjoying community time at Christ's Love Christian School" 
+                className="w-full h-[440px] object-cover rounded-lg shadow-lg" 
+                loading="lazy" 
+                width={900} 
+                height={440} 
+              /> 
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/40 rounded-lg -z-10" /> 
+            </motion.div> 
+          </div> 
+        </div> 
+      </section>
+
+      {/* ── ACHIEVEMENTS ── */} 
+      <section className="py-20 bg-secondary text-white w-full border-t border-white/5"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <div className="text-center max-w-3xl mx-auto mb-16"> 
+            <h2 className="font-heading text-4xl md:text-5xl text-white font-bold mb-4">Our Recent Achievements</h2> 
+            <p className="text-white/80 text-lg">Celebrating the milestones, academic triumphs, and sports victories of our outstanding students.</p> 
+          </div> 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> 
+            <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"> 
+              <h3 className="text-xl font-bold text-white mb-2">Academic Excellence</h3> 
+              <p className="text-white/70 text-sm">Achieving top ranks in regional mathematics and language curriculum indices.</p> 
+            </div> 
+          </div> 
+        </div> 
+      </section> 
+
+      {/* Responsive 3-Column Image Grid Container */} 
+      <section className="py-12 bg-secondary border-b border-white/5 text-white"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={stagger} 
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"
+        > 
+          {(() => { 
+            const galleryImages = [ 
+              { id: 1, src: "https://christslovechristianschool.info", label: "Regional Spelling Bee" }, 
+              { id: 2, src: "https://christslovechristianschool.info", label: "Maths Competition" }, 
+              { id: 3, src: "https://christslovechristianschool.info", label: "Maths and Science Wins" }, 
+              { id: 4, src: "https://christslovechristianschool.info", label: "Regional Spelling Bee Prize Winners" }, 
+              { id: 5, src: "https://christslovechristianschool.info", label: "Activity Comments" }, 
+              { id: 6, src: "https://christslovechristianschool.info", label: "Sports Champions" }, 
+              { id: 7, src: "https://christslovechristianschool.info", label: "Maths Quiz" }, 
+              { id: 8, src: "https://christslovechristianschool.info", label: "Social Studies" }, 
+              { id: 9, src: "https://christslovechristianschool.info", label: "Volleyball Champions" }, 
+              { id: 10, src: "https://christslovechristianschool.info", label: "Maths Gold" }, 
+              { id: 11, src: "https://christslovechristianschool.info", label: "Netball" }, 
+              { id: 12, src: "https://christslovechristianschool.info", label: "Volleyball Gold" } 
+            ]; 
+
+            const handleCardClick = (src: string, label: string) => { 
+              if (typeof document === 'undefined') return; 
+              const modal = document.getElementById('global-gallery-modal'); 
+              const modalImg = document.getElementById('global-gallery-modal-img') as HTMLImageElement | null; 
+              const modalTxt = document.getElementById('global-gallery-modal-txt'); 
+              if (modal && modalImg && modalTxt) { 
+                modalImg.src = src; 
+                modalTxt.innerText = label; 
+                modal.style.display = 'flex'; 
+              } 
+            }; 
+
+            return ( 
+              <> 
+                {galleryImages.map((img) => ( 
+                  <motion.div 
+                    key={img.id} 
+                    variants={fadeUp} 
+                    onClick={() => handleCardClick(img.src, img.label)} 
+                    className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer backdrop-blur-sm shadow-sm" 
+                  > 
+                    <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+                      <img src={img.src} alt={img.label} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
+                    </div> 
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"> 
+                      <p className="text-white text-sm font-medium">{img.label}</p> 
+                    </div> 
+                  </motion.div> 
+                ))} 
+              </> 
+            ); 
+          })()} 
+        </motion.div> 
+      </div> 
+    </section>
+
+    {/* ── ENROLLMENT CTA ── */} 
+    <section className="py-20 bg-midnight text-white overflow-hidden"> 
+      <div className="container mx-auto px-4 lg:px-8"> 
+        <div className="relative bg-secondary rounded-2xl overflow-hidden border border-white/5 shadow-2xl"> 
+          <div className="absolute top-0 left-0 right-0 h-1 bg-primary" /> 
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" /> 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0"> 
+            <div className="p-12 lg:p-16"> 
+              <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4"> 
+                Admissions Open 
+              </p> 
+              <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+                Begin Your Child's Journey in Faith 
+              </h2> 
+              <p className="text-white/70 text-lg leading-relaxed mb-8"> 
+                We welcome families who share our commitment to faith, learning, and community. Spaces are limited — apply today to secure your child's place. 
+              </p> 
+              <div className="flex flex-wrap gap-4"> 
+                <Link to="/admissions" className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+                  Apply Now <ChevronRight size={18} /> 
+                </Link> 
+                <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/20 text-white font-semibold rounded hover:border-primary hover:text-primary transition-colors"> 
+                  Contact Us 
+                </Link> 
+              </div> 
+            </div> 
+
+            {/* Decorative side */} 
+            <div className="hidden lg:flex items-center justify-center p-16 bg-white/5 backdrop-blur-sm border-l border-white/5"> 
+              <div className="text-center"> 
+                <div className="font-heading text-8xl text-primary/20 font-bold leading-none mb-2">K–7</div> 
+                <p className="text-white/50 text-sm tracking-widest uppercase">Kindergarten through Grade 7</p> 
+                <div className="mt-6 w-16 h-0.5 bg-primary mx-auto" /> 
+                <p className="mt-4 text-white/40 text-xs italic">"Train up a child in the way he should go…"</p> 
+                <p className="text-primary/60 text-xs">Proverbs 22:6</p> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+      </div> 
+    </section>
+
+    {/* ── GLOBAL MODAL ACCESSIBILITY CONTAINER ── */}
+    <div
+      id="global-gallery-modal"
+      style={{ display: 'none' }}
+      className="fixed inset-0 bg-black/90 z-50 items-center justify-center p-4 backdrop-blur-sm"
+      onClick={() => {
+        const modal = document.getElementById('global-gallery-modal');
+        if (modal) modal.style.display = 'none';
+      }}
+    >
+      <button className="absolute top-4 right-4 text-white text-xl hover:text-primary transition-colors p-2">
+        ✕
+      </button>
+      <div className="max-w-4xl max-h-[80vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
+        <img id="global-gallery-modal-img" src="" alt="" className="max-w-full max-h-[70vh] object-contain rounded-md" />
+        <p id="global-gallery-modal-txt" className="text-white text-center mt-4 text-base bg-black/40 px-4 py-2 rounded-md" />
+      </div>
+    </div>
+  </> 
+); 
+}
