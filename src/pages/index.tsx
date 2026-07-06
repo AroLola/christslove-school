@@ -492,7 +492,7 @@ export default function HomePage() {
 
             return ( 
               <> 
-                                              {/* Grid Mapping Output */} 
+                                {/* Grid Mapping Output */} 
                 {galleryImages && galleryImages.map((img: any) => ( 
                   <motion.div 
                     key={img?.id} 
