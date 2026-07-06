@@ -2,7 +2,7 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { BookOpen, Heart, Star, Users, ChevronRight, Quote } from 'lucide-react';
-import heroImage from '..public/assets/IMG_5755.jpg';
+import heroImage from '..public/assets/IMG_5755.jpg'"
 
 
 const fadeUp = {
