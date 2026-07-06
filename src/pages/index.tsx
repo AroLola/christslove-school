@@ -99,7 +99,7 @@ export default function HomePage() {
         </div> 
       </section> 
 
-      {/* ── PROGRAMS / GRADES ── */} 
+            {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
@@ -107,6 +107,7 @@ export default function HomePage() {
             <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-4 font-bold"> Kindergarten Through Grade 7 </motion.h2> 
             <motion.p variants={fadeUp} className="text-white/70 max-w-xl mx-auto text-lg"> Each grade is thoughtfully designed to meet students where they are — academically, spiritually, and personally. </motion.p> 
           </motion.div> 
+          
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"> 
             {gradeCards.map((card) => ( 
               <motion.div key={card.grade} variants={fadeUp} whileHover={{ y: -4, transition: { duration: 0.2 } }} className="bg-white/5 border border-white/10 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm" > 
@@ -116,45 +117,27 @@ export default function HomePage() {
                 <p className="text-white/70 text-sm leading-relaxed">{card.description}</p> 
               </motion.div> 
             ))} 
-          </motion.div>
-        </div>
-      </section>
-    </>
-  );
-}
+          </motion.div> 
 
-        {/* View Full Curriculum Link Box */} 
-      <div className="text-center mt-10"> 
-        <Link to="/academics" className="inline-flex items-center gap-2 text-white font-semibold hover:text-primary transition-colors"> 
-          View Full Curriculum <ChevronRight size={18} /> 
-        </Link> 
-      </div> 
-    </div> 
-  </section> 
+          {/* View Full Curriculum Link Box */} 
+          <div className="text-center mt-10"> 
+            <Link to="/academics" className="inline-flex items-center gap-2 text-white font-semibold hover:text-primary transition-colors"> 
+              View Full Curriculum <ChevronRight size={18} /> 
+            </Link> 
+          </div> 
+        </div> 
+      </section> 
 
-  {/* ── VALUES / MISSION ── */} 
-  <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
-    <div className="container mx-auto px-4 lg:px-8"> 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-        
-        {/* Image Block with Gold Framing */} 
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }} 
-          whileInView={{ opacity: 1, x: 0 }} 
-          viewport={{ once: true }} 
-          transition={{ duration: 0.5, ease: 'easeOut' }} 
-          className="relative"
-        > 
-          <img 
-            src="/assets/media/pages-home-values-c9779bb4.jpg" 
-            alt="Faith and learning at Christ's Love Christian School" 
-            className="w-full h-auto object-contain rounded-lg shadow-lg" 
-            loading="lazy" 
-            width={800} 
-            height={480} 
-          /> 
-          <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
-        </motion.div> 
+      {/* ── VALUES / MISSION ── */} 
+      <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+            {/* Image Block with Gold Framing */} 
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: 'easeOut' }} className="relative" > 
+              <img src="/assets/media/pages-home-values-c9779bb4.jpg" alt="Faith and learning at Christ's Love Christian School" className="w-full h-auto object-contain rounded-lg shadow-lg" loading="lazy" width={800} height={480} /> 
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+            </motion.div>
+
 
         {/* Text Content Block */} 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
