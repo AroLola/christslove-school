@@ -437,9 +437,10 @@ export default function HomePage() {
 
 
   {/* ── ACHIEVEMENTS ── */} 
-  <section className="py-20 bg-secondary"> 
+ <section className="py-20 bg-secondary text-white w-full"> 
     <div className="container mx-auto px-4 lg:px-8"> 
-      {/* Heading Title Block */}
+      
+      {/* Header Block inside section container */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h2 className="font-heading text-4xl md:text-5xl text-white font-bold mb-4">Our Recent Achievements</h2>
         <p className="text-white/80 text-lg">Celebrating the milestones, academic triumphs, and sports victories of our outstanding students.</p>
