@@ -23,7 +23,7 @@ async function fetchGallery(): Promise<GalleryData> {
 } 
 
 // ── STANDALONE INJECTION-PROOF SUB-COMPONENTS ──
-// Sub-Component A: Handles Photo Sections and Slideshows cleanly isolated from fix-paths regex
+// Sub-Component A: Handles Photo Sections and Slideshows cleanly isolated from fix-paths regex - change made to two lines below
 //function PhotoSectionView({ event, onImageClick }: { event: EventSection; onImageClick: (items: MediaItem[], idx: number) => void }) {
   //const [slideIdx, setSlideIdx] = useState(0);
 
