@@ -357,57 +357,66 @@ export default function HomePage() {
         </div> 
       </section>
 
-                       {/* Grid Mapping Output */} 
-          {galleryImages && galleryImages.map((img: any) => ( 
-            <motion.div 
-              key={img?.id} 
-              variants={fadeUp} 
-              onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
-              className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer backdrop-blur-sm shadow-sm" 
-            > 
-              <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-                <img src={img?.src || ''} alt={img?.label || 'Gallery Image'} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
-              </div> 
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"> 
-                <p className="text-white text-sm font-medium">{img?.label || ''}</p> 
-              </div> 
-            </motion.div> 
-          ))} 
-        </> 
-      ); 
-    })()} 
-  </motion.div> 
+                             {/* Grid Mapping Output */} 
+        {galleryImages && galleryImages.map((img: any) => ( 
+          <motion.div 
+            key={img?.id} 
+            variants={fadeUp} 
+            onClick={() => handleCardClick(img?.src || '', img?.label || '')} 
+            className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer backdrop-blur-sm shadow-sm" 
+          > 
+            <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+              <img 
+                src={img?.src || ''} 
+                alt={img?.label || 'Gallery Image'} 
+                style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} 
+                className="transition-transform duration-300 group-hover:scale-105" 
+              /> 
+            </div> 
+            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"> 
+              <p className="text-white text-sm font-medium">{img?.label || ''}</p> 
+            </div> 
+          </motion.div> 
+        ))} 
+      </div> // ✅ FIXED: Changed from </> to </div> to correctly close the grid wrapper
+    ); 
+  })()} 
+</motion.div> 
 </div> 
 </section> 
 
 {/* ── ENROLLMENT CTA ── */} 
-<section className="py-20 bg-midnight text-white overflow-hidden"> {/* Fixed: Set bg-background to bg-midnight for perfect cross-device dark theme flow */}
+<section className="py-20 bg-midnight text-white overflow-hidden"> 
+  {/* Fixed: Set bg-background to bg-midnight for perfect cross-device dark theme flow */} 
   <div className="container mx-auto px-4 lg:px-8"> 
     <div className="relative bg-secondary rounded-2xl overflow-hidden border border-white/5 shadow-2xl"> 
       {/* Gold accent bar */} 
       <div className="absolute top-0 left-0 right-0 h-1 bg-primary" /> 
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" /> 
-      
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0"> 
         <div className="p-12 lg:p-16"> 
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4"> 
             Admissions Open 
           </p> 
-          <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> {/* Fixed: Changed from text-secondary-foreground to absolute high-contrast white */}
+          <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+            {/* Fixed: Changed from text-secondary-foreground to absolute high-contrast white */} 
             Begin Your Child's Journey in Faith 
           </h2> 
-          <p className="text-white/70 text-lg leading-relaxed mb-8"> {/* Fixed: Updated text opacity string so body data reads beautifully over dark layouts */}
+          <p className="text-white/70 text-lg leading-relaxed mb-8"> 
+            {/* Fixed: Updated text opacity string so body data reads beautifully over dark layouts */} 
             We welcome families who share our commitment to faith, learning, and community. Spaces are limited — apply today to secure your child's place. 
           </p> 
           <div className="flex flex-wrap gap-4"> 
             <Link to="/admissions" className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
               Apply Now <ChevronRight size={18} /> 
             </Link> 
-            <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/20 text-white font-semibold rounded hover:border-primary hover:text-primary transition-colors"> {/* Fixed: Adjusted border rules to maintain visibility on dark blue blocks */}
+            <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/20 text-white font-semibold rounded hover:border-primary hover:text-primary transition-colors"> 
+              {/* Fixed: Adjusted border rules to maintain visibility on dark blue blocks */} 
               Contact Us 
             </Link> 
           </div> 
-        </div> 
+        </div>
+
 
         {/* Decorative side */} 
         <div className="hidden lg:flex items-center justify-center p-16 bg-white/5 backdrop-blur-sm border-l border-white/5"> {/* Fixed: Swapped light overlay fill to glowing dark transparency layer */}
