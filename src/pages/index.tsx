@@ -92,75 +92,56 @@ export default function HomePage() {
 
 
 
+// ── INTRODUCED GALLERY SECTION INSIDE THE HOME PAGE COMPONENT FUNCTION TREE ──
 
-     
 const site = 'https://christslovechristianschool.info'; 
 
 export default function HomePage() { 
   const jsonLd = { 
     '@context': 'https://schema.org', 
     '@graph': [ 
-      { 
-        '@type': 'WebSite', 
-        '@id': `${site}/#website`, 
-        name: "Christ's Love Christian School", 
-        url: `${site}/` 
-      }, 
-      { 
-        '@type': 'EducationalOrganization', 
-        '@id': `${site}/#organization`, 
-        name: "Christ's Love Christian School", 
-        url: `${site}/`, 
-        description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.' 
-      }, 
-      { 
-        '@type': 'WebPage', 
-        '@id': `${site}/#webpage`, 
-        url: `${site}/`, 
-        name: "Christ's Love Christian School — Faith-Centered Education K–7", 
-        isPartOf: { '@id': `${site}/#website` }, 
-        about: { '@id': `${site}/#organization` }, 
-        datePublished: '2026-06-16', 
-        dateModified: '2026-06-16' 
-      }
+      { '@type': 'WebSite', '@id': `${site}/#website`, name: "Christ's Love Christian School", url: `${site}/` }, 
+      { '@type': 'EducationalOrganization', '@id': `${site}/#organization`, name: "Christ's Love Christian School", url: `${site}/`, description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.' }, 
+      { '@type': 'WebPage', '@id': `${site}/#webpage`, url: `${site}/`, name: "Christ's Love Christian School — Faith-Centered Education K–7", isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#organization` }, datePublished: '2026-06-16', dateModified: '2026-06-16' } 
     ] 
-  };
+  }; 
 
-    return (
-    <>
-      <Helmet>
-        <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
-        <meta name="description" content="A private Christian school nurturing students from Kindergarten through Grade 7 in academic excellence, character, and faith. Enroll today." />
-        <link rel="canonical" href={`${site}/`} />
+  return ( 
+    <> 
+      <Helmet> 
+        <title>Christ's Love Christian School — Faith-Centered Education K–7</title> 
+        <meta name="description" content="A private Christian school nurturing students from Kindergarten through Grade 7 in academic excellence, character, and faith. Enroll today." /> 
+        <link rel="canonical" href={`${site}/`} /> 
         
-        {/* Open Graph / Facebook */}
-        <meta property="og:title" content="Christ's Love Christian School" />
-        <meta property="og:description" content="Nurturing minds, hearts, and faith from Kindergarten through Grade 7." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${site}/`} />
+        {/* Open Graph / Facebook */} 
+        <meta property="og:title" content="Christ's Love Christian School" /> 
+        <meta property="og:description" content="Nurturing minds, hearts, and faith from Kindergarten through Grade 7." /> 
+        <meta property="og:type" content="website" /> 
+        <meta property="og:url" content={`${site}/`} /> 
         
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
+        {/* Twitter */} 
+        <meta name="twitter:card" content="summary_large_image" /> 
         
-        {/* Schema JSON-LD Data */}
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
+        {/* Schema JSON-LD Data */} 
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
+      </Helmet> 
 
-      {/* ── HERO ── */}
-      <section className="relative flex items-center overflow-hidden" style={{ minHeight: '88vh' }}>
+      {/* ── HERO ── */} 
+      <section className="relative flex items-center overflow-hidden" style={{ minHeight: '88vh' }}> 
+        {/* Background image wrapper — explicit inset so image fills regardless of browser */} 
+        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}> 
+          <img 
+            src="https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-37f8257f.jpg" 
+            alt="Students lined up at Christ's Love Christian School" 
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} 
+            fetchPriority="high" 
+            loading="eager" 
+          />
 
-      {/* ── HERO ── */}
-      <section className="relative flex items-center overflow-hidden" style={{ minHeight: '88vh' }}>
-        {/* Background image wrapper — explicit inset so image fills regardless of browser */}
-        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-          <img
-            src="https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-37f8257f.jpg"
-            alt="Students lined up at Christ's Love Christian School"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-            fetchPriority="high"
-            loading="eager" />
-         
-         
+     
+
+
+  
     {/* Overlay */} 
     <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/30" /> 
     
