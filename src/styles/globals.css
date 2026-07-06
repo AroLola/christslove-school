@@ -12,10 +12,11 @@
     --card-foreground: 221 47% 20%;
     --popover: 43 41% 97%;
     --popover-foreground: 0 0% 4%;
-    --primary: 45 60% 45%;
+    --primary: 35 85% 35%; 
     --primary-foreground: 0 0% 100%;
-    --secondary: 222 47% 12%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 222 47% 11%;       
+    --secondary-foreground: 210 40% 98%;
+    --midnight: 224 71% 7%; 
     --muted: 45 29% 92%;
     --muted-foreground: 220 14% 41%;
     --accent: 44 54% 54%;
