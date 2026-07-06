@@ -211,7 +211,7 @@ export default function HomePage() {
               We partner with families to raise students who are academically prepared, spiritually grounded, and ready to serve their communities with integrity and compassion. 
             </motion.p> 
 
-            {/* Core Values Sub-Grid */}
+                       {/* Core Values Sub-Grid */}
             <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"> 
               {[ 
                 { icon: BookOpen, label: 'Academic Excellence' }, 
@@ -223,33 +223,28 @@ export default function HomePage() {
                   <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0"> 
                     <Icon size={16} className="text-primary" /> 
                   </div> 
-                  <span className="text-white font-medium text-sm">{label}</span> {/* Fixed: Changed text-secondary to text-white */}
+                  <span className="text-white font-medium text-sm">{label}</span> 
                 </motion.div> 
               ))} 
             </motion.div> 
-          </motion.div>
 
-        </div>
-      </div>
-    </section>
-
+            {/* Our Story Button Link Call */}
             <motion.div variants={fadeUp}> 
-              <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors">
+              <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
                 Our Story <ChevronRight size={18} /> 
               </Link> 
             </motion.div> 
 
-          </motion.div> {/* Closes your Text content column wrapper */}
-        </div> {/* Closes the grid layout tree wrapper */}
-      </div> {/* Closes the container padding constraint block */}
-    </section> {/* Cleanly finishes the Values / Mission section element module */}
+          </motion.div> 
+        </div> 
+      </div> 
+    </section> 
 
+    {/* ── COMMUNITY ── */} 
+    <section className="py-20 bg-midnight text-white"> 
+      <div className="container mx-auto px-4 lg:px-8"> 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
-  {/* ── COMMUNITY ── */} 
-  <section className="py-20 bg-midnight text-white"> {/* Fixed: Changed bg-background to your global bg-midnight variable */}
-    <div className="container mx-auto px-4 lg:px-8"> 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-        
         {/* Text Area Content Layout */} 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
           <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
