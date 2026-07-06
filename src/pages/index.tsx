@@ -146,7 +146,6 @@ export default function HomePage() {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
-      </Helmet>
         <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
         <meta name="description" content="A private Christian school nurturing students from Kindergarten through Grade 7 in academic excellence, character, and faith. Enroll today." />
         <link rel="canonical" href={`${site}/`} />
