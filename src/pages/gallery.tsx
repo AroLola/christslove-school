@@ -61,9 +61,9 @@ export function PhotoSectionView({ event, onImageClick }: { event: EventSection;
             /> 
           )} 
         </AnimatePresence> 
-        
+
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/70 via-transparent to-transparent" /> 
-        
+
         {currentItem?.caption && ( 
           <p className="absolute bottom-4 left-4 text-white font-semibold text-sm drop-shadow-md">{currentItem.caption}</p> 
         )} 
@@ -79,70 +79,44 @@ export function PhotoSectionView({ event, onImageClick }: { event: EventSection;
                 /> 
               ))} 
             </div> 
-            
             <button 
               onClick={(e) => { e.stopPropagation(); setSlideIdx((prev) => (prev - 1 + activeMedia.length) % activeMedia.length); }} 
-              className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-1.5 transition-colors z-10"
+              className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-1.5 transition-colors z-10" 
             > 
               <ChevronLeft size={18} /> 
             </button> 
-            
             <button 
               onClick={(e) => { e.stopPropagation(); setSlideIdx((prev) => (prev + 1) % activeMedia.length); }} 
-              className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-1.5 transition-colors z-10"
+              className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-1.5 transition-colors z-10" 
             > 
               <ChevronRight size={18} /> 
             </button> 
           </> 
         )} 
-      </div>
-    </div>
-  );
-}
-
-
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2"> 
-      {activeMedia.map((photo, i) => ( 
-        <motion.div 
-          key={photo.id} 
-          initial={{ opacity: 0, scale: 0.95 }} 
-          animate={{ opacity: 1, scale: 1 }} 
-          transition={{ duration: 0.3, delay: i * 0.02 }} 
-          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group shadow-sm" 
-          onClick={() => onImageClick(activeMedia, i)} 
-        > 
-          <img 
-            src={photo.src.startsWith('hhttps') ? photo.src.replace('hhttps://', 'https://') : photo.src} 
-            alt={photo.caption || ''} 
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-          /> 
-        </motion.div> 
-      ))} 
-    </div> 
-  </div> 
-); 
-}
-
-
-// Sub-Component B: Handles Video Albums safely separated from parent scope string match filters 
-export function VideoSectionView({ event }: { event: EventSection & { description?: string } }) { 
-  const activeMedia = event.media || []; 
-  
-  if (activeMedia.length === 0) return null; 
-  
-  return ( 
-    <div className="border-b border-white/5 pb-16 last:border-0 last:pb-0"> 
-      {/* Video Album Heading and Section Description Caption */} 
-      <div className="mb-8 max-w-3xl"> 
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-2 flex items-center gap-2"> {/* Fixed: Changed text-secondary to text-white */}
-          📁 {event.name} 
-        </h2> 
-        {event.description && ( 
-          <p className="text-secondary-foreground/70 text-base leading-relaxed"> {/* Fixed: Adjusted text class for clean readability */}
-            {event.description} 
-          </p> 
-        )} 
       </div> 
+
+      {/* The grid list now neatly renders within the same parent wrapper container */}
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2"> 
+        {activeMedia.map((photo, i) => ( 
+          <motion.div 
+            key={photo.id} 
+            initial={{ opacity: 0, scale: 0.95 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 0.3, delay: i * 0.02 }} 
+            className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group shadow-sm" 
+            onClick={() => onImageClick(activeMedia, i)} 
+          > 
+            <img 
+              src={photo.src.startsWith('hhttps') ? photo.src.replace('hhttps://', 'https://') : photo.src} 
+              alt={photo.caption || ''} 
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+            /> 
+          </motion.div> 
+        ))} 
+      </div> 
+    </div> 
+  ); 
+}
 
       {/* Nested Multi-Video Grid */} 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
