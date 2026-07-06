@@ -18,17 +18,32 @@
   ],
   "videoEvents": [
     {
-      "id": "school-videos",
-      "name": "School Life Portfolio",
+      "id": "album-15th-anniversary",
+      "name": "15th Anniversary Celebration",
+      "description": "Celebrating 15 years of scholarship, spiritual discipline, and academic excellence with song and dance presentations performed by our students.",
       "media": [
-        { "id": "school-videos", "src": "https://airoapp.ai", "caption": "Highlights from our annual school life activities and student community events." },
-        { "id": "m-1782774757107-0.9459343479658033", "src": "https://airoapp.ai", "caption": "Volleyball - Under-13 Girls bring home Silver medals." },
-        { "id": "m-1782775590001-0.1972598469754525", "src": "https://airoapp.ai", "caption": "Volleyball - Under-15 Boys receiving their Silver medals." },
-        { "id": "m-1782776081095-0.007960250631391386", "src": "https://airoapp.ai", "caption": "Volleyball - Under-15 Girls. Silver medalists." },
-        { "id": "m-1781846539942-0.17936122800190435", "src": "https://airoapp.ai", "caption": "Melissa Angala and Agnes Sabuta shared with NBC how they feel about participating in the Cricket Namibia Women’s Week initiative." },
-        { "id": "m-1781821983590-0.4846056509140575", "src": "https://airoapp.ai", "caption": "Bishop Elizabeth Arowolo visits CLCS to encourage and pray for the students." },
-        { "id": "m-1781821649262-0.6870646931584803", "src": "https://airoapp.ai", "caption": "CLCS celebrates her 15 year anniversary with song and dance presentations." },
-        { "id": "m-1781833626325-0.003148085022670166", "src": "https://airoapp.ai", "caption": "CLCS celebrates 15 years of scholarship, spiritual discipline, and excellence." }
+        { "id": "v-1", "src": "https://airoapp.ai", "caption": "15-Year Anniversary Song & Dance Presentation" },
+        { "id": "v-2", "src": "https://airoapp.ai", "caption": "Anniversary Chapel Keynote Snippet" }
+      ]
+    },
+    {
+      "id": "album-sports-videos",
+      "name": "Sports & Tournaments",
+      "description": "Highlights from our intense sports competitions, where our Under-13 and Under-15 teams brought home glorious medals.",
+      "media": [
+        { "id": "v-3", "src": "https://airoapp.ai", "caption": "Volleyball - Under-13 Girls bring home Silver medals." },
+        { "id": "v-4", "src": "https://airoapp.ai", "caption": "Volleyball - Under-15 Boys receiving their Silver medals." },
+        { "id": "v-5", "src": "https://airoapp.ai", "caption": "Volleyball - Under-15 Girls. Silver medalists." }
+      ]
+    },
+    {
+      "id": "album-community-interviews",
+      "name": "Community & Interviews",
+      "description": "CLCS features and media highlights covering community interactions and spiritual growth moments.",
+      "media": [
+        { "id": "v-6", "src": "https://airoapp.ai", "caption": "Melissa Angala and Agnes Sabuta share their Cricket Namibia Week experience on NBC." },
+        { "id": "v-7", "src": "https://airoapp.ai", "caption": "Gideon's Namibia Bible Donation Ceremony for Christian Moral Education." },
+        { "id": "v-8", "src": "https://airoapp.ai", "caption": "Bishop Elizabeth Arowolo teaches learners: Everywhere He Went, He Was Doing Good." }
       ]
     }
   ]
