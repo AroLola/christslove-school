@@ -183,22 +183,26 @@ export default function HomePage() {
             variants={stagger}
             className="max-w-2xl">
            
-            <motion.p
-              variants={fadeUp}
-              className="text-primary font-medium tracking-widest uppercase text-sm mb-4" style={{ color: "#ffffff" }}>
-             
-              Private Christian Education
-            </motion.p>
-            <motion.h1
-              variants={fadeUp}
-              className="font-heading text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6" style={{ color: "#ffffff", fontFamily: "Impact, 'Arial Narrow Bold', sans-serif", "--font-heading": "Impact, 'Arial Narrow Bold', sans-serif" } as React.CSSProperties}>
-             
-              Christ's Love<br />
-              <span className="text-primary">Christian School</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+            </motion.p> 
+
+{/* ✅ FIXED: Removed blocky Impact/Arial font from style matrix and applied var(--font-sans) */}
+<motion.h1 
+  variants={fadeUp} 
+  className="text-5xl md:text-6xl lg:text-7xl text-white leading-tight font-medium tracking-tight mb-6" 
+  style={{ 
+    color: "#ffffff", 
+    fontFamily: "var(--font-sans)" 
+  } as React.CSSProperties}
+> 
+  Christ's Love<br /> 
+  <span className="text-primary">Christian School</span> 
+</motion.h1> 
+
+<motion.p 
+  variants={fadeUp} 
+  className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg"
+>
+
              
               Nurturing minds, hearts, and faith from Kindergarten through Grade 7. Where academic excellence meets the love of Christ.
             </motion.p>
@@ -437,16 +441,27 @@ export default function HomePage() {
 
 
   {/* ── ACHIEVEMENTS ── */} 
- <section className="py-20 bg-secondary text-white w-full"> 
-    <div className="container mx-auto px-4 lg:px-8"> 
-      
-      {/* Header Block inside section container */}
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="font-heading text-4xl md:text-5xl text-white font-bold mb-4">Our Recent Achievements</h2>
-        <p className="text-white/80 text-lg">Celebrating the milestones, academic triumphs, and sports victories of our outstanding students.</p>
+{/* ✅ FIXED: bg-secondary applies full width dark blue, text-white corrects contrast */}
+<section className="py-20 bg-secondary text-white w-full">
+  <div className="container mx-auto px-4 lg:px-8">
+    
+    <div className="text-center max-w-3xl mx-auto mb-16">
+      <h2 className="font-heading text-4xl md:text-5xl text-white font-bold mb-4">Our Recent Achievements</h2>
+      <p className="text-white/80 text-lg">Celebrating the milestones, academic triumphs, and sports victories of our outstanding students.</p>
+    </div>
+
+    {/* ⚠️ LOOK HERE: Ensure your grid layout matches your rich global theme token variables */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Example card wrapper structure: Remove any 'bg-white' or 'text-card-foreground' utility strings! */}
+      <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
+        <h3 className="text-xl font-bold text-white mb-2">Academic Excellence</h3>
+        <p className="text-white/70 text-sm">Achieving top ranks in regional mathematics and language curriculum indices.</p>
       </div>
-    </div> 
-  </section> 
+    </div>
+
+  </div>
+</section>
+
 
   {/* Responsive 3-Column Image Grid Container */} 
   <section className="py-12 bg-background">
