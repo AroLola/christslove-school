@@ -174,17 +174,17 @@ export default function HomePage() {
             ))} 
           </motion.div>
 
-      </section>
+               </motion.div> 
 
+          {/* View Full Curriculum Link Box */}
+          <div className="text-center mt-10"> 
+            <Link to="/academics" className="inline-flex items-center gap-2 text-white font-semibold hover:text-primary transition-colors"> 
+              View Full Curriculum <ChevronRight size={18} /> 
+            </Link> 
+          </div> 
 
-                 {/* Dynamic Curriculum Link Footer */}
-        <div className="text-center mt-10"> 
-          <Link to="/academics" className="inline-flex items-center gap-2 text-white font-semibold hover:text-primary transition-colors"> {/* Fixed: Changed text-secondary to high-contrast text-white */}
-            View Full Curriculum <ChevronRight size={18} /> 
-          </Link> 
         </div> 
-      </div> 
-    </section> 
+      </section> {/* Line 187: Properly terminates the Programs section layer container */}
 
     {/* ── VALUES / MISSION ── */} 
     <section className="py-20 bg-secondary border-b border-white/5 text-white"> {/* Fixed: Swapped bg-muted to bg-secondary to keep your premium dark flow uniform */}
