@@ -2,19 +2,19 @@ import { Helmet } from '@dr.pogodin/react-helmet';
 import { Link } from 'react-router-dom'; 
 import { motion } from 'motion/react'; 
 import { BookOpen, Heart, Star, Users, ChevronRight, Quote } from 'lucide-react'; 
-import heroImage from '../public/assets/IMG_5755.jpg'; // 1. Fixed the broken string quotes and relative file path typo
+import heroImage from '../public/assets/IMG_5755.jpg'; 
 
 const fadeUp = { 
   hidden: { opacity: 0, y: 28 }, 
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } } 
-};
+}; 
 
 const stagger = { 
   hidden: {}, 
   visible: { transition: { staggerChildren: 0.1 } } 
 }; 
 
-const site = 'https://christslovechristianschool.info';
+const site = 'https://christslovechristianschool.info'; 
 
 const gradeCards = [ 
   { grade: 'Kindergarten', ages: 'Ages 5–6', description: 'A joyful introduction to learning through play, faith, and foundational skills in reading and numeracy.' }, 
@@ -24,7 +24,7 @@ const gradeCards = [
   { grade: 'Grade 4', ages: 'Ages 9–10', description: 'Strengthening academic foundations with increased independence and character development.' }, 
   { grade: 'Grade 5', ages: 'Ages 10–11', description: 'Preparing students for upper grades with rigorous academics and leadership opportunities.' }, 
   { grade: 'Grade 6', ages: 'Ages 11–12', description: 'A bridge to junior high — challenging curriculum, mentorship, and faith-centered community.' }, 
-  { grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' }
+  { grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' } 
 ]; 
 
 interface ImmutableGalleryItem { 
@@ -34,51 +34,7 @@ interface ImmutableGalleryItem {
   readonly label: string; 
 }
 
-// 2. Opened the required HomePage function scope so that layout elements render correctly inside a valid framework return block
-export default function HomePage() { 
-  const jsonLd = { 
-    '@context': 'https://schema.org', 
-    '@graph': [ 
-      { '@type': 'WebSite', '@id': `${site}/#website`, name: "Christ's Love Christian School", url: `${site}/` }, 
-      { '@type': 'EducationalOrganization', '@id': `${site}/#organization`, name: "Christ's Love Christian School", url: `${site}/`, description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.' }, 
-      { '@type': 'WebPage', '@id': `${site}/#webpage`, url: `${site}/`, name: "Christ's Love Christian School — Faith-Centered Education K–7", isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#organization` }, datePublished: '2026-06-16', dateModified: '2026-06-16' }
-    ] 
-  };
-
-  return (
-    <>
-
-
-
-  {/* MASTER SLOT 2: Holds Images 5, 6, 7, 8 */}
-  <motion.div variants={fadeUp} className="flex flex-col gap-4 w-full">
-    {[
-      { id: 5, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Principal's Comments" },
-      { id: 6, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "U-13 Volleyball Champions" },
-      { id: 7, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz Participants" },
-      { id: 8, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Regional Social Studies Quiz" }
-    ].map((img) => (
-      <div key={img.id} className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-secondary-foreground/5 border border-secondary-foreground/10 p-4 w-full h-52 cursor-pointer">
-        <img src={img.src} alt={img.label} className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-between p-4">
-          <div className="flex items-center justify-end text-white/80 text-[10px] font-medium uppercase"><span>Click to expand</span></div>
-          <p className="text-white font-medium text-xs truncate w-full">{img.label}</p>
-        </div>
-      </div>
-    ))}
-  </motion.div>
-
-
-  {/* MASTER SLOT 3: Contains Images numbered 9, 10, 11, 12 */}
-  <motion.div variants={fadeUp} className="flex flex-col gap-4 w-full">
-    {[
-      { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "U-13 Volleyball Champions" },
-      { id: 10, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold Winners" },
-      { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Under-10 Netball" },
-      { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Under-13 Volleyball Gold" }
-   // ── FIXED: All loose mapping loops, dangling tags, and uncontained fragments have been completely removed ──
-
-const site = 'https://christslovechristianschool.info'; 
+// ── CODE ENTRY CONTEXT STABILIZED ──
 
 export default function HomePage() { 
   const jsonLd = { 
@@ -89,6 +45,10 @@ export default function HomePage() {
       { '@type': 'WebPage', '@id': `${site}/#webpage`, url: `${site}/`, name: "Christ's Love Christian School — Faith-Centered Education K–7", isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#organization` }, datePublished: '2026-06-16', dateModified: '2026-06-16' } 
     ] 
   }; 
+
+  return ( 
+    <>
+
 
   return ( 
     <> 
