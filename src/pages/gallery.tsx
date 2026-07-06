@@ -101,16 +101,28 @@ export function PhotoSectionView({ event, onImageClick }: { event: EventSection;
 }
 
 
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-        {activeMedia.map((photo, i) => (
-          <motion.div key={photo.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: i * 0.02 }} className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group shadow-sm" onClick={() => onImageClick(activeMedia, i)}>
-            <img src={photo.src} alt={photo.caption || ''} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2"> 
+      {activeMedia.map((photo, i) => ( 
+        <motion.div 
+          key={photo.id} 
+          initial={{ opacity: 0, scale: 0.95 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ duration: 0.3, delay: i * 0.02 }} 
+          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group shadow-sm" 
+          onClick={() => onImageClick(activeMedia, i)} 
+        > 
+          <img 
+            src={photo.src.startsWith('hhttps') ? photo.src.replace('hhttps://', 'https://') : photo.src} 
+            alt={photo.caption || ''} 
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+          /> 
+        </motion.div> 
+      ))} 
+    </div> 
+  </div> 
+); 
 }
+
 
 // Sub-Component B: Handles Video Albums safely separated from parent scope string match filters 
 export function VideoSectionView({ event }: { event: EventSection & { description?: string } }) { 
