@@ -189,13 +189,13 @@ export default function HomePage() {
              
               Private Christian Education
             </motion.p>
-            <motion.h1
-              variants={fadeUp}
-              className="font-heading text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6" style={{ color: "#ffffff", fontFamily: "Impact, 'Arial Narrow Bold', sans-serif", "--font-heading": "Impact, 'Arial Narrow Bold', sans-serif" } as React.CSSProperties}>
-             
-              Christ's Love<br />
-              <span className="text-primary">Christian School</span>
-            </motion.h1>
+            <motion.h1 
+  variants={fadeUp} 
+  className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight font-light tracking-wide mb-6 font-sans" 
+> 
+  Christ's Love<br /> 
+  <span className="text-primary font-normal">Christian School</span> 
+</motion.h1>
             <motion.p
               variants={fadeUp}
               className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
