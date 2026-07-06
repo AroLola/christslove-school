@@ -7,63 +7,56 @@
 @layer base { 
   :root { 
     /* Core Layout Colors */ 
-    --background: #f5f6f4; 
-    --foreground: #0a0a0a; 
-    --card: #ffffff; 
-    --card-foreground: #0b1a3a; 
-    --popover: #f5f6f4; 
-    --popover-foreground: #0a0a0a; 
-
-    /* 🔵 Clean Rich Dark Blue Theme (Was primary, accent, ring, charts, sidebars) */ 
-    --primary: #0b1a3a; 
-    --primary-foreground: #ffffff; 
-    --secondary: #0b1a3a; 
-    --secondary-foreground: #ffffff; 
-    --ring: #0b1a3a; 
-
-    /* 🟡 Rich Saturated Antique Gold (Was card-foreground, secondary, ring) */ 
-    --accent: #a27519; 
-    --accent-foreground: #ffffff; 
-    --muted: #eaece6; 
-    --muted-foreground: #5a6578; 
-    --border: #dcdfd8; 
-    --input: #dcdfd8; 
-
-    /* Extended Charts Matrix Layout */ 
-    --chart-1: #c9a456; 
-    --chart-2: #b88b2d; 
-    --chart-3: #a27519; 
-    --chart-4: #73510f; 
-    --chart-5: #3b2804; 
-
-    /* Sidebar Core Brand Colors */ 
-    --sidebar: #eaece6; 
-    --sidebar-foreground: #0a0a0a; 
-    --sidebar-primary: #0b1a3a; 
-    --sidebar-primary-foreground: #ffffff; 
-    --sidebar-accent: #a27519; 
-    --sidebar-accent-foreground: #ffffff; 
-    --sidebar-border: #dcdfd8; 
-    --sidebar-ring: #0b1a3a; 
-
+    --background: 43 41% 97%; 
+    --foreground: 0 0% 4%; 
+    --card: 0 0% 100%; 
+    --popover: 43 41% 97%; 
+    --popover-foreground: 0 0% 4%; 
+    /* 🔵 RESTORED RICH DARK BLUE (Inverted Theme Controls) */ 
+    --secondary: 221 62% 18%;             /* Richer, deeper Midnight Navy Blue */
+    --card-foreground: 221 62% 18%;       /* Matches the text elements to the Navy Theme */
+    --ring: 221 62% 18%;                  /* Rings match the rich dark blue */
+    --secondary-foreground: 0 0% 100%; 
+    /* 🟡 RESTORED RICH ANTIQUE GOLD (Inverted Theme Controls) */ 
+    --primary: 38 68% 38%;                /* Deeper, warmer Antique Gold instead of bright yellow */
+    --accent: 38 68% 38%;                 /* Accents match the premium gold */
+    --sidebar-primary: 38 68% 38%; 
+    --sidebar-ring: 38 68% 38%; 
+    --sidebar-accent: 38 68% 38%; 
+    --primary-foreground: 0 0% 100%; 
+    --accent-foreground: 0 0% 100%; 
+    --sidebar-primary-foreground: 0 0% 100%; 
+    --sidebar-accent-foreground: 0 0% 100%; 
+    --muted: 45 29% 92%; 
+    --muted-foreground: 220 14% 41%; 
+    --border: 42 20% 83%; 
+    --input: 42 20% 83%; 
+    /* Extended Colors */ 
+    --chart-1: 38 68% 65%; 
+    --chart-2: 38 68% 50%; 
+    --chart-3: 38 68% 38%; 
+    --chart-4: 38 68% 25%; 
+    --chart-5: 38 68% 12%; 
+    /* Sidebar Colors */ 
+    --sidebar: 45 29% 92%; 
+    --sidebar-foreground: 0 0% 4%; 
+    --sidebar-border: 42 20% 83%; 
     /* Typography */ 
     --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif; 
     --font-heading: "Libre Baskerville", Georgia, serif; 
     --font-serif: ui-serif, Georgia, "Times New Roman", serif; 
     --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace; 
-
     /* Border Radius */ 
     --radius: 0.5rem; 
-
     /* Shadows */ 
-    --shadow-2xs: 0 1px 3px 0px rgba(0, 0, 0, 0.05); 
-    --shadow-xs: 0 1px 3px 0px rgba(0, 0, 0, 0.05); 
-    --shadow-sm: 0 1px 3px 0px rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10); 
-    --shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10); 
-    --shadow-md: 0 1px 3px 0px rgba(0, 0, 0, 0.10), 0 2px 4px -1px rgba(0, 0, 0, 0.10); 
-    --shadow-lg: 0 1px 3px 0px rgba(0, 0, 0, 0.10), 0 4px 6px -1px rgba(0, 0, 0, 0.10); 
-    --shadow-xl: 0 1px 3px 0px rgba(0, 0, 0, 0.10), 0 8px 10px -1px rgba(0, 0, 0, 0.10); 
-    --shadow-2xl: 0 1px 3px 0px rgba(0, 0, 0, 0.25); 
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05); 
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05); 
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10); 
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 1px 2px -1px hsl(0 0% 0% / 0.10); 
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 2px 4px -1px hsl(0 0% 0% / 0.10); 
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 4px 6px -1px hsl(0 0% 0% / 0.10); 
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10); 
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25); 
   }
 
   * { 
