@@ -492,7 +492,7 @@ export default function HomePage() {
 
             return ( 
               <> 
-                               {/* Grid Mapping Output */} 
+                                              {/* Grid Mapping Output */} 
                 {galleryImages && galleryImages.map((img: any) => ( 
                   <motion.div 
                     key={img?.id} 
@@ -511,7 +511,7 @@ export default function HomePage() {
               </> 
             ); 
           })()} 
-        </div> {/* ✅ FIXED: Changed from </motion.div> to </div> to perfectly match your opening layout container tag */}
+        </div>
       </div> 
     </section> 
 
