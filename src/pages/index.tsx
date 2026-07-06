@@ -530,10 +530,12 @@ export default function HomePage() {
           <p className="text-white/80 mb-6">Partner with us to build a strong spiritual and academic foundation.</p> 
         </div> 
       </div> 
-    </div> 
-  </section> 
-</> 
-); 
-} 
+         </div>
+    </section>
+  </section> {/* Forces open sections to close, preventing the build crash */}
+</>
+);
+}
+
 
 
