@@ -145,9 +145,14 @@ export default function AdmissionsPage() {
         </motion.div>
         
         {/* Visual Content Placeholder Grid layout to balance the layout */}
-        <div className="relative w-full h-80 bg-secondary/10 rounded-2xl border border-secondary/20 flex items-center justify-center">
-          <span className="text-muted-foreground text-sm font-medium">Admissions Overview Graphics</span>
-        </div>
+        <div className="relative w-full h-80 overflow-hidden rounded-2xl">
+  <img 
+    src="/airo-assets/uploads/admissions-graphic.jpg" 
+    alt="Admissions Information Graphic" 
+    className="w-full h-full object-cover"
+  />
+</div>
+
       </div>
     </div>
   </section>
