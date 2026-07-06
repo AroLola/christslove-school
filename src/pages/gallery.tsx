@@ -9,7 +9,7 @@ type MediaItem = { id: string; src: string; caption?: string };
 type EventSection = { id: string; name: string; media: MediaItem[] }; 
 type GalleryData = { photoEvents: EventSection[]; videoEvents: EventSection[] }; 
 
-// Updated to use the absolute schema network path to prevent 404 assets routing drops
+// Updated to use the absolute schema network path to prevent 404 assets routing drops going forward
 async function fetchGallery(): Promise<GalleryData> { 
   try { 
     const res = await fetch('https://airoapp.ai'); 
