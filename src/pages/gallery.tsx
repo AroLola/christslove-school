@@ -24,8 +24,8 @@ async function fetchGallery(): Promise<GalleryData> {
 
 // ── STANDALONE INJECTION-PROOF SUB-COMPONENTS ──
 // Sub-Component A: Handles Photo Sections and Slideshows cleanly isolated from fix-paths regex
-function PhotoSectionView({ event, onImageClick }: { event: EventSection; onImageClick: (items: MediaItem[], idx: number) => void }) {
-  const [slideIdx, setSlideIdx] = useState(0);
+//function PhotoSectionView({ event, onImageClick }: { event: EventSection; onImageClick: (items: MediaItem[], idx: number) => void }) {
+  //const [slideIdx, setSlideIdx] = useState(0);
 
   useEffect(() => {
     if (!event.media || event.media.length <= 1) return;
