@@ -235,16 +235,17 @@ export default function HomePage() {
       </div>
     </section>
 
+            <motion.div variants={fadeUp}> 
+              <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors">
+                Our Story <ChevronRight size={18} /> 
+              </Link> 
+            </motion.div> 
 
-          <motion.div variants={fadeUp}> 
-            <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> {/* Fixed: Swapped bg-secondary to bg-primary so the button stands out against the dark sheet */}
-              Our Story <ChevronRight size={18} /> 
-            </Link> 
-          </motion.div> 
-        </motion.div> 
-      </div> 
-    </div> 
-  </section> 
+          </motion.div> {/* Closes your Text content column wrapper */}
+        </div> {/* Closes the grid layout tree wrapper */}
+      </div> {/* Closes the container padding constraint block */}
+    </section> {/* Cleanly finishes the Values / Mission section element module */}
+
 
   {/* ── COMMUNITY ── */} 
   <section className="py-20 bg-midnight text-white"> {/* Fixed: Changed bg-background to your global bg-midnight variable */}
