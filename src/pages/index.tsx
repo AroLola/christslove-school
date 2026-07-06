@@ -518,7 +518,7 @@ export default function HomePage() {
     </div> 
   </section> 
 
-  {/* ── ENROLLMENT CTA ── */} 
+   {/* ── ENROLLMENT CTA ── */} 
   <section className="py-20 bg-background overflow-hidden"> 
     <div className="container mx-auto px-4 lg:px-8"> 
       <div className="relative bg-secondary rounded-2xl overflow-hidden"> 
@@ -531,7 +531,7 @@ export default function HomePage() {
       </div> 
     </div> 
   </section> 
+</> // Re-adds the missing root closing fragment your page wrapper requires
 ); 
 }
-
 
