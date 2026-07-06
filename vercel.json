@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "rewrites": [
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/media/(.*)", "destination": "/media/$1" },
+    { "source": "/airo-assets/(.*)", "destination": "/airo-assets/$1" },
+    { "source": "/gallery-data.json", "destination": "/gallery-data.json" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
