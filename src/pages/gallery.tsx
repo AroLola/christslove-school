@@ -12,7 +12,7 @@ type EventSection = { id: string; name: string; media: MediaItem[] };
 type GalleryData = { photoEvents: EventSection[]; videoEvents: EventSection[] }; 
 type Tab = 'photos' | 'videos'; 
 
-// Fetch data stream dynamically from standalone data profile file
+// Fetch data streams dynamically from standalone data profile file
 async function fetchGallery(): Promise<GalleryData> { 
   try {
     const res = await fetch('/gallery-data.json');
