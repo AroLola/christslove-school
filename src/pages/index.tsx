@@ -105,7 +105,7 @@ export default function HomePage() {
             ))} 
           </div> 
         </div> 
-      </section> 
+      </section>
 
       {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
@@ -286,7 +286,7 @@ export default function HomePage() {
   </> 
 ); 
 }
-      {/* ── PROGRAMS / GRADES ── */} 
+     {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
