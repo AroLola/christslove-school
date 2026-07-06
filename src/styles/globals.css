@@ -12,11 +12,13 @@
     --card: 0 0% 100%; 
     --popover: 43 41% 97%; 
     --popover-foreground: 0 0% 4%; 
+
     /* 🔵 RESTORED RICH DARK BLUE (Inverted Theme Controls) */ 
     --secondary: 221 62% 18%;             /* Richer, deeper Midnight Navy Blue */
     --card-foreground: 221 62% 18%;       /* Matches the text elements to the Navy Theme */
     --ring: 221 62% 18%;                  /* Rings match the rich dark blue */
     --secondary-foreground: 0 0% 100%; 
+
     /* 🟡 RESTORED RICH ANTIQUE GOLD (Inverted Theme Controls) */ 
     --primary: 38 68% 38%;                /* Deeper, warmer Antique Gold instead of bright yellow */
     --accent: 38 68% 38%;                 /* Accents match the premium gold */
@@ -27,27 +29,33 @@
     --accent-foreground: 0 0% 100%; 
     --sidebar-primary-foreground: 0 0% 100%; 
     --sidebar-accent-foreground: 0 0% 100%; 
+
     --muted: 45 29% 92%; 
     --muted-foreground: 220 14% 41%; 
     --border: 42 20% 83%; 
     --input: 42 20% 83%; 
+
     /* Extended Colors */ 
     --chart-1: 38 68% 65%; 
     --chart-2: 38 68% 50%; 
     --chart-3: 38 68% 38%; 
     --chart-4: 38 68% 25%; 
     --chart-5: 38 68% 12%; 
+
     /* Sidebar Colors */ 
     --sidebar: 45 29% 92%; 
     --sidebar-foreground: 0 0% 4%; 
     --sidebar-border: 42 20% 83%; 
+
     /* Typography */ 
     --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif; 
     --font-heading: "Libre Baskerville", Georgia, serif; 
     --font-serif: ui-serif, Georgia, "Times New Roman", serif; 
     --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace; 
+
     /* Border Radius */ 
     --radius: 0.5rem; 
+
     /* Shadows */ 
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05); 
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05); 
