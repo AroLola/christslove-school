@@ -3,12 +3,12 @@
     --background: 43 41% 97%;
     --foreground: 0 0% 4%;
     --card: 0 0% 100%;
-    --card-foreground: 221 65% 14%;
+    --card-foreground: 221 62% 18%;
     --popover: 43 41% 97%;
     --popover-foreground: 0 0% 4%;
     --primary: 38 68% 38%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 221 65% 14%;
+    --secondary: 221 62% 18%;
     --secondary-foreground: 0 0% 100%;
     --muted: 45 29% 92%;
     --muted-foreground: 220 14% 41%;
@@ -18,7 +18,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 42 20% 83%;
     --input: 42 20% 83%;
-    --ring: 221 65% 14%;
+    --ring: 221 62% 18%;
     /* Extended Colors */
     --chart-1: 38 68% 65%;
     --chart-2: 38 68% 50%;
@@ -33,7 +33,7 @@
     --sidebar-accent: 38 68% 38%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 42 20% 83%;
-    --sidebar-ring: 221 65% 14%;
+    --sidebar-ring: 221 62% 18%;
     /* Typography */
     --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
     --font-heading: "Libre Baskerville", Georgia, serif;
