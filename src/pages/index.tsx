@@ -4,8 +4,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Heart, Star, Users, ChevronRight, Quote, FolderOpen, ChevronLeft } from 'lucide-react'; 
 import { useState, useEffect, useCallback } from 'react';
 
-const fadeUp = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } } }; 
-const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }; 
+const fadeUp = { 
+  hidden: { opacity: 0, y: 28 }, 
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } } 
+}; 
+
+const stagger = { 
+  hidden: {}, 
+  visible: { transition: { staggerChildren: 0.1 } } 
+}; 
+
 const site = 'https://christslovechristianschool.info'; 
 
 const gradeCards = [ 
@@ -47,7 +55,7 @@ export default function HomePage() {
       <section className="relative flex items-center overflow-hidden" style={{ minHeight: '88vh' }}> 
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}> 
           <img 
-            src="https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/pages-home-students-lined-up-at-christs-love-christ-37f8257f.jpg" 
+            src="https://airoapp.ai" 
             alt="Students lined up at Christ's Love Christian School" 
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} 
             fetchPriority="high" 
@@ -99,7 +107,7 @@ export default function HomePage() {
         </div> 
       </section> 
 
-             {/* ── PROGRAMS / GRADES ── */} 
+      {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
@@ -132,205 +140,79 @@ export default function HomePage() {
       <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+            
             {/* Image Block with Gold Framing */} 
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: 'easeOut' }} className="relative" > 
-              <img src="/assets/media/pages-home-values-c9779bb4.jpg" alt="Faith and learning at Christ's Love Christian School" className="w-full h-auto object-contain rounded-lg shadow-lg" loading="lazy" width={800} height={480} /> 
-              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
-            </motion.div>
-
-
-
-           {/* Text Content Block */} 
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
-          <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
-            Our Mission 
-          </motion.p> 
-          <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
-            Rooted in Faith,<br />Built for Life 
-          </motion.h2> 
-          <motion.p variants={fadeUp} className="text-white/80 text-lg leading-relaxed mb-6"> 
-            At Christ's Love Christian School, we believe every child is uniquely created by God with gifts, purpose, and potential. Our mission is to provide an exceptional education that honors Christ in every subject, every interaction, and every moment of the school day. 
-          </motion.p> 
-          <motion.p variants={fadeUp} className="text-white/60 leading-relaxed mb-8"> 
-            We partner with families to raise students who are academically prepared, spiritually grounded, and ready to serve their communities with integrity and compassion. 
-          </motion.p> 
-
-          {/* Core Values Sub-Grid */} 
-          <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"> 
-            {[ 
-              { icon: BookOpen, label: 'Academic Excellence' }, 
-              { icon: Heart, label: 'Faith Formation' }, 
-              { icon: Star, label: 'Character Development' }, 
-              { icon: Users, label: 'Community & Family' } 
-            ].map(({ icon: Icon, label }) => ( 
-              <motion.div key={label} variants={fadeUp} className="flex items-center gap-3"> 
-                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0"> 
-                  <Icon size={16} className="text-primary" /> 
-                </div> 
-                <span className="text-white font-medium text-sm">{label}</span> 
-              </motion.div> 
-            ))} 
-          </motion.div> 
-
-          {/* Our Story Button Link Call */} 
-          <motion.div variants={fadeUp}> 
-            <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
-              Our Story <ChevronRight size={18} /> 
-            </Link> 
-          </motion.div> 
-        </motion.div> 
-      </div> 
-    </div> 
-  </section> 
-
-  {/* ── COMMUNITY ── */} 
-  <section className="py-20 bg-midnight text-white"> 
-    <div className="container mx-auto px-4 lg:px-8"> 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-        
-        {/* Text Area Content Layout */} 
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
-          <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
-            Our Community 
-          </motion.p> 
-          <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
-            More Than a School —<br />A Family 
-          </motion.h2> 
-          <motion.p variants={fadeUp} className="text-white/80 text-lg leading-relaxed mb-6"> 
-            When you join Christ's Love, you join a community of families who share your values and your vision for your children's future. From chapel mornings to school events, we grow together. 
-          </motion.p> 
-          <motion.p variants={fadeUp} className="text-white/70 leading-relaxed mb-8"> 
-            Our small class sizes mean every student is known by name, celebrated for their strengths, and supported through every challenge. This is what Christian education looks like. 
-          </motion.p> 
-          <motion.div variants={fadeUp}> 
-            <Link to="/admissions" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
-              Start Your Application <ChevronRight size={18} /> 
-            </Link> 
-          </motion.div> 
-        </motion.div> 
-
-        {/* Image Grid with Offset Framing */} 
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, ease: 'easeOut' }} 
+              className="relative" 
+            > 
+              <img 
+                src="/assets/media/pages-home-values-c9779bb4.jpg" 
+                alt="Faith and learning at Christ's Love Christian School" 
+                className="w-full h-auto object-contain rounded-lg shadow-lg" 
+                loading="lazy" 
+                width={800} 
+                height={480} 
+              /> 
+    {/* Responsive 3-Column Image Grid Container */} 
+    <section className="py-12 bg-secondary border-b border-white/5 text-white"> 
+      <div className="container mx-auto px-4 lg:px-8"> 
         <motion.div 
-          initial={{ opacity: 0, x: 30 }} 
-          whileInView={{ opacity: 1, x: 0 }} 
+          initial="hidden" 
+          whileInView="visible" 
           viewport={{ once: true }} 
-          transition={{ duration: 0.5, ease: 'easeOut' }} 
-          className="relative" 
+          variants={stagger} 
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"
         > 
-          <img 
-            src="/airo-assets/images/pages/home/students-enjoying-community-time-at-chri-2" 
-            alt="Students enjoying community time at Christ's Love Christian School" 
-            className="w-full h-[440px] object-cover rounded-lg shadow-lg" 
-            loading="lazy" 
-            width={900} 
-            height={440} 
-          /> 
-          <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/40 rounded-lg -z-10" /> 
-        </motion.div> 
-      </div> 
-    </div> 
-  </section>
+          {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER THIS STRUCTURE */} 
+          {/* CORE_STATIC_SCHEMA_BYPASS_START */} 
+          {(() => { 
+            const galleryImages = [ 
+              { id: 1, src: "https://christslovechristianschool.info", label: "Regional Spelling Bee" }, 
+              { id: 2, src: "https://christslovechristianschool.info", label: "Maths Competition" }, 
+              { id: 3, src: "https://christslovechristianschool.info", label: "Maths and Science Wins" }, 
+              { id: 4, src: "https://christslovechristianschool.info", label: "Regional Spelling Bee Prize Winners" }, 
+              { id: 5, src: "https://christslovechristianschool.info", label: "Activity Comments" }, 
+              { id: 6, src: "https://christslovechristianschool.info", label: "Sports Champions" }, 
+              { id: 7, src: "https://christslovechristianschool.info", label: "Maths Quiz" }, 
+              { id: 8, src: "https://christslovechristianschool.info", label: "Social Studies" }, 
+              { id: 9, src: "https://christslovechristianschool.info", label: "Volleyball Champions" }, 
+              { id: 10, src: "https://christslovechristianschool.info", label: "Maths Gold" }, 
+              { id: 11, src: "https://christslovechristianschool.info", label: "Netball" }, 
+              { id: 12, src: "https://christslovechristianschool.info", label: "Volleyball Gold" } 
+            ]; 
+            {/* CORE_STATIC_SCHEMA_BYPASS_END */} 
+            {/* AI_GUARDRAIL_SYSTEM_LOCK_END */} 
 
-{/* ── ACHIEVEMENTS ── */} 
-<section className="py-20 bg-secondary text-white w-full border-t border-white/5"> 
-  <div className="container mx-auto px-4 lg:px-8"> 
-    <div className="text-center max-w-3xl mx-auto mb-16"> 
-      <h2 className="font-heading text-4xl md:text-5xl text-white font-bold mb-4">Our Recent Achievements</h2> 
-      <p className="text-white/80 text-lg">Celebrating the milestones, academic triumphs, and sports victories of our outstanding students.</p> 
-    </div> 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> 
-      <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"> 
-        <h3 className="text-xl font-bold text-white mb-2">Academic Excellence</h3> 
-        <p className="text-white/70 text-sm">Achieving top ranks in regional mathematics and language curriculum indices.</p> 
-      </div> 
-    </div> 
-  </div> 
-</section> 
+            const handleCardClick = (src: string, label: string) => { 
+              if (typeof document === 'undefined') return; 
+              const modal = document.getElementById('global-gallery-modal'); 
+              const modalImg = document.getElementById('global-gallery-modal-img') as HTMLImageElement | null; 
+              const modalTxt = document.getElementById('global-gallery-modal-txt'); 
+              if (modal && modalImg && modalTxt) { 
+                modalImg.src = src; 
+                modalTxt.innerText = label; 
+                modal.style.display = 'flex'; 
+              } 
+            }; 
 
-{/* Responsive 3-Column Image Grid Container */} 
-<section className="py-12 bg-secondary border-b border-white/5 text-white"> 
-  <div className="container mx-auto px-4 lg:px-8"> 
-    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"> 
-      {/* AI_GUARDRAIL_SYSTEM_LOCK: DO NOT ALTER, COMPRESS, OR DELETE THIS INLINE ARRAY STRUCTURE */} 
-      {/* CORE_STATIC_SCHEMA_BYPASS_START */} 
-      {(() => { 
-        const galleryImages = [ 
-          { id: 1, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" }, 
-          { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" }, 
-          { id: 3, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" }, 
-          { id: 4, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" }, 
-          { id: 5, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" }, 
-          { id: 6, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" }, 
-          { id: 7, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" }, 
-          { id: 8, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" }, 
-          { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" }, 
-          { id: 10, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" }, 
-          { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" }, 
-          { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" } 
-        ]; 
-        {/* CORE_STATIC_SCHEMA_BYPASS_END */} 
-        {/* AI_GUARDRAIL_SYSTEM_LOCK_END */} 
-
-        const handleCardClick = (src: string, label: string) => { 
-          if (typeof document === 'undefined') return; 
-          const modal = document.getElementById('global-gallery-modal'); 
-          const modalImg = document.getElementById('global-gallery-modal-img') as HTMLImageElement | null; 
-          const modalTxt = document.getElementById('global-gallery-modal-txt'); 
-          if (modal && modalImg && modalTxt) { 
-            modalImg.src = src; 
-            modalTxt.innerText = label; 
-            modal.style.display = 'flex'; 
-          } 
-        }; 
-
-        return ( 
-          <> 
-            {galleryImages.map((img) => ( 
-              <motion.div 
-                key={img.id} 
-                variants={fadeUp} 
-                onClick={() => handleCardClick(img.src, img.label)} 
-                className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer backdrop-blur-sm shadow-sm" 
-              > 
-                <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-                  <img src={img.src} alt={img.label} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
-                </div> 
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"> 
-                  <p className="text-white text-sm font-medium">{img.label}</p> 
-                </div> 
-              </motion.div> 
-            ))} 
-          </> 
-        ); 
-      })()} 
-    </motion.div> 
-  </div> 
-</section>
-
-            // Render the mapped array correctly inside the function scope execution block 
             return ( 
               <> 
                 {galleryImages.map((img) => ( 
                   <motion.div 
                     key={img.id} 
                     variants={fadeUp} 
-                    whileHover={{ y: -4 }} 
                     onClick={() => handleCardClick(img.src, img.label)} 
-                    className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer shadow-sm backdrop-blur-sm" 
+                    className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-white/5 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer backdrop-blur-sm shadow-sm" 
                   > 
-                    <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
-                      <img 
-                        src={img.src} 
-                        alt={img.label} 
-                        style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }}
-                        className="transition-transform duration-300 group-hover:scale-105" 
-                      /> 
-                    </div>
-                    <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-between p-4"> 
-                      <div className="flex items-center justify-end text-white/80 text-[10px] font-medium uppercase">
-                        <span>Click to expand</span>
-                      </div> 
-                      <p className="text-white font-medium text-xs truncate w-full">{img.label}</p> 
+                    <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+                      <img src={img.src} alt={img.label} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
+                    </div> 
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4"> 
+                      <p className="text-white text-sm font-medium">{img.label}</p> 
                     </div> 
                   </motion.div> 
                 ))} 
@@ -339,7 +221,7 @@ export default function HomePage() {
           })()} 
         </motion.div> 
       </div> 
-    </section> 
+    </section>
 
     {/* ── ENROLLMENT CTA ── */} 
     <section className="py-20 bg-midnight text-white overflow-hidden"> 
@@ -404,4 +286,3 @@ export default function HomePage() {
   </> 
 ); 
 }
-
