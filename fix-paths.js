@@ -1,4 +1,17 @@
- import fs from 'fs';
+const fs = require('fs');
+const path = require('path');
+
+function processFile(filePath) {
+  // ✅ BYPASS SECURITY GUARD: If the file being processed is the gallery, skip it entirely!
+  if (filePath.endsWith('gallery.tsx') || filePath.endsWith('gallery.ts')) {
+    console.log(`[Bypass Guard] Safely skipped file to preserve layout parameters: ${path.basename(filePath)}`);
+    return; 
+  }
+
+  // ... Your existing fix-paths.js code loop logic continues below ...
+  // let content = fs.readFileSync(filePath, 'utf8');
+  // content = content.replace(...);
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -96,6 +109,7 @@ function processDirectory(directory) {
 }
 
 
-console.log('Running final asset sync loop...');
-processDirectory(PAGES_DIR);
-console.log('Processing complete.');
+  console.log('Running final asset sync loop...');
+  processDirectory(PAGES_DIR);
+  console.log('Processing complete.');
+} // <--- This curly brace closes your master entry function!
