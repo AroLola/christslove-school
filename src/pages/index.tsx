@@ -171,57 +171,47 @@ export default function HomePage() {
 
 
          
-        </div>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/30" />
+           {/* Overlay */} 
+    <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-gray-900/30" /> 
+    
+    <div className="relative container mx-auto px-4 lg:px-8 py-24"> 
+      <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
+        
+        {/* ✅ FIXED: Clean, properly structured headings and text content streams */} 
+        <motion.h1 
+          variants={fadeUp} 
+          className="text-5xl md:text-6xl lg:text-7xl text-white leading-tight font-medium tracking-tight mb-6" 
+          style={{ color: "#ffffff", fontFamily: "var(--font-sans)" } as React.CSSProperties} 
+        > 
+          Christ's Love<br /> 
+          <span className="text-primary">Christian School</span> 
+        </motion.h1> 
 
+        <motion.p 
+          variants={fadeUp} 
+          className="text-white/80 text-lg md:text-xl leading-relaxed mb-6 max-w-lg" 
+        > 
+          A glimpse into life at Christ's Love Christian School 
+        </motion.p> 
 
-        <div className="relative container mx-auto px-4 lg:px-8 py-24">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="max-w-2xl">
-           
-            </motion.p> 
+        <motion.p 
+          variants={fadeUp} 
+          className="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-lg" 
+        > 
+          Nurturing minds, hearts, and faith from Kindergarten through Grade 7. Where academic excellence meets the love of Christ. 
+        </motion.p> 
 
-{/* ✅ FIXED: Removed blocky Impact/Arial font from style matrix and applied var(--font-sans) */}
-<motion.h1 
-  variants={fadeUp} 
-  className="text-5xl md:text-6xl lg:text-7xl text-white leading-tight font-medium tracking-tight mb-6" 
-  style={{ 
-    color: "#ffffff", 
-    fontFamily: "var(--font-sans)" 
-  } as React.CSSProperties}
-> 
-  Christ's Love<br /> 
-  <span className="text-primary">Christian School</span> 
-</motion.h1> 
+        <motion.div variants={fadeUp} className="flex flex-wrap gap-4"> 
+          <Link to="/admissions" className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+            Enroll Now <ChevronRight size={18} /> 
+          </Link> 
+          <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/60 text-white font-semibold rounded hover:border-white hover:bg-white/10 transition-colors"> 
+            Learn More 
+          </Link> 
+        </motion.div> 
 
-<motion.p 
-  variants={fadeUp} 
-  className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg"
->
-
-             
-              Nurturing minds, hearts, and faith from Kindergarten through Grade 7. Where academic excellence meets the love of Christ.
-            </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <Link
-                to="/admissions"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors">
-               
-                Enroll Now <ChevronRight size={18} />
-              </Link>
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/60 text-white font-semibold rounded hover:border-white hover:bg-white/10 transition-colors">
-               
-                Learn More
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+      </motion.div> 
+    </div>
 
 
         {/* Gold bottom accent */}
