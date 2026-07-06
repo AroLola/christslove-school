@@ -5,39 +5,23 @@
       "name": "School Life",
       "media": [
         { "id": "p-1", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "p-2", "src": "hhttps://ti1ev20vl7.preview.c36.airoapp.ai/assets/media/pages-home-values-c9779bb4.jpg", "caption": "" },
-        { "id": "p-3", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/media/pages-home-community-457959e7.jpg", "caption": "" },
-        { "id": "p-4", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-df5bf776-9fff-4e5a-9e86-60a3bc1d2f13.jpg", "caption": "Team Relay Awards" },
-        { "id": "p-5", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "p-6", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
-        { "id": "p-7", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "p-8", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
-        { "id": "p-9", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "p-10", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
-        { "id": "p-11", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "p-12", "src": "https://airoapp.ai", "caption": "Team Relay Awards" },
-        { "id": "p-13", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" }
+        { "id": "p-2", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/media/pages-home-values-c9779bb4.jpg", "caption": "Core Christian Values Session" },
+        { "id": "p-3", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/media/pages-home-community-457959e7.jpg", "caption": "Community Morning Fellowship" },
+        { "id": "p-4", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-df5bf776-9fff-4e5a-9e86-60a3bc1d2f13.jpg", "caption": "Team Relay Awards" }
       ]
     },
     {
       "id": "sports-gallery-album",
       "name": "Sports",
       "media": [
-        { "id": "p-3", "src": "https://airoapp.ai", "caption": "Athletics Event Highlights" }
+        { "id": "s-1", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg", "caption": "Athletics Event Highlights" }
       ]
     },
-   {
+    {
       "id": "academic-gallery-album",
       "name": "Academic Achievements",
       "media": [
-        { "id": "p-4", "src": "https://airoapp.ai", "caption": "Regional Spelling Bee Prize Winners" }
-      ]
-    },
- {
-    "id": "academic-gallery-album",
-      "name": "Academic Achievements",
-      "media": [
-        { "id": "p-5", "src": "https://airoapp.ai", "caption": "Regional Spelling Bee Prize Winners" }
+        { "id": "a-1", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-df5bf776-9fff-4e5a-9e86-60a3bc1d2f13.jpg", "caption": "Regional Spelling Bee Prize Winners" }
       ]
     }
   ],
@@ -47,8 +31,7 @@
       "name": "15th Anniversary Celebration",
       "description": "Celebrating 15 years of scholarship, spiritual discipline, and academic excellence with song and dance presentations performed by our students.",
       "media": [
-        { "id": "v-1", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-50ee02e2-42bf-4f71-af29-b859c3fb380b.mp4" },
-        { "id": "v-2", "src": "https://airoapp.ai", "caption": "Anniversary Chapel Keynote Snippet" }
+        { "id": "v-1", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-50ee02e2-42bf-4f71-af29-b859c3fb380b.mp4", "caption": "Anniversary Celebration Highlights" }
       ]
     },
     {
@@ -56,19 +39,7 @@
       "name": "Sports & Tournaments",
       "description": "Highlights from our intense sports competitions, where our Under-13 and Under-15 teams brought home glorious medals.",
       "media": [
-        { "id": "v-3", "src": "https://airoapp.ai", "caption": "Volleyball - Under-13 Girls bring home Silver medals." },
-        { "id": "v-4", "src": "https://airoapp.ai", "caption": "Volleyball - Under-15 Boys receiving their Silver medals." },
-        { "id": "v-5", "src": "https://airoapp.ai", "caption": "Volleyball - Under-15 Girls. Silver medalists." }
-      ]
-    },
-    {
-      "id": "album-community-interviews",
-      "name": "Community & Interviews",
-      "description": "CLCS features and media highlights covering community interactions and spiritual growth moments.",
-      "media": [
-        { "id": "v-6", "src": "https://airoapp.ai", "caption": "Melissa Angala and Agnes Sabuta share their Cricket Namibia Week experience on NBC." },
-        { "id": "v-7", "src": "https://airoapp.ai", "caption": "Gideon's Namibia Bible Donation Ceremony for Christian Moral Education." },
-        { "id": "v-8", "src": "https://airoapp.ai", "caption": "Bishop Elizabeth Arowolo teaches learners: Everywhere He Went, He Was Doing Good." }
+        { "id": "v-2", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-50ee02e2-42bf-4f71-af29-b859c3fb380b.mp4", "caption": "Volleyball Tournaments Review" }
       ]
     }
   ]
