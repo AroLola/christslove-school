@@ -54,7 +54,7 @@ export default function HomePage() {
       <section className="relative flex items-center overflow-hidden bg-midnight" style={{ minHeight: '88vh' }}> 
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}> 
           <img 
-            src="https://ti1ev20vl7.preview.c36.airoapp.ai/assets/IMG_5755.jpg" 
+            src="/assets/IMG_5755.jpg" 
             alt="Students lined up at Christ's Love Christian School" 
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} 
             fetchPriority="high" 
@@ -265,10 +265,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full" > 
             {(() => { 
                const galleryImages = [
-          { id: 1, src: "/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" },
-          { id: 2, src: "/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" },
-          { id: 3, src: "/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" },
-          { id: 4, src: "/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" },
+          { id: 1, src: "/media/Spelling Bee.jpg", label: "Regional Spelling Bee" },
+          { id: 2, src: "/media/Maths.jpg", label: "Maths Competition" },
+          { id: 3, src: "/media/First in Maths & Science.jpg", label: "Maths and Science Wins" },
+          { id: 4, src: "/media/Awards1.jpeg", label: "Regional Spelling Bee Prize Winners" },
           { id: 5, src: "/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" },
           { id: 6, src: "/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" },
           { id: 7, src: "/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" },
