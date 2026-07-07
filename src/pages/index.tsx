@@ -76,9 +76,6 @@ export default function HomePage() {
               Christ's Love<br /> 
               <span className="text-primary" style={{ fontWeight: 300 }}>Christian School</span> 
             </motion.h1> 
-            <motion.p variants={fadeUp} className="text-white/80 text-lg md:text-xl leading-relaxed mb-4 max-w-lg"> 
-              A glimpse into life at Christ's Love Christian School 
-            </motion.p> 
             <motion.p variants={fadeUp} className="text-white/70 text-base md:text-lg leading-relaxed mb-10 max-w-lg"> 
               Nurturing minds, hearts, and faith from Kindergarten through Grade 7. Where academic excellence meets the love of Christ. 
             </motion.p> 
@@ -269,14 +266,14 @@ export default function HomePage() {
           { id: 2, src: "/media/Maths.jpg", label: "Maths Competition" },
           { id: 3, src: "/media/First in Maths & Science.jpg", label: "Maths and Science Wins" },
           { id: 4, src: "/media/Awards1.jpeg", label: "Regional Spelling Bee Prize Winners" },
-          { id: 5, src: "/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" },
-          { id: 6, src: "/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" },
-          { id: 7, src: "/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" },
-          { id: 8, src: "/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" },
-          { id: 9, src: "/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" },
-          { id: 10, src: "/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" },
-          { id: 11, src: "/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" },
-          { id: 12, src: "/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" }
+          { id: 5, src: "/media/5.jpg", label: "Activity Comments" },
+          { id: 6, src: "/media/Volleyball.jpg", label: "Sports Champions" },
+          { id: 7, src: "/media/Maths quiz participants.png", label: "Maths Quiz" },
+          { id: 8, src: "media/soc studies.jpg", label: "Social Studies" },
+          { id: 9, src: "/media/Volleyball (2).jpg", label: "Volleyball Champions" },
+          { id: 10, src: "/media/math gold.jpg", label: "Maths Gold" },
+          { id: 11, src: "/media/netball.jpg", label: "Netball" },
+          { id: 12, src: "/media/netball (1).jpg", label: "Volleyball Gold" }
         ];
 
 
