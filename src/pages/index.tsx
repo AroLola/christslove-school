@@ -51,7 +51,8 @@ export default function HomePage() {
       </Helmet> 
 
       {/* ── HERO ── */} 
-    <section className="relative flex items-center overflow-hidden bg-midnight" style={{ minHeight: '88vh' }}> 
+   
+<section className="relative flex items-center overflow-hidden bg-midnight" style={{ minHeight: '88vh' }}> 
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}> 
     <img 
       src="/assets/IMG_5755.jpg" 
@@ -66,16 +67,16 @@ export default function HomePage() {
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      {/* Top tag - Styled with the new rich glossy bronze shadow effect */}
+      {/* Top tag - Darker deep metallic bronze (#784314) */}
       <motion.p 
         variants={fadeUp} 
-        className="text-[#965A20] font-semibold tracking-widest uppercase text-sm mb-4"
-        style={{ textShadow: '0 1px 2px rgba(255,255,255,0.15), 0 -1px 1px rgba(0,0,0,0.5)' }}
+        className="text-[#784314] font-semibold tracking-widest uppercase text-sm mb-4"
+        style={{ textShadow: '0 1px 2px rgba(255,255,255,0.1), 0 -1px 1px rgba(0,0,0,0.6)' }}
       > 
         Private Christian Education 
       </motion.p> 
       
-      {/* Both top and bottom now use identical classes, tracking-tight, and uppercase */}
+      {/* Main heading */}
       <motion.h1 
         variants={fadeUp} 
         className="text-4xl md:text-5xl lg:text-6xl text-white leading-none mb-6 font-[Impact] tracking-tight uppercase" 
@@ -85,15 +86,16 @@ export default function HomePage() {
           className="text-white font-[Impact] tracking-tight uppercase" 
           style={{ fontWeight: 400 }} 
         >
-          Christ's Love 
+          {/* Added a hair space (\u200a) before the apostrophe so it doesn't merge into the "t" */}
+          Christ{"\u200a"}'s Love 
         </span>
         <br /> 
-        {/* Bottom line style perfectly cloned to the top line */}
+        {/* Bottom line - Perfectly matches the top style with the richer bronze tone */}
         <span 
-          className="text-[#965A20] font-[Impact] tracking-tight uppercase" 
+          className="text-[#784314] font-[Impact] tracking-tight uppercase" 
           style={{ 
             fontWeight: 400,
-            textShadow: '0 1px 1px rgba(255,255,255,0.2), 0 -1px 1px rgba(0,0,0,0.6)'
+            textShadow: '0 1px 1px rgba(255,255,255,0.15), 0 -1px 1px rgba(0,0,0,0.7)'
           }} 
         > 
           Christian School 
@@ -105,11 +107,11 @@ export default function HomePage() {
       </motion.p> 
       
       <div className="flex flex-wrap gap-4"> 
-        {/* Button - Glossy deep bronze background with high-contrast white text */}
+        {/* Button - Background matches the new deep bronze tone */}
         <Link 
           to="/admissions" 
-          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#965A20] text-white font-bold rounded hover:bg-[#804A18] transition-colors"
-          style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 4px rgba(0,0,0,0.3)' }}
+          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#784314] text-white font-bold rounded hover:bg-[#61350e] transition-colors"
+          style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.4)' }}
         > 
           Enroll Now <ChevronRight size={18} /> 
         </Link> 
@@ -119,11 +121,9 @@ export default function HomePage() {
       </div> 
     </motion.div> 
   </div> 
-  {/* Bottom border line - Matches new deep bronze */}
-  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#965A20]" /> 
+  {/* Bottom border line - Matches the deeper bronze theme */}
+  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#784314]" /> 
 </section>
-
-
       {/* ── QUICK STATS ── */} 
       <section className="bg-secondary py-10 border-b border-white/5"> 
         <div className="container mx-auto px-4 lg:px-8"> 
