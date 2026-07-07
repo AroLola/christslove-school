@@ -1,7 +1,7 @@
-import { Helmet } from '@dr.pogodin/react-helmet'; 
+ import { Helmet } from '@dr.pogodin/react-helmet'; 
 import { Link } from 'react-router-dom'; 
 import { motion } from 'framer-motion'; 
-import { BookOpen, Heart, Star, Users, ChevronRight, Quote } from 'lucide-react'; 
+import { BookOpen, Heart, Star, Users, ChevronRight } from 'lucide-react'; 
 
 const fadeUp = { 
   hidden: { opacity: 0, y: 28 }, 
@@ -13,7 +13,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } } 
 }; 
 
-const site = 'https://christslovechristianschool.info';
+const site = 'https://christslovechristianschool.info'; 
 
 const gradeCards = [ 
   { grade: 'Kindergarten', ages: 'Ages 5–6', description: 'A joyful introduction to learning through play, faith, and foundational skills in reading and numeracy.' }, 
@@ -23,7 +23,7 @@ const gradeCards = [
   { grade: 'Grade 4', ages: 'Ages 9–10', description: 'Strengthening academic foundations with increased independence and character development.' }, 
   { grade: 'Grade 5', ages: 'Ages 10–11', description: 'Preparing students for upper grades with rigorous academics and leadership opportunities.' }, 
   { grade: 'Grade 6', ages: 'Ages 11–12', description: 'A bridge to junior high — challenging curriculum, mentorship, and faith-centered community.' }, 
-  { grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' }
+  { grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' } 
 ]; 
 
 export default function HomePage() { 
@@ -32,7 +32,7 @@ export default function HomePage() {
     '@graph': [ 
       { '@type': 'WebSite', '@id': `${site}/#website`, name: "Christ's Love Christian School", url: `${site}/` }, 
       { '@type': 'EducationalOrganization', '@id': `${site}/#organization`, name: "Christ's Love Christian School", url: `${site}/`, description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.' }, 
-      { '@type': 'WebPage', '@id': `${site}/#webpage`, url: `${site}/`, name: "Christ's Love Christian School — Faith-Centered Education K–7", isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#organization` }, datePublished: '2026-06-16', dateModified: '2026-06-16' }
+      { '@type': 'WebPage', '@id': `${site}/#webpage`, url: `${site}/`, name: "Christ's Love Christian School — Faith-Centered Education K–7", isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#organization` }, datePublished: '2026-06-16', dateModified: '2026-06-16' } 
     ] 
   }; 
 
@@ -60,16 +60,14 @@ export default function HomePage() {
             fetchPriority="high" 
             loading="eager" 
           /> 
-        </div> 
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-transparent" /> 
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-transparent" />
 
         <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
           <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
             <motion.p variants={fadeUp} className="text-primary font-semibold tracking-widest uppercase text-sm mb-4"> 
               Private Christian Education 
             </motion.p> 
-
-            {/* ✅ FONT SIZE FIXED: Thin sizing and wide tracking override */}
             <motion.h1 
               variants={fadeUp} 
               className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 font-sans tracking-wide" 
@@ -78,8 +76,10 @@ export default function HomePage() {
               Christ's Love<br /> 
               <span className="text-primary" style={{ fontWeight: 300 }}>Christian School</span> 
             </motion.h1> 
-
-            <motion.p variants={fadeUp} className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg"> 
+            <motion.p variants={fadeUp} className="text-white/80 text-lg md:text-xl leading-relaxed mb-4 max-w-lg"> 
+              A glimpse into life at Christ's Love Christian School 
+            </motion.p> 
+            <motion.p variants={fadeUp} className="text-white/70 text-base md:text-lg leading-relaxed mb-10 max-w-lg"> 
               Nurturing minds, hearts, and faith from Kindergarten through Grade 7. Where academic excellence meets the love of Christ. 
             </motion.p> 
             <div className="flex flex-wrap gap-4"> 
@@ -142,10 +142,12 @@ export default function HomePage() {
         </div> 
       </section> 
 
-      {/* ── VALUES / MISSION ── */} 
+           {/* ── VALUES / MISSION ── */} 
       <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+            
+            {/* Image Block with Gold Framing */} 
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -162,6 +164,9 @@ export default function HomePage() {
                 height={480} 
               /> 
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+            </motion.div> 
+
+            {/* Text Content Block */} 
             <div className="flex flex-col justify-center"> 
               <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
                 Our Mission 
@@ -188,9 +193,9 @@ export default function HomePage() {
                     <div key={val.label} className="flex items-center gap-3"> 
                       <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0"> 
                         <Icon size={16} className="text-primary" /> 
+                      </div> 
+                      <span className="text-white font-medium text-sm">{val.label}</span> 
                     </div> 
-                    <span className="text-white font-medium text-sm">{val.label}</span> 
-                  </div> 
                   );
                 })} 
               </div> 
@@ -247,6 +252,7 @@ export default function HomePage() {
       {/* ── ACHIEVEMENTS & AWARDS ── */} 
       <section className="py-20 bg-secondary border-t border-white/5 text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
+          
           <div className="text-center mb-14" > 
             <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
               Student Achievements 
@@ -313,27 +319,27 @@ export default function HomePage() {
                       const modal = document.getElementById('global-gallery-modal'); 
                       if (modal) modal.style.display = 'none'; 
                     }} 
-                  className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
-                  style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
-                > 
-                  <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
-                    <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
-                    <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
-                  </div> 
-                  <button 
-                    onClick={() => { 
-                      const modal = document.getElementById('global-gallery-modal'); 
-                      if (modal) modal.style.display = 'none'; 
-                    }} 
-                    className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
+                    className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
+                    style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
                   > 
-                    &#x2715; 
-                  </button> 
-                </div> 
-              </> 
-            ); 
-          })()} 
-          
+                    <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
+                      <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
+                      <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
+                    </div> 
+                    <button 
+                      onClick={() => { 
+                        const modal = document.getElementById('global-gallery-modal'); 
+                        if (modal) modal.style.display = 'none'; 
+                      }} 
+                      className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
+                    > 
+                      &#x2715; 
+                    </button> 
+                  </div> 
+                </> 
+              ); 
+            })()} 
+          </div> 
         </div> 
       </section> 
 
@@ -382,3 +388,4 @@ export default function HomePage() {
     </> 
   ); 
 }
+
