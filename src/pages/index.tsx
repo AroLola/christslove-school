@@ -233,8 +233,8 @@ export default function HomePage() {
 
             <div className="relative"> 
               <img 
-                src="/airo-assets/images/pages/home/students-enjoying-community-time-at-chri-2" 
-                alt="Students enjoying community time at Christ's Love Christian School" 
+                src="/media/student-community-clcs.jpg" 
+                alt="Student community time at clcs" 
                 className="w-full h-[440px] object-cover rounded-lg shadow-lg" 
                 loading="lazy" 
                 width={900} 
