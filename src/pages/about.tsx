@@ -313,8 +313,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-    {/* ── STAFF MAP ── */} 
+{/* ── STAFF MAP ── */} 
 <section className="py-20 bg-background"> 
   <div className="container mx-auto px-4 lg:px-8"> 
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
@@ -357,9 +356,9 @@ export default function AboutPage() {
           > 
             {/* ID Card Left Content Side */}
             <div className="flex flex-col justify-between flex-1 py-1 z-10"> 
-              {/* Top: Initials Badge */}
-              <div className="w-9 h-9 rounded-md bg-secondary/20 border border-secondary/30 flex items-center justify-center"> 
-                <span className="text-secondary font-heading font-bold text-sm tracking-wider"> 
+              {/* Top: Restored Original Dark Blue Circle Initials Badge */}
+              <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center"> 
+                <span className="text-secondary-foreground font-heading font-bold text-lg"> 
                   {`${firstInitial}${lastInitial}`} 
                 </span> 
               </div> 
@@ -386,8 +385,8 @@ export default function AboutPage() {
               /> 
             </div> 
             
-            {/* Subtle ID card top stripe design anchor accent */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-primary/40" />
+            {/* Top Accent Strip: Switched to Midnight Blue with original 40% (0.4) opacity */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-[#0f172a]/40" />
           </motion.div> 
         ); 
       })} 
