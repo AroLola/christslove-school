@@ -314,69 +314,86 @@ export default function AboutPage() {
       </section>
 
 
-      {/* ── STAFF MAP ── */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="text-center mb-14">
-           
-            <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3">
-              Our Team
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-secondary mb-4">
-              Meet Our Faculty & Staff
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-muted-foreground max-w-xl mx-auto">
-              Our educators are called to this work — dedicated professionals who bring both academic excellence and genuine Christian faith to the classroom every day.
-            </motion.p>
-          </motion.div>
+    {/* ── STAFF MAP ── */} 
+<section className="py-20 bg-background"> 
+  <div className="container mx-auto px-4 lg:px-8"> 
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
+      <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> Our Team </motion.p> 
+      <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-secondary mb-4"> Meet Our Faculty & Staff </motion.h2> 
+      <motion.p variants={fadeUp} className="text-muted-foreground max-w-xl mx-auto"> Our educators are called to this work — dedicated professionals who bring both academic excellence and genuine Christian faith to the classroom every day. </motion.p> 
+    </motion.div> 
 
-<motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
-  {staff.map((member) => {
-    const displayName = member?.name || '';
-    const displayRole = member?.role || '';
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+      {staff.map((member) => { 
+        const displayName = member?.name || ''; 
+        const displayRole = member?.role || ''; 
+        
+        // 1. DEFAULT IMAGE PATH: Keep the original asset URL 
+        let finalImageUrl = member?.imageUrl || ''; 
+        
+        // 2. LOGO GROUP & CUSTOM PHOTO REPLACEMENTS 
+        if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts')) { 
+          if (displayName === 'JEQUILINE LIVIMBA') { 
+            finalImageUrl = "https://airoapp.ai"; 
+          } else if (displayName === 'MARIA O. AUKHUMES') { 
+            finalImageUrl = "https://airoapp.ai"; 
+          } else { 
+            // The remaining broken profiles get the local school logo placeholder 
+            finalImageUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"; 
+          } 
+        } 
+        
+        // 3. BULLETPROOF INITIALS ENGINE 
+        const nameParts = displayName.split(' '); 
+        const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : ''; 
+        const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : ''; 
+        
+        return ( 
+          <motion.div 
+            key={displayName} 
+            variants={fadeUp} 
+            className="bg-card border-2 border-border/80 rounded-xl p-5 shadow-md flex items-stretch justify-between gap-4 relative overflow-hidden"
+            style={{ minHeight: '160px' }}
+          > 
+            {/* ID Card Left Content Side */}
+            <div className="flex flex-col justify-between flex-1 py-1 z-10"> 
+              {/* Top: Initials Badge */}
+              <div className="w-9 h-9 rounded-md bg-secondary/20 border border-secondary/30 flex items-center justify-center"> 
+                <span className="text-secondary font-heading font-bold text-sm tracking-wider"> 
+                  {`${firstInitial}${lastInitial}`} 
+                </span> 
+              </div> 
+              
+              {/* Middle & Bottom Info Container */}
+              <div className="mt-4"> 
+                {/* Middle: Full Name */}
+                <h3 className="font-heading text-base md:text-lg text-secondary font-bold leading-tight uppercase">
+                  {displayName}
+                </h3> 
+                {/* Bottom: Staff Professional Title */}
+                <p className="text-primary text-[11px] font-semibold tracking-wider uppercase mt-1">
+                  {displayRole}
+                </p> 
+              </div> 
+            </div> 
 
-    // 1. DEFAULT IMAGE PATH: Keep the original asset URL
-    let finalImageUrl = member?.imageUrl || '';
-
-    // 2. LOGO GROUP & CUSTOM PHOTO REPLACEMENTS
-    if (finalImageUrl.includes('layouts/footer') || finalImageUrl.includes('images/layouts')) {
-      if (displayName === 'JEQUILINE LIVIMBA') {
-        finalImageUrl = "https://airoapp.ai";
-      } else if (displayName === 'MARIA O. AUKHUMES') {
-        finalImageUrl = "https://airoapp.ai";
-      } else {
-        // The remaining broken profiles get the local school logo placeholder
-        finalImageUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png";
-      }
-    }
-
-    // 3. BULLETPROOF INITIALS ENGINE: Safe from array split errors
-    const nameParts = displayName.split(' ');
-    const firstInitial = nameParts[0] ? nameParts[0].charAt(0) : '';
-    const lastInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1].charAt(0) : '';
-
-    return (
-      <motion.div key={displayName} variants={fadeUp} className="bg-card border border-border rounded-lg p-7 shadow-sm"> 
-        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-4"> 
-          <span className="text-secondary-foreground font-heading font-bold text-lg"> 
-            {`${firstInitial}${lastInitial}`} 
-          </span> 
-        </div> 
-        <h3 className="font-heading text-lg text-secondary font-semibold">{displayName}</h3> 
-        <p className="text-primary text-xs font-medium tracking-wide mt-1 mb-3">{displayRole}</p> 
-        <img src={finalImageUrl} alt={displayName} className="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden mt-2 mr-auto self-start flex items-center justify-center" /> 
-      </motion.div>
-    );
-  })}
-</motion.div> 
-</div> 
+            {/* ID Card Right Side: Profile Picture Container */}
+            <div className="relative flex items-center justify-center self-center flex-shrink-0 w-28 h-32 bg-muted/30 border border-border/50 rounded-lg overflow-hidden shadow-inner"> 
+              <img 
+                src={finalImageUrl} 
+                alt={displayName} 
+                className="w-full h-full object-cover object-center" 
+              /> 
+            </div> 
+            
+            {/* Subtle ID card top stripe design anchor accent */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-primary/40" />
+          </motion.div> 
+        ); 
+      })} 
+    </motion.div> 
+  </div> 
 </section>
-
 
           {/* ── CTA ── */}
              
