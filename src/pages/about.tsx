@@ -65,9 +65,7 @@ const staff = [
 { name: 'MILDRED WOLF', role: 'Administrator', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-629adb36-c8e4-4adc-adf3-077578123190.jpg" },
 { name: 'ZECA SEGUNDA', role: 'Teacher, Religious Education, Portuguese & Life Skills', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0a7de329-810a-4db4-b679-d047bbbb3eac.jpg" },
 { name: 'IDALINA GENIS', role: 'Teacher, Afrikaans, Grade 1-2', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-d6a06584-ddd4-4a9b-b153-c59b62b9e119.jpg" },
-{ name: 'IRVIN MAYA', role: 'Teacher, Grade 3, Blue', imageUrl: "/public/media/Irvin.JPG?raw=true" },
 { name: 'MAGRIETA BASSON', role: 'Teacher, Afrikaans, Grade 4-5', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1d6c3eaf-c1f6-4a7a-bb12-04122194bcba.jpg" },
-{ name: 'MARIA AUKHUMES', role: 'Cashier', imageUrl: "/public/media/Maria.jpg?raw=true" },
 { name: 'LUSTACIA UMATI', role: 'Teacher, Afrikaans, Grade 6-7', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-a24f59b0-f058-462a-97a4-b77cda991183.jpg" },
 { name: 'ISIDORE KAMBILO', role: 'Teacher, French, Grade 3-7', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-a15a6a9e-fdcc-41c8-b436-7011acf2a72b.jpg" },
 { name: 'RACHEL SHIONA', role: 'Teacher, Early Childhood Development & Spirits Organizer, Kindergarten', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b46fa55e-919b-43af-b9b1-299577c1e1be.jpg" },
@@ -75,12 +73,14 @@ const staff = [
 { name: 'REGINA MANGUNDU', role: 'Front Desk', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-357fb164-a36e-436d-9d28-eec8ddf03881.JPG" },
 { name: 'GENEFEFA GOTFRIED', role: 'Custodian', imageUrl: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-66546a9a-f7e7-4652-a3a7-ab72a2c98e13.jpg" },
 { name: 'JEQUILINE LIVIMBA', role: 'Tuck Shop, Custodian', imageUrl: "https://github.com/AroLola/christslove-school/blob/main/public/jequline%20supporting%20staff.jpg?raw=true" },
+{ name: 'MARIA AUKHUMES', role: 'Cashier', imageUrl: "/assets/media/Maria.jpg" },
 { name: 'NYASHA MUKOROKO', role: 'Driver, CareTaker, Handyman', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'PRISCA KOROMORA', role: 'Department Head, Junior Primary & Teacher, Grade 2, Green', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'BRASH NDARA', role: 'Teacher, Grade 6, Red', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'MARTHA NHEKAIRO', role: 'Teacher, Grade 3, Green', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
+{ name: 'IRVIN MAYA', role: 'Teacher, Grade 3, Blue', imageUrl: "/assets/media/Irvin.JPG" },
 { name: 'SOPHIA HANSEN', role: 'Librarian', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'ESTER NAKUMBWATA', role: 'Cleaner', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
+{ name: 'ESTER NAKUMBWATA', role: 'Custodian', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'MAGANAEM ERASMUS', role: 'Teacher, Grade 5, Red', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'LEENA JUNIAS', role: 'Teacher, Afrikaans, Grade 2-3', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
 { name: 'SAMUEL LUMAI', role: 'Security, Assistant Caretaker', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" }];
@@ -510,4 +510,3 @@ export default function AboutPage() {
 
 
 }
-
