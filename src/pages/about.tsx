@@ -77,13 +77,13 @@ const staff = [
 { name: 'MARIA AUKHUMES', role: 'Cashier', imageUrl: "/assets/media/Maria.jpg" },
 { name: 'MARTHA NHEKAIRO', role: 'Teacher, Grade 3, Green', imageUrl: "/media/Martha.jpg" },
 { name: 'NYASHA MUKOROKO', role: 'Driver, CareTaker, Handyman', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'PRISCA KOROMORA', role: 'Department Head, Junior Primary & Teacher, Grade 2, Green', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'BRASH NDARA', role: 'Teacher, Grade 6, Red', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'SOPHIA HANSEN', role: 'Librarian', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'ESTER NAKUMBWATA', role: 'Custodian', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'MAGANAEM ERASMUS', role: 'Teacher, Grade 5, Red', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'LEENA JUNIAS', role: 'Teacher, Afrikaans, Grade 2-3', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" },
-{ name: 'SAMUEL LUMAI', role: 'Security, Assistant Caretaker', imageUrl: "https://christslovechristianschool.info/airo-assets/images/layouts/footer/christs-love-christian-school" }];
+{ name: 'PRISCA KOROMORA', role: 'Department Head, Junior Primary & Teacher, Grade 2, Green', imageUrl: "/assets/media/layouts-header-christs-love-christian-school-b2b9bb1f.png" },
+{ name: 'BRASH NDARA', role: 'Teacher, Grade 6, Red', imageUrl: "/assets/media/layouts-header-christs-love-christian-school-b2b9bb1f.png" },
+{ name: 'SOPHIA HANSEN', role: 'Librarian', imageUrl: "/assets/media/layouts-header-christs-love-christian-school-b2b9bb1f.png" },
+{ name: 'ESTER NAKUMBWATA', role: 'Custodian', imageUrl: "/assets/media/layouts-header-christs-love-christian-school-b2b9bb1f.png" },
+{ name: 'MAGANAEM ERASMUS', role: 'Teacher, Grade 5, Red', imageUrl: "/assets/media/layouts-header-christs-love-christian-school-b2b9bb1f.png" },
+{ name: 'LEENA JUNIAS', role: 'Teacher, Afrikaans, Grade 2-3', imageUrl: "/assets/media/layouts-header-christs-love-christian-school-b2b9bb1f.png" },
+{ name: 'SAMUEL LUMAI', role: 'Security, Assistant Caretaker', imageUrl: "/assets/media/layouts-header-christs-love-christian-school-b2b9bb1f.png" }];
 
 
 
