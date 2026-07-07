@@ -249,7 +249,7 @@ export default function HomePage() {
         </div> 
       </section>
 
-      {/* ── ACHIEVEMENTS & AWARDS ── */} 
+           {/* ── ACHIEVEMENTS & AWARDS ── */} 
       <section className="py-20 bg-secondary border-t border-white/5 text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           
@@ -263,100 +263,53 @@ export default function HomePage() {
           </div> 
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full" > 
-            {(() => { 
-              const galleryImages = [ 
-                { id: 1, src: "https://gettyimages.com", label: "Regional Spelling Bee" }, 
-                { id: 2, src: "/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" }, 
-                { id: 3, src: "/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" }, 
-                { id: 4, src: "/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" }, 
-                { id: 5, src: "/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" }, 
-                { id: 6, src: "/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" }, 
-                { id: 7, src: "/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" }, 
-                { id: 8, src: "/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" }, 
-                { id: 9, src: "/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" }, 
-                { id: 10, src: "/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" }, 
-                { id: 11, src: "/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" }, 
-                { id: 12, src: "/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" } 
-              ]; 
-
-              const handleCardClick = (src: string, label: string) => { 
-                if (typeof document === 'undefined') return; 
-                const modal = document.getElementById('global-gallery-modal'); 
-                const modalImg = document.getElementById('global-gallery-modal-img') as HTMLImageElement | null; 
-                const modalTxt = document.getElementById('global-gallery-modal-txt'); 
-                if (modal && modalImg && modalTxt) { 
-                  modalImg.src = src; 
-                  modalTxt.innerText = label; 
-                  modal.style.display = 'flex'; 
-                } 
-              }; 
-
-              return ( 
-                <> 
-                  {galleryImages.map((img) => ( 
-                    <div 
-                      key={img.id} 
-                      onClick={() => handleCardClick(img.src, img.label)} 
-                      className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-midnight/80 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer shadow-md" 
-                    > 
-                      <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-                        <img src={img.src} alt={img.label} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
-                      </div> 
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10 pointer-events-none"> 
-                        <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
-                          <span>Click to expand</span> 
-                        </div> 
-              return ( 
-                <> 
-                  {galleryImages.map((img) => ( 
-                    <div 
-                      key={img.id} 
-                      onClick={() => handleCardClick(img.src, img.label)} 
-                      className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-midnight/80 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer shadow-md" 
-                    > 
-                      <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
-                        <img src={img.src} alt={img.label} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
-                      </div> 
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10 pointer-events-none"> 
-                        <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
-                          <span>Click to expand</span> 
-                        </div> 
-                        <p className="text-white font-medium text-sm truncate w-full transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0"> 
-                          {img.label} 
-                        </p> 
-                      </div> 
-                    </div> 
-                  ))} 
-
-                  <div 
-                    id="global-gallery-modal" 
-                    onClick={() => { 
-                      const modal = document.getElementById('global-gallery-modal'); 
-                      if (modal) modal.style.display = 'none'; 
-                    }} 
-                    className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
-                    style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
-                  > 
-                    <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
-                      <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
-                      <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
-                    </div> 
-                    <button 
-                      onClick={() => { 
-                        const modal = document.getElementById('global-gallery-modal'); 
-                        if (modal) modal.style.display = 'none'; 
-                      }} 
-                      className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
-                    > 
-                      &#x2715; 
-                    </button> 
+            {galleryImages.map((img) => ( 
+              <div 
+                key={img.id} 
+                onClick={() => handleCardClick(img.src, img.label)} 
+                className="group relative flex items-center justify-center overflow-hidden rounded-lg bg-midnight/80 border border-white/10 p-4 w-full h-64 sm:h-72 md:h-80 cursor-pointer shadow-md" 
+              > 
+                <div className="relative w-full h-full flex items-center justify-center pointer-events-none"> 
+                  <img src={img.src} alt={img.label} style={{ objectFit: 'contain', maxHeight: '100%', maxWidth: '100%' }} className="transition-transform duration-300 group-hover:scale-105" /> 
+                </div> 
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4 z-10 pointer-events-none"> 
+                  <div className="flex items-center justify-end w-full text-white/80 text-[10px] font-medium uppercase tracking-wider"> 
+                    <span>Click to expand</span> 
                   </div> 
-                </> 
-              ); 
-            })()} 
+                  <p className="text-white font-medium text-sm truncate w-full transform translate-y-1 transition-transform duration-300 group-hover:translate-y-0"> 
+                    {img.label} 
+                  </p> 
+                </div> 
+              </div> 
+            ))} 
+
+            <div 
+              id="global-gallery-modal" 
+              onClick={() => { 
+                const modal = document.getElementById('global-gallery-modal'); 
+                if (modal) modal.style.display = 'none'; 
+              }} 
+              className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
+              style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
+            > 
+              <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
+                <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
+                <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
+              </div> 
+              <button 
+                onClick={() => { 
+                  const modal = document.getElementById('global-gallery-modal'); 
+                  if (modal) modal.style.display = 'none'; 
+                }} 
+                className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
+              > 
+                &#x2715; 
+              </button> 
+            </div> 
           </div> 
         </div> 
       </section> 
+
 
       {/* ── ENROLLMENT CTA ── */} 
       <section className="py-20 bg-midnight text-white overflow-hidden"> 
