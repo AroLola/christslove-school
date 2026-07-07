@@ -67,16 +67,16 @@ export default function HomePage() {
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      {/* Top tag - Synchronized with the new darker bronze shade #613610 */}
+      {/* Top tag - Synchronized with the deeper, rich gold tone */}
       <motion.p 
         variants={fadeUp} 
-        className="text-[#613610] font-semibold tracking-widest uppercase text-sm mb-4"
+        className="text-[#C5A059] font-semibold tracking-widest uppercase text-sm mb-4"
         style={{ textShadow: '-1px 0px 1px rgba(0,0,0,0.4)' }}
       > 
         Private Christian Education 
       </motion.p> 
       
-      {/* Main heading */}
+      {/* Main heading - Uses font-[Impact] and tracking-tight across both lines */}
       <motion.h1 
         variants={fadeUp} 
         className="text-4xl md:text-5xl lg:text-6xl text-white leading-none mb-6 font-[Impact] tracking-tight uppercase" 
@@ -86,13 +86,13 @@ export default function HomePage() {
           className="text-white font-[Impact] tracking-tight uppercase" 
           style={{ fontWeight: 400 }} 
         >
-          {/* Keeps the clean hairline gap separation for the apostrophe */}
+          {/* Hair space keeps the apostrophe legible */}
           Christ{"\u200a"}'s Love 
         </span>
         <br /> 
-        {/* Bottom line - Perfectly matches the top style with the updated darker bronze tone */}
+        {/* Bottom line - Perfectly matches font style and uses the deeper gold color */}
         <span 
-          className="text-[#613610] font-[Impact] tracking-tight uppercase" 
+          className="text-[#C5A059] font-[Impact] tracking-tight uppercase" 
           style={{ 
             fontWeight: 400,
             textShadow: '-1px 0px 1px rgba(0,0,0,0.5)'
@@ -107,19 +107,19 @@ export default function HomePage() {
       </motion.p> 
       
       <div className="flex flex-wrap gap-4"> 
-        {/* Button 1 - Enroll Now with the matching darker bronze color */}
+        {/* Enroll Now Button */}
         <Link 
           to="/admissions" 
-          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#613610] text-white font-bold rounded hover:bg-[#4d2b0d] transition-colors"
+          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#C5A059] text-white font-bold rounded hover:bg-[#A38245] transition-colors"
           style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }}
         > 
           Enroll Now <ChevronRight size={18} /> 
         </Link> 
         
-        {/* Button 2 - Learn More / Our Story */}
+        {/* Our Story Button - Restored back to your clean layout rules using the matching gold accent */}
         <Link 
           to="/about" 
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#613610] text-white font-semibold rounded hover:bg-[#4d2b0d] transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-[#C5A059] text-white font-semibold rounded hover:bg-[#A38245] transition-colors"
           style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }}
         > 
           Our Story <ChevronRight size={18} />
@@ -127,9 +127,10 @@ export default function HomePage() {
       </div> 
     </motion.div> 
   </div> 
-  {/* Bottom border line - Synchronized to match the new color accent theme */}
-  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#613610]" /> 
+  {/* Bottom border line */}
+  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#C5A059]" /> 
 </section>
+
 
       {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
