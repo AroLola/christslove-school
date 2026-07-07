@@ -52,6 +52,7 @@ export default function HomePage() {
 
       {/* ── HERO ── */} 
    
+{/* ── HERO ── */} 
 <section className="relative flex items-center overflow-hidden bg-midnight" style={{ minHeight: '88vh' }}> 
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}> 
     <img 
@@ -61,22 +62,22 @@ export default function HomePage() {
       fetchPriority="high" 
       loading="eager" 
     /> 
-    {/* Dark Overlay for contrast */}
+    {/* Dark Overlay for contrast */} 
     <div className="absolute inset-0 bg-black/50" /> 
   </div> 
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      {/* Top tag - Synchronized with the deeper, rich gold tone */}
+      {/* Top tag - Rich Medium Gold (#D4AF37) */} 
       <motion.p 
         variants={fadeUp} 
-        className="text-[#C5A059] font-semibold tracking-widest uppercase text-sm mb-4"
-        style={{ textShadow: '-1px 0px 1px rgba(0,0,0,0.4)' }}
+        className="text-[#D4AF37] font-semibold tracking-widest uppercase text-sm mb-4" 
+        style={{ textShadow: '-1px 0px 1px rgba(0,0,0,0.4)' }} 
       > 
         Private Christian Education 
       </motion.p> 
-      
-      {/* Main heading - Uses font-[Impact] and tracking-tight across both lines */}
+
+      {/* Main heading */} 
       <motion.h1 
         variants={fadeUp} 
         className="text-4xl md:text-5xl lg:text-6xl text-white leading-none mb-6 font-[Impact] tracking-tight uppercase" 
@@ -85,50 +86,42 @@ export default function HomePage() {
         <span 
           className="text-white font-[Impact] tracking-tight uppercase" 
           style={{ fontWeight: 400 }} 
-        >
-          {/* Hair space keeps the apostrophe legible */}
+        > 
           Christ{"\u200a"}'s Love 
-        </span>
+        </span> 
         <br /> 
-        {/* Bottom line - Perfectly matches font style and uses the deeper gold color */}
+        {/* Bottom line - Rich Medium Gold (#D4AF37) */} 
         <span 
-          className="text-[#C5A059] font-[Impact] tracking-tight uppercase" 
-          style={{ 
-            fontWeight: 400,
-            textShadow: '-1px 0px 1px rgba(0,0,0,0.5)'
-          }} 
+          className="text-[#D4AF37] font-[Impact] tracking-tight uppercase" 
+          style={{ fontWeight: 400, textShadow: '-1px 0px 1px rgba(0,0,0,0.5)' }} 
         > 
           Christian School 
         </span> 
       </motion.h1> 
-      
+
       <motion.p variants={fadeUp} className="text-white/90 text-base md:text-lg leading-relaxed mb-10 max-w-lg"> 
         Nurturing minds, hearts, and faith from Kindergarten through Grade 7. Where academic excellence meets the love of Christ. 
       </motion.p> 
-      
+
       <div className="flex flex-wrap gap-4"> 
-        {/* Enroll Now Button */}
+        {/* Button - Rich Medium Gold (#D4AF37) with Darker Gold Hover (#AA8A22) */} 
         <Link 
           to="/admissions" 
-          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#C5A059] text-white font-bold rounded hover:bg-[#A38245] transition-colors"
-          style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }}
+          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#D4AF37] text-black font-bold rounded hover:bg-[#AA8A22] transition-colors" 
+          style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }} 
         > 
           Enroll Now <ChevronRight size={18} /> 
         </Link> 
-        
-        {/* Our Story Button - Restored back to your clean layout rules using the matching gold accent */}
-        <Link 
-          to="/about" 
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#C5A059] text-white font-semibold rounded hover:bg-[#A38245] transition-colors"
-          style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }}
-        > 
-          Our Story <ChevronRight size={18} />
+
+        <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/60 text-white font-semibold rounded hover:border-white hover:bg-white/10 transition-colors"> 
+          Learn More 
         </Link> 
       </div> 
     </motion.div> 
   </div> 
-  {/* Bottom border line */}
-  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#C5A059]" /> 
+
+  {/* Bottom border line - Rich Medium Gold (#D4AF37) */} 
+  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#D4AF37]" /> 
 </section>
 
 
