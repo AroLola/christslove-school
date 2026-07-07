@@ -72,13 +72,13 @@ export default function HomePage() {
     <motion.h1 
       variants={fadeUp} 
       className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 font-['Arial_Narrow'] tracking-wide" 
-      style={{ fontWeight: 400 }}
+      style={{ fontWeight: 600 }}
     > 
       Christ's Love
       <br /> 
       <span 
         className="text-primary font-['Arial_Narrow'] tracking-wide" 
-        style={{ fontWeight: 400 }}
+        style={{ fontWeight: 600 }}
       >
         Christian School
       </span> 
