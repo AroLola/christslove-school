@@ -67,10 +67,10 @@ export default function HomePage() {
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      {/* Top tag - Soft left shadow */}
+      {/* Top tag - Synchronized with the new darker bronze shade #613610 */}
       <motion.p 
         variants={fadeUp} 
-        className="text-[#784314] font-semibold tracking-widest uppercase text-sm mb-4"
+        className="text-[#613610] font-semibold tracking-widest uppercase text-sm mb-4"
         style={{ textShadow: '-1px 0px 1px rgba(0,0,0,0.4)' }}
       > 
         Private Christian Education 
@@ -86,12 +86,13 @@ export default function HomePage() {
           className="text-white font-[Impact] tracking-tight uppercase" 
           style={{ fontWeight: 400 }} 
         >
+          {/* Keeps the clean hairline gap separation for the apostrophe */}
           Christ{"\u200a"}'s Love 
         </span>
         <br /> 
-        {/* Bottom line - Soft left side shadow (-1px horizontal offset) */}
+        {/* Bottom line - Perfectly matches the top style with the updated darker bronze tone */}
         <span 
-          className="text-[#784314] font-[Impact] tracking-tight uppercase" 
+          className="text-[#613610] font-[Impact] tracking-tight uppercase" 
           style={{ 
             fontWeight: 400,
             textShadow: '-1px 0px 1px rgba(0,0,0,0.5)'
@@ -106,22 +107,28 @@ export default function HomePage() {
       </motion.p> 
       
       <div className="flex flex-wrap gap-4"> 
-        {/* Button - Shadow shifted to left side only */}
+        {/* Button 1 - Enroll Now with the matching darker bronze color */}
         <Link 
           to="/admissions" 
-          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#784314] text-white font-bold rounded hover:bg-[#61350e] transition-colors"
+          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#613610] text-white font-bold rounded hover:bg-[#4d2b0d] transition-colors"
           style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }}
         > 
           Enroll Now <ChevronRight size={18} /> 
         </Link> 
-        <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/60 text-white font-semibold rounded hover:border-white hover:bg-white/10 transition-colors"> 
-          Learn More 
+        
+        {/* Button 2 - Learn More / Our Story */}
+        <Link 
+          to="/about" 
+          className="inline-flex items-center gap-2 px-6 py-3 bg-[#613610] text-white font-semibold rounded hover:bg-[#4d2b0d] transition-colors"
+          style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }}
+        > 
+          Our Story <ChevronRight size={18} />
         </Link> 
       </div> 
     </motion.div> 
   </div> 
-  {/* Bottom border line */}
-  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#784314]" /> 
+  {/* Bottom border line - Synchronized to match the new color accent theme */}
+  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#613610]" /> 
 </section>
 
       {/* ── PROGRAMS / GRADES ── */} 
