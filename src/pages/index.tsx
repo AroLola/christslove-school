@@ -371,8 +371,8 @@ export default function HomePage() {
 
               <div className="hidden lg:flex items-center justify-center p-16 bg-white/5 backdrop-blur-sm border-l border-primary"> 
                 <div className="text-center"> 
-                  <div className="font-heading text-8xl text-primary/70 font-bold leading-none mb-2">K–7</div> 
-                  <p className="text-white/70 text-sm tracking-widest uppercase">Kindergarten through Grade 7</p> 
+                  <div className="font-heading text-8xl text-primary/50 font-bold leading-none mb-2">K–7</div> 
+                  <p className="text-white/40 text-sm tracking-widest uppercase">Kindergarten through Grade 7</p> 
                   <div className="mt-6 w-16 h-0.5 bg-primary mx-auto" /> 
                   <p className="mt-4 text-white/60 text-xs italic">"Train up a child in the way he should go…"</p> 
                   <p className="text-primary/60 text-xs">Proverbs 22:6</p> 
