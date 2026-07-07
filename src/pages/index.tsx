@@ -74,9 +74,9 @@ export default function HomePage() {
               style={{ fontWeight: 500 }}
             > 
               Christ's Love<br /> 
-              <span className="text-primary" style={{ fontWeight: 300 }}>Christian School</span> 
+            <span className="text-primary font-['Arial_Black'] tracking-wide" style={{ fontWeight: 400 }}>Christian School</span> 
             </motion.h1> 
-            <motion.p variants={fadeUp} className="text-white/70 text-base md:text-lg leading-relaxed mb-10 max-w-lg"> 
+            <motion.p variants={fadeUp} className="text-white/70 text-base md:text-lg leading-relaxed mb-10 max-w-lg">
               Nurturing minds, hearts, and faith from Kindergarten through Grade 7. Where academic excellence meets the love of Christ. 
             </motion.p> 
             <div className="flex flex-wrap gap-4"> 
