@@ -60,25 +60,27 @@ export default function HomePage() {
       fetchPriority="high" 
       loading="eager" 
     /> 
-    {/* Dark Overlay to fix the contrast/readability issue */}
+    {/* Dark Overlay for better text contrast */}
     <div className="absolute inset-0 bg-black/50" /> 
   </div> 
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      <motion.p variants={fadeUp} className="text-primary font-semibold tracking-widest uppercase text-sm mb-4"> 
+      {/* Top tag - Gold lightened using text-[#FFD700] */}
+      <motion.p variants={fadeUp} className="text-[#FFD700] font-semibold tracking-widest uppercase text-sm mb-4"> 
         Private Christian Education 
       </motion.p> 
       
       <motion.h1 
         variants={fadeUp} 
-        className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 font-[Impact] tracking-widest uppercase" 
+        className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 font-['Arial_Narrow'] tracking-normal" 
         style={{ fontWeight: 400 }} 
       > 
         Christ's Love 
         <br /> 
+        {/* Bottom line - Impact font, closer letters (tracking-normal), lightened Gold text-[#FFD700] */}
         <span 
-          className="text-primary font-[Impact] tracking-widest uppercase" 
+          className="text-[#FFD700] font-[Impact] tracking-normal uppercase" 
           style={{ fontWeight: 400 }} 
         > 
           Christian School 
@@ -90,7 +92,8 @@ export default function HomePage() {
       </motion.p> 
       
       <div className="flex flex-wrap gap-4"> 
-        <Link to="/admissions" className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+        {/* Button - Background switched to the lighter gold color */}
+        <Link to="/admissions" className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#FFD700] text-black font-bold rounded hover:bg-[#FFD700]/90 transition-colors"> 
           Enroll Now <ChevronRight size={18} /> 
         </Link> 
         <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/60 text-white font-semibold rounded hover:border-white hover:bg-white/10 transition-colors"> 
@@ -99,9 +102,10 @@ export default function HomePage() {
       </div> 
     </motion.div> 
   </div> 
-  <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" /> 
+  {/* Bottom border line - Switched to lighter gold */}
+  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FFD700]" /> 
 </section>
-      
+
 
       {/* ── QUICK STATS ── */} 
       <section className="bg-secondary py-10 border-b border-white/5"> 
