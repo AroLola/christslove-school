@@ -351,14 +351,12 @@ export default function AboutPage() {
           <motion.div 
             key={displayName} 
             variants={fadeUp} 
-            {/* Added md:max-w-sm to narrow down the card shape. Replaced shadow-md with shadow-md shadow-black/20 for a crisp, darker depth shadow */}
             className="bg-card border-2 border-border/80 rounded-xl p-5 shadow-md shadow-black/20 flex items-stretch justify-between gap-4 relative overflow-hidden w-full mx-auto md:max-w-sm"
             style={{ minHeight: '160px' }}
           > 
             {/* ID Card Left Content Side */}
             <div className="flex flex-col justify-between flex-1 py-1 z-10"> 
-              {/* Top: Original Dark Blue Circle Initials Badge */}
-              <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center"> 
+               <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center"> 
                 <span className="text-secondary-foreground font-heading font-bold text-lg"> 
                   {`${firstInitial}${lastInitial}`} 
                 </span> 
@@ -366,7 +364,6 @@ export default function AboutPage() {
               
               {/* Middle & Bottom Info Container */}
               <div className="mt-4"> 
-                {/* Middle: Full Name */}
                 <h3 className="font-heading text-base md:text-lg text-secondary font-bold leading-tight uppercase">
                   {displayName}
                 </h3> 
