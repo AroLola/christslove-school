@@ -50,8 +50,7 @@ export default function HomePage() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
       </Helmet> 
 
-      
-{/* ── HERO ── */} 
+    {/* ── HERO ── */} 
 <section className="relative flex items-center overflow-hidden bg-midnight" style={{ minHeight: '88vh' }}> 
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}> 
     <img 
@@ -67,10 +66,10 @@ export default function HomePage() {
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      {/* Top tag - Rich Medium Gold (#D4AF37) */} 
+      {/* Top tag - Rich Orange-Gold / Dark Amber (#C98A27) */} 
       <motion.p 
         variants={fadeUp} 
-        className="text-[#D4AF37] font-semibold tracking-widest uppercase text-sm mb-4" 
+        className="text-[#C98A27] font-semibold tracking-widest uppercase text-sm mb-4" 
         style={{ textShadow: '-1px 0px 1px rgba(0,0,0,0.4)' }} 
       > 
         Private Christian Education 
@@ -89,9 +88,9 @@ export default function HomePage() {
           Christ{"\u200a"}'s Love 
         </span> 
         <br /> 
-        {/* Bottom line - Rich Medium Gold (#D4AF37) */} 
+        {/* Bottom line - Rich Orange-Gold / Dark Amber (#C98A27) */} 
         <span 
-          className="text-[#D4AF37] font-[Impact] tracking-tight uppercase" 
+          className="text-[#C98A27] font-[Impact] tracking-tight uppercase" 
           style={{ fontWeight: 400, textShadow: '-1px 0px 1px rgba(0,0,0,0.5)' }} 
         > 
           Christian School 
@@ -103,10 +102,10 @@ export default function HomePage() {
       </motion.p> 
 
       <div className="flex flex-wrap gap-4"> 
-        {/* Button - Rich Medium Gold (#D4AF37) with Darker Gold Hover (#AA8A22) */} 
+        {/* Button - Rich Orange-Gold (#C98A27) with Darker Burned Gold Hover (#9E681B) */} 
         <Link 
           to="/admissions" 
-          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#D4AF37] text-black font-bold rounded hover:bg-[#AA8A22] transition-colors" 
+          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#C98A27] text-white font-bold rounded hover:bg-[#9E681B] transition-colors" 
           style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }} 
         > 
           Enroll Now <ChevronRight size={18} /> 
@@ -119,10 +118,9 @@ export default function HomePage() {
     </motion.div> 
   </div> 
 
-  {/* Bottom border line - Rich Medium Gold (#D4AF37) */} 
-  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#D4AF37]" /> 
-</section>
-
+  {/* Bottom border line - Rich Orange-Gold (#C98A27) */} 
+  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#C98A27]" /> 
+</section>  
 
 
       {/* ── PROGRAMS / GRADES ── */} 
