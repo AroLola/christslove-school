@@ -69,7 +69,7 @@ export default function HomePage() {
               Private Christian Education 
             </motion.p> 
 
-            {/* FIXED 1: Elegant ultra-light styling override scales down weight */}
+            {/* ✅ FONT SIZE FIXED: Thin sizing and wide tracking override */}
             <motion.h1 
               variants={fadeUp} 
               className="text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 font-sans tracking-wide" 
@@ -161,129 +161,92 @@ export default function HomePage() {
                 width={800} 
                 height={480} 
               /> 
-          </motion.div>
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+            <div className="flex flex-col justify-center"> 
+              <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
+                Our Mission 
+              </p> 
+              <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+                Rooted in Faith,<br />Built for Life 
+              </h2> 
+              <p className="text-white/80 text-lg leading-relaxed mb-6"> 
+                At Christ's Love Christian School, we believe every child is uniquely created by God with gifts, purpose, and potential. Our mission is to provide an exceptional education that honors Christ in every subject, every interaction, and every moment of the school day. 
+              </p> 
+              <p className="text-white/60 leading-relaxed mb-8"> 
+                We partner with families to raise students who are academically prepared, spiritually grounded, and ready to serve their communities with integrity and compassion. 
+              </p> 
 
-          <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }} 
-            variants={stagger}
-          >
-
-            {/* ── VALUES / MISSION ── */} 
-            <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
-              <div className="container mx-auto px-4 lg:px-8"> 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-                  
-                  {/* Image Block with Gold Framing */} 
-                  <motion.div 
-                    initial={{ opacity: 0, x: -30 }} 
-                    whileInView={{ opacity: 1, x: 0 }} 
-                    viewport={{ once: true }} 
-                    transition={{ duration: 0.5, ease: 'easeOut' }} 
-                    className="relative" 
-                  > 
-                    <img 
-                      src="/assets/media/pages-home-values-c9779bb4.jpg" 
-                      alt="Faith and learning at Christ's Love Christian School" 
-                      className="w-full h-auto object-contain rounded-lg shadow-lg" 
-                      loading="lazy" 
-                      width={800} 
-                      height={480} 
-                    /> 
-                    <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
-                  </motion.div> 
-
-                  {/* Text Content Block */} 
-                  <div className="flex flex-col justify-center"> 
-                    <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
-                      Our Mission 
-                    </p> 
-                    <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
-                      Rooted in Faith,<br />Built for Life 
-                    </h2> 
-                    <p className="text-white/80 text-lg leading-relaxed mb-6"> 
-                      At Christ's Love Christian School, we believe every child is uniquely created by God with gifts, purpose, and potential. Our mission is to provide an exceptional education that honors Christ in every subject, every interaction, and every moment of the school day. 
-                    </p> 
-                    <p className="text-white/60 leading-relaxed mb-8"> 
-                      We partner with families to raise students who are academically prepared, spiritually grounded, and ready to serve their communities with integrity and compassion. 
-                    </p> 
-
-                    {/* Core Values Sub-Grid */} 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"> 
-                      {[ 
-                        { icon: BookOpen, label: 'Academic Excellence' }, 
-                        { icon: Heart, label: 'Faith Formation' }, 
-                        { icon: Star, label: 'Character Development' }, 
-                        { icon: Users, label: 'Community & Family' } 
-                      ].map((val) => {
-                        const Icon = val.icon;
-                        return (
-                          <div key={val.label} className="flex items-center gap-3"> 
-                            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0"> 
-                              <Icon size={16} className="text-primary" /> 
-                            </div> 
-                            <span className="text-white font-medium text-sm">{val.label}</span> 
-                          </div> 
-                        );
-                      })} 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"> 
+                {[ 
+                  { icon: BookOpen, label: 'Academic Excellence' }, 
+                  { icon: Heart, label: 'Faith Formation' }, 
+                  { icon: Star, label: 'Character Development' }, 
+                  { icon: Users, label: 'Community & Family' } 
+                ].map((val) => {
+                  const Icon = val.icon;
+                  return (
+                    <div key={val.label} className="flex items-center gap-3"> 
+                      <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0"> 
+                        <Icon size={16} className="text-primary" /> 
                     </div> 
-
-                    <div> 
-                      <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
-                        Our Story <ChevronRight size={18} /> 
-                      </Link> 
-                    </div> 
+                    <span className="text-white font-medium text-sm">{val.label}</span> 
                   </div> 
-                </div> 
+                  );
+                })} 
               </div> 
-            </section> 
 
-            {/* ── COMMUNITY ── */} 
-            <section className="py-20 bg-midnight text-white"> 
-              <div className="container mx-auto px-4 lg:px-8"> 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-                  
-                  <div className="flex flex-col justify-center"> 
-                    <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
-                      Our Community 
-                    </p> 
-                    <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
-                      More Than a School —<br />A Family 
-                    </h2> 
-                    <p className="text-white/80 text-lg leading-relaxed mb-6"> 
-                      When you join Christ's Love, you join a community of families who share your values and your vision for your children's future. From chapel mornings to school events, we grow together. 
-                    </p> 
-                    <p className="text-white/70 leading-relaxed mb-8"> 
-                      Our small class sizes mean every student is known by name, celebrated for their strengths, and supported through every challenge. This is what Christian education looks like. 
-                    </p> 
-                    <div className="flex flex-wrap gap-4"> 
-                      <Link to="/admissions" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
-                        Start Your Application <ChevronRight size={18} /> 
-                      </Link> 
-                    </div> 
-                  </div> 
-
-                  {/* Image Grid with Offset Framing */} 
-                  <div className="relative"> 
-                    <img 
-                      src="/airo-assets/images/pages/home/students-enjoying-community-time-at-chri-2" 
-                      alt="Students enjoying community time at Christ's Love Christian School" 
-                      className="w-full h-[440px] object-cover rounded-lg shadow-lg" 
-                      loading="lazy" 
-                      width={900} 
-                      height={440} 
-                    /> 
-                    <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/40 rounded-lg -z-10" /> 
-                  </div> 
-                </div> 
+              <div> 
+                <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+                  Our Story <ChevronRight size={18} /> 
+                </Link> 
               </div> 
-            </section>
+            </div> 
+          </div> 
+        </div> 
+      </section> 
 
-                 {/* ── ACHIEVEMENTS & AWARDS ── */} 
+      {/* ── COMMUNITY ── */} 
+      <section className="py-20 bg-midnight text-white"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+            <div className="flex flex-col justify-center"> 
+              <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
+                Our Community 
+              </p> 
+              <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+                More Than a School —<br />A Family 
+              </h2> 
+              <p className="text-white/80 text-lg leading-relaxed mb-6"> 
+                When you join Christ's Love, you join a community of families who share your values and your vision for your children's future. From chapel mornings to school events, we grow together. 
+              </p> 
+              <p className="text-white/70 leading-relaxed mb-8"> 
+                Our small class sizes mean every student is known by name, celebrated for their strengths, and supported through every challenge. This is what Christian education looks like. 
+              </p> 
+              <div className="flex flex-wrap gap-4"> 
+                <Link to="/admissions" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+                  Start Your Application <ChevronRight size={18} /> 
+                </Link> 
+              </div> 
+            </div> 
+
+            <div className="relative"> 
+              <img 
+                src="/airo-assets/images/pages/home/students-enjoying-community-time-at-chri-2" 
+                alt="Students enjoying community time at Christ's Love Christian School" 
+                className="w-full h-[440px] object-cover rounded-lg shadow-lg" 
+                loading="lazy" 
+                width={900} 
+                height={440} 
+              /> 
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/40 rounded-lg -z-10" /> 
+            </div> 
+          </div> 
+        </div> 
+      </section>
+
+      {/* ── ACHIEVEMENTS & AWARDS ── */} 
       <section className="py-20 bg-secondary border-t border-white/5 text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
-          
           <div className="text-center mb-14" > 
             <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
               Student Achievements 
@@ -322,7 +285,7 @@ export default function HomePage() {
                 } 
               }; 
 
-              return (
+              return ( 
                 <> 
                   {galleryImages.map((img) => ( 
                     <div 
@@ -350,27 +313,27 @@ export default function HomePage() {
                       const modal = document.getElementById('global-gallery-modal'); 
                       if (modal) modal.style.display = 'none'; 
                     }} 
-                    className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
-                    style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
-                  > 
-                    <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
-                      <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
-                      <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
-                    </div> 
-                    <button 
-                      onClick={() => { 
-                        const modal = document.getElementById('global-gallery-modal'); 
-                        if (modal) modal.style.display = 'none'; 
-                      }} 
-                      className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
-                    > 
-                      &#x2715; 
-                    </button> 
+                  className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-4 cursor-zoom-out select-none" 
+                  style={{ display: 'none', backdropFilter: 'blur(8px)' }} 
+                > 
+                  <div className="relative max-w-5xl max-h-[85vh] flex flex-col items-center justify-center pointer-events-none"> 
+                    <img id="global-gallery-modal-img" src="" alt="Expanded view" className="max-w-full max-h-[75vh] object-contain rounded-md" /> 
+                    <p id="global-gallery-modal-txt" className="text-white font-heading text-lg font-semibold tracking-wide text-center mt-6 px-6 py-2 bg-white/5 border border-white/10 rounded-full"></p> 
                   </div> 
-                </> 
-              ); 
-            })()} 
-          </div> 
+                  <button 
+                    onClick={() => { 
+                      const modal = document.getElementById('global-gallery-modal'); 
+                      if (modal) modal.style.display = 'none'; 
+                    }} 
+                    className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 w-11 h-11 flex items-center justify-center rounded-full font-semibold cursor-pointer transition-all border border-white/5 text-lg" 
+                  > 
+                    &#x2715; 
+                  </button> 
+                </div> 
+              </> 
+            ); 
+          })()} 
+          
         </div> 
       </section> 
 
@@ -402,7 +365,6 @@ export default function HomePage() {
                 </div> 
               </div> 
 
-              {/* Right Column: Semitransparent background layer with gold internal border */} 
               <div className="hidden lg:flex items-center justify-center p-16 bg-white/5 backdrop-blur-sm border-l border-primary"> 
                 <div className="text-center"> 
                   <div className="font-heading text-8xl text-primary/20 font-bold leading-none mb-2">K–7</div> 
@@ -420,4 +382,3 @@ export default function HomePage() {
     </> 
   ); 
 }
-
