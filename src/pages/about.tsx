@@ -315,14 +315,15 @@ export default function AboutPage() {
 
 {/* ── STAFF MAP ── */} 
 <section className="py-20 bg-background"> 
-  <div className="container mx-auto px-4 lg:px-8"> 
+  {/* Added max-w-6xl to keep the grid content tightly centered with beautiful margins */}
+  <div className="container mx-auto max-w-6xl px-6 lg:px-12"> 
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="text-center mb-14"> 
       <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> Our Team </motion.p> 
       <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl text-secondary mb-4"> Meet Our Faculty & Staff </motion.h2> 
       <motion.p variants={fadeUp} className="text-muted-foreground max-w-xl mx-auto"> Our educators are called to this work — dedicated professionals who bring both academic excellence and genuine Christian faith to the classroom every day. </motion.p> 
     </motion.div> 
 
-    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> 
       {staff.map((member) => { 
         const displayName = member?.name || ''; 
         const displayRole = member?.role || ''; 
@@ -337,7 +338,6 @@ export default function AboutPage() {
           } else if (displayName === 'MARIA O. AUKHUMES') { 
             finalImageUrl = "https://airoapp.ai"; 
           } else { 
-            // The remaining broken profiles get the local school logo placeholder 
             finalImageUrl = "/assets/media/layouts-footer-christs-love-christian-school-2658fcbe.png"; 
           } 
         } 
@@ -351,12 +351,13 @@ export default function AboutPage() {
           <motion.div 
             key={displayName} 
             variants={fadeUp} 
-            className="bg-card border-2 border-border/80 rounded-xl p-5 shadow-md flex items-stretch justify-between gap-4 relative overflow-hidden"
+            {/* Added md:max-w-sm to narrow down the card shape. Replaced shadow-md with shadow-md shadow-black/20 for a crisp, darker depth shadow */}
+            className="bg-card border-2 border-border/80 rounded-xl p-5 shadow-md shadow-black/20 flex items-stretch justify-between gap-4 relative overflow-hidden w-full mx-auto md:max-w-sm"
             style={{ minHeight: '160px' }}
           > 
             {/* ID Card Left Content Side */}
             <div className="flex flex-col justify-between flex-1 py-1 z-10"> 
-              {/* Top: Restored Original Dark Blue Circle Initials Badge */}
+              {/* Top: Original Dark Blue Circle Initials Badge */}
               <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center"> 
                 <span className="text-secondary-foreground font-heading font-bold text-lg"> 
                   {`${firstInitial}${lastInitial}`} 
@@ -377,7 +378,7 @@ export default function AboutPage() {
             </div> 
 
             {/* ID Card Right Side: Profile Picture Container */}
-            <div className="relative flex items-center justify-center self-center flex-shrink-0 w-28 h-32 bg-muted/30 border border-border/50 rounded-lg overflow-hidden shadow-inner"> 
+            <div className="relative flex items-center justify-center self-center flex-shrink-0 w-24 h-28 bg-muted/30 border border-border/50 rounded-lg overflow-hidden shadow-inner"> 
               <img 
                 src={finalImageUrl} 
                 alt={displayName} 
@@ -385,7 +386,7 @@ export default function AboutPage() {
               /> 
             </div> 
             
-            {/* Top Accent Strip: Switched to Midnight Blue with original 40% (0.4) opacity */}
+            {/* Top Accent Strip: Midnight Blue with original 40% (0.4) opacity */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-[#0f172a]/40" />
           </motion.div> 
         ); 
@@ -393,7 +394,6 @@ export default function AboutPage() {
     </motion.div> 
   </div> 
 </section>
-
           {/* ── CTA ── */}
              
       {/* ── NEWLY ADDED MEDIA SECTION ── */}
