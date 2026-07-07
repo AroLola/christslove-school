@@ -67,11 +67,11 @@ export default function HomePage() {
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      {/* Top tag - Darker deep metallic bronze (#784314) */}
+      {/* Top tag - Soft left shadow */}
       <motion.p 
         variants={fadeUp} 
         className="text-[#784314] font-semibold tracking-widest uppercase text-sm mb-4"
-        style={{ textShadow: '0 1px 2px rgba(255,255,255,0.1), 0 -1px 1px rgba(0,0,0,0.6)' }}
+        style={{ textShadow: '-1px 0px 1px rgba(0,0,0,0.4)' }}
       > 
         Private Christian Education 
       </motion.p> 
@@ -86,16 +86,15 @@ export default function HomePage() {
           className="text-white font-[Impact] tracking-tight uppercase" 
           style={{ fontWeight: 400 }} 
         >
-          {/* Added a hair space (\u200a) before the apostrophe so it doesn't merge into the "t" */}
           Christ{"\u200a"}'s Love 
         </span>
         <br /> 
-        {/* Bottom line - Perfectly matches the top style with the richer bronze tone */}
+        {/* Bottom line - Soft left side shadow (-1px horizontal offset) */}
         <span 
           className="text-[#784314] font-[Impact] tracking-tight uppercase" 
           style={{ 
             fontWeight: 400,
-            textShadow: '0 1px 1px rgba(255,255,255,0.15), 0 -1px 1px rgba(0,0,0,0.7)'
+            textShadow: '-1px 0px 1px rgba(0,0,0,0.5)'
           }} 
         > 
           Christian School 
@@ -107,11 +106,11 @@ export default function HomePage() {
       </motion.p> 
       
       <div className="flex flex-wrap gap-4"> 
-        {/* Button - Background matches the new deep bronze tone */}
+        {/* Button - Shadow shifted to left side only */}
         <Link 
           to="/admissions" 
           className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#784314] text-white font-bold rounded hover:bg-[#61350e] transition-colors"
-          style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.4)' }}
+          style={{ boxShadow: '-2px 0px 4px rgba(0,0,0,0.3)' }}
         > 
           Enroll Now <ChevronRight size={18} /> 
         </Link> 
@@ -121,27 +120,9 @@ export default function HomePage() {
       </div> 
     </motion.div> 
   </div> 
-  {/* Bottom border line - Matches the deeper bronze theme */}
+  {/* Bottom border line */}
   <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#784314]" /> 
 </section>
-      {/* ── QUICK STATS ── */} 
-      <section className="bg-secondary py-10 border-b border-white/5"> 
-        <div className="container mx-auto px-4 lg:px-8"> 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"> 
-            {[ 
-              { value: 'K–7', label: 'Grade Levels' }, 
-              { value: '10+', label: 'Years of Excellence' }, 
-              { value: '100%', label: 'Faith-Centered' }, 
-              { value: 'Small', label: 'Class Sizes' } 
-            ].map((stat) => ( 
-              <div key={stat.label} className="text-white"> 
-                <div className="font-heading text-3xl md:text-4xl text-primary font-bold">{stat.value}</div> 
-                <div className="text-white/60 text-sm mt-1 tracking-wide">{stat.label}</div> 
-              </div> 
-            ))} 
-          </div> 
-        </div> 
-      </section> 
 
       {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
