@@ -61,9 +61,7 @@ export default function HomePage() {
             loading="eager" 
           /> 
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-transparent" />
-
-      <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
+        <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
   <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
     <motion.p variants={fadeUp} className="text-primary font-semibold tracking-widest uppercase text-sm mb-4"> 
       Private Christian Education 
