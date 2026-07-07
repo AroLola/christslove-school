@@ -66,23 +66,35 @@ export default function HomePage() {
 
   <div className="relative container mx-auto px-4 lg:px-8 py-24 z-10"> 
     <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-2xl"> 
-      {/* Top tag - Bronze-gold color text-[#CD7F32] */}
-      <motion.p variants={fadeUp} className="text-[#CD7F32] font-semibold tracking-widest uppercase text-sm mb-4"> 
+      {/* Top tag - Styled with the new rich glossy bronze shadow effect */}
+      <motion.p 
+        variants={fadeUp} 
+        className="text-[#965A20] font-semibold tracking-widest uppercase text-sm mb-4"
+        style={{ textShadow: '0 1px 2px rgba(255,255,255,0.15), 0 -1px 1px rgba(0,0,0,0.5)' }}
+      > 
         Private Christian Education 
       </motion.p> 
       
-      {/* H1 with leading-none for narrower vertical spacing, font-[Impact] applied here */}
+      {/* Both top and bottom now use identical classes, tracking-tight, and uppercase */}
       <motion.h1 
         variants={fadeUp} 
         className="text-4xl md:text-5xl lg:text-6xl text-white leading-none mb-6 font-[Impact] tracking-tight uppercase" 
         style={{ fontWeight: 400 }} 
       > 
-        Christ's Love 
-        <br /> 
-        {/* Bottom line - Impact font, narrow letters (tracking-tight), bronze-gold text-[#CD7F32] */}
         <span 
-          className="text-[#CD7F32] font-[Impact] tracking-tight uppercase" 
+          className="text-white font-[Impact] tracking-tight uppercase" 
           style={{ fontWeight: 400 }} 
+        >
+          Christ's Love 
+        </span>
+        <br /> 
+        {/* Bottom line style perfectly cloned to the top line */}
+        <span 
+          className="text-[#965A20] font-[Impact] tracking-tight uppercase" 
+          style={{ 
+            fontWeight: 400,
+            textShadow: '0 1px 1px rgba(255,255,255,0.2), 0 -1px 1px rgba(0,0,0,0.6)'
+          }} 
         > 
           Christian School 
         </span> 
@@ -93,8 +105,12 @@ export default function HomePage() {
       </motion.p> 
       
       <div className="flex flex-wrap gap-4"> 
-        {/* Button - Background switched to the bronze-gold color */}
-        <Link to="/admissions" className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#CD7F32] text-white font-bold rounded hover:bg-[#CD7F32]/90 transition-colors"> 
+        {/* Button - Glossy deep bronze background with high-contrast white text */}
+        <Link 
+          to="/admissions" 
+          className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#965A20] text-white font-bold rounded hover:bg-[#804A18] transition-colors"
+          style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), 0 2px 4px rgba(0,0,0,0.3)' }}
+        > 
           Enroll Now <ChevronRight size={18} /> 
         </Link> 
         <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/60 text-white font-semibold rounded hover:border-white hover:bg-white/10 transition-colors"> 
@@ -103,9 +119,10 @@ export default function HomePage() {
       </div> 
     </motion.div> 
   </div> 
-  {/* Bottom border line - Switched to bronze-gold */}
-  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#CD7F32]" /> 
+  {/* Bottom border line - Matches new deep bronze */}
+  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#965A20]" /> 
 </section>
+
 
       {/* ── QUICK STATS ── */} 
       <section className="bg-secondary py-10 border-b border-white/5"> 
