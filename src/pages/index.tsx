@@ -50,8 +50,7 @@ export default function HomePage() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
       </Helmet> 
 
-      {/* ── HERO ── */} 
-   
+      
 {/* ── HERO ── */} 
 <section className="relative flex items-center overflow-hidden bg-midnight" style={{ minHeight: '88vh' }}> 
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}> 
@@ -123,6 +122,7 @@ export default function HomePage() {
   {/* Bottom border line - Rich Medium Gold (#D4AF37) */} 
   <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#D4AF37]" /> 
 </section>
+
 
 
       {/* ── PROGRAMS / GRADES ── */} 
