@@ -265,18 +265,18 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full" > 
             {(() => { 
                const galleryImages = [
-          { id: 1, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" },
-          { id: 2, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" },
-          { id: 3, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" },
-          { id: 4, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" },
-          { id: 5, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" },
-          { id: 6, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" },
-          { id: 7, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" },
-          { id: 8, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" },
-          { id: 9, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" },
-          { id: 10, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" },
-          { id: 11, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" },
-          { id: 12, src: "https://christslovechristianschool.info/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" }
+          { id: 1, src: "/airo-assets/uploads/gallery/gallery-b6a6e946-bc31-4acd-8154-f22c40f24a14.jpg", label: "Regional Spelling Bee" },
+          { id: 2, src: "/airo-assets/uploads/gallery/gallery-643b0ebd-92d7-428f-95ad-05a56b641447.jpg", label: "Maths Competition" },
+          { id: 3, src: "/airo-assets/uploads/gallery/gallery-85f34065-853e-4d1f-9066-330a8a8eb0fd.jpg", label: "Maths and Science Wins" },
+          { id: 4, src: "/airo-assets/uploads/gallery/gallery-7981c115-a793-4b46-a8db-0973b6fe7724.jpeg", label: "Regional Spelling Bee Prize Winners" },
+          { id: 5, src: "/airo-assets/uploads/gallery/gallery-f0fbffaf-2979-497e-9967-7838808aaabe.jpg", label: "Activity Comments" },
+          { id: 6, src: "/airo-assets/uploads/gallery/gallery-ccf42313-5fa6-4da9-b6cd-75f04c81187b.jpg", label: "Sports Champions" },
+          { id: 7, src: "/airo-assets/uploads/gallery/gallery-0b37a9cb-ed87-46da-bccc-cf41ec1d15bd.png", label: "Maths Quiz" },
+          { id: 8, src: "/airo-assets/uploads/gallery/gallery-02eb0f25-ff6e-45ec-852e-6e4e88199593.jpg", label: "Social Studies" },
+          { id: 9, src: "/airo-assets/uploads/gallery/gallery-f233b254-e3f1-4bab-b8f3-b30c36acbd59.jpg", label: "Volleyball Champions" },
+          { id: 10, src: "/airo-assets/uploads/gallery/gallery-015675c7-952c-4096-b809-37e58fd46948.jpg", label: "Maths Gold" },
+          { id: 11, src: "/airo-assets/uploads/gallery/gallery-1c253f5a-03ff-4f08-b0e6-9617349d4a3d.jpg", label: "Netball" },
+          { id: 12, src: "/airo-assets/uploads/gallery/gallery-f784c41a-f06e-43af-a5b0-eb2924621953.jpg", label: "Volleyball Gold" }
         ];
 
 
