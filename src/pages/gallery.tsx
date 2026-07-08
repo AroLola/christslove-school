@@ -266,24 +266,22 @@ export default function GalleryPage() {
                 animate={{ opacity: 1, y: 0 }} 
                 exit={{ opacity: 0, y: -10 }} 
                 transition={{ duration: 0.3 }} 
-                className="space-y-0" 
+                className="space-y-14" 
               > 
                 {/* Fixed Map iteration engine using tracking index "i" */}
                 {visibleEvents.map((event, i) => {
                   const isMidnight = i % 2 !== 0;
                   const wrapperClass = isMidnight 
-                    ? "bg-midnight text-white py-12 px-6 rounded-2xl my-6 border border-white/5" 
-                    : "bg-background text-foreground py-12 px-2 my-2";
+                    ? "bg-midnight text-white py-12 px-6 rounded-2xl border border-white/5" 
+                    : "";
 
                   return (
                     <div key={event.id} className={wrapperClass}>
-                      <div className="max-w-7xl mx-auto">
-                        {activeTab === 'photos' ? ( 
-                          <PhotoSectionView event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} /> 
-                        ) : ( 
-                          <VideoSectionView event={event} /> 
-                        )} 
-                      </div>
+                      {activeTab === 'photos' ? ( 
+                        <PhotoSectionView event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} /> 
+                      ) : ( 
+                        <VideoSectionView event={event} /> 
+                      )} 
                     </div>
                   );
                 })} 
