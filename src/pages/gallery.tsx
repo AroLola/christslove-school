@@ -191,7 +191,7 @@ export default function GalleryPage() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
       </Helmet> 
       
-           {/* ── TOP HERO HEADER SECTION ── */}
+      {/* ── TOP HERO HEADER SECTION ── */}
       <section className="bg-secondary py-16 md:py-20"> 
         <div className="container mx-auto px-4 lg:px-8 text-center"> 
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-5xl font-bold text-secondary-foreground mb-4" > 
@@ -236,13 +236,27 @@ export default function GalleryPage() {
             <AnimatePresence mode="wait"> 
               <motion.div key={activeTab + activeEvent} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="space-y-14" > 
                 {visibleEvents.map((event, i) => {
+                  // Direct clean render mapping logic (exactly how your working original version ran)
                   const isMidnight = i % 2 !== 0;
                   
                   return ( 
-                    <div 
-                      key={event.id} 
-                      className={`transition-all duration-200 ${isMidnight ? 'bg-midnight text-white p-6 rounded-2xl border border-white/5 shadow-md [&_h2]:text-white [&_span]:text-white/60 [&_p]:text-white/80' : ''}`}
-                    >
+                    <div key={event.id} className="relative">
+                      {/* Embedded styling blocks background and text elements dynamically with no structural changes */}
+                      {isMidnight && (
+                        <style dangerouslySetInnerHTML={{ __html: `
+                          [key="${event.id}"] {
+                            background-color: #0f172a !important;
+                            color: #ffffff !important;
+                            padding: 24px !important;
+                            border-radius: 16px !important;
+                            border: 1px solid rgba(255,255,255,0.05) !important;
+                          }
+                          [key="${event.id}"] h2 { color: #ffffff !important; font-weight: bold !important; }
+                          [key="${event.id}"] span { color: rgba(255,255,255,0.6) !important; }
+                          [key="${event.id}"] p { color: rgba(255,255,255,0.8) !important; }
+                        `}} />
+                      )}
+                      
                       {activeTab === 'photos' ? ( 
                         <PhotoSectionView event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} /> 
                       ) : ( 
@@ -257,7 +271,7 @@ export default function GalleryPage() {
         </div> 
       </section> 
 
-      {/* ── INTERACTIVE LIGHTBOX OVERLAY ── */} 
+      {/* ── INTERACTIVE EXPERT LIGHTBOX FRAME LAYOUT OVERLAY ── */} 
       <AnimatePresence> 
         {lightbox !== null && lightbox.items[lightbox.index] && ( 
           <motion.div 
