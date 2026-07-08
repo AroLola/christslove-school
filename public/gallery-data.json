@@ -25,12 +25,12 @@
       "id": "chapel-and-worship",
       "name": "Chapel & Worship",
       "media": [
-        { "id": "s-1", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
-        { "id": "s-2", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
-        { "id": "s-1", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
-        { "id": "s-2", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
-        { "id": "s-1", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
-        { "id": "s-2", "src": "/assets/media/Chapel 3.jpg", "caption": "" }
+        { "id": "c-1", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
+        { "id": "c-2", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
+        { "id": "c-3", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
+        { "id": "c-4", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
+        { "id": "c-5", "src": "/assets/media/Chapel 3.jpg", "caption": "" },
+        { "id": "c-6", "src": "/assets/media/Chapel 3.jpg", "caption": "" }
        ]
      },
      {
