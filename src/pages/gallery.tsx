@@ -268,7 +268,7 @@ export default function GalleryPage() {
                 transition={{ duration: 0.3 }} 
                 className="space-y-0" 
               > 
-                {/* Single, non-duplicated mapping tracker logic */}
+                {/* Fixed Map iteration engine using tracking index "i" */}
                 {visibleEvents.map((event, i) => {
                   const isMidnight = i % 2 !== 0;
                   const wrapperClass = isMidnight 
@@ -293,7 +293,7 @@ export default function GalleryPage() {
         </div> 
       </section> 
 
-      {/* ── INTERACTIVE EXPERT LIGHTBOX FRAME LAYOUT OVERLAY ── */} 
+      {/* ── INTERACTIVE LIGHTBOX OVERLAY ── */} 
       <AnimatePresence> 
         {lightbox !== null && lightbox.items[lightbox.index] && ( 
           <motion.div 
@@ -333,4 +333,3 @@ export default function GalleryPage() {
     </> 
   ); 
 }
-
