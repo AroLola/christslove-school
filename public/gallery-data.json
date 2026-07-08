@@ -16,8 +16,23 @@
         { "id": "p-10", "src": "/assets/media/21426f4e-4456-47f9-8257-0e6ceed9c28c.JPG", "caption": "Pyjama Day" },
         { "id": "p-11", "src": "/assets/media/6a234b73-07c2-4eb0-8caa-ed5501a0edb3.JPG", "caption": "Pyjama Day" },
         { "id": "p-12", "src": "/assets/media/PHOTO-2026-07-03-09-33-44.jpg", "caption": "Pyjama Day" }
+        { "id": "p-13", "src": "/assets/media/pjday1.jpg", "caption": "Pyjama Day" }
+        { "id": "p-14", "src": "/assets/media/pjday2.jpg", "caption": "Pyjama Day" }
+        { "id": "p-15", "src": "/assets/media/pjday3.jpg", "caption": "Pyjama Day" }
       ]
     },
+    {
+      "id": "chapel-and-worship",
+      "name": "Chapel & Worship",
+      "media": [
+        { "id": "s-1", "src": "/assets/media/class1.JPG", "caption": "" },
+        { "id": "s-2", "src": "/assets/media/class2.JPG", "caption": "" }.
+        { "id": "s-3", "src": "/assets/media/class1.JPG", "caption": "" },
+        { "id": "s-4", "src": "/assets/media/class2.JPG", "caption": "" }.
+        { "id": "s-5", "src": "/assets/media/class1.JPG", "caption": "" },
+        { "id": "s-6", "src": "/assets/media/class2.JPG", "caption": "" }
+     ]
+        },
     {
       "id": "class-time-album",
       "name": "Class Time",
