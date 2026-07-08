@@ -234,37 +234,23 @@ export default function GalleryPage() {
             </div> 
           ) : ( 
             <AnimatePresence mode="wait"> 
-              <motion.div key={activeTab + activeEvent} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="space-y-14" > 
-                {visibleEvents.map((event, i) => {
-                  // Direct clean render mapping logic (exactly how your working original version ran)
-                  const isMidnight = i % 2 !== 0;
-                  
-                  return ( 
-                    <div key={event.id} className="relative">
-                      {/* Embedded styling blocks background and text elements dynamically with no structural changes */}
-                      {isMidnight && (
-                        <style dangerouslySetInnerHTML={{ __html: `
-                          [key="${event.id}"] {
-                            background-color: #0f172a !important;
-                            color: #ffffff !important;
-                            padding: 24px !important;
-                            border-radius: 16px !important;
-                            border: 1px solid rgba(255,255,255,0.05) !important;
-                          }
-                          [key="${event.id}"] h2 { color: #ffffff !important; font-weight: bold !important; }
-                          [key="${event.id}"] span { color: rgba(255,255,255,0.6) !important; }
-                          [key="${event.id}"] p { color: rgba(255,255,255,0.8) !important; }
-                        `}} />
-                      )}
-                      
-                      {activeTab === 'photos' ? ( 
-                        <PhotoSectionView event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} /> 
-                      ) : ( 
-                        <VideoSectionView event={event} /> 
-                      )} 
-                    </div>
-                  );
-                })} 
+              {/* Tailwind group styling applies alternating background colors to even rows cleanly from the outside */}
+              <motion.div 
+                key={activeTab + activeEvent} 
+                initial={{ opacity: 0, y: 10 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                exit={{ opacity: 0, y: -10 }} 
+                transition={{ duration: 0.3 }} 
+                className="space-y-10 [&_>_div:nth-child(even)]:bg-midnight [&_>_div:nth-child(even)]:text-white [&_>_div:nth-child(even)]:p-8 [&_>_div:nth-child(even)]:rounded-2xl [&_>_div:nth-child(even)]:border [&_>_div:nth-child(even)]:border-white/5 [&_>_div:nth-child(even)_h2]:text-white [&_>_div:nth-child(even)_span]:text-white/60 [&_>_div:nth-child(even)_p]:text-white/80" 
+              > 
+                {/* 100% Original component loop layout structure completely untouched */}
+                {visibleEvents.map((event) => ( 
+                  activeTab === 'photos' ? ( 
+                    <PhotoSectionView key={event.id} event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} /> 
+                  ) : ( 
+                    <VideoSectionView key={event.id} event={event} /> 
+                  ) 
+                ))} 
               </motion.div> 
             </AnimatePresence> 
           )} 
