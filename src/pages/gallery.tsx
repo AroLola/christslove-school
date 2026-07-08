@@ -191,7 +191,7 @@ export default function GalleryPage() {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
       </Helmet> 
       
-      {/* ── TOP HERO HEADER SECTION ── */}
+           {/* ── TOP HERO HEADER SECTION ── */}
       <section className="bg-secondary py-16 md:py-20"> 
         <div className="container mx-auto px-4 lg:px-8 text-center"> 
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-5xl font-bold text-secondary-foreground mb-4" > 
@@ -235,20 +235,29 @@ export default function GalleryPage() {
           ) : ( 
             <AnimatePresence mode="wait"> 
               <motion.div key={activeTab + activeEvent} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="space-y-14" > 
-                {visibleEvents.map((event, i) => ( 
-                  activeTab === 'photos' ? ( 
-                    <PhotoSectionView key={event.id} event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} isMidnight={i % 2 !== 0} /> 
-                  ) : ( 
-                    <VideoSectionView key={event.id} event={event} isMidnight={i % 2 !== 0} /> 
-                  ) 
-                ))} 
+                {visibleEvents.map((event, i) => {
+                  const isMidnight = i % 2 !== 0;
+                  
+                  return ( 
+                    <div 
+                      key={event.id} 
+                      className={`transition-all duration-200 ${isMidnight ? 'bg-midnight text-white p-6 rounded-2xl border border-white/5 shadow-md [&_h2]:text-white [&_span]:text-white/60 [&_p]:text-white/80' : ''}`}
+                    >
+                      {activeTab === 'photos' ? ( 
+                        <PhotoSectionView event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} /> 
+                      ) : ( 
+                        <VideoSectionView event={event} /> 
+                      )} 
+                    </div>
+                  );
+                })} 
               </motion.div> 
             </AnimatePresence> 
           )} 
         </div> 
       </section> 
 
-      {/* ── INTERACTIVE EXPERT LIGHTBOX FRAME LAYOUT OVERLAY ── */} 
+      {/* ── INTERACTIVE LIGHTBOX OVERLAY ── */} 
       <AnimatePresence> 
         {lightbox !== null && lightbox.items[lightbox.index] && ( 
           <motion.div 
