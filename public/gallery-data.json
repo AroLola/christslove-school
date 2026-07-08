@@ -26,9 +26,9 @@
       "name": "Chapel & Worship",
       "media": [
         { "id": "s-1", "src": "/assets/media/class1.JPG", "caption": "" },
-        { "id": "s-2", "src": "/assets/media/class2.JPG", "caption": "" }.
+        { "id": "s-2", "src": "/assets/media/class2.JPG", "caption": "" },
         { "id": "s-3", "src": "/assets/media/class1.JPG", "caption": "" },
-        { "id": "s-4", "src": "/assets/media/class2.JPG", "caption": "" }.
+        { "id": "s-4", "src": "/assets/media/class2.JPG", "caption": "" },
         { "id": "s-5", "src": "/assets/media/class1.JPG", "caption": "" },
         { "id": "s-6", "src": "/assets/media/class2.JPG", "caption": "" }
      ]
