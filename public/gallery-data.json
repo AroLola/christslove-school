@@ -37,8 +37,8 @@
       "id": "class-time-album",
       "name": "Class Time",
       "media": [
-        { "id": "s-1", "src": "/assets/media/class1.JPG", "caption": "Grade 3 - Blue" },
-        { "id": "s-1", "src": "/assets/media/class2.JPG", "caption": "Grade 3 - Blue" }
+        { "id": "t-1", "src": "/assets/media/class1.JPG", "caption": "Grade 3 - Blue" },
+        { "id": "t-1", "src": "/assets/media/class2.JPG", "caption": "Grade 3 - Blue" }
      ]
         },
     {
@@ -81,7 +81,7 @@
       "name": "15th Anniversary Celebration",
       "description": "Celebrating 15 years of scholarship, spiritual discipline, and academic excellence with song and dance presentations performed by our students.",
       "media": [
-        { "id": "v-1", "src": "https://ti1ev20vl7.preview.c36.airoapp.ai/airo-assets/uploads/gallery/gallery-50ee02e2-42bf-4f71-af29-b859c3fb380b.mp4", "caption": "Anniversary Celebration Highlights" }
+        { "id": "v-1", "src": "", "caption": "Anniversary Celebration Highlights" }
       ]
     },
     {
