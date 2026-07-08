@@ -23,7 +23,7 @@ async function fetchGallery(): Promise<GalleryData> {
 
 // ── STANDALONE INJECTION-PROOF SUB-COMPONENTS ── // 
 // Sub-Component A: Handles Photo Sections and Slideshows cleanly isolated from fix-paths regex 
-function PhotoSectionView({ event, onImageClick }: { event: EventSection; onImageClick: (items: MediaItem[], idx: number) => void }) { 
+function PhotoSectionView({ event, onImageClick, isMidnight }: { event: EventSection; onImageClick: (items: MediaItem[], idx: number) => void; isMidnight: boolean }) { 
   const [slideIdx, setSlideIdx] = useState(0); 
 
   useEffect(() => { 
@@ -40,12 +40,12 @@ function PhotoSectionView({ event, onImageClick }: { event: EventSection; onImag
   if (activeMedia.length === 0) return null; 
 
   return ( 
-    <div className="mb-14"> 
+    <div className={`transition-colors duration-200 ${isMidnight ? 'bg-midnight text-white p-6 rounded-2xl border border-white/5 shadow-md' : 'py-2'}`}> 
       <div className="flex items-center gap-3 mb-6"> 
         <FolderOpen size={20} className="text-primary shrink-0" /> 
-        <h2>{event.name === 'Sports Day' ? 'Sports' : event.name}</h2> 
-        <span className="text-muted-foreground text-sm">({activeMedia.length} photos)</span> 
-        <div className="flex-1 h-px bg-border" /> 
+        <h2 className={isMidnight ? 'text-white font-bold' : ''}>{event.name === 'Sports Day' ? 'Sports' : event.name}</h2> 
+        <span className={isMidnight ? 'text-white/60 text-sm' : 'text-muted-foreground text-sm'}>({activeMedia.length} photos)</span> 
+        <div className={`flex-1 h-px ${isMidnight ? 'bg-white/10' : 'bg-border'}`} /> 
       </div> 
       
       <div className="relative w-full h-56 md:h-80 rounded-xl overflow-hidden mb-4 shadow-md cursor-pointer" onClick={() => onImageClick(activeMedia, slideIdx)}> 
@@ -86,26 +86,26 @@ function PhotoSectionView({ event, onImageClick }: { event: EventSection; onImag
 } 
 
 // Sub-Component B: Handles Video Albums safely separated from parent scope string match filters 
-function VideoSectionView({ event }: { event: EventSection & { description?: string } }) { 
+function VideoSectionView({ event, isMidnight }: { event: EventSection & { description?: string }; isMidnight: boolean }) { 
   const activeMedia = event.media || []; 
   if (activeMedia.length === 0) return null; 
   return ( 
-    <div className="border-b border-secondary-foreground/5 pb-16 last:border-0 last:pb-0"> 
+    <div className={`transition-colors duration-200 border-b border-secondary-foreground/5 pb-16 last:border-0 last:pb-0 ${isMidnight ? 'bg-midnight text-white p-6 rounded-2xl border border-white/5 shadow-md' : 'py-2'}`}> 
       <div className="mb-8 max-w-3xl"> 
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-secondary mb-2 flex items-center gap-2"> 📁 {event.name} </h2> 
+        <h2 className={`font-heading text-2xl md:text-3xl font-bold mb-2 flex items-center gap-2 ${isMidnight ? 'text-white' : 'text-secondary'}`}> 📁 {event.name} </h2> 
         {event.description && ( 
-          <p className="text-muted-foreground text-base leading-relaxed"> {event.description} </p> 
+          <p className={isMidnight ? 'text-white/80 text-base leading-relaxed' : 'text-muted-foreground text-base leading-relaxed'}> {event.description} </p> 
         )} 
       </div> 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
         {activeMedia.map((video, i) => ( 
-          <motion.div key={video.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: i * 0.03 }} className="relative rounded-lg overflow-hidden shadow-sm border border-border bg-card group flex flex-col justify-between" > 
+          <motion.div key={video.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3, delay: i * 0.03 }} className={`relative rounded-lg overflow-hidden shadow-sm border group flex flex-col justify-between ${isMidnight ? 'bg-white/5 border-white/10' : 'bg-card border-border'}`} > 
             <div className="w-full aspect-video bg-black flex items-center justify-center overflow-hidden"> 
               <video src={video.src} className="w-full h-full object-cover" controls /> 
             </div> 
             {video.caption && ( 
-              <div className="px-3 py-2.5 bg-background border-t border-border flex-grow"> 
-                <p className="text-sm text-foreground/80 font-medium leading-relaxed"> {video.caption} </p> 
+              <div className={`px-3 py-2.5 border-t flex-grow ${isMidnight ? 'bg-black/20 border-white/10' : 'bg-background border-border'}`}> 
+                <p className={`text-sm font-medium leading-relaxed ${isMidnight ? 'text-white/90' : 'text-foreground/80'}`}> {video.caption} </p> 
               </div> 
             )} 
           </motion.div> 
@@ -182,7 +182,7 @@ export default function GalleryPage() {
     about: { '@id': `${site}/#organization` }, 
   }; 
 
-    return ( 
+  return ( 
     <> 
       <Helmet> 
         <title>{title}</title> 
@@ -194,20 +194,10 @@ export default function GalleryPage() {
       {/* ── TOP HERO HEADER SECTION ── */}
       <section className="bg-secondary py-16 md:py-20"> 
         <div className="container mx-auto px-4 lg:px-8 text-center"> 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.5 }} 
-            className="font-heading text-3xl md:text-5xl font-bold text-secondary-foreground mb-4" 
-          > 
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="font-heading text-3xl md:text-5xl font-bold text-secondary-foreground mb-4" > 
             <span className="contents">Gallery</span> 
           </motion.h1> 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.5, delay: 0.1 }} 
-            className="text-secondary-foreground/70 text-lg max-w-xl mx-auto" 
-          > 
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-secondary-foreground/70 text-lg max-w-xl mx-auto" > 
             A glimpse into life at Christ's Love Christian School 
           </motion.p> 
         </div> 
@@ -219,35 +209,19 @@ export default function GalleryPage() {
           {/* Tab Switcher */} 
           <div className="flex justify-center mb-8"> 
             <div className="inline-flex rounded-lg border border-border overflow-hidden"> 
-              <button 
-                onClick={() => { setActiveTab('photos'); setActiveEvent('all'); }} 
-                className={`flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-colors ${ activeTab === 'photos' ? 'bg-primary text-primary-foreground' : 'bg-background text-foreground/70 hover:bg-muted' }`} 
-              > 
+              <button onClick={() => { setActiveTab('photos'); setActiveEvent('all'); }} className={`flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-colors ${ activeTab === 'photos' ? 'bg-primary text-primary-foreground' : 'bg-background text-foreground/70 hover:bg-muted' }`} > 
                 <Images size={16} /> Photos 
               </button> 
-              <button 
-                onClick={() => { setActiveTab('videos'); setActiveEvent('all'); }} 
-                className={`flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-colors ${ activeTab === 'videos' ? 'bg-primary text-primary-foreground' : 'bg-background text-foreground/70 hover:bg-muted' }`} 
-              > 
-                <Video size={16} /> Videos 
-              </button> 
+              <button onClick={() => { setActiveTab('videos'); setActiveEvent('all'); }} className={`flex items-center gap-2 px-6 py-3 text-sm font-semibold transition-colors ${ activeTab === 'videos' ? 'bg-primary text-primary-foreground' : 'bg-background text-foreground/70 hover:bg-muted' }`} > 
+                <Video size={16} /> Videos </button> 
             </div> 
           </div> 
           
           {/* Event Filter Pills */} 
           <div className="flex flex-wrap justify-center gap-2 mb-10"> 
-            <button 
-              onClick={() => setActiveEvent('all')} 
-              className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${ activeEvent === 'all' ? 'bg-secondary text-secondary-foreground border-secondary' : 'bg-background text-foreground/70 border-border hover:bg-muted' }`} 
-            > 
-              All Events 
-            </button> 
+            <button onClick={() => setActiveEvent('all')} className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${ activeEvent === 'all' ? 'bg-secondary text-secondary-foreground border-secondary' : 'bg-background text-foreground/70 border-border hover:bg-muted' }`} > All Events </button> 
             {events.map(event => ( 
-              <button 
-                key={event.id} 
-                onClick={() => setActiveEvent(event.id)} 
-                className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${ activeEvent === event.id ? 'bg-secondary text-secondary-foreground border-secondary' : 'bg-background text-foreground/70 border-border hover:bg-muted' }`} 
-              > 
+              <button key={event.id} onClick={() => setActiveEvent(event.id)} className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${ activeEvent === event.id ? 'bg-secondary text-secondary-foreground border-secondary' : 'bg-background text-foreground/70 border-border hover:bg-muted' }`} > 
                 {event.name === 'Sports Day' ? 'Sports' : event.name} 
               </button> 
             ))} 
@@ -260,38 +234,21 @@ export default function GalleryPage() {
             </div> 
           ) : ( 
             <AnimatePresence mode="wait"> 
-              <motion.div 
-                key={activeTab + activeEvent} 
-                initial={{ opacity: 0, y: 10 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                exit={{ opacity: 0, y: -10 }} 
-                transition={{ duration: 0.3 }} 
-                className="space-y-14" 
-              > 
-                {/* Fixed Map iteration engine using tracking index "i" */}
-                {visibleEvents.map((event, i) => {
-                  const isMidnight = i % 2 !== 0;
-                  const wrapperClass = isMidnight 
-                    ? "bg-midnight text-white py-12 px-6 rounded-2xl border border-white/5" 
-                    : "";
-
-                  return (
-                    <div key={event.id} className={wrapperClass}>
-                      {activeTab === 'photos' ? ( 
-                        <PhotoSectionView event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} /> 
-                      ) : ( 
-                        <VideoSectionView event={event} /> 
-                      )} 
-                    </div>
-                  );
-                })} 
+              <motion.div key={activeTab + activeEvent} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="space-y-14" > 
+                {visibleEvents.map((event, i) => ( 
+                  activeTab === 'photos' ? ( 
+                    <PhotoSectionView key={event.id} event={event} onImageClick={(items, idx) => setLightbox({ items, index: idx })} isMidnight={i % 2 !== 0} /> 
+                  ) : ( 
+                    <VideoSectionView key={event.id} event={event} isMidnight={i % 2 !== 0} /> 
+                  ) 
+                ))} 
               </motion.div> 
             </AnimatePresence> 
           )} 
         </div> 
       </section> 
 
-      {/* ── INTERACTIVE LIGHTBOX OVERLAY ── */} 
+      {/* ── INTERACTIVE EXPERT LIGHTBOX FRAME LAYOUT OVERLAY ── */} 
       <AnimatePresence> 
         {lightbox !== null && lightbox.items[lightbox.index] && ( 
           <motion.div 
@@ -313,7 +270,6 @@ export default function GalleryPage() {
                 <button onClick={e => { e.stopPropagation(); nextLightbox(); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 rounded-full p-2 z-10 cursor-pointer" > <ChevronRight size={26} /> </button> 
               </> 
             )} 
-            
             <motion.div key={lightbox.index} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.2 }} className="max-w-4xl max-h-[85vh] w-full" onClick={e => e.stopPropagation()} > 
               <img src={lightbox.items[lightbox.index].src} alt={lightbox.items[lightbox.index].caption ?? ''} className="w-full max-h-[80vh] object-contain rounded-lg shadow-2xl" /> 
               {lightbox.items[lightbox.index].caption && ( 
