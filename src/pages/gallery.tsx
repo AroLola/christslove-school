@@ -11,41 +11,14 @@ type EventSection = { id: string; name: string; media: MediaItem[] };
 type GalleryData = { photoEvents: EventSection[]; videoEvents: EventSection[] }; 
 type Tab = 'photos' | 'videos'; 
 
-// Natively embedded data to bypass server path translations
 async function fetchGallery(): Promise<GalleryData> {
-  return {
-    photoEvents: [
-      {
-        id: "sports",
-        name: "Sports Day",
-        media: [
-         { "id": "s-1", "src": "/assets/media/Sports 10.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "s-2", "src": "/assets/media/u13 girls.jpg", "caption": "Volleyball U-13 Girls" }
-
-        ]
-      },
-      {
-        id: "pyjama-day",
-        name: "Pyjama Day",
-        media: [
-          { "id": "p-1", "src": "/assets/media/PHOTO-2026-07-03-08-29-12.jpg", "caption": "Pyjama Day" }
-        ]
-      }
-    ],
-    videoEvents: [
-      {
-        "id": "album-15th-anniversary",
-      "name": "15th Anniversary Celebration",
-      "description": "Celebrating 15 years of scholarship, spiritual discipline, and academic excellence with song and dance presentations performed by our students.",
-      "media": [
-        { "id": "v-1", "src": "", "caption": "Anniversary Celebration Highlights" }
-
-       ]
-      }
-    ]
-  };
+  try {
+    const res = await fetch('./gallery-data.json');
+    return await res.json();
+  } catch (e) {
+    return { photoEvents: [], videoEvents: [] };
+  }
 }
-
 
 // ── STANDALONE INJECTION-PROOF SUB-COMPONENTS ── // 
 // Sub-Component A: Handles Photo Sections and Slideshows cleanly isolated from fix-paths regex 
