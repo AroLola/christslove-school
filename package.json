@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node fix-paths.js && vite build && npx shx cp dist/client/index.html dist/client/404.html",
-    "preview": "vite preview",
+    "preview": "npm run build && wrangler dev",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
@@ -17,7 +17,8 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx,json,md}\"",
     "clean": "rm -rf dist node_modules/.vite",
-    "reset": "npm run clean && npm install"
+    "reset": "npm run clean && npm install",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.5",
@@ -91,6 +92,7 @@
     "@babel/parser": "^7.29.3",
     "@babel/traverse": "^7.29.0",
     "@babel/types": "^7.29.0",
+    "@cloudflare/vite-plugin": "^1.43.1",
     "@eslint/js": "^9.16.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.2",
@@ -121,10 +123,11 @@
     "tsx": "^4.20.6",
     "typescript": "^5.7.2",
     "vite": "^6.4.2",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.9",
+    "wrangler": "^4.107.1"
   },
- "engines": {
-  "node": "22.x"
+  "engines": {
+    "node": "22.x"
   },
   "overrides": {
     "cmdk": "^1.1.1",

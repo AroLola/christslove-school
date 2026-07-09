@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { URL } from "node:url";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 function extractHostname(value: string): string {
   try {
     if (value.includes("://")) {
@@ -61,10 +63,7 @@ if (corsOrigins.length === 0) {
 
 export default defineConfig(({ mode, isSsrBuild }) => ({
   envPrefix: ["VITE_", "SITE_"],
-  plugins: [
-    react(),
-    apiDevPlugin()
-  ],
+  plugins: [react(), apiDevPlugin(), cloudflare()],
   resolve: {
     dedupe: ["react", "react-dom", "react-router-dom"],
     alias: {
