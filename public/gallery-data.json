@@ -15,9 +15,9 @@
         { "id": "p-9", "src": "/assets/media/PHOTO-2026-07-03-09-33-45.jpg", "caption": "Pyjama Day" },
         { "id": "p-10", "src": "/assets/media/21426f4e-4456-47f9-8257-0e6ceed9c28c.JPG", "caption": "Pyjama Day" },
         { "id": "p-11", "src": "/assets/media/6a234b73-07c2-4eb0-8caa-ed5501a0edb3.JPG", "caption": "Pyjama Day" },
-        { "id": "p-12", "src": "/assets/media/PHOTO-2026-07-03-09-33-44.jpg", "caption": "Pyjama Day" }
-        { "id": "p-13", "src": "/assets/media/pjday1.jpg", "caption": "Pyjama Day" }
-        { "id": "p-14", "src": "/assets/media/pjday2.jpg", "caption": "Pyjama Day" }
+        { "id": "p-12", "src": "/assets/media/PHOTO-2026-07-03-09-33-44.jpg", "caption": "Pyjama Day" },
+        { "id": "p-13", "src": "/assets/media/pjday1.jpg", "caption": "Pyjama Day" },
+        { "id": "p-14", "src": "/assets/media/pjday2.jpg", "caption": "Pyjama Day" },
         { "id": "p-15", "src": "/assets/media/pjday3.jpg", "caption": "Pyjama Day" }
       ]
     },
@@ -26,9 +26,9 @@
       "name": "Class Time",
       "media": [
         { "id": "t-1", "src": "/assets/media/class1.JPG", "caption": "Grade 3 - Blue" },
-        { "id": "t-1", "src": "/assets/media/class2.JPG", "caption": "Grade 3 - Blue" }
-     ]
-        },
+        { "id": "t-2", "src": "/assets/media/class2.JPG", "caption": "Grade 3 - Blue" }
+      ]
+    },
     {
       "id": "sports-gallery-album",
       "name": "Sports",
@@ -59,7 +59,7 @@
       "name": "Academic Achievements",
       "media": [
         { "id": "a-1", "src": "/media/Spelling Bee.jpg", "caption": "Regional Spelling Bee Results" },
-        { "id": "a-1", "src": "/media/Awards1.jpeg", "caption": "Regional Spelling Bee Prize Winners" }
+        { "id": "a-2", "src": "/media/Awards1.jpeg", "caption": "Regional Spelling Bee Prize Winners" }
       ]
     }
   ],
@@ -78,7 +78,7 @@
       "description": "Highlights from our intense sports competitions, where our teams brought home glorious medals.",
       "media": [
         { "id": "v-2", "src": "/assets/media/sports1VIDEO-2026-06-28-06-21-16.mp4", "caption": "Volleyball Tournament Review" },
-        { "id": "v-2", "src": "/assets/media/video_netball1.mp4", "caption": "Netball Tournament Review" } 
+        { "id": "v-3", "src": "/assets/media/video_netball1.mp4", "caption": "Netball Tournament Review" }
       ]
     }
   ]
