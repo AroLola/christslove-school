@@ -79,3 +79,9 @@ pids
 
 # Turnscript platform execution scripts (never commit/deploy)
 .airo/turnscript-*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
