@@ -71,8 +71,8 @@
         { "id": "a-9", "src": "/assets/media/netball.jpg", "caption": "Netball Under-10 Position 2" },
         { "id": "a-10", "src": "/assets/media/netballone.jpg", "caption": "Volleyball U-13 Gold" },
         { "id": "a-11", "src": "/assets/media/soc-studies.jpeg", "caption": "Social Studies Regional Quiz Winners" },
-        { "id": "a-11", "src": "/assets/media/volleyball.jpeg", "caption": "U-13 Volleyball Champions" },
-        { "id": "a-12", "src": "/assets/media/volleyball2.jpeg", "caption": "U-13 Volleyball Champions" }
+        { "id": "a-12", "src": "/assets/media/volleyball.jpeg", "caption": "U-13 Volleyball Champions" },
+        { "id": "a-13", "src": "/assets/media/volleyball2.jpeg", "caption": "U-13 Volleyball Champions" }
       ]
     }
   ],
