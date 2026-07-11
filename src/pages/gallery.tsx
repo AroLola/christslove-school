@@ -235,7 +235,7 @@ export default function GalleryPage() {
             </div>
           </div>
 
-        {/* Event Filter Pills */}
+                 {/* Event Filter Pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             <button 
               onClick={() => setActiveEvent('all')} 
@@ -262,24 +262,30 @@ export default function GalleryPage() {
           ) : (
             <AnimatePresence mode="wait">
               <motion.div 
-                key={activeTab + activeEvent} 
+                key={`${activeTab}-${activeEvent}`} 
                 initial={{ opacity: 0, y: 10 }} 
                 animate={{ opacity: 1, y: 0 }} 
                 exit={{ opacity: 0, y: -10 }} 
                 transition={{ duration: 0.3 }}
                 className="space-y-14"
               >
-                {visibleEvents.map(event => (
-                  activeTab === 'photos' ? (
-                    <PhotoSectionView 
-                      key={event.id} 
-                      event={event} 
-                      onImageClick={(items, idx) => setLightbox({ items, index: idx })} 
-                    />
-                  ) : (
-                    <VideoSectionView key={event.id} event={event} />
-                  )
-                ))}
+                {visibleEvents.length === 0 ? (
+                  <div className="text-center py-12 text-muted-foreground">
+                    No media available for this filter layout selection.
+                  </div>
+                ) : (
+                  visibleEvents.map(event => (
+                    activeTab === 'photos' ? (
+                      <PhotoSectionView 
+                        key={event.id} 
+                        event={event} 
+                        onImageClick={(items, idx) => setLightbox({ items, index: idx })} 
+                      />
+                    ) : (
+                      <VideoSectionView key={event.id} event={event} />
+                    )
+                  ))
+                )}
               </motion.div>
             </AnimatePresence>
           )}
