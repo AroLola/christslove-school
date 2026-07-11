@@ -109,6 +109,42 @@
         { "id": "a-13", "src": "/assets/media/volleyballtwo.jpg", "caption": "U-13 Volleyball Champions" }
       ]
     }
+          {
+      "id": "prospect-farm-gallery-album",
+      "name": "Prospect Farm",
+      "media": [
+        { "id": "p-1", "src": "/assets/media/prosfarm1.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-2", "src": "/assets/media/prosfarm2.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-3", "src": "/assets/media/prosfarm3.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-4", "src": "/assets/media/prosfarm4.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-5", "src": "/assets/media/prosfarm5.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-6", "src": "/assets/media/prosfarm6.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-7", "src": "/assets/media/prosfarm7.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-8", "src": "/assets/media/prosfarm8.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-9", "src": "/assets/media/prosfarm9.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-10", "src": "/assets/media/prosfarm10.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-11", "src": "/assets/media/prosfarm11.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-12", "src": "/assets/media/prosfarm12.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-13", "src": "/assets/media/prosfarm13.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-14", "src": "/assets/media/prosfarm14.jpg", "caption": "Grade 4 Tour" },
+        { "id": "p-15", "src": "/assets/media/prosfarm15.jpg", "caption": "Grade 4 Tour" }
+       ]
+    },
+ {
+      "id": "leadership-gallery-album",
+      "name": "Class Time",
+      "media": [
+        { "id": "l-1", "src": "/assets/media/leadership1.jpg", "caption": "CLCS Leadership" },
+        { "id": "l-2", "src": "/assets/media/leadership2.jpg", "caption": "CLCS Leadership" }
+      ]
+    },
+ {
+      "id": "staff-gallery-album",
+      "name": "Staff",
+      "media": [
+        { "id": "s-1", "src": "/assets/media/staff.jpg", "caption": "CLCS Staff" },
+       ]
+    },
   ],
   "videoEvents": [
     {
