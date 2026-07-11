@@ -14,7 +14,7 @@ function processFile(filePath) {
     filePath.endsWith('gallery.tsx') || 
     filePath.endsWith('gallery.ts') ||
     filePath.endsWith('airo-media.json') ||
-    filePath.endsWith('galler-dat.json')
+    filePath.endsWith('gallery-data.json')
   ) {
     console.log(`[Bypass Guard] Safely skipped file to preserve layout parameters: ${fileName}`);
     return;
