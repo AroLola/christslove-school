@@ -9,8 +9,13 @@ const PUBLIC_DIR = path.join(__dirname, 'public');
 function processFile(filePath) {
   const fileName = path.basename(filePath);
 
-  // ✅ BYPASS SECURITY GUARD: Skip file optimization if it's the core gallery template
-  if (filePath.endsWith('gallery.tsx') || filePath.endsWith('gallery.ts')) {
+  // ✅ BYPASS SECURITY GUARD: Prevent script from modifying any gallery template or data structures
+  if (
+    filePath.endsWith('gallery.tsx') || 
+    filePath.endsWith('gallery.ts') ||
+    filePath.endsWith('airo-media.json') ||
+    filePath.endsWith('galler-dat.json')
+  ) {
     console.log(`[Bypass Guard] Safely skipped file to preserve layout parameters: ${fileName}`);
     return;
   }
@@ -86,5 +91,5 @@ function processDirectory(directory) {
 // ── CODE TRIGGER RUNNER EXECUTIONS ──
 console.log('Running final asset sync loop...');
 processDirectory(SRC_DIR);
-processDirectory(PUBLIC_DIR); // ✅ Fixed: Now intercepts and dynamically edits your galler-dat.json paths!
+processDirectory(PUBLIC_DIR); 
 console.log('Processing complete.');
