@@ -23,7 +23,7 @@
         { "id": "p-17", "src": "/assets/media/grade2green.jpg", "caption": "Pyjama Day" }
       ]
     },
-      {
+    {
       "id": "chapel-and-worship-gallery-album",
       "name": "Chapel and Worship",
       "media": [
@@ -34,7 +34,7 @@
         { "id": "c-6", "src": "/assets/media/chapelprayer.jpg", "caption": "Prefect's Prayer Circle" }
       ]
     },
-       {
+    {
       "id": "class-time-album",
       "name": "Class Time",
       "media": [
@@ -85,8 +85,8 @@
         { "id": "a-12", "src": "/assets/media/volleyball.jpg", "caption": "U-13 Volleyball Champions" },
         { "id": "a-13", "src": "/assets/media/volleyballtwo.jpg", "caption": "U-13 Volleyball Champions" }
       ]
-    }
-          {
+    }, // ✅ Added missing comma here to stop JSON parsing crash
+    {
       "id": "prospect-farm-gallery-album",
       "name": "Prospect Farm",
       "media": [
@@ -105,9 +105,9 @@
         { "id": "p-13", "src": "/assets/media/prosfarm13.jpg", "caption": "Grade 4 Tour" },
         { "id": "p-14", "src": "/assets/media/prosfarm14.jpg", "caption": "Grade 4 Tour" },
         { "id": "p-15", "src": "/assets/media/prosfarm15.jpg", "caption": "Grade 4 Tour" }
-       ]
+      ]
     },
- {
+    {
       "id": "leadership-gallery-album",
       "name": "Class Time",
       "media": [
@@ -115,13 +115,13 @@
         { "id": "l-2", "src": "/assets/media/leadership2.jpg", "caption": "CLCS Leadership" }
       ]
     },
- {
+    {
       "id": "staff-gallery-album",
       "name": "Staff",
       "media": [
         { "id": "s-1", "src": "/assets/media/staff.jpg", "caption": "CLCS Staff" }
-       ]
-    },
+      ]
+    }
   ],
   "videoEvents": [
     {
@@ -143,4 +143,3 @@
     }
   ]
 }
-
