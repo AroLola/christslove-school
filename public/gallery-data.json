@@ -40,7 +40,7 @@
       "name": "School Life",
       "media": [
         { "id": "s-1", "src": "/assets/media/schoollife1.jpg", "caption": "School Life Highlights" },
-        { "id": "s-2", "src": "/student-community-clcs.jpg", "caption": "School Life Highlights" },
+        { "id": "s-2", "src": "/assets/media/schoollife18.jpg", "caption": "School Life Highlights" },
         { "id": "s-3", "src": "/assets/media/schoollife2.jpg", "caption": "School Life Highlights" },
         { "id": "s-4", "src": "/assets/media/schoollife3.jpg", "caption": "School Life Highlights" },
         { "id": "s-5", "src": "/assets/media/schoollife5.jpg", "caption": "Namibia Independence Day Highlights" },
