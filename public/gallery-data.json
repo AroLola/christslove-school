@@ -61,18 +61,18 @@
       "name": "Academic and Sporting Achievements",
       "media": [
         { "id": "a-1", "src": "/assets/media/bronzeu13.jpg", "caption": "Volleyball U-15 Girls" },
-        { "id": "a-2", "src": "/assets/media/firstinmathsandscience.jpeg", "caption": "First in Maths & Science" },
+        { "id": "a-2", "src": "/assets/media/firstinmathsandscience.jpg", "caption": "First in Maths and Science" },
         { "id": "a-3", "src": "/assets/media/mathsgold.jpg", "caption": "Maths Gold" },
         { "id": "a-4", "src": "/assets/media/mathquizparticipants.jpg", "caption": "Math Quiz Participants" },
-        { "id": "a-5", "src": "/assets/media/spelling.jpeg", "caption": "Regional Spelling Bee Prize Winners" },
-        { "id": "a-6", "src": "/assets/media/spellingbee.jpg", "caption": "Regional Spelling Bee Results" },
-        { "id": "a-7", "src": "/assets/media/Spelling Bee.jpg", "caption": "Regional Spelling Bee Results" },
-        { "id": "a-8", "src": "/assets/media/mathsfive.jpeg", "caption": "Maths Prize" },
+        { "id": "a-5", "src": "/assets/media/spelling.jpg", "caption": "Regional Spelling Bee Prize Winners" },
+        { "id": "a-6", "src": "/assets/media/maths.jpg", "caption": "Maths Prize" },
+        { "id": "a-7", "src": "/assets/media/spellingbee.jpg", "caption": "Regional Spelling Bee Results" },
+        { "id": "a-8", "src": "/assets/media/mathsfive.jpg", "caption": "Maths Prize" },
         { "id": "a-9", "src": "/assets/media/netball.jpg", "caption": "Netball Under-10 Position 2" },
         { "id": "a-10", "src": "/assets/media/netballone.jpg", "caption": "Volleyball U-13 Gold" },
-        { "id": "a-11", "src": "/assets/media/soc-studies.jpeg", "caption": "Social Studies Regional Quiz Winners" },
-        { "id": "a-12", "src": "/assets/media/volleyball.jpeg", "caption": "U-13 Volleyball Champions" },
-        { "id": "a-13", "src": "/assets/media/volleyball2.jpeg", "caption": "U-13 Volleyball Champions" }
+        { "id": "a-11", "src": "/assets/media/soc-studies.jpg", "caption": "Social Studies Regional Quiz Winners" },
+        { "id": "a-12", "src": "/assets/media/volleyball.jpg", "caption": "U-13 Volleyball Champions" },
+        { "id": "a-13", "src": "/assets/media/volleyballtwo.jpg", "caption": "U-13 Volleyball Champions" }
       ]
     }
   ],
@@ -96,3 +96,4 @@
     }
   ]
 }
+
