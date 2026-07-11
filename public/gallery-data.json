@@ -62,9 +62,9 @@
       "media": [
         { "id": "a-1", "src": "/assets/media/bronzeu13.jpg", "caption": "Volleyball U-15 Girls" },
         { "id": "a-2", "src": "/assets/media/firstinmathsandscience.jpg", "caption": "First in Maths and Science" },
-        { "id": "a-3", "src": "/assets/media/mathsgold.jpg", "caption": "Maths Gold" },
-        { "id": "a-4", "src": "/assets/media/mathquizparticipants.jpg", "caption": "Math Quiz Participants" },
-        { "id": "a-5", "src": "/assets/media/spelling.jpg", "caption": "Regional Spelling Bee Prize Winners" },
+        { "id": "a-3", "src": "/assets/media/mathgold.jpg", "caption": "Maths Gold" },
+        { "id": "a-4", "src": "/assets/media/mathquizparticipants.png", "caption": "Math Quiz Participants" },
+        { "id": "a-5", "src": "/assets/media/spelling.jpeg", "caption": "Regional Spelling Bee Prize Winners" },
         { "id": "a-6", "src": "/assets/media/maths.jpg", "caption": "Maths Prize" },
         { "id": "a-7", "src": "/assets/media/spellingbee.jpg", "caption": "Regional Spelling Bee Results" },
         { "id": "a-8", "src": "/assets/media/mathsfive.jpg", "caption": "Maths Prize" },
