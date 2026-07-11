@@ -114,102 +114,124 @@ function VideoSectionView({ event }: { event: EventSection & { description?: str
   ); 
 } 
 
-// Main Page Master Default Export Component Wrapper 
-export default function GalleryPage() { 
-  const title = "Gallery — Christ's Love Christian School"; 
-  const description = "Browse photos and videos from Christ's Love Christian School — classroom moments, events, and community life."; 
-  const canonicalUrl = `${site}/gallery`; 
-  
-  const [data, setData] = useState<GalleryData | null>(null); 
-  const [activeTab, setActiveTab] = useState<Tab>('photos'); 
-  const [activeEvent, setActiveEvent] = useState<string>('all'); 
-  const [lightbox, setLightbox] = useState<{ items: MediaItem[]; index: number } | null>(null); 
+// Main Page Master Default Export Component Wrapper
+export default function GalleryPage() {
+  const title = "Gallery — Christ's Love Christian School";
+  const description = "Browse photos and videos from Christ's Love Christian School — classroom moments, events, and community life.";
+  const canonicalUrl = `${site}/gallery`;
 
-  useEffect(() => { 
-    fetchGallery().then((rawData) => { 
-      if (!rawData) return; 
-      const cleanData = { 
-        ...rawData, 
-        photoEvents: rawData.photoEvents?.map((event: any) => { 
-          let name = event.name; 
-          if (name === 'Sports Day' || event.id === 'sports') name = 'Sports'; 
-          if (event.id === 'school-life' || name === 'School' || name === 'School Life Portfolio') name = 'School Life'; 
-          return { ...event, name, media: event.media || [] }; 
-        }) || [], 
-        videoEvents: rawData.videoEvents?.map((event: any) => { 
-          let name = event.name; 
-          if (name === 'Sports Day' || event.id === 'sports') name = 'Sports'; 
-          return { ...event, name, media: event.media || [] }; 
-        }) || [] 
-      }; 
-      setData(cleanData); 
-    }); 
-  }, []); 
+  const [data, setData] = useState<GalleryData | null>(null);
+  const [activeTab, setActiveTab] = useState<Tab>('photos');
+  const [activeEvent, setActiveEvent] = useState<string>('all');
+  const [lightbox, setLightbox] = useState<{ items: MediaItem[]; index: number } | null>(null);
 
-  const prevLightbox = useCallback(() => { 
-    if (!lightbox) return; 
-    setLightbox({ ...lightbox, index: (lightbox.index - 1 + lightbox.items.length) % lightbox.items.length }); 
-  }, [lightbox]); 
+  useEffect(() => {
+    // Force absolute local path to prevent runtime compilation failures
+    fetch('/gallery-data.json')
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP network error: ${res.status}`);
+        return res.json();
+      })
+      .then((rawData) => {
+        if (!rawData) return;
+        
+        const cleanData = {
+          ...rawData,
+          photoEvents: rawData.photoEvents?.map((event: any) => {
+            let name = event.name;
+            // Align Sports identifiers accurately to match clean targets
+            if (name === 'Sports Day' || event.id === 'sports' || event.id === 'sports-gallery-album') {
+              name = 'Sports';
+            }
+            return { 
+              ...event, 
+              name, 
+              media: event.media || [] 
+            };
+          }) || [],
+          videoEvents: rawData.videoEvents?.map((event: any) => {
+            let name = event.name;
+            if (name === 'Sports Day' || event.id === 'sports') {
+              name = 'Sports';
+            }
+            return { 
+              ...event, 
+              name, 
+              media: event.media || [] 
+            };
+          }) || []
+        };
+        setData(cleanData);
+      })
+      .catch((err) => {
+        console.error("Gallery production pipeline tracking failed:", err);
+      });
+  }, []);
 
-  const nextLightbox = useCallback(() => { 
-    if (!lightbox) return; 
-    setLightbox({ ...lightbox, index: (lightbox.index + 1) % lightbox.items.length }); 
-  }, [lightbox]); 
+  const prevLightbox = useCallback(() => {
+    if (!lightbox) return;
+    setLightbox({ ...lightbox, index: (lightbox.index - 1 + lightbox.items.length) % lightbox.items.length });
+  }, [lightbox]);
 
-  useEffect(() => { 
-    const handler = (e: KeyboardEvent) => { 
-      if (!lightbox) return; 
-      if (e.key === 'ArrowLeft') prevLightbox(); 
-      if (e.key === 'ArrowRight') nextLightbox(); 
-      if (e.key === 'Escape') setLightbox(null); 
-    }; 
-    window.addEventListener('keydown', handler); 
-    return () => window.removeEventListener('keydown', handler); 
-  }, [lightbox, prevLightbox, nextLightbox]); 
+  const nextLightbox = useCallback(() => {
+    if (!lightbox) return;
+    setLightbox({ ...lightbox, index: (lightbox.index + 1) % lightbox.items.length });
+  }, [lightbox]);
 
-  const tabKey = activeTab === 'photos' ? 'photoEvents' : 'videoEvents'; 
-  const events = data ? data[tabKey] : []; 
-  const visibleEvents = activeEvent === 'all' ? events : events.filter(e => e.id === activeEvent); 
-  
-  const jsonLd = { 
-    '@context': 'https://schema.org', 
-    '@type': 'CollectionPage', 
-    '@id': `${canonicalUrl}#webpage`, 
-    name: title, 
-    url: canonicalUrl, 
-    isPartOf: { '@id': `${site}/#website` }, 
-    about: { '@id': `${site}/#organization` }, 
-  }; 
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (!lightbox) return;
+      if (e.key === 'ArrowLeft') prevLightbox();
+      if (e.key === 'ArrowRight') nextLightbox();
+      if (e.key === 'Escape') setLightbox(null);
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [lightbox, prevLightbox, nextLightbox]);
 
-   return ( 
-    <> 
-      <Helmet> 
-        <title>{title}</title> 
-        <meta name="description" content={description} /> 
-        <link rel="canonical" href={canonicalUrl} /> 
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
-      </Helmet> 
-      
+  const tabKey = activeTab === 'photos' ? 'photoEvents' : 'videoEvents';
+  const events = data ? data[tabKey] : [];
+  const visibleEvents = activeEvent === 'all' ? events : events.filter(e => e.id === activeEvent);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${canonicalUrl}#webpage`,
+    name: title,
+    url: canonicalUrl,
+    isPartOf: { '@id': `${site}/#website` },
+    about: { '@id': `${site}/#organization` },
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalUrl} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
+
       {/* ── TOP HERO HEADER SECTION ── */}
-      <section className="bg-secondary py-16 md:py-20"> 
-        <div className="container mx-auto px-4 lg:px-8 text-center"> 
+      <section className="bg-secondary py-16 md:py-20">
+        <div className="container mx-auto px-4 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.5 }} 
-            className="font-heading text-3xl md:text-5xl font-bold text-secondary-foreground mb-4" 
-          > 
-            <span className="contents">Gallery</span> 
-          </motion.h1> 
+            transition={{ duration: 0.5 }}
+            className="font-heading text-3xl md:text-5xl font-bold text-secondary-foreground mb-4"
+          >
+            <span className="contents">Gallery</span>
+          </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }} 
             animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.5, delay: 0.1 }} 
-            className="text-secondary-foreground/70 text-lg max-w-xl mx-auto" 
-          > 
-            A glimpse into life at Christ's Love Christian School 
-          </motion.p> 
-        </div> 
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-secondary-foreground/70 text-lg max-w-xl mx-auto"
+          >
+            A glimpse into life at Christ's Love Christian School
+          </motion.p>
+        </div>
       </section>
 
       {/* ── MAIN CONTENT GRID & FILTERS SECTION ── */}
