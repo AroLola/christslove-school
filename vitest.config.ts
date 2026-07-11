@@ -4,6 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // ✅ Crucial: Prevents the blank page error on production builds
   test: {
     environment: 'jsdom',
     globals: true,
