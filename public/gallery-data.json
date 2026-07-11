@@ -27,12 +27,12 @@
       "id": "chapel-and-worship-gallery-album",
       "name": "Chapel and Worship",
       "media": [
-        { "id": "c-1", "src": "/assets/media/chapel1.JPG", "caption": "CLMI - Bishop's Visit" },
-        { "id": "c-2", "src": "/assets/media/chapel2.JPG", "caption": "CLMI - Bishop's Visit" },
-        { "id": "c-3", "src": "/assets/media/chapel3.JPG", "caption": "CLMI - Bishop's Visit" },
-        { "id": "c-4", "src": "/assets/media/chapel4.JPG", "caption": "CLMI - Bishop's Visit" },
-        { "id": "c-5", "src": "/assets/media/chapel5.JPG", "caption": "CLMI - Bishop's Visit" },
-        { "id": "c-6", "src": "/assets/media/chapelprayer.JPG", "caption": "Prefect's Prayer Circle" }
+        { "id": "c-1", "src": "/assets/media/chapel1.jpg", "caption": "CLMI - Bishop's Visit" },
+        { "id": "c-2", "src": "/assets/media/chapel2.jpg", "caption": "CLMI - Bishop's Visit" },
+        { "id": "c-3", "src": "/assets/media/chapel3.jpg", "caption": "CLMI - Bishop's Visit" },
+        { "id": "c-4", "src": "/assets/media/chapel4.jpg", "caption": "CLMI - Bishop's Visit" },
+        { "id": "c-5", "src": "/assets/media/chapel5.jpg", "caption": "CLMI - Bishop's Visit" },
+        { "id": "c-6", "src": "/assets/media/chapelprayer.jpg", "caption": "Prefect's Prayer Circle" }
       ]
     },
  {
@@ -40,7 +40,7 @@
       "name": "School Life",
       "media": [
         { "id": "s-1", "src": "/assets/media/schoollife1.jpg", "caption": "School Life Highlights" },
-        { "id": "s-2", "src": "/assets/media/student-community-clcs.jpg", "caption": "School Life Highlights" },
+        { "id": "s-2", "src": "/student-community-clcs.jpg", "caption": "School Life Highlights" },
         { "id": "s-3", "src": "/assets/media/schoollife2.jpg", "caption": "School Life Highlights" },
         { "id": "s-4", "src": "/assets/media/schoollife3.jpg", "caption": "School Life Highlights" },
         { "id": "s-5", "src": "/assets/media/schoollife5.jpg", "caption": "Namibia Independence Day Highlights" },
