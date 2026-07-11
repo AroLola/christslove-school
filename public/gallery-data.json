@@ -142,7 +142,7 @@
       "id": "staff-gallery-album",
       "name": "Staff",
       "media": [
-        { "id": "s-1", "src": "/assets/media/staff.jpg", "caption": "CLCS Staff" },
+        { "id": "s-1", "src": "/assets/media/staff.jpg", "caption": "CLCS Staff" }
        ]
     },
   ],
