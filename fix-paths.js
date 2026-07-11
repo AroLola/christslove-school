@@ -8,8 +8,13 @@ const PAGES_DIR = path.join(__dirname, 'src');
 function processFile(filePath) {
   const fileName = path.basename(filePath);
 
-  // ✅ BYPASS SECURITY GUARD: If the file being processed is the gallery, skip it entirely!
-  if (filePath.endsWith('gallery.tsx') || filePath.endsWith('gallery.ts')) {
+  // ✅ BYPASS SECURITY GUARD: Protect gallery assets from code rewrite loops
+  if (
+    filePath.endsWith('gallery.tsx') || 
+    filePath.endsWith('gallery.ts') || 
+    filePath.endsWith('galler-dat.json') ||
+    filePath.includes('public/assets/media')
+  ) {
     console.log(`[Bypass Guard] Safely skipped file to preserve layout parameters: ${fileName}`);
     return;
   }
@@ -38,7 +43,10 @@ function processFile(filePath) {
     if (content.includes('Nurturing minds') && !content.includes('md:float-left')) {
       content = content.replace(
         /([<][p|div][^>]*?>\s*Nurturing minds[\s\S]*?<\/[p|div]>)/i,
-        `<div className="block clearfix md:text-left text-center"> <img src="/media/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg" alt="Christ's Love Christian School Footer Logo" className="h-16 w-auto object-contain md:float-left md:mr-5 mb-4 md:mb-0 inline-block" onError={(e) => { if (!e.currentTarget.src.includes('aea019d4')) { e.currentTarget.src = "/media/layouts-header-christs-love-christian-school-aea019d4.jpg"; } }} /> <div className="md:-mt-1">$1</div> </div>`
+        `<div className="block clearfix md:text-left text-center">
+          <img src="/media/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg" alt="Christ's Love Christian School Footer Logo" className="h-16 w-auto object-contain md:float-left md:mr-5 mb-4 md:mb-0 inline-block" onError={(e) => { if (!e.currentTarget.src.includes('aea019d4')) { e.currentTarget.src = "/media/layouts-header-christs-love-christian-school-aea019d4.jpg"; } }} />
+          <div className="md:-mt-1">$1</div>
+        </div>`
       );
     }
   }
@@ -83,14 +91,12 @@ function processFile(filePath) {
 function processDirectory(directory) {
   if (!fs.existsSync(directory)) return;
   const files = fs.readdirSync(directory);
-
+  
   files.forEach((file) => {
     const fullPath = path.join(directory, file);
-    
     if (fs.statSync(fullPath).isDirectory()) {
       processDirectory(fullPath);
-    } else if (file.endsWith('.tsx') || file.endsWith('.ts') || file.endsWith('.jsx') || file.endsWith('.js')) {
-      // ✅ Fixed: Calls our processFile routing sequence for each discovered source code file
+    } else if (file.endsWith('.tsx') || file.endsWith('.ts') || file.endsWith('.jsx') || file.endsWith('.js') || file.endsWith('.json')) {
       processFile(fullPath);
     }
   });
