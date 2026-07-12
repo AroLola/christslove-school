@@ -1,7 +1,7 @@
 {
   "photoEvents": [
     {
-      "id": "pyjama-day",
+      "id": "pyjama-day-gallery-album",
       "name": "Pyjama Day - Pre-Schoolers",
       "media": [
         { "id": "p-1", "src": "/assets/media/pjday1.jpg", "caption": "Pyjama Day" },
@@ -35,6 +35,33 @@
       ]
     },
     {
+      "id": "class-time-gallery-album",
+      "name": "Class Time",
+      "media": [
+        { "id": "t-1", "src": "/assets/media/class1.JPG", "caption": "Grade 3 - Blue" },
+        { "id": "t-2", "src": "/assets/media/class2.JPG", "caption": "Grade 3 - Blue" },
+        { "id": "t-3", "src": "/assets/media/class3.JPG", "caption": "Grade 4 - Red" },
+        { "id": "t-4", "src": "/assets/media/class4.JPG", "caption": "Grade 4 - Red" },
+        { "id": "t-5", "src": "/assets/media/class5.JPG", "caption": "Grade 6 - Blue" },
+        { "id": "t-6", "src": "/assets/media/class6.JPG", "caption": "Grade 6 - Blue" },
+        { "id": "t-7", "src": "/assets/media/class7.JPG", "caption": "Grade 6 - Blue" },
+        { "id": "t-8", "src": "/assets/media/class8.JPG", "caption": "Grade 6 - Blue" }
+      ]
+    },
+      {
+      "id": "graduation-gallery-album",
+      "name": "Graduation",
+      "media": [
+        { "id": "g-1", "src": "/assets/media/grad1.JPG", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-2", "src": "/assets/media/grad2.JPG", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-3", "src": "/assets/media/grad3.JPG", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-4", "src": "/assets/media/grad4.JPG", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-5", "src": "/assets/media/grad5.JPG", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-6", "src": "/assets/media/grad6.JPG", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-7", "src": "/assets/media/grad7.JPG", "caption": "Pre-Primary Graduation - November 2024" }
+       ]
+    },
+    {
       "id": "school-life-gallery-album",
       "name": "School Life",
       "media": [
@@ -55,14 +82,6 @@
         { "id": "s-15", "src": "/assets/media/schoollife14.jpg", "caption": "Namibia Independence Day Highlights" },
         { "id": "s-16", "src": "/assets/media/schoollife16.png", "caption": "15th Anniversary Celebrations" },
         { "id": "s-17", "src": "/assets/media/schoollife17.jpg", "caption": "Namibia Independence Day Highlights" }
-      ]
-    },
-    {
-      "id": "class-time-album",
-      "name": "Class Time",
-      "media": [
-        { "id": "t-1", "src": "/assets/media/class1.JPG", "caption": "Grade 3 - Blue" },
-        { "id": "t-2", "src": "/assets/media/class2.JPG", "caption": "Grade 3 - Blue" }
       ]
     },
     {
