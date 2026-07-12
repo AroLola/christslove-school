@@ -19,8 +19,13 @@
         { "id": "p-13", "src": "/assets/media/pjday13.jpg", "caption": "Pyjama Day" },
         { "id": "p-14", "src": "/assets/media/pjday14.JPG", "caption": "Pyjama Day" },
         { "id": "p-15", "src": "/assets/media/pjday15.JPG", "caption": "Pyjama Day" },
-        { "id": "p-16", "src": "/assets/media/grade2red.jpg", "caption": "Pyjama Day" },
-        { "id": "p-17", "src": "/assets/media/grade2green.jpg", "caption": "Pyjama Day" }
+        { "id": "p-16", "src": "/assets/media/grade2red.jpg", "caption": "Pyjama Day - Grade 2, Red" },
+        { "id": "p-17", "src": "/assets/media/grade2green.jpg", "caption": "Pyjama Day - Grade 2, Green" },
+        { "id": "p-18", "src": "/assets/media/pjday16.jpg", "caption": "Pyjama Day - Grade 1, Blue" },
+        { "id": "p-19", "src": "/assets/media/pjday17.jpg", "caption": "Pyjama Day - Kindergarten, Busy Bee Class" },
+        { "id": "p-20", "src": "/assets/media/pjday18.jpg", "caption": "Pyjama Day - Grade 1, Blue" },
+        { "id": "p-21", "src": "/assets/media/pjday19.JPG", "caption": "Pyjama Day - Grade 0, Red" },
+        { "id": "p-22", "src": "/assets/media/pjday20.JPG", "caption": "Pyjama Day - Grade 0, Red" },
       ]
     },
     {
@@ -151,7 +156,7 @@
     },
     {
       "id": "leadership-gallery-album",
-      "name": "Class Time",
+      "name": "Leadership",
       "media": [
         { "id": "l-1", "src": "/assets/media/leadership1.jpg", "caption": "CLCS Leadership" },
         { "id": "l-2", "src": "/assets/media/leadership2.jpg", "caption": "CLCS Leadership" }
