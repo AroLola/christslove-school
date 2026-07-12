@@ -46,25 +46,25 @@
       "id": "sports-gallery-album",
       "name": "Sports",
       "media": [
-        { "id": "s-1", "src": "/assets/media/Sports 10.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "s-2", "src": "/assets/media/u13 girls.jpg", "caption": "Volleyball U-13 Girls" },
-        { "id": "s-3", "src": "/assets/media/sports6.jpg", "caption": "Netball" },
-        { "id": "s-4", "src": "/assets/media/sports3.jpg", "caption": "Cricket" },
-        { "id": "s-5", "src": "/assets/media/sports1u15boys.jpg", "caption": "Athletics Event Highlights - U-15 Boys Volleyball" },
-        { "id": "s-6", "src": "/assets/media/sports5.jpg", "caption": "Athletics Event Highlights - Netball" },
-        { "id": "s-7", "src": "/assets/media/sports4.jpg", "caption": "Cricket" },
-        { "id": "s-8", "src": "/assets/media/sports1q.jpg", "caption": "Cricket" },
-        { "id": "s-9", "src": "/assets/media/sports16.jpg", "caption": "Cricket" },
-        { "id": "s-10", "src": "/assets/media/sports14.jpg", "caption": "Swakop Youth Festival" },
-        { "id": "s-11", "src": "/assets/media/sports15.jpg", "caption": "Cricket" },
-        { "id": "s-12", "src": "/assets/media/sports13.jpg", "caption": "Athletics Event Highlights - U-15 Boys Volleyball" },
-        { "id": "s-13", "src": "/assets/media/sports12.jpg", "caption": "Cricket" },
-        { "id": "s-14", "src": "/assets/media/sports11.jpg", "caption": "Athletics Event Highlights - U-15 Girls Volleyball" },
-        { "id": "s-15", "src": "/assets/media/Sports 9.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "s-16", "src": "/assets/media/Sports 8.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "s-17", "src": "/assets/media/Sports 5.jpg", "caption": "Athletics Event Highlights" },
-        { "id": "s-18", "src": "/assets/media/sports7.jpg", "caption": "Cricket" },
-        { "id": "s-19", "src": "/assets/media/Sports 1.jpg", "caption": "Athletics Event Highlights" }
+        { "id": "s-1", "src": "/assets/media/sports1.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "s-2", "src": "/assets/media/sports2.jpg", "caption": "Volleyball U-13 Girls" },
+        { "id": "s-3", "src": "/assets/media/sports3.jpg", "caption": "Netball" },
+        { "id": "s-4", "src": "/assets/media/sports4.jpg", "caption": "Cricket" },
+        { "id": "s-5", "src": "/assets/media/sports5.jpg", "caption": "Athletics Event Highlights - U-15 Boys Volleyball" },
+        { "id": "s-6", "src": "/assets/media/sports6.jpg", "caption": "Athletics Event Highlights - Netball" },
+        { "id": "s-7", "src": "/assets/media/sports7.jpg", "caption": "Cricket" },
+        { "id": "s-8", "src": "/assets/media/sport8.jpg", "caption": "Cricket" },
+        { "id": "s-9", "src": "/assets/media/sports9.jpg", "caption": "Cricket" },
+        { "id": "s-10", "src": "/assets/media/sports10.jpg", "caption": "Swakop Youth Festival" },
+        { "id": "s-11", "src": "/assets/media/sports11.jpg", "caption": "Cricket" },
+        { "id": "s-12", "src": "/assets/media/sports12.jpg", "caption": "Athletics Event Highlights - U-15 Boys Volleyball" },
+        { "id": "s-13", "src": "/assets/media/sports13.jpg", "caption": "Cricket" },
+        { "id": "s-14", "src": "/assets/media/sports14.jpg", "caption": "Athletics Event Highlights - U-15 Girls Volleyball" },
+        { "id": "s-15", "src": "/assets/media/sports15.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "s-16", "src": "/assets/media/sports16.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "s-17", "src": "/assets/media/Sports17.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "s-18", "src": "/assets/media/sports18.jpg", "caption": "Cricket" },
+        { "id": "s-19", "src": "/assets/media/sports19.jpg", "caption": "Athletics Event Highlights" }
       ]
     },
     {
@@ -85,7 +85,7 @@
         { "id": "a-12", "src": "/assets/media/volleyball.jpg", "caption": "U-13 Volleyball Champions" },
         { "id": "a-13", "src": "/assets/media/volleyballtwo.jpg", "caption": "U-13 Volleyball Champions" }
       ]
-    }, // ✅ Added missing comma here to stop JSON parsing crash
+    }, 
     {
       "id": "prospect-farm-gallery-album",
       "name": "Prospect Farm",
