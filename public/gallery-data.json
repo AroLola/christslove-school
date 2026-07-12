@@ -40,25 +40,25 @@
       "media": [
         { "id": "t-1", "src": "/assets/media/class1.JPG", "caption": "Grade 3 - Blue" },
         { "id": "t-2", "src": "/assets/media/class2.JPG", "caption": "Grade 3 - Blue" },
-        { "id": "t-3", "src": "/assets/media/class3.JPG", "caption": "Grade 4 - Red" },
-        { "id": "t-4", "src": "/assets/media/class4.JPG", "caption": "Grade 4 - Red" },
-        { "id": "t-5", "src": "/assets/media/class5.JPG", "caption": "Grade 6 - Blue" },
-        { "id": "t-6", "src": "/assets/media/class6.JPG", "caption": "Grade 6 - Blue" },
-        { "id": "t-7", "src": "/assets/media/class7.JPG", "caption": "Grade 6 - Blue" },
-        { "id": "t-8", "src": "/assets/media/class8.JPG", "caption": "Grade 6 - Blue" }
+        { "id": "t-3", "src": "/assets/media/class3.jpg", "caption": "Grade 4 - Red" },
+        { "id": "t-4", "src": "/assets/media/class4.jpg", "caption": "Grade 4 - Red" },
+        { "id": "t-5", "src": "/assets/media/class5.jpg", "caption": "Grade 6 - Blue" },
+        { "id": "t-6", "src": "/assets/media/class6.jpg", "caption": "Grade 6 - Blue" },
+        { "id": "t-7", "src": "/assets/media/class7.jpg", "caption": "Grade 6 - Blue" },
+        { "id": "t-8", "src": "/assets/media/class8.jpg", "caption": "Grade 6 - Blue" }
       ]
     },
       {
       "id": "graduation-gallery-album",
       "name": "Graduation",
       "media": [
-        { "id": "g-1", "src": "/assets/media/grad1.JPG", "caption": "Pre-Primary Graduation - November 2024" },
-        { "id": "g-2", "src": "/assets/media/grad2.JPG", "caption": "Pre-Primary Graduation - November 2024" },
-        { "id": "g-3", "src": "/assets/media/grad3.JPG", "caption": "Pre-Primary Graduation - November 2024" },
-        { "id": "g-4", "src": "/assets/media/grad4.JPG", "caption": "Pre-Primary Graduation - November 2024" },
-        { "id": "g-5", "src": "/assets/media/grad5.JPG", "caption": "Pre-Primary Graduation - November 2024" },
-        { "id": "g-6", "src": "/assets/media/grad6.JPG", "caption": "Pre-Primary Graduation - November 2024" },
-        { "id": "g-7", "src": "/assets/media/grad7.JPG", "caption": "Pre-Primary Graduation - November 2024" }
+        { "id": "g-1", "src": "/assets/media/grad1.jpg", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-2", "src": "/assets/media/grad2.jpg", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-3", "src": "/assets/media/grad3.jpg", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-4", "src": "/assets/media/grad4.jpg", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-5", "src": "/assets/media/grad5.jpg", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-6", "src": "/assets/media/grad6.jpg", "caption": "Pre-Primary Graduation - November 2024" },
+        { "id": "g-7", "src": "/assets/media/grad7.jpg", "caption": "Pre-Primary Graduation - November 2024" }
        ]
     },
     {
