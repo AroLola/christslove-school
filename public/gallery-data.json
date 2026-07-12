@@ -17,8 +17,8 @@
         { "id": "p-11", "src": "/assets/media/pjday11.jpg", "caption": "Pyjama Day" },
         { "id": "p-12", "src": "/assets/media/pjday12.jpg", "caption": "Pyjama Day" },
         { "id": "p-13", "src": "/assets/media/pjday13.jpg", "caption": "Pyjama Day" },
-        { "id": "p-14", "src": "/assets/media/pjday14.jpg", "caption": "Pyjama Day" },
-        { "id": "p-15", "src": "/assets/media/pjday15.jpg", "caption": "Pyjama Day" },
+        { "id": "p-14", "src": "/assets/media/pjday14.JPG", "caption": "Pyjama Day" },
+        { "id": "p-15", "src": "/assets/media/pjday15.JPG", "caption": "Pyjama Day" },
         { "id": "p-16", "src": "/assets/media/grade2red.jpg", "caption": "Pyjama Day" },
         { "id": "p-17", "src": "/assets/media/grade2green.jpg", "caption": "Pyjama Day" }
       ]
@@ -53,7 +53,7 @@
         { "id": "s-5", "src": "/assets/media/sports5.jpg", "caption": "Athletics Event Highlights - U-15 Girls Volleyball" },
         { "id": "s-6", "src": "/assets/media/sports6.jpg", "caption": "Athletics Event Highlights - U-13 Girls Volleyball" },
         { "id": "s-7", "src": "/assets/media/sports7.jpg", "caption": "Cricket" },
-        { "id": "s-8", "src": "/assets/media/sport8.jpg", "caption": "Athletics Event Highlights" },
+        { "id": "s-8", "src": "/assets/media/sports8.jpg", "caption": "Athletics Event Highlights" },
         { "id": "s-9", "src": "/assets/media/sports9.jpg", "caption": "Athletics Event Highlights" },
         { "id": "s-10", "src": "/assets/media/sports10.jpg", "caption": "Athletics Event Highlights" },
         { "id": "s-11", "src": "/assets/media/sports11.jpg", "caption": "Athletics Event Highlights - U-15 Girls Volleyball" },
@@ -62,7 +62,7 @@
         { "id": "s-14", "src": "/assets/media/sports14.jpg", "caption": "Athletics Event Highlights - SWAKOP Youth Festival" },
         { "id": "s-15", "src": "/assets/media/sports15.jpg", "caption": "Cricket" },
         { "id": "s-16", "src": "/assets/media/sports16.jpg", "caption": "Cricket" },
-        { "id": "s-17", "src": "/assets/media/Sports17.jpg", "caption": "Cricket" },
+        { "id": "s-17", "src": "/assets/media/sports17.jpg", "caption": "Cricket" },
         { "id": "s-18", "src": "/assets/media/sports18.jpg", "caption": "Athletics Event Highlights" },
         { "id": "s-19", "src": "/assets/media/sports19.jpg", "caption": "Cricket" }
       ]
@@ -119,7 +119,7 @@
       "id": "staff-gallery-album",
       "name": "Staff",
       "media": [
-        { "id": "s-1", "src": "/assets/media/staff.jpg", "caption": "CLCS Staff" }
+        { "id": "s-1", "src": "/media/staff.jpg", "caption": "CLCS Staff" }
       ]
     }
   ],
