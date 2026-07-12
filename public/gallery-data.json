@@ -35,6 +35,29 @@
       ]
     },
     {
+      "id": "school-life-gallery-album",
+      "name": "School Life",
+      "media": [
+        { "id": "s-1", "src": "/assets/media/schoollife1.jpg", "caption": "School Life Highlights" },
+        { "id": "s-2", "src": "/assets/media/schoollife18.jpg", "caption": "School Life Highlights" },
+        { "id": "s-3", "src": "/assets/media/schoollife2.jpg", "caption": "School Life Highlights" },
+        { "id": "s-4", "src": "/assets/media/schoollife3.jpg", "caption": "School Life Highlights" },
+        { "id": "s-5", "src": "/assets/media/schoollife5.jpg", "caption": "Namibia Independence Day Highlights" },
+        { "id": "s-6", "src": "/assets/media/schoollife4.jpg", "caption": "School Life Highlights" },
+        { "id": "s-7", "src": "/assets/media/schoollife6.jpg", "caption": "School Life Highlights" },
+        { "id": "s-8", "src": "/assets/media/schoollife7.jpg", "caption": "School Life Highlights" },
+        { "id": "s-9", "src": "/assets/media/schoollife8.jpg", "caption": "School Life Highlights" },
+        { "id": "s-10", "src": "/assets/media/schoollife9.jpg", "caption": "15th Anniversary Celebrations" },
+        { "id": "s-11", "src": "/assets/media/schoollife10.jpg", "caption": "School Life Highlights" },
+        { "id": "s-12", "src": "/assets/media/schoollife11.jpg", "caption": "School Life Highlights" },
+        { "id": "s-13", "src": "/assets/media/schoollife12.jpg", "caption": "School Life Highlights" },
+        { "id": "s-14", "src": "/assets/media/schoollife13.jpg", "caption": "15th Anniversary Celebrations" },
+        { "id": "s-15", "src": "/assets/media/schoollife14.jpg", "caption": "Namibia Independence Day Highlights" },
+        { "id": "s-16", "src": "/assets/media/schoollife16.png", "caption": "15th Anniversary Celebrations" },
+        { "id": "s-17", "src": "/assets/media/schoollife17.jpg", "caption": "Namibia Independence Day Highlights" }
+      ]
+    },
+    {
       "id": "class-time-album",
       "name": "Class Time",
       "media": [
