@@ -45,7 +45,7 @@ const staff = [
 { name: 'DR. MEMOIR CHIMWAMUROMBE', role: 'Principal', imageUrl: "/assets/media/drmemoir.jpg" },
 { name: 'PATIENCE MAGOMO', role: 'Vice Principal, Department Head, Senior Primary, & Teacher, Grade 6', imageUrl: "/assets/media/patience.jpg" },
 { name: 'NAUYOMA HILENI', role: 'Department Head, Early Childhood Development & Teacher, Kindergarten, 4-5 Years', imageUrl: "/assets/media/hileni.jpg" },
-{ name: 'SAUMA NDYULUWA', role: 'Department Head, Pre-Primary', imageUrl: "/assets/media/suauma.jpg" },
+{ name: 'SAUMA NDYULUWA', role: 'Department Head, Pre-Primary', imageUrl: "/assets/media/suama.jpg" },
 { name: 'LUDIANCE KATANANGA', role: 'Vice Department Head, Junior Primary', imageUrl: "/assets/media/ludiance.jpg" },
 { name: 'FRIEDA H. MUKOROKO', role: 'Teacher, Kindergarten, 2-3 Years', imageUrl: "/assets/media/frieda.jpg" },
 { name: 'FIINA HAMUKOTO', role: 'Teacher, Kindergarten, 4-5 Years', imageUrl: "/assets/media/fiina.jpg" },
