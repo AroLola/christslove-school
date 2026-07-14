@@ -204,14 +204,24 @@
       ]
     },
      {
-      "id": "clmi-bishop",
-      "name": "CLMI's Bishop Visits CLCS",
-      "description": "CLMI's Bishop (also CLCS Director) visits our students.",
-      "media": [
-        { "id": "v-6", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/bishopsvisit2.MP4", "caption": "Bishop Elizabeth Arowolo, General Overseer of Christ's Love Ministries International, visits CLCS to encourage and pray for the students. In this clip, she teaches learners the song 'Everywhere He Went, He Was Doing Good'." },
-       { "id": "v-7", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/clmibishopsvisitvideo2.mp4", "caption": "Bishop Elizabeth Arowolo, General Overseer of Christ's Love Ministries International, visits CLCS to encourage and pray for the students. Learners were taught powerful Bible verses and received precious insights from her message." }
-      ]
+  "id": "clmi-bishop",
+  "name": "CLMI's Bishop Visits CLCS",
+  "description": "CLMI's Bishop (also CLCS Director) visits our students.",
+  "media": [
+    { 
+      "id": "v-6", 
+      "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/bishopsvisit2.MP4", 
+      "poster": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/thumbnailbishopsvisit.png",
+      "caption": "Bishop Elizabeth Arowolo, General Overseer of Christ's Love Ministries International, visits CLCS to encourage and pray for the students. In this clip, she teaches learners the song 'Everywhere He Went, He Was Doing Good'." 
     },
+    { 
+      "id": "v-7", 
+      "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/clmibishopsvisitvideo2.mp4", 
+      "caption": "Bishop Elizabeth Arowolo, General Overseer of Christ's Love Ministries International, visits CLCS to encourage and pray for the students. Learners were taught powerful Bible verses and received precious insights from her message." 
+    }
+  ]
+}
+
     {
       "id": "pyjama-day",
       "name": "Pyjama Day",
