@@ -200,7 +200,34 @@
       "name": "Gideon's Namibia",
       "description": "Gideon's Namibia visits our students.",
       "media": [
-        { "id": "v-1", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/gideonnamibia.mp4", "caption": "Christ’s Love Christian School received a special visit from Colyn Hendriks of Gideon's Namibia, who visited with a simple mission: To give. Bibles were donated to the school to support learners in their Christian Moral Education lessons." }
+        { "id": "v-5", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/gideonnamibia.mp4", "caption": "Christ’s Love Christian School received a special visit from Colyn Hendriks of Gideon's Namibia, who visited with a simple mission: To give. Bibles were donated to the school to support learners in their Christian Moral Education lessons." }
+      ]
+    },
+     {
+      "id": "clmi-bishop",
+      "name": "CLMI's Bishop Visits CLCS",
+      "description": "CLMI's Bishop (also CLCS Director) visits our students.",
+      "media": [
+      { "id": "v-6", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/clmibishopsvisitvideo2.mp4", "caption": "Bishop Elizabeth Arowolo, General Overseer of Christ's Love Ministries International, visits CLCS to encourage and pray for the students. Learners were taught powerful Bible verses and received precious insights from her message." },
+       { "id": "v-7", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/clmibishopsvisitvideo1.mp4", "caption": "Bishop Elizabeth Arowolo, General Overseer of Christ's Love Ministries International, visits CLCS to encourage and pray for the students. In this clip, she teaches learners the song 'Everywhere He Went, He Was Doing Good'." }
+      ]
+    },
+    {
+      "id": "pyjama-day",
+      "name": "Pyjama Day",
+      "description": "Pyjama Day - Pre-Schoolers",
+      "media": [
+      { "id": "v-8", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday1.mp4", "caption": "Our pre-schoolers having fun on Pyjama Day." },
+       { "id": "v-9", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday2.mp4", "caption": "Our pre-schoolers having fun on Pyjama Day." },
+      { "id": "v-10", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday3.mp4", "caption": "Our pre-schoolers having fun on Pyjama Day." }
+      ]
+    },
+    {
+      "id": "prefects-prayer",
+      "name": "Prefect's Prayer Circle",
+      "description": "Prefect's Prayer Circle",
+      "media": [
+        { "id": "v-11", "src": "", "caption": "Our School Prefects form a Prayer Circle to pray for the School and learners." }
       ]
     },
     {
@@ -208,12 +235,12 @@
       "name": "Sports & Tournaments",
       "description": "Highlights from our intense sports competitions, where our teams brought home glorious medals.",
       "media": [
-        { "id": "v-5", "src": "/assets/media/sports1VIDEO-2026-06-28-06-21-16.mp4", "caption": "Volleyball - Under-13 Girls bring home Silver medals" },
-        { "id": "v-6", "src": "/assets/media/video_netball1.mp4", "caption": "Netball Tournament Review" },
-         { "id": "v-7", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports1video.mp4", "caption": "Melissa Angala and Agnes Sabuta -- Christ’s Love Christian School students -- shared with NBC how they feel about participating in the Cricket Namibia Women’s Week initiative." },
-        { "id": "v-8", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports2video.mp4", "caption": "Netball Team hurdles to lift each other's spirits." },
-         { "id": "v-9", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports_u15boys_video.mp4", "caption": "Volleyball - Under-15 Boys receiving their Silver medals" },
-        { "id": "v-10", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsnetballvideo1.mp4", "caption": "Volleyball - Under-15 Girls. Silver medalists." }
+        { "id": "v-12", "src": "/assets/media/sports1VIDEO-2026-06-28-06-21-16.mp4", "caption": "Volleyball - Under-13 Girls bring home Silver medals" },
+        { "id": "v-13", "src": "/assets/media/video_netball1.mp4", "caption": "Netball Tournament Review" },
+         { "id": "v-14", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports1video.mp4", "caption": "Melissa Angala and Agnes Sabuta -- Christ’s Love Christian School students -- shared with NBC how they feel about participating in the Cricket Namibia Women’s Week initiative." },
+        { "id": "v-15", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports2video.mp4", "caption": "Netball Team hurdles to lift each other's spirits." },
+         { "id": "v-16", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports_u15boys_video.mp4", "caption": "Volleyball - Under-15 Boys receiving their Silver medals" },
+        { "id": "v-17", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsnetballvideo1.mp4", "caption": "Volleyball - Under-15 Girls. Silver medalists." }
       ]
     }
   ]
