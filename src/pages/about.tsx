@@ -78,7 +78,7 @@ const staff = [
 { name: 'MARTHA NHEKAIRO', role: 'Teacher, Grade 3, Green', imageUrl: "/assets/media/martha.jpg" },
 { name: 'NYASHA MUKOROKO', role: 'Driver, CareTaker, Handyman', imageUrl: "/assets/media/nyasha.jpg" },
 { name: 'SOPHIA HANSEN', role: 'Librarian', imageUrl: "/assets/media/sofia.jpg" },
-{ name: 'BRASH NDARA', role: 'Teacher, Grade 6, Red', imageUrl: "/assets/clcslogo.jpg" },
+{ name: 'BRASH NDARA', role: 'Teacher, Grade 6, Red', imageUrl: "/assets/media/ndara.jpg" },
 { name: 'ESTER NAKUMBWATA', role: 'Custodian', imageUrl: "/assets/clcslogo.jpg" },
 { name: 'PRISCA KOROMORA', role: 'Department Head, Junior Primary & Teacher, Grade 2, Green', imageUrl: "/assets/clcslogo.jpg" },
 { name: 'MAGANAEM ERASMUS', role: 'Teacher, Grade 5, Red', imageUrl: "/assets/clcslogo.jpg" },
