@@ -189,7 +189,9 @@
       "name": "15th Anniversary Celebration",
       "description": "Celebrating 15 years of scholarship, spiritual discipline, and academic excellence with song and dance presentations performed by our students.",
       "media": [
-        { "id": "v-1", "src": "", "caption": "Anniversary Celebration Highlights" }
+        { "id": "v-1", "src": "/assets/media/vid115thanniv.mov", "caption": "Anniversary Celebration Highlights" }
+        { "id": "v-2", "src": "/assets/media/vid215thanniv.mp4", "caption": "Anniversary Celebration Highlights" }
+        { "id": "v-3", "src": "/assets/media/vid315thanniv.mov", "caption": "Anniversary Celebration Highlights" }
       ]
     },
     {
