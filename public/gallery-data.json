@@ -191,7 +191,8 @@
       "media": [
         { "id": "v-1", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/vid115thanniv.mov", "caption": "CLCS celebrates her 15 year anniversary with song and dance presentations performed by our students." },
         { "id": "v-2", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/vid215thanniv.mp4", "caption": "CLCS celebrates 15 years of scholarship, spiritual discipline, and excellence." },
-        { "id": "v-3", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/vid315thanniv.mov", "caption": "CLCS celebrates 15 years of academic excellence, spiritual growth, and grit." }
+        { "id": "v-3", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/vid315thanniv.mov", "caption": "CLCS celebrates 15 years of academic excellence, spiritual growth, and grit." },
+       { "id": "v-4", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/15thannivvideo4.mp4", "caption": "CLCS students annouce celebration preparations in honor of 15 years of academic excellence, spiritual growth, and grit." }
       ]
     },
     {
@@ -199,8 +200,12 @@
       "name": "Sports & Tournaments",
       "description": "Highlights from our intense sports competitions, where our teams brought home glorious medals.",
       "media": [
-        { "id": "v-2", "src": "/assets/media/sports1VIDEO-2026-06-28-06-21-16.mp4", "caption": "Volleyball Tournament Review" },
-        { "id": "v-3", "src": "/assets/media/video_netball1.mp4", "caption": "Netball Tournament Review" }
+        { "id": "v-5", "src": "/assets/media/sports1VIDEO-2026-06-28-06-21-16.mp4", "caption": "Volleyball - Under-13 Girls bring home Silver medals" },
+        { "id": "v-6", "src": "/assets/media/video_netball1.mp4", "caption": "Netball Tournament Review" },
+         { "id": "v-7", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports1video.mov", "caption": "Melissa Angala and Agnes Sabuta -- Christ’s Love Christian School students -- shared with NBC how they feel about participating in the Cricket Namibia Women’s Week initiative." },
+        { "id": "v-8", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports2video.mp4", "caption": "Netball Team hurdles to lift each other's spirits." },
+         { "id": "v-9", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports_u15boys_video.mp4", "caption": "Volleyball - Under-15 Boys receiving their Silver medals" },
+        { "id": "v-10", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports%20netballvideo%201.mov", "caption": "Volleyball - Under-15 Girls. Silver medalists." }
       ]
     }
   ]
