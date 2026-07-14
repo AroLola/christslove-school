@@ -217,9 +217,9 @@
       "name": "Pyjama Day",
       "description": "Pyjama Day - Pre-Schoolers",
       "media": [
-      { "id": "v-8", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday1.mp4", "caption": "Our pre-schoolers having fun on Pyjama Day." },
-       { "id": "v-9", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday2.mp4", "caption": "Our pre-schoolers having fun on Pyjama Day." },
-      { "id": "v-10", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday3.mp4", "caption": "Our pre-schoolers having fun on Pyjama Day." }
+      { "id": "v-8", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday1.mp4", "caption": "Our learners and staff having fun on Pyjama Day." },
+       { "id": "v-9", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday2.mp4", "caption": "Our pre-schoolers and staff having fun on Pyjama Day." },
+      { "id": "v-10", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/pjday3.mp4", "caption": "Our pre-schoolers and staff having fun on Pyjama Day." }
       ]
     },
     {
