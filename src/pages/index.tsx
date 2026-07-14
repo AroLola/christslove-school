@@ -228,7 +228,7 @@ export default function HomePage() {
                 Our Community 
               </p> 
               <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
-                More Than a School —<br />A Family 
+                More Than a School -<br />A Family 
               </h2> 
               <p className="text-white/80 text-lg leading-relaxed mb-6"> 
                 When you join Christ's Love, you join a community of families who share your values and your vision for your children's future. From chapel mornings to school events, we grow together. 
