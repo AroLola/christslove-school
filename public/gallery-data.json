@@ -86,7 +86,8 @@
         { "id": "s-14", "src": "/assets/media/schoollife13.jpg", "caption": "15th Anniversary Celebrations" },
         { "id": "s-15", "src": "/assets/media/schoollife14.jpg", "caption": "Namibia Independence Day Highlights" },
         { "id": "s-16", "src": "/assets/media/schoollife16.png", "caption": "15th Anniversary Celebrations" },
-        { "id": "s-17", "src": "/assets/media/schoollife17.jpg", "caption": "Namibia Independence Day Highlights" }
+        { "id": "s-17", "src": "/assets/media/schoollife17.jpg", "caption": "Namibia Independence Day Highlights" },
+        { "id": "s-18", "src": "/assets/media/schoollife19.jpg", "caption": "Occupation Day 2024" }
       ]
     },
     {
@@ -130,7 +131,9 @@
         { "id": "a-10", "src": "/assets/media/netballone.jpg", "caption": "Volleyball U-13 Gold" },
         { "id": "a-11", "src": "/assets/media/soc-studies.jpg", "caption": "Social Studies Regional Quiz Winners" },
         { "id": "a-12", "src": "/assets/media/volleyball.jpg", "caption": "U-13 Volleyball Champions" },
-        { "id": "a-13", "src": "/assets/media/volleyballtwo.jpg", "caption": "U-13 Volleyball Champions" }
+        { "id": "a-13", "src": "/assets/media/volleyballtwo.jpg", "caption": "U-13 Volleyball Champions" },
+        { "id": "a-14", "src": "/assets/media/mathsquizplatocluster1.jpg", "caption": "Maths Quiz Plato Cluster - Take 1" },
+        { "id": "a-15", "src": "/assets/media/mathsquizplatocluster2.jpg", "caption": "Maths Quiz Plato Cluster - Take 2" }
       ]
     }, 
     {
@@ -159,14 +162,17 @@
       "name": "Leadership",
       "media": [
         { "id": "l-1", "src": "/assets/media/leadership1.jpg", "caption": "CLCS Leadership" },
-        { "id": "l-2", "src": "/assets/media/leadership2.jpg", "caption": "CLCS Leadership" }
+        { "id": "l-2", "src": "/assets/media/leadership2.jpg", "caption": "CLCS Leadership" },
+        { "id": "l-3", "src": "/assets/media/leadership3.jpg", "caption": "Director and Principal" }
       ]
     },
     {
       "id": "staff-gallery-album",
       "name": "Staff",
       "media": [
-        { "id": "s-1", "src": "/media/staff.jpg", "caption": "CLCS Staff" }
+        { "id": "s-1", "src": "/media/staff.jpg", "caption": "CLCS Staff" },
+        { "id": "s-2", "src": "/media/staff.jpg", "caption": "Teacher's Day 2025" },
+        { "id": "s-3", "src": "/media/staff.jpg", "caption": "Teacher's Day 2025" }
       ]
     }
   ],
