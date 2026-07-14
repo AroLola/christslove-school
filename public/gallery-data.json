@@ -171,8 +171,8 @@
       "name": "Staff",
       "media": [
         { "id": "s-1", "src": "/media/staff.jpg", "caption": "CLCS Staff" },
-        { "id": "s-2", "src": "/media/staff.jpg", "caption": "Teacher's Day 2025" },
-        { "id": "s-3", "src": "/media/staff.jpg", "caption": "Teacher's Day 2025" }
+        { "id": "s-2", "src": "/media/staff1.jpg", "caption": "Teacher's Day 2025" },
+        { "id": "s-3", "src": "/media/staff2.jpg", "caption": "Teacher's Day 2025" }
       ]
     }
   ],
