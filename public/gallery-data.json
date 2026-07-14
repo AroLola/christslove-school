@@ -235,8 +235,8 @@
       "name": "Sports & Tournaments",
       "description": "Highlights from our intense sports competitions, where our teams brought home glorious medals.",
       "media": [
-        { "id": "v-12", "src": "/assets/media/sports1VIDEO-2026-06-28-06-21-16.mp4", "caption": "Volleyball - Under-13 Girls bring home Silver medals" },
-        { "id": "v-13", "src": "/assets/media/video_netball1.mp4", "caption": "Netball Tournament Review" },
+        { "id": "v-12", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsunder13girls.mp4", "caption": "Volleyball - Under-13 Girls bring home Silver medals" },
+        { "id": "v-13", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsnetballvideo1.mp4", "caption": "Netball Tournament Review" },
          { "id": "v-14", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports1video.mp4", "caption": "Melissa Angala and Agnes Sabuta -- Christ’s Love Christian School students -- shared with NBC how they feel about participating in the Cricket Namibia Women’s Week initiative." },
         { "id": "v-15", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports2video.mp4", "caption": "Netball Team hurdles to lift each other's spirits." },
          { "id": "v-16", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports_u15boys_video.mp4", "caption": "Volleyball - Under-15 Boys receiving their Silver medals" },
