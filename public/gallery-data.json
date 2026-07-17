@@ -89,8 +89,8 @@
       ]  
     },
      {
-      "id": "computer-lab-gallery-album",
-      "name": "Computer Lab",
+      "id": "early-childhood-development-gallery-album",
+      "name": "Early Childhood Development",
       "media": [
         { "id": "e-1", "src": "/assets/media/ecdtour20231.jpg", "caption": "CLCS Early Childhood Development Tour (2023)" },
         { "id": "e-2", "src": "/assets/media/ecdtour20232.jpg", "caption": "CLCS Early Childhood Development Tour (2023)" }
