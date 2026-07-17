@@ -57,7 +57,11 @@
         { "id": "t-11", "src": "/assets/media/class11.jpg", "caption": "CLCS" },
         { "id": "t-12", "src": "/assets/media/class12.jpg", "caption": "Pre-Primary, Class B" },
         { "id": "t-13", "src": "/assets/media/class13.jpg", "caption": "CLCS" },
-        { "id": "t-14", "src": "/assets/media/class14.jpg", "caption": "CLCS" }
+        { "id": "t-14", "src": "/assets/media/class14.jpg", "caption": "CLCS" },
+         { "id": "t-15", "src": "/assets/media/grade4green.jpg", "caption": "Grade 4, Green" },
+        { "id": "t-16", "src": "/assets/media/grade5blue.jpg", "caption": "Grade 5, Blue" },
+        { "id": "t-17", "src": "/assets/media/preprimaryclassb.jpg", "caption": "Pre-Primary Class B" },
+        { "id": "t-18", "src": "/assets/media/grade5mathclass.jpg", "caption": "Grade 5 Learners During Maths Class" } 
       ]
     },
       {
