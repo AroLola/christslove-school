@@ -86,7 +86,15 @@
         { "id": "o-3", "src": "/assets/media/complab3.jpg", "caption": "CLCS Learners During Computer Lab" },
         { "id": "o-4", "src": "/assets/media/complab4.jpg", "caption": "CLCS Learners During Computer Lab" },
         { "id": "o-5", "src": "/assets/media/complab5.jpg", "caption": "CLCS Learners During Computer Lab" }
-      ]
+      ]  
+    },
+     {
+      "id": "computer-lab-gallery-album",
+      "name": "Computer Lab",
+      "media": [
+        { "id": "e-1", "src": "/assets/media/ecdtour20231.jpg", "caption": "CLCS Early Childhood Development Tour (2023)" },
+        { "id": "e-2", "src": "/assets/media/ecdtour20232.jpg", "caption": "CLCS Early Childhood Development Tour (2023)" }
+      ] 
     },
     {
       "id": "school-life-gallery-album",
@@ -251,7 +259,7 @@
       "description": "Prefect's Prayer Circle",
       "media": [
         { "id": "v-11", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prefectsprayercircle.mp4", "caption": "Our School Prefects form a Prayer Circle to pray for the School and learners." }
-      ]
+      ] 
     },
     {
       "id": "album-sports-videos",
@@ -263,8 +271,9 @@
          { "id": "v-14", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports1video.mp4", "caption": "Melissa Angala and Agnes Sabuta -- Christ’s Love Christian School students -- shared with NBC how they feel about participating in the Cricket Namibia Women’s Week initiative." },
         { "id": "v-15", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports2video.mp4", "caption": "Netball Team hurdles to lift each other's spirits." },
          { "id": "v-16", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports_u15boys_video.mp4", "caption": "Volleyball - Under-15 Boys receiving their Silver medals" },
-        { "id": "v-17", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsnetballvideo1.mp4", "caption": "Volleyball - Under-15 Girls. Silver medalists." }
-      ]
+        { "id": "v-17", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsnetballvideo1.mp4", "caption": "Volleyball - Under-15 Girls. Silver medalists." },
+        { "id": "v-19", "src": "assets/media/clcsu13netballgirls_ingreen_winning17to7.mp4", "caption": "CLCS U-13 Girls Netball Team (Green) - Winning 17 to 7" }
+       ]
     }
   ]
 }
