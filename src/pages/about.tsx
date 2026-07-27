@@ -59,7 +59,7 @@ const staff = [
 { name: 'KENNETH OKEDI', role: 'Teacher, Grade 4, Red', imageUrl: "/assets/media/kenneth.jpg" },
 { name: 'JOSEPHINE CHINOUNYE', role: 'Teacher, Grade 4, Blue', imageUrl: "/assets/media/josephine.jpg" },
 { name: 'LYANE ZVEKARE', role: 'Teacher, Grade 5, Blue & Vice Sports Organizer, Deputy', imageUrl: "/assets/media/lyabe.jpg" },
-{ name: 'DR. OLUFUNLOLA AROWOLO', role: 'Quality Assurance Officer', imageUrl: "/assets/media/drarowolo.jpg" },
+{ name: 'DR. OLUFUNLOLA AROWOLO', role: 'Educational Quality Assurance Officer', imageUrl: "/assets/media/drarowolo.jpg" },
 { name: 'CHARLES SIVEREGI', role: 'Teacher, Grade 7, Blue & Sports Organizer, Head', imageUrl: "/assets/media/charles.JPG" },
 { name: 'MARK MUMANYI', role: 'Deputy Department Head & Teacher, Grade 7, Red', imageUrl: "/assets/media/mark.jpg" },
 { name: 'MILDRED WOLF', role: 'Administrator', imageUrl: "/assets/media/mildred.jpg" },
