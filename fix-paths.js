@@ -43,7 +43,7 @@ function processFile(filePath) {
     if (content.includes('Nurturing minds') && !content.includes('md:float-left')) {
       content = content.replace(
         /([<][p|div][^>]*?>\s*Nurturing minds[\s\S]*?<\/[p|div]>)/i,
-        `<div className="block clearfix md:text-left text-center"> <img src="/media/layouts-footer-christs-love-christian-school-3f0c5b4e.jpg" alt="Christ's Love Christian School Footer Logo" className="h-16 w-auto object-contain md:float-left md:mr-5 mb-4 md:mb-0 inline-block" onError={(e) => { if (!e.currentTarget.src.includes('aea019d4')) { e.currentTarget.src = "/media/layouts-header-christs-love-christian-school-aea019d4.jpg"; } }} /> <div className="md:-mt-1">$1</div> </div>`
+        `<div className="block clearfix md:text-left text-center"> <img src="/media/footerlogo.jpg" alt="Christ's Love Christian School Footer Logo" className="h-16 w-auto object-contain md:float-left md:mr-5 mb-4 md:mb-0 inline-block" onError={(e) => { if (!e.currentTarget.src.includes('aea019d4')) { e.currentTarget.src = "/media/layouts-header-christs-love-christian-school-aea019d4.jpg"; } }} /> <div className="md:-mt-1">$1</div> </div>`
       );
     }
   }
