@@ -1,14 +1,9 @@
-/**
+ /**
  * airo-video-slots.js — Runtime script for video slot patching.
  *
  * Fetches /airo-media.json to discover which media slots have mediaType 'video',
  * then uses a MutationObserver to replace <img> elements referencing those slots
  * with <video> elements (autoplay, muted, loop, playsInline).
- *
- * Loaded synchronously in <head> so the observer is active before React hydrates.
- * Works in both dev and production modes — in dev mode the Vite plugin also handles
- * video patching via HMR, but this script acts as a fallback for direct page loads
- * (e.g. opening the preview link in a new tab without the builder parent frame).
  */
 ;(function () {
   var SLOT_PREFIX_IMAGES = '/airo-assets/images/'
@@ -34,7 +29,6 @@
     var slotPath = extractSlotPath(img.src)
     if (!slotPath || mediaTypes[slotPath] !== 'video') return
 
-    // Remove any existing video for this slot to prevent duplicates after re-renders
     var existing = img.parentNode && img.parentNode.querySelector('video[data-slot="' + slotPath + '"]')
     if (existing) existing.remove()
 
@@ -68,13 +62,11 @@
     var slotPath = extractSlotPath(urlMatch[1])
     if (!slotPath || mediaTypes[slotPath] !== 'video') return
 
-    // If already patched and video exists, just re-hide background (React may have restored it)
     if (el.getAttribute('data-airo-video-bg-patched') === slotPath) {
       el.style.backgroundImage = 'none'
       return
     }
 
-    // Remove any existing bg video to prevent duplicates
     var existing = el.querySelector('video[data-airo-bg-video]')
     if (existing) existing.remove()
 
@@ -90,7 +82,7 @@
     video.muted = true
     video.loop = true
     video.playsInline = true
-    video.setAttribute('data-airo-bg-video', '')
+    video.setAttribute('data-bg-video', '')
     video.setAttribute('data-slot', slotPath)
     video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;'
     var pos = window.getComputedStyle(el).position
@@ -100,11 +92,7 @@
 
   function patchAll() {
     document.querySelectorAll('img').forEach(patchImg)
-    // Check elements with inline background styles or already-patched elements
     document.querySelectorAll('[style*="background"], [data-airo-video-bg-patched]').forEach(patchBgElement)
-    // Also scan all elements for CSS-class-based background-images referencing our slot prefixes.
-    // patchBgElement uses getComputedStyle internally and bails early if no matching URL is found,
-    // so this is safe but slightly more expensive — only run when we have video slots.
     var hasVideoSlots = false
     for (var k in mediaTypes) {
       if (mediaTypes[k] === 'video') { hasVideoSlots = true; break }
@@ -118,113 +106,62 @@
     }
   }
 
-  // Fetch manifest then start observing
   fetch('/airo-media.json')
     .then(function (res) {
       if (!res.ok) return {}
       return res.json()
     })
-        // Patch existing images
-    patchAll()
-
-    // Observe future DOM changes — childList for new nodes, attributes for style changes
-    var isPatching = false
-    var observer = new MutationObserver(function (mutations) {
-      if (isPatching) return
-      isPatching = true
-      
-      try {
-        for (var i = 0; i < mutations.length; i++) {
-          var mutation = mutations[i]
-          if (mutation.type === 'childList') {
-            var added = mutation.addedNodes
-            for (var j = 0; j < added.length; j++) {
-              var node = added[j]
-              
-              // Safe check to ensure it's an element node before parsing tags
-              if (node && node.nodeType === 1) { 
-                if (node.tagName === 'IMG') {
-                  patchImg(node)
-                } else {
-                  // Replaced .forEach with a traditional loop for safety across frames
-                  var imgs = node.querySelectorAll('img')
-                  for (var k = 0; k < imgs.length; k++) {
-                    patchImg(imgs[k])
-                  }
-                  
-                  // Check added elements for background-image video slots
-                  patchBgElement(node)
-                  var bgElements = node.querySelectorAll('[style*="background"]')
-                  for (var m = 0; m < bgElements.length; m++) {
-                    patchBgElement(bgElements[m])
-                  }
-                }
-              }
-            }
-          }
-        }
-      } finally {
-        // CRUCIAL FIX: Unlocks the observer so it can process future updates
-        isPatching = false
-      }
-    })
-      // Patch existing images
+    .then(function (manifest) {
+      mediaTypes = manifest || {}
       patchAll()
-      // Observe future DOM changes — childList for new nodes, attributes for style changes
+
       var isPatching = false
       var observer = new MutationObserver(function (mutations) {
         if (isPatching) return
         isPatching = true
+
         try {
-        for (var i = 0; i < mutations.length; i++) {
-          var mutation = mutations[i]
-          if (mutation.type === 'childList') {
-            var added = mutation.addedNodes
-            for (var j = 0; j < added.length; j++) {
-              var node = added[j]
-              if (node instanceof HTMLImageElement) {
-                patchImg(node)
-              } else if (node instanceof HTMLElement) {
-                node.querySelectorAll('img').forEach(patchImg)
-                // Check added elements for background-image video slots
-                patchBgElement(node)
-                node.querySelectorAll('[style*="background"]').forEach(patchBgElement)
+          for (var i = 0; i < mutations.length; i++) {
+            var mutation = mutations[i]
+            if (mutation.type === 'childList') {
+              var added = mutation.addedNodes
+              for (var j = 0; j < added.length; j++) {
+                var node = added[j]
+                if (node instanceof HTMLImageElement) {
+                  patchImg(node)
+                } else if (node instanceof HTMLElement) {
+                  node.querySelectorAll('img').forEach(patchImg)
+                  patchBgElement(node)
+                  node.querySelectorAll('[style*="background"]').forEach(patchBgElement)
+                }
               }
-            }
-          } else if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-            var target = mutation.target
-            if (target instanceof HTMLElement) {
-              // Re-check: React may have re-rendered and set background-image back
-              // Remove stale patch flag so patchBgElement re-evaluates
-              if (target.getAttribute('data-airo-video-bg-patched')) {
-                var bg = target.style.backgroundImage
-                if (bg && bg !== 'none' && (bg.indexOf(SLOT_PREFIX_IMAGES) !== -1 || bg.indexOf(SLOT_PREFIX_VIDEOS) !== -1)) {
-                  target.removeAttribute('data-airo-video-bg-patched')
+            } else if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+              var target = mutation.target
+              if (target instanceof HTMLElement) {
+                if (target.getAttribute('data-airo-video-bg-patched')) {
+                  var bg = target.style.backgroundImage
+                  if (bg && bg !== 'none' && (bg.indexOf(SLOT_PREFIX_IMAGES) !== -1 || bg.indexOf(SLOT_PREFIX_VIDEOS) !== -1)) {
+                    target.removeAttribute('data-airo-video-bg-patched')
+                    patchBgElement(target)
+                  }
+                } else {
                   patchBgElement(target)
                 }
-              } else {
-                patchBgElement(target)
               }
             }
           }
-        }
         } finally {
           isPatching = false
         }
       })
-        // Start observing the Document Object Model
-    observer.observe(document.documentElement, { 
-      childList: true, 
-      subtree: true, 
-      attributes: true, 
-      attributeFilter: ['style', 'src'] // Added 'src' tracking for runtime assets
-    })
-  })
-})()
 
+      observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style', 'src']
+      })
 
-      // Re-fetch manifest periodically to pick up changes (dev mode only — HMR may not work due to CORS)
-      // Use __AIRO_DEV_MODE__ flag set by dev-supervisor, falling back to localhost check
       var isDevMode = window.__AIRO_DEV_MODE__ === true || location.hostname === 'localhost' || location.hostname === '127.0.0.1'
       if (isDevMode) {
         var pollFailures = 0
@@ -245,7 +182,6 @@
           }).catch(function (err) {
             pollFailures++
             if (pollFailures === 1) {
-              // eslint-disable-next-line no-console
               console.warn('[airo-video-slots] manifest poll failed:', err.message || err)
             }
             if (pollFailures >= 5) {
@@ -255,7 +191,7 @@
         }, 3000)
       }
     })
-    .catch(function () {
-      // Manifest not available — no video slots to patch
+    .catch(function (err) {
+      console.error("Airo initialization error:", err)
     })
 })()
