@@ -156,7 +156,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
-            {/* Image Block with Gold Framing */} 
+            {/* Video Block with Gold Framing */} 
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -164,16 +164,17 @@ export default function HomePage() {
               transition={{ duration: 0.5, ease: 'easeOut' }} 
               className="relative" 
             > 
-              <img 
-                src="/assets/media/pages-home-values-c9779bb4.jpg" 
-                alt="Faith and learning at Christ's Love Christian School" 
-                className="w-full h-auto object-contain rounded-lg shadow-lg" 
-                loading="lazy" 
-                width={800} 
-                height={480} 
+              <video 
+                src="/assets/media/pages-home-values.mp4" 
+                className="w-full h-auto object-cover rounded-lg shadow-lg aspect-[800/480]" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
               /> 
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
             </motion.div> 
+
 
             {/* Text Content Block */} 
             <div className="flex flex-col justify-center"> 
