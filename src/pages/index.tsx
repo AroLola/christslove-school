@@ -165,7 +165,7 @@ export default function HomePage() {
               className="relative" 
             > 
               <video 
-                src="/assets/media/pages-home-values.mp4" 
+                src="https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/gideonnamibia.mp4" 
                 className="w-full h-auto object-cover rounded-lg shadow-lg aspect-[800/480]" 
                 autoPlay 
                 loop 
