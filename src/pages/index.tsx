@@ -156,7 +156,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
-                {/* Video Block with Gold Framing */} 
+                 {/* Video Block with Gold Framing */} 
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -165,7 +165,7 @@ export default function HomePage() {
               className="relative" 
             > 
               <video 
-                src="/gideonnam-full.MP4" 
+                src="/assets/media/gideonnam-full.MP4" 
                 className="w-full h-auto aspect-[800/480] object-fill rounded-lg shadow-lg" 
                 controls
                 loop
@@ -174,7 +174,6 @@ export default function HomePage() {
               /> 
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
             </motion.div> 
-
 
             {/* Text Content Block */} 
             <div className="flex flex-col justify-center"> 
