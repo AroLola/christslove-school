@@ -166,11 +166,11 @@ export default function HomePage() {
             > 
               <video 
                 src="/assets/media/gideonnam-full.MP4" 
-                className="w-full h-auto aspect-[480/800] object-fill rounded-lg shadow-lg" 
+                className="w-full h-auto aspect-[380/600] object-fill rounded-lg shadow-lg" 
                 controls
                 loop
-                width={480} 
-                height={800} 
+                width={380} 
+                height={600} 
               /> 
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
             </motion.div> 
