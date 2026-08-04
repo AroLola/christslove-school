@@ -156,29 +156,35 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
-{/* Video Block with Gold Framing */} 
-<motion.div 
-  initial={{ opacity: 0, x: -30 }} 
-  whileInView={{ opacity: 1, x: 0 }} 
-  viewport={{ once: true }} 
-  transition={{ duration: 0.5, ease: 'easeOut' }} 
-  className="relative overflow-hidden rounded-lg shadow-lg" // Added overflow-hidden, moved rounded-lg and shadow-lg here
-> 
-  <video 
-    src="/assets/media/gideonnam-full.MP4" 
-    className="w-full h-auto object-cover -mb-6" // Changed object-fill to object-cover, added negative margin (-mb-6) to crop the bottom
-    controls
-    loop
-    autoPlay     
-    muted        
-    playsInline  
-    width={380} 
-    height={600} 
-  /> 
-  {/* Move the gold framing out of the hidden container so it doesn't get cut off */}
-</motion.div>
-{/* Gold framing layer placed outside the overflow-hidden container */}
-<div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+ {/* Video Wrapper with Gold Framing */} 
+<div className="relative w-[380px]"> {/* Fixed width matching video layout */}
+  
+  {/* The Cropping Container */}
+  <motion.div 
+    initial={{ opacity: 0, x: -30 }} 
+    whileInView={{ opacity: 1, x: 0 }} 
+    viewport={{ once: true }} 
+    transition={{ duration: 0.5, ease: 'easeOut' }} 
+    className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg" 
+    // ^ Changed height from 600px to 500px to crop roughly 1 inch off the bottom
+  > 
+    <video 
+      src="/assets/media/gideonnam-full.MP4" 
+      className="w-full h-[600px] object-cover object-top" 
+      // ^ Keeps video at original 600px height, anchored to the top so the bottom overflows
+      controls
+      loop
+      autoPlay     
+      muted        
+      playsInline  
+      width={380} 
+      height={600} 
+    /> 
+  </motion.div>
+
+  {/* Gold Framing Element (Safe outside the overflow box) */}
+  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+</div>
 
 
             {/* Text Content Block */} 
