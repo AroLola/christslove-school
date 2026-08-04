@@ -159,21 +159,20 @@ export default function HomePage() {
   {/* Centered Outer Wrapper */} 
 <div className="relative w-[380px] mx-auto z-0"> 
   
+{/* Centered Outer Wrapper */} 
+<div className="relative w-[380px] mx-auto z-0"> 
+  
   {/* The Motion Container */}
   <motion.div 
     initial={{ opacity: 0, x: -30 }} 
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full shadow-lg rounded-lg" 
-    style={{ 
-      // Slices off exactly 8.5% (approx. 0.5 inches) from the bottom edge
-      clipPath: 'inset(0% 0% 8.5% 0% rounded 8px)' 
-    }}
+    className="w-full shadow-lg rounded-lg overflow-hidden" 
   > 
     <video 
       src="/assets/media/gideonnam-crop.MP4" 
-      className="w-full h-auto object-cover" 
+      className="w-full h-auto object-cover block" // Added block to remove inline whitespace tracking
       controls
       loop
       autoPlay     
@@ -188,12 +187,13 @@ export default function HomePage() {
   <div 
     className="absolute border-2 border-primary rounded-lg -z-1" 
     style={{
-      // Matches the new visible height of the video minus the 8.5% crop
-      height: 'calc(100% - 8.5%)', 
-      width: '100%',
       top: '0px',
       left: '0px',
-      transform: 'translate(16px, 16px)' // Shifts the frame precisely down and right by 4 units (16px)
+      // Forces the frame to be 4 pixels wider and taller to clear the video edges perfectly
+      width: 'calc(100% + 4px)', 
+      height: 'calc(100% + 4px)',
+      // Shifts it 16px (equivalent to your old -bottom-4 -right-4) down and right
+      transform: 'translate(16px, 16px)' 
     }}
   /> 
 </div>
