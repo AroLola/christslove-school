@@ -156,10 +156,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
- {/* Centered Outer Wrapper */} 
+  {/* Centered Outer Wrapper */} 
 <div className="relative w-[380px] mx-auto z-0"> 
   
-  {/* The Motion Container (No overflow hidden, allows controls to adjust) */}
+  {/* The Motion Container */}
   <motion.div 
     initial={{ opacity: 0, x: -30 }} 
     whileInView={{ opacity: 1, x: 0 }} 
@@ -167,8 +167,8 @@ export default function HomePage() {
     transition={{ duration: 0.5, ease: 'easeOut' }} 
     className="w-full shadow-lg rounded-lg" 
     style={{ 
-      // This clips roughly 1 inch (approx 83%) off the bottom edge dynamically 
-      clipPath: 'inset(0% 0% 17% 0% rounded 8px)' 
+      // Slices off exactly 8.5% (approx. 0.5 inches) from the bottom edge
+      clipPath: 'inset(0% 0% 8.5% 0% rounded 8px)' 
     }}
   > 
     <video 
@@ -184,10 +184,19 @@ export default function HomePage() {
     /> 
   </motion.div>
 
-  {/* Gold Framing Element (Slightly inflated to fix the top/left overlap) */}
-  <div className="absolute -bottom-4 -right-4 top-0 left-0 border-2 border-primary rounded-lg -z-1 scale-[1.01]" /> 
+  {/* Gold Framing Element */}
+  <div 
+    className="absolute border-2 border-primary rounded-lg -z-1" 
+    style={{
+      // Matches the new visible height of the video minus the 8.5% crop
+      height: 'calc(100% - 8.5%)', 
+      width: '100%',
+      top: '0px',
+      left: '0px',
+      transform: 'translate(16px, 16px)' // Shifts the frame precisely down and right by 4 units (16px)
+    }}
+  /> 
 </div>
-
 
 
             {/* Text Content Block */} 
