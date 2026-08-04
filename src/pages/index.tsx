@@ -172,7 +172,7 @@ export default function HomePage() {
     }}
   > 
     <video 
-      src="/assets/media/gideonnam-full.MP4" 
+      src="/assets/media/gideonnam-crop.MP4" 
       className="w-full h-auto object-cover" 
       controls
       loop
