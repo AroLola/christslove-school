@@ -156,27 +156,29 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
-          {/* Video Block with Gold Framing */} 
+{/* Video Block with Gold Framing */} 
 <motion.div 
   initial={{ opacity: 0, x: -30 }} 
   whileInView={{ opacity: 1, x: 0 }} 
   viewport={{ once: true }} 
   transition={{ duration: 0.5, ease: 'easeOut' }} 
-  className="relative" 
+  className="relative overflow-hidden rounded-lg shadow-lg" // Added overflow-hidden, moved rounded-lg and shadow-lg here
 > 
   <video 
     src="/assets/media/gideonnam-full.MP4" 
-    className="w-full h-auto aspect-[380/600] object-fill rounded-lg shadow-lg" 
+    className="w-full h-auto object-cover -mb-6" // Changed object-fill to object-cover, added negative margin (-mb-6) to crop the bottom
     controls
     loop
-    autoPlay     // Added for automatic playback
-    muted        // Required by browsers to allow autoPlay
-    playsInline  // Required for iOS/mobile devices
+    autoPlay     
+    muted        
+    playsInline  
     width={380} 
     height={600} 
   /> 
-  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+  {/* Move the gold framing out of the hidden container so it doesn't get cut off */}
 </motion.div>
+{/* Gold framing layer placed outside the overflow-hidden container */}
+<div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
 
 
             {/* Text Content Block */} 
