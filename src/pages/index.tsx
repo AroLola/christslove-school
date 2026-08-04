@@ -158,7 +158,7 @@ export default function HomePage() {
               
  
 {/* Centered Outer Wrapper */} 
-<div className="relative w-[380px] mx-auto z-0"> 
+<div className="relative w-[420px] mx-auto z-0"> 
   
   {/* The Cropping Container - Added 'group' to listen for hovers */}
   <motion.div 
