@@ -156,8 +156,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
- {/* Video Wrapper with Gold Framing */} 
-<div className="relative w-[380px]"> {/* Fixed width matching video layout */}
+ {/* Centered Outer Wrapper */} 
+<div className="relative w-[380px] mx-auto z-0"> {/* Added z-0 here */}
   
   {/* The Cropping Container */}
   <motion.div 
@@ -165,13 +165,11 @@ export default function HomePage() {
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full h-[550px] overflow-hidden rounded-lg shadow-lg" 
-    // ^ Changed height from 600px to 500px to crop roughly 1 inch off the bottom
+    className="w-full h-[580px] overflow-hidden rounded-lg shadow-lg" 
   > 
     <video 
       src="/assets/media/gideonnam-full.MP4" 
       className="w-full h-[600px] object-cover object-top" 
-      // ^ Keeps video at original 600px height, anchored to the top so the bottom overflows
       controls
       loop
       autoPlay     
@@ -182,8 +180,9 @@ export default function HomePage() {
     /> 
   </motion.div>
 
-  {/* Gold Framing Element (Safe outside the overflow box) */}
-  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+  {/* Gold Framing Element */}
+  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
+  {/* Changed from -z-10 to -z-1 */}
 </div>
 
 
