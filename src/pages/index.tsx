@@ -165,7 +165,7 @@ export default function HomePage() {
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg" 
+    className="w-full h-[550px] overflow-hidden rounded-lg shadow-lg" 
     // ^ Changed height from 600px to 500px to crop roughly 1 inch off the bottom
   > 
     <video 
