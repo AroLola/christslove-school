@@ -157,33 +157,37 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
  {/* Centered Outer Wrapper */} 
-<div className="relative w-[480px] mx-auto z-0"> {/* Added z-0 here */}
+<div className="relative w-[380px] mx-auto z-0"> 
   
-  {/* The Cropping Container */}
+  {/* The Motion Container (No overflow hidden, allows controls to adjust) */}
   <motion.div 
     initial={{ opacity: 0, x: -30 }} 
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full h-[640px] overflow-hidden rounded-lg shadow-lg" 
+    className="w-full shadow-lg rounded-lg" 
+    style={{ 
+      // This clips roughly 1 inch (approx 83%) off the bottom edge dynamically 
+      clipPath: 'inset(0% 0% 17% 0% rounded 8px)' 
+    }}
   > 
     <video 
       src="/assets/media/gideonnam-full.MP4" 
-      className="w-full h-[680px] object-cover object-top" 
+      className="w-full h-auto object-cover" 
       controls
       loop
       autoPlay     
       muted        
       playsInline  
-      width={480} 
-      height={680} 
+      width={380} 
+      height={600} 
     /> 
   </motion.div>
 
-  {/* Gold Framing Element */}
-  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
-  {/* Changed from -z-10 to -z-1 */}
+  {/* Gold Framing Element (Slightly inflated to fix the top/left overlap) */}
+  <div className="absolute -bottom-4 -right-4 top-0 left-0 border-2 border-primary rounded-lg -z-1 scale-[1.01]" /> 
 </div>
+
 
 
             {/* Text Content Block */} 
