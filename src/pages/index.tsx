@@ -157,7 +157,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
  {/* Centered Outer Wrapper */} 
-<div className="relative w-[380px] mx-auto z-0"> {/* Added z-0 here */}
+<div className="relative w-[480px] mx-auto z-0"> {/* Added z-0 here */}
   
   {/* The Cropping Container */}
   <motion.div 
@@ -165,18 +165,18 @@ export default function HomePage() {
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full h-[580px] overflow-hidden rounded-lg shadow-lg" 
+    className="w-full h-[640px] overflow-hidden rounded-lg shadow-lg" 
   > 
     <video 
       src="/assets/media/gideonnam-full.MP4" 
-      className="w-full h-[600px] object-cover object-top" 
+      className="w-full h-[680px] object-cover object-top" 
       controls
       loop
       autoPlay     
       muted        
       playsInline  
-      width={380} 
-      height={600} 
+      width={480} 
+      height={680} 
     /> 
   </motion.div>
 
