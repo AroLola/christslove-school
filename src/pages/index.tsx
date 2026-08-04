@@ -156,25 +156,28 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
             
-             {/* Video Block with Gold Framing */} 
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.5, ease: 'easeOut' }} 
-              className="relative" 
-            > 
-              <video 
-                src="/assets/media/gideonnam-full.MP4" 
-                className="w-full h-auto aspect-[380/600] object-fill rounded-lg shadow-lg" 
-                controls
-                loop
-                width={380} 
-                height={600} 
-              /> 
-              <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
-            </motion.div> 
- 
+          {/* Video Block with Gold Framing */} 
+<motion.div 
+  initial={{ opacity: 0, x: -30 }} 
+  whileInView={{ opacity: 1, x: 0 }} 
+  viewport={{ once: true }} 
+  transition={{ duration: 0.5, ease: 'easeOut' }} 
+  className="relative" 
+> 
+  <video 
+    src="/assets/media/gideonnam-full.MP4" 
+    className="w-full h-auto aspect-[380/600] object-fill rounded-lg shadow-lg" 
+    controls
+    loop
+    autoPlay     // Added for automatic playback
+    muted        // Required by browsers to allow autoPlay
+    playsInline  // Required for iOS/mobile devices
+    width={380} 
+    height={600} 
+  /> 
+  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+</motion.div>
+
 
             {/* Text Content Block */} 
             <div className="flex flex-col justify-center"> 
