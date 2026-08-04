@@ -159,17 +159,20 @@ export default function HomePage() {
 {/* Centered Outer Wrapper */} 
 <div className="relative w-[380px] mx-auto z-0"> 
   
-  {/* The Motion Container */}
+{/* Centered Outer Wrapper */} 
+<div className="relative w-[380px] mx-auto z-0"> {/* Added z-0 here */}
+  
+  {/* The Cropping Container */}
   <motion.div 
     initial={{ opacity: 0, x: -30 }} 
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full shadow-lg rounded-lg overflow-hidden" 
+    className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg" 
   > 
     <video 
       src="/assets/media/croppedgideonnamibia.MP4" 
-      className="w-full h-auto object-cover block" 
+      className="w-full h-[600px] object-cover object-top" 
       controls
       loop
       autoPlay     
@@ -180,8 +183,9 @@ export default function HomePage() {
     /> 
   </motion.div>
 
-  {/* Gold Framing Element (Expands outward evenly on all 4 sides) */}
-  <div className="absolute -inset-4 border-2 border-primary rounded-xl -z-1" />
+  {/* Gold Framing Element */}
+  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
+  {/* Changed from -z-10 to -z-1 */}
 </div>
 
 
