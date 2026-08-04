@@ -162,6 +162,9 @@ export default function HomePage() {
 {/* Centered Outer Wrapper */} 
 <div className="relative w-[380px] mx-auto z-0"> 
   
+{/* Centered Outer Wrapper */} 
+<div className="relative w-[380px] mx-auto z-0"> 
+  
   {/* The Motion Container */}
   <motion.div 
     initial={{ opacity: 0, x: -30 }} 
@@ -172,7 +175,7 @@ export default function HomePage() {
   > 
     <video 
       src="/assets/media/gideonnam-crop.MP4" 
-      className="w-full h-auto object-cover block" // Added block to remove inline whitespace tracking
+      className="w-full h-auto object-cover block" 
       controls
       loop
       autoPlay     
@@ -183,20 +186,10 @@ export default function HomePage() {
     /> 
   </motion.div>
 
-  {/* Gold Framing Element */}
-  <div 
-    className="absolute border-2 border-primary rounded-lg -z-1" 
-    style={{
-      top: '0px',
-      left: '0px',
-      // Forces the frame to be 4 pixels wider and taller to clear the video edges perfectly
-      width: 'calc(100% + 4px)', 
-      height: 'calc(100% + 4px)',
-      // Shifts it 16px (equivalent to your old -bottom-4 -right-4) down and right
-      transform: 'translate(16px, 16px)' 
-    }}
-  /> 
+  {/* Gold Framing Element (Expands outward evenly on all 4 sides) */}
+  <div className="absolute -inset-4 border-2 border-primary rounded-xl -z-1" />
 </div>
+
 
 
             {/* Text Content Block */} 
