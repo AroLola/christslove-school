@@ -155,13 +155,7 @@ export default function HomePage() {
       <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
-            
-  {/* Centered Outer Wrapper */} 
-<div className="relative w-[380px] mx-auto z-0"> 
-  
-{/* Centered Outer Wrapper */} 
-<div className="relative w-[380px] mx-auto z-0"> 
-  
+              
 {/* Centered Outer Wrapper */} 
 <div className="relative w-[380px] mx-auto z-0"> 
   
@@ -174,7 +168,7 @@ export default function HomePage() {
     className="w-full shadow-lg rounded-lg overflow-hidden" 
   > 
     <video 
-      src="/assets/media/gideonnam-crop.MP4" 
+      src="/assets/media/croppedgideonnamibia.MP4" 
       className="w-full h-auto object-cover block" 
       controls
       loop
