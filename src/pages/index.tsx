@@ -160,27 +160,40 @@ export default function HomePage() {
  {/* Centered Outer Wrapper */} 
 <div className="relative w-[440px] mx-auto z-0"> 
   
- {/* Video Block with Gold Framing */} 
-<motion.div 
-  initial={{ opacity: 0, x: -30 }} 
-  whileInView={{ opacity: 1, x: 0 }} 
-  viewport={{ once: true }} 
-  transition={{ duration: 0.5, ease: 'easeOut' }} 
-  className="relative" 
-> 
-  <video 
-    src="/assets/media/croppedgideonnamibia.MP4" 
-    className="w-full h-auto aspect-[400/640] object-fill rounded-lg shadow-lg" 
-    controls
-    loop
-    autoPlay     // Added for automatic playback
-    muted        // Required by browsers to allow autoPlay
-    playsInline  // Required for iOS/mobile devices
-    width={400} 
-    height={640} 
+  {/* The Cropping Container */} 
+  <motion.div 
+    initial={{ opacity: 0, x: -30 }} 
+    whileInView={{ opacity: 1, x: 0 }} 
+    viewport={{ once: true }} 
+    transition={{ duration: 0.5, ease: 'easeOut' }} 
+    className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg" 
+  > 
+    <video 
+      src="/assets/media/croppedgideonnamibia.MP4" 
+      className="w-full h-[600px] object-cover object-top" 
+      controls 
+      loop 
+      autoPlay 
+      muted 
+      playsInline 
+      width={380} 
+      height={600} 
+    /> 
+  </motion.div> 
+
+  {/* Gold Framing Element */} 
+  <div 
+    className="absolute border-2 border-primary rounded-lg -z-1" 
+    style={{
+      // Explicitly matches the exact visible height of your cropping container
+      height: '500px', 
+      width: '100%',
+      // Shifts it down and right cleanly without using bottom/right layout math
+      top: '16px',
+      left: '16px'
+    }}
   /> 
-  <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
-</motion.div>
+</div>
 
 
   {/* Gold Framing Element */} 
