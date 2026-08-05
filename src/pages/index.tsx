@@ -157,7 +157,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
               
  
-{/* Centered Outer Wrapper */} 
+ {/* Centered Outer Wrapper */} 
 <div className="relative w-[380px] mx-auto z-0"> 
   
   {/* The Cropping Container */} 
@@ -167,20 +167,13 @@ export default function HomePage() {
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
     className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
-    // Play or Pause the video directly when clicking the container
     onClick={(e) => {
-      const video = e.currentTarget.querySelector('video');
-      if (video) {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
-      }
+      const v = e.currentTarget.getElementsByTagName('video')[0];
+      if (v) v.paused ? v.play() : v.pause();
     }}
   > 
     <video 
-      src="/assets/media/croppedgideonnamibia.MP4" 
+      src="/assets/media/gideonnam-full.MP4" 
       className="w-full h-[600px] object-cover object-top" 
       loop
       autoPlay     
@@ -188,32 +181,29 @@ export default function HomePage() {
       playsInline  
       width={380} 
       height={600} 
-      // Synchronize the play/pause state text when actions occur
       onPlay={(e) => {
-        const btn = e.currentTarget.parentElement?.querySelector('.play-btn');
-        if (btn) btn.textContent = 'PAUSE';
+        const b = e.currentTarget.parentElement.getElementsByTagName('button')[0];
+        if (b) b.innerHTML = 'PAUSE';
       }}
       onPause={(e) => {
-        const btn = e.currentTarget.parentElement?.querySelector('.play-btn');
-        if (btn) btn.textContent = 'PLAY';
+        const b = e.currentTarget.parentElement.getElementsByTagName('button')[0];
+        if (b) b.innerHTML = 'PLAY';
       }}
     />
 
-    {/* Stabilized Controls Panel (Only visible on hover) */}
+    {/* Controls panel overlay (displays cleanly inside the visible window on hover) */}
     <div className="absolute inset-x-0 bottom-4 flex justify-between items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
-      {/* Play/Pause Label */}
-      <button className="play-btn bg-black/60 text-white px-3 py-1.5 rounded-md text-xs font-semibold backdrop-blur-sm pointer-events-none">
+      <button className="bg-black/60 text-white px-3 py-1.5 rounded-md text-xs font-semibold backdrop-blur-sm pointer-events-none">
         PAUSE
       </button>
 
-      {/* Mute/Unmute Button (Works without global React state variables) */}
       <button 
         onClick={(e) => {
-          e.stopPropagation(); // Prevents the video from pausing when clicking mute
-          const video = e.currentTarget.closest('.group')?.querySelector('video');
-          if (video) {
-            video.muted = !video.muted;
-            e.currentTarget.textContent = video.muted ? '🔊 UNMUTE' : '🔇 MUTE';
+          e.stopPropagation();
+          const v = e.currentTarget.parentElement.parentElement.getElementsByTagName('video')[0];
+          if (v) {
+            v.muted = !v.muted;
+            e.currentTarget.innerHTML = v.muted ? '🔊 UNMUTE' : '🔇 MUTE';
           }
         }} 
         className="bg-primary text-black px-3 py-1.5 rounded-md text-xs font-bold shadow-md"
