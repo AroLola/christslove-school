@@ -158,7 +158,7 @@ export default function HomePage() {
               
  
  {/* Centered Outer Wrapper */} 
-<div className="relative w-[380px] mx-auto z-0"> 
+<div className="relative w-[400px] mx-auto z-0"> 
   
   {/* The Cropping Container */} 
   <motion.div 
@@ -166,21 +166,21 @@ export default function HomePage() {
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
+    className="w-full h-[680px] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
     onClick={(e) => {
       const v = e.currentTarget.getElementsByTagName('video')[0];
       if (v) v.paused ? v.play() : v.pause();
     }}
   > 
     <video 
-      src="/assets/media/gideonnam-full.MP4" 
-      className="w-full h-[600px] object-cover object-top" 
+      src="/assets/media/croppedgideonnamibia.MP4" 
+      className="w-full h-[640px] object-cover object-top" 
       loop
       autoPlay     
       muted        
       playsInline  
       width={380} 
-      height={600} 
+      height={640} 
       onPlay={(e) => {
         const b = e.currentTarget.parentElement.getElementsByTagName('button')[0];
         if (b) b.innerHTML = 'PAUSE';
