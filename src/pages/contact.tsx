@@ -274,7 +274,7 @@ export default function ContactPage() {
               </motion.div>
             </motion.div> 
 
-            {/* General Message Form Container */}
+                       {/* General Message Form Container */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
               <motion.h2 variants={fadeUp} className="font-heading text-3xl text-secondary mb-8">Send Us a Message</motion.h2> 
               {submitted ? (
@@ -330,8 +330,7 @@ export default function ContactPage() {
   );
 }
 
-
-              {/* Map */}
+      {/* Map */}
               <motion.div variants={fadeUp} className="rounded-lg overflow-hidden border border-border">
                 <StaticMap
                   location="Erf 283 Gemini Street, Dorado Park, Windhoek, Namibia"
