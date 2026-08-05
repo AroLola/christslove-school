@@ -160,14 +160,6 @@ export default function HomePage() {
  {/* Centered Outer Wrapper */} 
 <div className="relative w-[440px] mx-auto z-0"> 
   
-  {/* The Cropping Container */} 
-  <motion.div 
-    initial={{ opacity: 0, x: -30 }} 
-    whileInView={{ opacity: 1, x: 0 }} 
-    viewport={{ once: true }} 
-    transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg" 
-  > 
     <video 
       src="/assets/media/croppedgideonnamibia.MP4" 
       className="w-full h-[600px] object-cover object-top" 
@@ -189,8 +181,8 @@ export default function HomePage() {
       height: '500px', 
       width: '100%',
       // Shifts it down and right cleanly without using bottom/right layout math
-      top: '16px',
-      left: '16px'
+      top: '18px',
+      left: '18px'
     }}
   /> 
 </div>
