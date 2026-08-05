@@ -214,7 +214,7 @@ export default function HomePage() {
   </motion.div> 
 
   {/* Gold Framing Element */} 
-  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
+  <div className="absolute -bottom-2 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
 </div>
 
 
