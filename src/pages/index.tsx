@@ -157,76 +157,75 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
               
  
-{(() => {
-  // 1. Logic and state variables are declared safely right here
-  const videoRef = React.useRef(null);
-  const [isPlaying, setIsPlaying] = React.useState(true);
-  const [isMuted, setIsMuted] = React.useState(true);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
+{/* Centered Outer Wrapper */} 
+<div className="relative w-[380px] mx-auto z-0"> 
+  
+  {/* The Cropping Container */} 
+  <motion.div 
+    initial={{ opacity: 0, x: -30 }} 
+    whileInView={{ opacity: 1, x: 0 }} 
+    viewport={{ once: true }} 
+    transition={{ duration: 0.5, ease: 'easeOut' }} 
+    className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
+    // Play or Pause the video directly when clicking the container
+    onClick={(e) => {
+      const video = e.currentTarget.querySelector('video');
+      if (video) {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
       }
-      setIsPlaying(!isPlaying);
-    }
-  };
+    }}
+  > 
+    <video 
+      src="/assets/media/croppedgideonnamibia.MP4" 
+      className="w-full h-[600px] object-cover object-top" 
+      loop
+      autoPlay     
+      muted        
+      playsInline  
+      width={380} 
+      height={600} 
+      // Synchronize the play/pause state text when actions occur
+      onPlay={(e) => {
+        const btn = e.currentTarget.parentElement?.querySelector('.play-btn');
+        if (btn) btn.textContent = 'PAUSE';
+      }}
+      onPause={(e) => {
+        const btn = e.currentTarget.parentElement?.querySelector('.play-btn');
+        if (btn) btn.textContent = 'PLAY';
+      }}
+    />
 
-  const toggleMute = (e) => {
-    e.stopPropagation(); 
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
+    {/* Stabilized Controls Panel (Only visible on hover) */}
+    <div className="absolute inset-x-0 bottom-4 flex justify-between items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+      {/* Play/Pause Label */}
+      <button className="play-btn bg-black/60 text-white px-3 py-1.5 rounded-md text-xs font-semibold backdrop-blur-sm pointer-events-none">
+        PAUSE
+      </button>
 
-  // 2. Your exact UI rendering block returns safely below
-  return (
-    <div className="relative w-[380px] mx-auto z-0"> 
-      
-      {/* The Cropping Container */} 
-      <motion.div 
-        initial={{ opacity: 0, x: -30 }} 
-        whileInView={{ opacity: 1, x: 0 }} 
-        viewport={{ once: true }} 
-        transition={{ duration: 0.5, ease: 'easeOut' }} 
-        className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative cursor-pointer group"
-        onClick={togglePlay} 
-      > 
-        <video 
-          ref={videoRef}
-          src="/assets/media/croppedgideonnamibia.MP4" 
-          className="w-full h-[600px] object-cover object-top" 
-          loop
-          autoPlay     
-          muted        
-          playsInline  
-          width={380} 
-          height={600} 
-        />
-
-        {/* Floating Stabilized Custom Controls (Only visible on Hover) */}
-        <div className="absolute inset-x-0 bottom-4 flex justify-between items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
-          <button className="bg-black/60 text-white px-3 py-1.5 rounded-md text-xs font-semibold backdrop-blur-sm">
-            {isPlaying ? 'PAUSE' : 'PLAY'}
-          </button>
-
-          <button 
-            onClick={toggleMute} 
-            className="bg-primary text-black px-3 py-1.5 rounded-md text-xs font-bold shadow-md"
-          >
-            {isMuted ? '🔊 UNMUTE' : '🔇 MUTE'}
-          </button>
-        </div>
-      </motion.div> 
-
-      {/* Gold Framing Element */} 
-      <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
+      {/* Mute/Unmute Button (Works without global React state variables) */}
+      <button 
+        onClick={(e) => {
+          e.stopPropagation(); // Prevents the video from pausing when clicking mute
+          const video = e.currentTarget.closest('.group')?.querySelector('video');
+          if (video) {
+            video.muted = !video.muted;
+            e.currentTarget.textContent = video.muted ? '🔊 UNMUTE' : '🔇 MUTE';
+          }
+        }} 
+        className="bg-primary text-black px-3 py-1.5 rounded-md text-xs font-bold shadow-md"
+      >
+        🔊 UNMUTE
+      </button>
     </div>
-  );
-})()}
+  </motion.div> 
+
+  {/* Gold Framing Element */} 
+  <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
+</div>
 
 
 
