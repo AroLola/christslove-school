@@ -166,7 +166,7 @@ export default function HomePage() {
     whileInView={{ opacity: 1, x: 0 }} 
     viewport={{ once: true }} 
     transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="group w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative" 
+    className="group w-full h-[580px] overflow-hidden rounded-lg shadow-lg relative" 
   > 
     <video 
       src="/assets/media/gideonnam-full.MP4" 
