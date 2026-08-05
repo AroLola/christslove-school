@@ -302,7 +302,6 @@ export default function ContactPage() {
                     <input id="phone" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors" placeholder="(555) 000-0000" /> 
                   </motion.div>
 
-                  {/* Clean, Integrated Subject Dropdown Menu */}
                   <motion.div variants={fadeUp}>
                     <label htmlFor="subject" className="block text-sm font-medium text-secondary mb-1.5">Subject <span className="text-primary">*</span></label>
                     <select 
