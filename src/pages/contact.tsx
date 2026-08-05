@@ -1,6 +1,6 @@
-import { Helmet } from '@dr.pogodin/react-helmet';
+import { Helmet } from '@dr.pogonov/react-helmet';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, BookOpen, Heart, Landmark, Send } from 'lucide-react';
 import { useState } from 'react';
 import StaticMap from '@/components/StaticMap';
 
@@ -8,17 +8,30 @@ const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } }
 };
-const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } }
+};
 
 const site = 'https://christslovechristianschool.info';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
+  
+  // Support Form State
+  const [supportSubmitted, setSupportSubmitted] = useState(false);
+  const [supportForm, setSupportForm] = useState({ donorName: '', amount: '', reference: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+  };
+
+  const handleSupportSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSupportSubmitted(true);
   };
 
   const title = "Contact Us — Christ's Love Christian School";
@@ -53,7 +66,7 @@ export default function ContactPage() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
       </section>
 
-         {/* NEW SECTION: Support Us (2x2 Grid Layout with Dark Blue Background) */}
+      {/* NEW SECTION: Support Us (2x2 Grid Layout with Dark Blue Background) */}
       <section className="py-20 bg-[#0B192C] text-white border-b border-white/10 relative overflow-hidden">
         {/* Subtle geometric pattern layer to enrich the dark blue section */}
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
@@ -137,7 +150,7 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-                 {/* ROW 2, COL 2: Account Form Setup */}
+            {/* ROW 2, COL 2: Account Form Setup */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -170,7 +183,7 @@ export default function ContactPage() {
                     />
                   </div>
 
-    <div className="grid grid-cols-2 gap-4"
+                  <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-white/80 mb-1">Amount (NAD)</label>
                       <input 
@@ -209,15 +222,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-           
-      {/* Contact Contents*/}
+      {/* Contact Contents (Your Original School Info and Form Block) */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
             {/* Info */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
               <motion.h2 variants={fadeUp} className="font-heading text-3xl text-secondary mb-8">School Information</motion.h2>
-
               <motion.div variants={stagger} className="space-y-6 mb-10">
                 <motion.div variants={fadeUp} className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
@@ -232,7 +243,6 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </motion.div>
-
                 <motion.div variants={fadeUp} className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Phone size={18} className="text-primary" />
@@ -243,7 +253,6 @@ export default function ContactPage() {
                     <a href="tel:+264817531121" className="text-foreground/70 text-sm hover:text-primary transition-colors block">Cell: +264 81 7531121</a>
                   </div>
                 </motion.div>
-
                 <motion.div variants={fadeUp} className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Mail size={18} className="text-primary" />
@@ -253,19 +262,17 @@ export default function ContactPage() {
                     <a href="mailto:info@christslovechristianschool.info" className="text-foreground/70 text-sm hover:text-primary transition-colors">inquiries@christslovechristianschool.info</a>
                   </div>
                 </motion.div>
-
                 <motion.div variants={fadeUp} className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Clock size={18} className="text-primary" />
                   </div>
                   <div>
                     <p className="font-semibold text-secondary text-sm mb-1">Office Hours</p>
-                    <p className="text-foreground/70 text-sm leading-relaxed">Monday – Friday: 8:00 AM – 5:00 PM<br />Saturday &amp; Sunday: Closed
-
-                    </p>
+                    <p className="text-foreground/70 text-sm leading-relaxed">Monday – Friday: 8:00 AM – 5:00 PM<br />Saturday &amp; Sunday: Closed </p>
                   </div>
                 </motion.div>
               </motion.div>
+            </motion.div>
 
               {/* Map */}
               <motion.div variants={fadeUp} className="rounded-lg overflow-hidden border border-border">
