@@ -157,10 +157,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
               
  
- {/* Centered Outer Wrapper */} 
-<div className="relative w-[440px] mx-auto z-0">  
+{/* Centered Outer Wrapper */} 
+<div className="relative w-[440px] mx-auto z-0"> 
   
-  {/* The Cropping Container - Added 'group' to listen for hovers */}
+  {/* The Cropping Container - Added 'group' to listen for hovers */} 
   <motion.div 
     initial={{ opacity: 0, x: -30 }} 
     whileInView={{ opacity: 1, x: 0 }} 
@@ -172,22 +172,19 @@ export default function HomePage() {
       src="/assets/media/gideonnam-full.MP4" 
       // Added transition, absolute positioning, and a hover shift to bring controls up
       className="absolute top-0 left-0 w-full h-[600px] object-cover object-top transition-transform duration-300 ease-out group-hover:-translate-y-[100px]" 
-      controls
-      loop
-      autoPlay     
-      muted        
-      playsInline  
+      controls 
+      loop 
+      autoPlay 
+      muted 
+      playsInline 
       width={380} 
       height={600} 
     /> 
-  </motion.div>
+  </motion.div> 
 
-  {/* Gold Framing Element */} 
-  <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
+  {/* Gold Framing Element - Added pointer-events-none to prevent layout blocking */} 
+  <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" /> 
 </div>
-
-
-
 
             {/* Text Content Block */} 
             <div className="flex flex-col justify-center"> 
