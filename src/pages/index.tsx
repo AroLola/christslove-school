@@ -158,7 +158,7 @@ export default function HomePage() {
               
  
 {/* Centered Outer Wrapper */} 
-<div className="relative w-[440px] mx-auto z-0"> 
+<div className="relative w-[480px] mx-auto z-0"> 
   
   {/* The Cropping Container - Added 'group' to listen for hovers */} 
   <motion.div 
@@ -183,7 +183,7 @@ export default function HomePage() {
   </motion.div> 
 
   {/* Gold Framing Element - Added pointer-events-none to prevent layout blocking */} 
-  <div className="absolute -bottom-7 -right-8 -top 4 -left-4 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" /> 
+  <div className="absolute -bottom-7 -right-8 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" /> 
 </div>
 
             {/* Text Content Block */} 
