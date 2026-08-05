@@ -68,7 +68,6 @@ export default function ContactPage() {
 
       {/* NEW SECTION: Support Us (2x2 Grid Layout with Dark Blue Background) */}
       <section className="py-20 bg-[#0B192C] text-white border-b border-white/10 relative overflow-hidden">
-        {/* Subtle geometric pattern layer to enrich the dark blue section */}
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -183,7 +182,8 @@ export default function ContactPage() {
                     />
                   </div>
 
-                                     <div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
                       <label className="block text-xs font-semibold text-white/80 mb-1">Amount (NAD)</label>
                       <input 
                         type="text" 
@@ -221,11 +221,12 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Contents layer */}
+      {/* Contact Contents Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-            {/* Info */}
+            
+            {/* Info Column */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
               <motion.h2 variants={fadeUp} className="font-heading text-3xl text-secondary mb-8">School Information</motion.h2>
               <motion.div variants={stagger} className="space-y-6 mb-10">
@@ -237,14 +238,14 @@ export default function ContactPage() {
                     <p className="font-semibold text-secondary text-sm mb-1">Address</p>
                     <p className="text-foreground/70 text-sm leading-relaxed"> Erf 283 Gemini Street, Dorado Park<br /> P.O. Box 8149, Bachbrecht<br /> Windhoek </p>
                   </div>
-                </motion.div>
                 <motion.div variants={fadeUp} className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Phone size={18} className="text-primary" />
                   </div>
                   <div>
                     <p className="font-semibold text-secondary text-sm mb-1">Phone</p>
-                    <a href="tel:+264613042333" className="text-foreground/70 text-sm hover:text-primary transition-colors block">Tel: +264 61 304233</a> <a href="tel:+264817531121" className="text-foreground/70 text-sm hover:text-primary transition-colors block">Cell: +264 81 7531121</a>
+                    <a href="tel:+264613042333" className="text-foreground/70 text-sm hover:text-primary transition-colors block">Tel: +264 61 304233</a> 
+                    <a href="tel:+264817531121" className="text-foreground/70 text-sm hover:text-primary transition-colors block">Cell: +264 81 7531121</a>
                   </div>
                 </motion.div>
                 <motion.div variants={fadeUp} className="flex gap-4">
@@ -267,7 +268,7 @@ export default function ContactPage() {
                 </motion.div>
               </motion.div>
 
-              {/* Map Layout Block with your exact settings */}
+              {/* Map Layout Block */}
               <motion.div variants={fadeUp} className="rounded-lg overflow-hidden border border-border"> 
                 <StaticMap location="Erf 283 Gemini Street, Dorado Park, Windhoek, Namibia" height={280} zoom={16} /> 
               </motion.div>
@@ -301,7 +302,6 @@ export default function ContactPage() {
                     <input id="phone" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors" placeholder="(555) 000-0000" /> 
                   </motion.div>
 
-                  {/* Rest of Form inputs and page closures */}
                   <motion.div variants={fadeUp}>
                     <label htmlFor="subject" className="block text-sm font-medium text-secondary mb-1.5">Subject <span className="text-primary">*</span></label>
                     <input id="subject" type="text" required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors" placeholder="How can we help?" />
@@ -322,6 +322,13 @@ export default function ContactPage() {
                 </form>
               )}
             </motion.div>
+
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
 
 
               {/* Map */}
