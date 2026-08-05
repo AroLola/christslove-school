@@ -157,79 +157,76 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
               
  
-import { useRef, useState } from 'react';
+{(() => {
+  // 1. Logic and state variables are declared safely right here
+  const videoRef = React.useRef(null);
+  const [isPlaying, setIsPlaying] = React.useState(true);
+  const [isMuted, setIsMuted] = React.useState(true);
 
-// ... inside your component:
-const videoRef = useRef(null);
-const [isPlaying, setIsPlaying] = useState(true);
-const [isMuted, setIsMuted] = useState(true);
-
-const togglePlay = () => {
-  if (videoRef.current) {
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
     }
-    setIsPlaying(!isPlaying);
-  }
-};
+  };
 
-const toggleMute = (e) => {
-  e.stopPropagation(); // Prevents pausing when clicking the mute button
-  if (videoRef.current) {
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
-  }
-};
+  const toggleMute = (e) => {
+    e.stopPropagation(); 
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
 
-return (
-  /* Centered Outer Wrapper - EXACTLY AS SENT */ 
-  <div className="relative w-[380px] mx-auto z-0"> 
-    
-    {/* The Cropping Container - EXACTLY AS SENT */} 
-    <motion.div 
-      initial={{ opacity: 0, x: -30 }} 
-      whileInView={{ opacity: 1, x: 0 }} 
-      viewport={{ once: true }} 
-      transition={{ duration: 0.5, ease: 'easeOut' }} 
-      className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative cursor-pointer group"
-      onClick={togglePlay} // Clicking anywhere on the video plays/pauses it
-    > 
-      <video 
-        ref={videoRef}
-        src="/assets/media/croppedgideonnamibia.MP4" 
-        className="w-full h-[600px] object-cover object-top" 
-        // Removed native 'controls' to stabilize layout rendering
-        loop
-        autoPlay     
-        muted        
-        playsInline  
-        width={380} 
-        height={600} 
-      />
+  // 2. Your exact UI rendering block returns safely below
+  return (
+    <div className="relative w-[380px] mx-auto z-0"> 
+      
+      {/* The Cropping Container */} 
+      <motion.div 
+        initial={{ opacity: 0, x: -30 }} 
+        whileInView={{ opacity: 1, x: 0 }} 
+        viewport={{ once: true }} 
+        transition={{ duration: 0.5, ease: 'easeOut' }} 
+        className="w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative cursor-pointer group"
+        onClick={togglePlay} 
+      > 
+        <video 
+          ref={videoRef}
+          src="/assets/media/croppedgideonnamibia.MP4" 
+          className="w-full h-[600px] object-cover object-top" 
+          loop
+          autoPlay     
+          muted        
+          playsInline  
+          width={380} 
+          height={600} 
+        />
 
-      {/* Floating Stabilized Custom Controls (Only visible on Hover) */}
-      <div className="absolute inset-x-0 bottom-4 flex justify-between items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
-        {/* Play/Pause Indicator Button */}
-        <button className="bg-black/60 text-white px-3 py-1.5 rounded-md text-xs font-semibold backdrop-blur-sm">
-          {isPlaying ? 'PAUSE' : 'PLAY'}
-        </button>
+        {/* Floating Stabilized Custom Controls (Only visible on Hover) */}
+        <div className="absolute inset-x-0 bottom-4 flex justify-between items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+          <button className="bg-black/60 text-white px-3 py-1.5 rounded-md text-xs font-semibold backdrop-blur-sm">
+            {isPlaying ? 'PAUSE' : 'PLAY'}
+          </button>
 
-        {/* Mute/Unmute Controller Button */}
-        <button 
-          onClick={toggleMute} 
-          className="bg-primary/95 text-black px-3 py-1.5 rounded-md text-xs font-bold shadow-md hover:bg-primary"
-        >
-          {isMuted ? '🔊 UNMUTE' : '🔇 MUTE'}
-        </button>
-      </div>
-    </motion.div> 
+          <button 
+            onClick={toggleMute} 
+            className="bg-primary text-black px-3 py-1.5 rounded-md text-xs font-bold shadow-md"
+          >
+            {isMuted ? '🔊 UNMUTE' : '🔇 MUTE'}
+          </button>
+        </div>
+      </motion.div> 
 
-    {/* Gold Framing Element - EXACTLY AS SENT */} 
-    <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
-  </div>
-);
+      {/* Gold Framing Element */} 
+      <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
+    </div>
+  );
+})()}
 
 
 
