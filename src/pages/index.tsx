@@ -158,39 +158,34 @@ export default function HomePage() {
               
  
  {/* Centered Outer Wrapper */} 
-<div className="relative w-[440px] mx-auto z-0"> 
+<div className="relative w-[440px] mx-auto z-0">  
   
+  {/* The Cropping Container - Added 'group' to listen for hovers */}
+  <motion.div 
+    initial={{ opacity: 0, x: -30 }} 
+    whileInView={{ opacity: 1, x: 0 }} 
+    viewport={{ once: true }} 
+    transition={{ duration: 0.5, ease: 'easeOut' }} 
+    className="group w-full h-[500px] overflow-hidden rounded-lg shadow-lg relative" 
+  > 
     <video 
-      src="/assets/media/croppedgideonnamibia.MP4" 
-      className="w-full h-[600px] object-cover object-top" 
-      controls 
-      loop 
-      autoPlay 
-      muted 
-      playsInline 
+      src="/assets/media/gideonnam-full.MP4" 
+      // Added transition, absolute positioning, and a hover shift to bring controls up
+      className="absolute top-0 left-0 w-full h-[600px] object-cover object-top transition-transform duration-300 ease-out group-hover:-translate-y-[100px]" 
+      controls
+      loop
+      autoPlay     
+      muted        
+      playsInline  
       width={380} 
       height={600} 
     /> 
-  </motion.div> 
+  </motion.div>
 
   {/* Gold Framing Element */} 
-  <div 
-    className="absolute border-2 border-primary rounded-lg -z-1" 
-    style={{
-      // Explicitly matches the exact visible height of your cropping container
-      height: '500px', 
-      width: '100%',
-      // Shifts it down and right cleanly without using bottom/right layout math
-      top: '18px',
-      left: '18px'
-    }}
-  /> 
+  <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
 </div>
 
-
-  {/* Gold Framing Element */} 
-  <div className="absolute -bottom-2 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
-</div>
 
 
 
