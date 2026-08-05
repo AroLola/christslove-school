@@ -158,7 +158,7 @@ export default function HomePage() {
               
  
  {/* Centered Outer Wrapper */} 
-<div className="relative w-[400px] mx-auto z-0"> 
+<div className="relative w-[440px] mx-auto z-0"> 
   
  {/* Video Block with Gold Framing */} 
 <motion.div 
@@ -170,14 +170,14 @@ export default function HomePage() {
 > 
   <video 
     src="/assets/media/croppedgideonnamibia.MP4" 
-    className="w-full h-auto aspect-[380/600] object-fill rounded-lg shadow-lg" 
+    className="w-full h-auto aspect-[400/640] object-fill rounded-lg shadow-lg" 
     controls
     loop
     autoPlay     // Added for automatic playback
     muted        // Required by browsers to allow autoPlay
     playsInline  // Required for iOS/mobile devices
-    width={380} 
-    height={600} 
+    width={400} 
+    height={640} 
   /> 
   <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
 </motion.div>
