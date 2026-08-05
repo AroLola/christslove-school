@@ -183,7 +183,7 @@ export default function HomePage() {
   </motion.div> 
 
   {/* Gold Framing Element - Added pointer-events-none to prevent layout blocking */} 
-  <div className="absolute -bottom 2 -right 2 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" /> 
+  <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" /> 
 </div>
 
             {/* Text Content Block */} 
