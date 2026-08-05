@@ -160,58 +160,28 @@ export default function HomePage() {
  {/* Centered Outer Wrapper */} 
 <div className="relative w-[400px] mx-auto z-0"> 
   
-  {/* The Cropping Container */} 
-  <motion.div 
-    initial={{ opacity: 0, x: -30 }} 
-    whileInView={{ opacity: 1, x: 0 }} 
-    viewport={{ once: true }} 
-    transition={{ duration: 0.5, ease: 'easeOut' }} 
-    className="w-full h-[680px] overflow-hidden rounded-lg shadow-lg relative group cursor-pointer"
-    onClick={(e) => {
-      const v = e.currentTarget.getElementsByTagName('video')[0];
-      if (v) v.paused ? v.play() : v.pause();
-    }}
-  > 
-    <video 
-      src="/assets/media/croppedgideonnamibia.MP4" 
-      className="w-full h-[640px] object-cover object-top" 
-      loop
-      autoPlay     
-      muted        
-      playsInline  
-      width={380} 
-      height={640} 
-      onPlay={(e) => {
-        const b = e.currentTarget.parentElement.getElementsByTagName('button')[0];
-        if (b) b.innerHTML = 'PAUSE';
-      }}
-      onPause={(e) => {
-        const b = e.currentTarget.parentElement.getElementsByTagName('button')[0];
-        if (b) b.innerHTML = 'PLAY';
-      }}
-    />
+ {/* Video Block with Gold Framing */} 
+<motion.div 
+  initial={{ opacity: 0, x: -30 }} 
+  whileInView={{ opacity: 1, x: 0 }} 
+  viewport={{ once: true }} 
+  transition={{ duration: 0.5, ease: 'easeOut' }} 
+  className="relative" 
+> 
+  <video 
+    src="/assets/media/croppedgideonnamibia.MP4" 
+    className="w-full h-auto aspect-[380/600] object-fill rounded-lg shadow-lg" 
+    controls
+    loop
+    autoPlay     // Added for automatic playback
+    muted        // Required by browsers to allow autoPlay
+    playsInline  // Required for iOS/mobile devices
+    width={380} 
+    height={600} 
+  /> 
+  <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-10" /> 
+</motion.div>
 
-    {/* Controls panel overlay (displays cleanly inside the visible window on hover) */}
-    <div className="absolute inset-x-0 bottom-4 flex justify-between items-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
-      <button className="bg-black/60 text-white px-3 py-1.5 rounded-md text-xs font-semibold backdrop-blur-sm pointer-events-none">
-        PAUSE
-      </button>
-
-      <button 
-        onClick={(e) => {
-          e.stopPropagation();
-          const v = e.currentTarget.parentElement.parentElement.getElementsByTagName('video')[0];
-          if (v) {
-            v.muted = !v.muted;
-            e.currentTarget.innerHTML = v.muted ? '🔊 UNMUTE' : '🔇 MUTE';
-          }
-        }} 
-        className="bg-primary text-black px-3 py-1.5 rounded-md text-xs font-bold shadow-md"
-      >
-        🔊 UNMUTE
-      </button>
-    </div>
-  </motion.div> 
 
   {/* Gold Framing Element */} 
   <div className="absolute -bottom-2 -right-4 w-full h-full border-2 border-primary rounded-lg -z-1" /> 
