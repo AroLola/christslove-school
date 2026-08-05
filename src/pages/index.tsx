@@ -171,13 +171,13 @@ export default function HomePage() {
     <video 
       src="/assets/media/gideonnam-full.MP4" 
       // Added transition, absolute positioning, and a hover shift to bring controls up
-      className="absolute top-0 left-0 w-full h-[680px] object-cover object-top transition-transform duration-380 ease-out group-hover:-translate-y-[100px]" 
+      className="absolute top-0 left-0 w-full h-[680px] object-cover object-top transition-transform duration-360 ease-out group-hover:-translate-y-[100px]" 
       controls 
       loop 
       autoPlay 
       muted 
       playsInline 
-      width={380} 
+      width={360} 
       height={680} 
     /> 
   </motion.div> 
