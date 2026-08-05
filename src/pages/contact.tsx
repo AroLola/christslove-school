@@ -274,7 +274,7 @@ export default function ContactPage() {
               </motion.div>
             </motion.div> 
 
-                       {/* General Message Form Container */}
+                           {/* General Message Form Container */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
               <motion.h2 variants={fadeUp} className="font-heading text-3xl text-secondary mb-8">Send Us a Message</motion.h2> 
               {submitted ? (
@@ -302,23 +302,38 @@ export default function ContactPage() {
                     <input id="phone" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors" placeholder="(555) 000-0000" /> 
                   </motion.div>
 
+                  {/* Clean, Integrated Subject Dropdown Menu */}
                   <motion.div variants={fadeUp}>
                     <label htmlFor="subject" className="block text-sm font-medium text-secondary mb-1.5">Subject <span className="text-primary">*</span></label>
-                    <input id="subject" type="text" required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors" placeholder="How can we help?" />
+                    <select 
+                      id="subject" 
+                      required 
+                      value={form.subject} 
+                      onChange={(e) => setForm({ ...form, subject: e.target.value })} 
+                      className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
+                    >
+                      <option value="">Select a subject…</option>
+                      <option value="admissions">Admissions Inquiry</option>
+                      <option value="tour">Schedule a Tour</option>
+                      <option value="academics">Academics Question</option>
+                      <option value="tuition">Tuition &amp; Fees</option>
+                      <option value="general">General Inquiry</option>
+                    </select>
                   </motion.div>
 
                   <motion.div variants={fadeUp}>
                     <label htmlFor="message" className="block text-sm font-medium text-secondary mb-1.5">Message <span className="text-primary">*</span></label>
-                    <textarea id="message" rows={5} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors resize-none" placeholder="Your message details..." />
+                    <textarea id="message" required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors resize-none" placeholder="Tell us about your family and how we can help…" />
                   </motion.div>
 
-                  <motion.button 
-                    variants={fadeUp} 
-                    type="submit" 
-                    className="w-full bg-secondary text-secondary-foreground font-semibold text-sm py-3 rounded hover:bg-secondary/90 transition-colors shadow"
-                  >
-                    Submit Message
-                  </motion.button>
+                  <motion.div variants={fadeUp}>
+                    <button 
+                      type="submit" 
+                      className="w-full py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors shadow"
+                    >
+                      Send Message
+                    </button>
+                  </motion.div>
                 </form>
               )}
             </motion.div>
@@ -328,120 +343,4 @@ export default function ContactPage() {
       </section>
     </>
   );
-}
-
-      {/* Map */}
-              <motion.div variants={fadeUp} className="rounded-lg overflow-hidden border border-border">
-                <StaticMap
-                  location="Erf 283 Gemini Street, Dorado Park, Windhoek, Namibia"
-                  height={280}
-                  zoom={16} />
-                
-              </motion.div>
-            </motion.div>
-
-            {/* Form */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
-              <motion.h2 variants={fadeUp} className="font-heading text-3xl text-secondary mb-8">Send Us a Message</motion.h2>
-
-              {submitted ?
-              <div
-                className="bg-primary/10 border border-primary/30 rounded-xl p-10 text-center">
-                
-                  <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <Mail size={24} className="text-primary" />
-                  </div>
-                  <h3 className="font-heading text-2xl text-secondary mb-3">Message Received!</h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    Thank you for reaching out. A member of our team will be in touch with you shortly. We look forward to connecting with your family.
-                  </p>
-                </div> :
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <motion.div variants={fadeUp}>
-                      <label htmlFor="name" className="block text-sm font-medium text-secondary mb-1.5">Full Name <span className="text-primary">*</span></label>
-                      <input
-                      id="name"
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
-                      placeholder="Your name" />
-                    
-                    </motion.div>
-                    <motion.div variants={fadeUp}>
-                      <label htmlFor="email" className="block text-sm font-medium text-secondary mb-1.5">Email Address <span className="text-primary">*</span></label>
-                      <input
-                      id="email"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
-                      placeholder="your@email.com" />
-                    
-                    </motion.div>
-                  </div>
-
-                  <motion.div variants={fadeUp}>
-                    <label htmlFor="phone" className="block text-sm font-medium text-secondary mb-1.5">Phone Number</label>
-                    <input
-                    id="phone"
-                    type="tel"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors"
-                    placeholder="(555) 000-0000" />
-                  
-                  </motion.div>
-
-                  <motion.div variants={fadeUp}>
-                    <label htmlFor="subject" className="block text-sm font-medium text-secondary mb-1.5">Subject <span className="text-primary">*</span></label>
-                    <select
-                    id="subject"
-                    required
-                    value={form.subject}
-                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors">
-                    
-                      <option value="">Select a subject…</option>
-                      <option value="admissions">Admissions Inquiry</option>
-                      <option value="tour">Schedule a Tour</option>
-                      <option value="academics">Academics Question</option>
-                      <option value="tuition">Tuition & Fees</option>
-                      <option value="general">General Inquiry</option>
-                    </select>
-                  </motion.div>
-
-                  <motion.div variants={fadeUp}>
-                    <label htmlFor="message" className="block text-sm font-medium text-secondary mb-1.5">Message <span className="text-primary">*</span></label>
-                    <textarea
-                    id="message"
-                    required
-                    rows={5}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors resize-none"
-                    placeholder="Tell us about your family and how we can help…" />
-                  
-                  </motion.div>
-
-                  <motion.div variants={fadeUp}>
-                    <button
-                    type="submit"
-                    className="w-full py-3.5 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors">
-                    
-                      Send Message
-                    </button>
-                  </motion.div>
-                </form>
-              }
-            </motion.div>
-          </div>
-        </div>
-      </section>
-    </>);
-
 }
