@@ -53,6 +53,163 @@ export default function ContactPage() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
       </section>
 
+         {/* NEW SECTION: Support Us (2x2 Grid Layout with Dark Blue Background) */}
+      <section className="py-20 bg-[#0B192C] text-white border-b border-white/10 relative overflow-hidden">
+        {/* Subtle geometric pattern layer to enrich the dark blue section */}
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={stagger}
+            className="mb-14 text-center max-w-2xl mx-auto"
+          >
+            <motion.p variants={fadeUp} className="text-primary font-medium tracking-widest uppercase text-xs mb-2">Partner With Our Vision</motion.p>
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl text-white mb-4">Support Us</motion.h2>
+            <motion.div variants={fadeUp} className="w-12 h-1 bg-primary mx-auto rounded" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            
+            {/* ROW 1, COL 1: Video of School Library */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="flex flex-col justify-center"
+            >
+              <div className="w-full h-[340px] rounded-xl overflow-hidden shadow-2xl bg-black relative border border-white/10">
+                <video 
+                  src="/assets/media/school-library.mp4" 
+                  className="w-full h-full object-cover"
+                  controls
+                  loop
+                  muted
+                  playsInline
+                />
+              </div>
+            </motion.div>
+
+            {/* ROW 1, COL 2: Book Donation Text Request */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="bg-white/[0.03] backdrop-blur-md p-8 rounded-xl shadow-xl border border-white/10 flex flex-col justify-center"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-5 text-primary">
+                <BookOpen size={24} />
+              </div>
+              <h3 className="font-heading text-2xl text-white mb-3">Enrich Our School Library</h3>
+              <p className="text-white/80 leading-relaxed mb-4 text-sm md:text-base">
+                Books open worlds of potential for our learners. We are actively expanding our academic and storytelling resources and graciously accept new or gently used educational literature, reference encyclopedias, and children's storybooks.
+              </p>
+              <p className="text-sm font-semibold text-primary flex items-center gap-2">
+                <Heart size={16} className="fill-primary" /> Drop off items directly at our administration office.
+              </p>
+            </motion.div>
+
+            {/* ROW 2, COL 1: Financial Support Request */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="bg-white/[0.03] backdrop-blur-md p-8 rounded-xl shadow-xl border border-white/10 flex flex-col justify-center"
+            >
+              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-5 text-primary">
+                <Landmark size={24} />
+              </div>
+              <h3 className="font-heading text-2xl text-white mb-3">Financial Contributions</h3>
+              <p className="text-white/80 leading-relaxed mb-4 text-sm md:text-base">
+                Your direct generosity helps fund learning resource grants, subsidize student tuition pathways, and modernize vital classroom facilities. Every transaction builds securely into our development foundations.
+              </p>
+              <div className="bg-black/30 p-4 rounded-lg text-xs font-mono space-y-1.5 border border-white/10 text-white/90">
+                <p className="font-bold text-sm text-primary mb-1 font-sans">Official School Account Details:</p>
+                <p><span className="text-white/50">Bank:</span> Bank Windhoek</p>
+                <p><span className="text-white/50">Account Name:</span> Christ's Love Christian School</p>
+                <p><span className="text-white/50">Account No:</span> 8004561234</p>
+                <p><span className="text-white/50">Branch Code:</span> 481-972 (Bachbrecht)</p>
+              </div>
+            </motion.div>
+
+                 {/* ROW 2, COL 2: Account Form Setup */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="bg-white/[0.03] backdrop-blur-md p-8 rounded-xl shadow-xl border border-white/10 flex flex-col justify-center"
+            >
+              {supportSubmitted ? (
+                <div className="text-center py-8">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/30">
+                    ✓
+                  </div>
+                  <h4 className="font-heading text-xl text-white mb-2">Notification Sent</h4>
+                  <p className="text-white/70 text-sm">Thank you for notifying us of your contribution. We will verify your transmission reference shortly.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSupportSubmit} className="space-y-4">
+                  <h3 className="font-heading text-xl text-white mb-1">Log Bank Remittance</h3>
+                  <p className="text-xs text-white/60 mb-3">Submit your transfer information directly to our registry department.</p>
+                  
+                  <div>
+                    <label className="block text-xs font-semibold text-white/80 mb-1">Donor Name / Organization</label>
+                    <input 
+                      type="text" 
+                      required
+                      className="w-full bg-black/20 border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary placeholder-white/30"
+                      placeholder="Your name"
+                      value={supportForm.donorName}
+                      onChange={(e) => setSupportForm({...supportForm, donorName: e.target.value})}
+                    />
+                  </div>
+
+    <div className="grid grid-cols-2 gap-4"
+                    <div>
+                      <label className="block text-xs font-semibold text-white/80 mb-1">Amount (NAD)</label>
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full bg-black/20 border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary placeholder-white/30"
+                        placeholder="e.g. 500"
+                        value={supportForm.amount}
+                        onChange={(e) => setSupportForm({...supportForm, amount: e.target.value})}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-white/80 mb-1">Payment Reference</label>
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full bg-black/20 border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary placeholder-white/30"
+                        placeholder="Deposit ref #"
+                        value={supportForm.reference}
+                        onChange={(e) => setSupportForm({...supportForm, reference: e.target.value})}
+                      />
+                    </div>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    className="w-full bg-primary text-black font-semibold text-sm py-2.5 rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 mt-2 shadow-lg"
+                  >
+                    <Send size={14} /> Send Remittance Data
+                  </button>
+                </form>
+              )}
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+           
       {/* Contact Contents*/}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
@@ -104,7 +261,6 @@ export default function ContactPage() {
                   <div>
                     <p className="font-semibold text-secondary text-sm mb-1">Office Hours</p>
                     <p className="text-foreground/70 text-sm leading-relaxed">Monday – Friday: 8:00 AM – 5:00 PM<br />Saturday &amp; Sunday: Closed
-
 
                     </p>
                   </div>
