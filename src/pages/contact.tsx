@@ -1,4 +1,4 @@
-import { Helmet } from '@dr.pogonov/react-helmet';
+ import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, BookOpen, Heart, Landmark, Send } from 'lucide-react';
 import { useState } from 'react';
@@ -66,7 +66,7 @@ export default function ContactPage() {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
       </section>
 
-      {/* NEW SECTION: Support Us (2x2 Grid Layout with Dark Blue Background) */}
+      {/* SECTION: Support Us (2x2 Grid Layout with Dark Blue Background) */}
       <section className="py-20 bg-[#0B192C] text-white border-b border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
         
@@ -236,8 +236,13 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-secondary text-sm mb-1">Address</p>
-                    <p className="text-foreground/70 text-sm leading-relaxed"> Erf 283 Gemini Street, Dorado Park<br /> P.O. Box 8149, Bachbrecht<br /> Windhoek </p>
+                    <p className="text-foreground/70 text-sm leading-relaxed">
+                      Erf 283 Gemini Street, Dorado Park<br />
+                      P.O. Box 8149, Bachbrecht<br />
+                      Windhoek
+                    </p>
                   </div>
+                </motion.div>
                 <motion.div variants={fadeUp} className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Phone size={18} className="text-primary" />
@@ -274,7 +279,7 @@ export default function ContactPage() {
               </motion.div>
             </motion.div> 
 
-                           {/* General Message Form Container */}
+            {/* General Message Form Container */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}> 
               <motion.h2 variants={fadeUp} className="font-heading text-3xl text-secondary mb-8">Send Us a Message</motion.h2> 
               {submitted ? (
@@ -322,7 +327,7 @@ export default function ContactPage() {
 
                   <motion.div variants={fadeUp}>
                     <label htmlFor="message" className="block text-sm font-medium text-secondary mb-1.5">Message <span className="text-primary">*</span></label>
-                    <textarea id="message" required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors resize-none" placeholder="Tell us about your family and how we can help…" />
+                   <textarea id="message" required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-2.5 border border-border rounded bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors resize-none" placeholder="Tell us about your family and how we can help…" />
                   </motion.div>
 
                   <motion.div variants={fadeUp}>
