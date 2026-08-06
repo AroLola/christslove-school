@@ -33,39 +33,44 @@ export default function ContactPage() {
     // If you want Web3Forms here too, add it here later!
   };
 
-  // 2. KEEP THIS - Your new bank remittance worker
-  const handleSupportSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSupportSending(true);
+  // 2. Your new bank remittance worker
+ const handleSupportSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setSupportSending(true);
 
-    const formData = {
-      access_key: "22370a0d-46fa-49a7-b81d-959ab241401d",
-      subject: `New Bank Remittance Logged - ${supportForm.donorName}`,
-      "Donor / Organization": supportForm.donorName,
-      "Amount (NAD)": supportForm.amount,
-      "Payment Reference": supportForm.reference,
-      from_name: "School Website Remittance Registry"
-    };
+  const formData = new FormData();
+  
+  // ✅ Placed your Web3Forms access key straight into the pipeline variables
+  formData.append("access_key", "22370a0d-46fa-49a7-b81d-959ab241401d"); 
+  formData.append("subject", `New Bank Remittance Logged - ${supportForm.donorName}`);
+  formData.append("from_name", "School Website Remittance Registry");
+  
+  formData.append("Donor / Organization", supportForm.donorName);
+  formData.append("Amount (NAD)", supportForm.amount);
+  formData.append("Payment Reference", supportForm.reference);
 
-    try {
-      const response = await fetch("https://web3forms.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(formData)
-      });
-      const result = await response.json();
-      if (result.success) {
-        setSupportSubmitted(true);
-        setSupportForm({ donorName: '', amount: '', reference: '' });
-      } else {
-        alert("Submission failed. Please try again.");
-      }
-    } catch (error) {
-      alert("Connection lost. Please try again.");
-    } finally {
-      setSupportSending(false);
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      setSupportSubmitted(true);
+      setSupportForm({ donorName: '', amount: '', reference: '' });
+    } else {
+      console.error("Web3Forms API reject:", result);
+      alert(result.message || "Submission failed. Please check details or email directly.");
     }
-  };
+  } catch (error) {
+    console.error("Web3Forms network failure:", error);
+    alert("Connection lost. Please confirm your internet access and try again.");
+  } finally {
+    setSupportSending(false);
+  }
+};
 
   const title = "Contact Us — Christ's Love Christian School";
   const description = "Get in touch with Christ's Love Christian School. Find our location, hours, phone number, and send us a message.";
