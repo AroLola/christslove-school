@@ -131,24 +131,25 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             
             {/* ROW 1, COL 1: Video of School Library */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }} 
-              whileInView={{ opacity: 1, x: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="flex flex-col justify-center"
-            >
-              <div className="w-full h-[340px] rounded-xl overflow-hidden shadow-2xl bg-black relative border border-white/10">
-                <video 
-                  src="/assets/media/libraryvid.mp4" 
-                  className="w-full h-full object-cover"
-                  controls
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-            </motion.div>
+           <motion.div 
+  initial={{ opacity: 0, x: -30 }} 
+  whileInView={{ opacity: 1, x: 0 }} 
+  viewport={{ once: true }} 
+  transition={{ duration: 0.5, ease: 'easeOut' }}
+  className="flex flex-col justify-center"
+> 
+  <div className="w-full h-[340px] rounded-xl overflow-hidden shadow-2xl bg-black relative border border-white/10"> 
+    <video 
+      src="/assets/media/libraryvid.mp4" 
+      className="w-full h-full object-cover"
+      controls 
+      loop 
+      autoPlay
+      muted 
+      playsInline 
+    /> 
+  </div> 
+</motion.div>
 
             {/* ROW 1, COL 2: Book Donation Text Request */}
             <motion.div 
