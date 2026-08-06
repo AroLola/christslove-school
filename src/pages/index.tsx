@@ -190,7 +190,7 @@ export default function HomePage() {
               
  
       {/* SECTION: Video Component Layout Frame */}
-      <div className="relative w-full max-w-[480px] mx-auto z-0 px-4 md:px-0">
+      <div className="relative w-full max-w-[520px] mx-auto z-0 px-4 md:px-0">
         
         {/* The Cropping Container - Added 'group' to handle subtle desktop hover animations */}
         <motion.div 
