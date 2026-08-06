@@ -1,7 +1,8 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion } from 'motion/react';
-import { MapPin, Phone, Mail, Clock, BookOpen, Heart, Landmark, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, BookOpen, Heart, Landmark, Send, Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import StaticMap from '@/components/StaticMap';
 
 const fadeUp = {
@@ -20,23 +21,57 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
 
-  // Support Form State
-  const [supportSubmitted, setSupportSubmitted] = useState(false);
-  const [supportForm, setSupportForm] = useState({ donorName: '', amount: '', reference: '' });
+// Inside ContactPage component state declarations:
+const [supportSending, setSupportSending] = useState(false);
+const [supportSubmitted, setSupportSubmitted] = useState(false);
+const [supportForm, setSupportForm] = useState({ donorName: '', amount: '', reference: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
+// Connected Web3Forms JavaScript Submitter
+const handleSupportSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setSupportSending(true);
+
+  // Map explicitly matching named form attributes for Web3Forms email layout
+  const formData = {
+    access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", // Drop your key string here
+    subject: `New Bank Remittance Logged - ${supportForm.donorName}`,
+    "Donor / Organization": supportForm.donorName,
+    "Amount (NAD)": supportForm.amount,
+    "Payment Reference": supportForm.reference,
+    from_name: "School Website Remittance Registry"
   };
 
-  const handleSupportSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSupportSubmitted(true);
-  };
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      setSupportSubmitted(true);
+      setSupportForm({ donorName: '', amount: '', reference: '' });
+    } else {
+      console.error("Web3Forms API reject:", result);
+      alert(result.message || "Submission failed. Please check details or email directly.");
+    }
+  } catch (error) {
+    console.error("Web3Forms network failure:", error);
+    alert("Connection lost. Please confirm your internet access and try again.");
+  } finally {
+    setSupportSending(false);
+  }
+};
 
   const title = "Contact Us — Christ's Love Christian School";
-  const description = "Get in touch with Christ's Love Christian School. Find our location, hours, phone number, and send us a message. We'd love to hear from your family.";
+  const description = "Get in touch with Christ's Love Christian School. Find our location, hours, phone number, and send us a message.";
   const canonicalUrl = `${site}/contact`;
+
 
   return (
     <>
@@ -142,7 +177,7 @@ export default function ContactPage() {
               </p>
               <div className="bg-black/30 p-4 rounded-lg text-xs font-mono space-y-1.5 border border-white/10 text-white/90">
                 <p className="font-bold text-sm text-primary mb-1 font-sans">Official School Account Details:</p>
-                <p><span className="text-white/50">Bank:</span> Bank Windhoek</p>
+                <p><span className="text-white/50">Bank:</span> First National Bank (FNB)</p>
                 <p><span className="text-white/50">Account Name:</span> Christ's Love Christian School</p>
                 <p><span className="text-white/50">Account No:</span> ####</p>
                 <p><span className="text-white/50">Branch Code:</span> ###(Bachbrecht)</p>
@@ -207,12 +242,26 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <button 
-                    type="submit" 
-                    className="w-full bg-primary text-black font-semibold text-sm py-2.5 rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 mt-2 shadow-lg"
-                  >
-                    <Send size={14} /> Send Remittance Data
-                  </button>
+ <button 
+  type="submit" 
+  disabled={supportSending}
+  className="w-full bg-primary text-black font-semibold text-sm py-2.5 rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 mt-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {supportSending ? (
+    <>
+      <Loader2 size={14} className="animate-spin" />
+      Processing Delivery...
+    </>
+  ) : (
+    <>
+      <Send size={14} />
+      Send Remittance Data
+    </>
+  )}
+</button>
+
+
+
                 </form>
               )}
             </motion.div>
