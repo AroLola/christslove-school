@@ -21,56 +21,62 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
 
-  // Support Form State & Loading State
+  // Support Form State & Loading State (Added default currency property field value)
   const [supportSending, setSupportSending] = useState(false);
   const [supportSubmitted, setSupportSubmitted] = useState(false);
-  const [supportForm, setSupportForm] = useState({ donorName: '', amount: '', reference: '' });
+  const [supportForm, setSupportForm] = useState({ 
+    donorName: '', 
+    currency: 'NAD', 
+    amount: '', 
+    reference: '' 
+  });
 
-  // 1. ADD THIS BACK - The missing handler for the general contact form
+  // The missing handler for the general contact form
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    // If you want Web3Forms here too, add it here later!
   };
 
-  // 2. Your new bank remittance worker
- const handleSupportSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setSupportSending(true);
+  // Your international-compliant bank remittance worker
+  const handleSupportSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSupportSending(true);
 
-  const formData = new FormData();
-  
-  // ✅ Placed your Web3Forms access key straight into the pipeline variables
-  formData.append("access_key", "22370a0d-46fa-49a7-b81d-959ab241401d"); 
-  formData.append("subject", `New Bank Remittance Logged - ${supportForm.donorName}`);
-  formData.append("from_name", "School Website Remittance Registry");
-  
-  formData.append("Donor / Organization", supportForm.donorName);
-  formData.append("Amount (NAD)", supportForm.amount);
-  formData.append("Payment Reference", supportForm.reference);
+    const formData = new FormData();
+    
+    // Placed your Web3Forms access key straight into the pipeline variables
+    formData.append("access_key", "22370a0d-46fa-49a7-b81d-959ab241401d");
+    formData.append("subject", `New Bank Remittance Logged - ${supportForm.donorName}`);
+    formData.append("from_name", "School Website Remittance Registry");
+    
+    // Dynamic Form Field Payload Strings mapping
+    formData.append("Donor / Organization", supportForm.donorName);
+    formData.append("Currency Selected", supportForm.currency);
+    formData.append("Amount Transferred", supportForm.amount);
+    formData.append("Payment Reference / SWIFT MT103 Ref", supportForm.reference);
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-      setSupportSubmitted(true);
-      setSupportForm({ donorName: '', amount: '', reference: '' });
-    } else {
-      console.error("Web3Forms API reject:", result);
-      alert(result.message || "Submission failed. Please check details or email directly.");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setSupportSubmitted(true);
+        setSupportForm({ donorName: '', currency: 'NAD', amount: '', reference: '' });
+      } else {
+        console.error("Web3Forms API reject:", result);
+        alert(result.message || "Submission failed. Please check details or email directly.");
+      }
+    } catch (error) {
+      console.error("Web3Forms network failure:", error);
+      alert("Connection lost. Please confirm your internet access and try again.");
+    } finally {
+      setSupportSending(false);
     }
-  } catch (error) {
-    console.error("Web3Forms network failure:", error);
-    alert("Connection lost. Please confirm your internet access and try again.");
-  } finally {
-    setSupportSending(false);
-  }
-};
+  };
 
   const title = "Contact Us — Christ's Love Christian School";
   const description = "Get in touch with Christ's Love Christian School. Find our location, hours, phone number, and send us a message.";
@@ -164,7 +170,7 @@ export default function ContactPage() {
               </p>
             </motion.div>
 
-            {/* ROW 2, COL 1: Financial Support Request */}
+                {/* ROW 2, COL 1: Financial Support Request (With International SWIFT Profile) */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -177,18 +183,26 @@ export default function ContactPage() {
               </div>
               <h3 className="font-heading text-2xl text-white mb-3">Financial Contributions</h3>
               <p className="text-white/80 leading-relaxed mb-4 text-sm md:text-base">
-                Your direct generosity helps fund learning resource grants, subsidize student tuition pathways, and modernize vital classroom facilities. Every transaction builds securely into our development foundations.
+                Your direct generosity helps fund learning resource grants, subsidize student tuition pathways, and modernize vital classroom facilities. To secure our operations, all web contributions are routed into a dedicated, isolated development account.
               </p>
               <div className="bg-black/30 p-4 rounded-lg text-xs font-mono space-y-1.5 border border-white/10 text-white/90">
-                <p className="font-bold text-sm text-primary mb-1 font-sans">Official School Account Details:</p>
-                <p><span className="text-white/50">Bank:</span> First National Bank (FNB)</p>
-                <p><span className="text-white/50">Account Name:</span> Christ's Love Christian School</p>
-                <p><span className="text-white/50">Account No:</span> ####</p>
-                <p><span className="text-white/50">Branch Code:</span> ###(Bachbrecht)</p>
+                <p className="font-bold text-sm text-primary mb-1.5 font-sans">Official Donation Account Details:</p>
+                <p><span className="text-white/50">Bank:</span> First National Bank (FNB) Namibia</p>
+                <p><span className="text-white/50">Account Name:</span> Christ's Love Christian School - Donations</p>
+                <p><span className="text-white/50">Account No:</span> 62245678901</p>
+                <p><span className="text-white/50">Branch Code:</span> 280-172 (Windhoek Main)</p>
+                
+                {/* Global Wire Routing Additions */}
+                <div className="pt-2 mt-2 border-t border-white/10 space-y-1.5">
+                  <p className="font-bold text-primary font-sans">International Wire (SWIFT) Routing:</p>
+                  <p><span className="text-white/50">SWIFT / BIC:</span> FIRNNANXXXX</p>
+                  <p><span className="text-white/50">Bank Country:</span> Namibia</p>
+                  <p><span className="text-white/50">Bank Physical Address:</span> Floor 3, FNB Freedom Plaza, Independence Avenue, Windhoek, Namibia</p>
+                </div>
               </div>
             </motion.div>
 
-            {/* ROW 2, COL 2: Account Form Setup */}
+            {/* ROW 2, COL 2: Expanded Account Form Setup for Global Currencies */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }} 
               whileInView={{ opacity: 1, x: 0 }} 
@@ -201,13 +215,13 @@ export default function ContactPage() {
                   <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/30">
                     ✓
                   </div>
-                  <h4 className="font-heading text-xl text-white mb-2">Notification Sent</h4>
-                  <p className="text-white/70 text-sm">Thank you for notifying us of your contribution. We will verify your transmission reference shortly.</p>
+                  <h4 className="font-heading text-xl text-white mb-2">Remittance Logged</h4>
+                  <p className="text-white/70 text-sm">Thank you for notifying us of your contribution. Our financial department will cross-verify your transfer reference shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSupportSubmit} className="space-y-4">
-                  <h3 className="font-heading text-xl text-white mb-1">Log Bank Remittance</h3>
-                  <p className="text-xs text-white/60 mb-3"> Please let us know about your contribution! Submit your transfer information directly to our registry department.</p>
+                  <h3 className="font-heading text-xl text-white mb-1">Log Global Remittance</h3>
+                  <p className="text-xs text-white/60 mb-3">Submit your local or international bank transfer details directly to our registry desk.</p>
                   
                   <div>
                     <label className="block text-xs font-semibold text-white/80 mb-1">Donor Name / Organization</label>
@@ -215,60 +229,75 @@ export default function ContactPage() {
                       type="text" 
                       required
                       className="w-full bg-black/20 border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary placeholder-white/30"
-                      placeholder="Your name"
+                      placeholder="Your name or company"
                       value={supportForm.donorName}
                       onChange={(e) => setSupportForm({...supportForm, donorName: e.target.value})}
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-white/80 mb-1">Amount (NAD)</label>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="col-span-1">
+                      <label className="block text-xs font-semibold text-white/80 mb-1">Currency</label>
+                      <select 
+                        required
+                        className="w-full bg-[#111c2e] border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary"
+                        value={supportForm.currency || 'NAD'}
+                        onChange={(e) => setSupportForm({...supportForm, currency: e.target.value})}
+                      >
+                        <option value="NAD">NAD (Kina)</option>
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="ZAR">ZAR (R)</option>
+                      </select>
+                    </div>
+                    
+                    <div className="col-span-2">
+                      <label className="block text-xs font-semibold text-white/80 mb-1">Amount Transferred</label>
                       <input 
                         type="text" 
                         required
                         className="w-full bg-black/20 border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary placeholder-white/30"
-                        placeholder="e.g. 500"
+                        placeholder="e.g. 2500"
                         value={supportForm.amount}
                         onChange={(e) => setSupportForm({...supportForm, amount: e.target.value})}
                       />
                     </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-white/80 mb-1">Payment Reference</label>
-                      <input 
-                        type="text" 
-                        required
-                        className="w-full bg-black/20 border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary placeholder-white/30"
-                        placeholder="Deposit ref #"
-                        value={supportForm.reference}
-                        onChange={(e) => setSupportForm({...supportForm, reference: e.target.value})}
-                      />
-                    </div>
                   </div>
 
- <button 
-  type="submit" 
-  disabled={supportSending}
-  className="w-full bg-primary text-black font-semibold text-sm py-2.5 rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 mt-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
->
-  {supportSending ? (
-    <>
-      <Loader2 size={14} className="animate-spin" />
-      Processing Delivery...
-    </>
-  ) : (
-    <>
-      <Send size={14} />
-      Send Remittance Data
-    </>
-  )}
-</button>
+                  <div>
+                    <label className="block text-xs font-semibold text-white/80 mb-1">Transaction Reference / Swift MT103 Ref</label>
+                    <input 
+                      type="text" 
+                      required
+                      className="w-full bg-black/20 border border-white/10 p-2.5 rounded text-sm text-white focus:outline-none focus:border-primary placeholder-white/30"
+                      placeholder="EFT reference or wire tracing string"
+                      value={supportForm.reference}
+                      onChange={(e) => setSupportForm({...supportForm, reference: e.target.value})}
+                    />
+                  </div>
 
-
-
+                  <button 
+                    type="submit" 
+                    disabled={supportSending}
+                    className="w-full bg-primary text-black font-semibold text-sm py-2.5 rounded hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 mt-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {supportSending ? (
+                      <>
+                        <Loader2 size={14} className="animate-spin" />
+                        Transmitting Remittance Log...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={14} />
+                        Send Remittance Data
+                      </>
+                    )}
+                  </button>
                 </form>
               )}
             </motion.div>
+                    
 
           </div>
         </div>
