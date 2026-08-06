@@ -1,54 +1,86 @@
-import { Helmet } from '@dr.pogodin/react-helmet'; 
-import { Link } from 'react-router-dom'; 
-import { motion } from 'framer-motion'; 
-import { BookOpen, Heart, Star, Users, ChevronRight } from 'lucide-react'; 
+import { Helmet } from '@dr.pogodin/react-helmet';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { BookOpen, Heart, Star, Users, ChevronRight, Volume2, VolumeX } from 'lucide-react';
+import { useState, useRef } from 'react';
 
-const fadeUp = { 
-  hidden: { opacity: 0, y: 28 }, 
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } } 
-}; 
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' as const } }
+};
 
-const stagger = { 
-  hidden: {}, 
-  visible: { transition: { staggerChildren: 0.1 } } 
-}; 
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } }
+};
 
-const site = 'https://christslovechristianschool.info'; 
+const site = 'https://christslovechristianschool.info';
 
-const gradeCards = [ 
-  { grade: 'Kindergarten', ages: 'Ages 5–6', description: 'A joyful introduction to learning through play, faith, and foundational skills in reading and numeracy.' }, 
-  { grade: 'Grade 1', ages: 'Ages 6–7', description: 'Building confidence in reading, writing, and mathematics within a nurturing Christian environment.' }, 
-  { grade: 'Grade 2', ages: 'Ages 7–8', description: 'Deepening literacy and numeracy skills while exploring God\'s world through science and social studies.' }, 
-  { grade: 'Grade 3', ages: 'Ages 8–9', description: 'Expanding critical thinking, creative writing, and a growing understanding of biblical principles.' }, 
-  { grade: 'Grade 4', ages: 'Ages 9–10', description: 'Strengthening academic foundations with increased independence and character development.' }, 
-  { grade: 'Grade 5', ages: 'Ages 10–11', description: 'Preparing students for upper grades with rigorous academics and leadership opportunities.' }, 
-  { grade: 'Grade 6', ages: 'Ages 11–12', description: 'A bridge to junior high — challenging curriculum, mentorship, and faith-centered community.' }, 
-  { grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' } 
-]; 
+const gradeCards = [
+  { grade: 'Kindergarten', ages: 'Ages 5–6', description: 'A joyful introduction to learning through play, faith, and foundational skills in reading and numeracy.' },
+  { grade: 'Grade 1', ages: 'Ages 6–7', description: 'Building confidence in reading, writing, and mathematics within a nurturing Christian environment.' },
+  { grade: 'Grade 2', ages: 'Ages 7–8', description: 'Deepening literacy and numeracy skills while exploring God\'s world through science and social studies.' },
+  { grade: 'Grade 3', ages: 'Ages 8–9', description: 'Expanding critical thinking, creative writing, and a growing understanding of biblical principles.' },
+  { grade: 'Grade 4', ages: 'Ages 9–10', description: 'Strengthening academic foundations with increased independence and character development.' },
+  { grade: 'Grade 5', ages: 'Ages 10–11', description: 'Preparing students for upper grades with rigorous academics and leadership opportunities.' },
+  { grade: 'Grade 6', ages: 'Ages 11–12', description: 'A bridge to junior high — challenging curriculum, mentorship, and faith-centered community.' },
+  { grade: 'Grade 7', ages: 'Ages 12–13', description: 'Our senior class: equipped academically, spiritually, and socially for the journey ahead.' }
+];
 
-export default function HomePage() { 
-  const jsonLd = { 
-    '@context': 'https://schema.org', 
-    '@graph': [ 
-      { '@type': 'WebSite', '@id': `${site}/#website`, name: "Christ's Love Christian School", url: `${site}/` }, 
-      { '@type': 'EducationalOrganization', '@id': `${site}/#organization`, name: "Christ's Love Christian School", url: `${site}/`, description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.' }, 
-      { '@type': 'WebPage', '@id': `${site}/#webpage`, url: `${site}/`, name: "Christ's Love Christian School — Faith-Centered Education K–7", isPartOf: { '@id': `${site}/#website` }, about: { '@id': `${site}/#organization` }, datePublished: '2026-06-16', dateModified: '2026-06-16' } 
-    ] 
-  }; 
+export default function HomePage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
 
-  return ( 
-    <> 
-      <Helmet> 
-        <title>Christ's Love Christian School — Faith-Centered Education K–7</title> 
-        <meta name="description" content="A private Christian school nurturing students from Kindergarten through Grade 7 in academic excellence, character, and faith. Enroll today." /> 
-        <link rel="canonical" href={`${site}/`} /> 
-        <meta property="og:title" content="Christ's Love Christian School" /> 
-        <meta property="og:description" content="Nurturing minds, hearts, and faith from Kindergarten through Grade 7." /> 
-        <meta property="og:type" content="website" /> 
-        <meta property="og:url" content={`${site}/`} /> 
-        <meta name="twitter:card" content="summary_large_image" /> 
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
-      </Helmet> 
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${site}/#website`,
+        name: "Christ's Love Christian School",
+        url: `${site}/`
+      },
+      {
+        '@type': 'EducationalOrganization',
+        '@id': `${site}/#organization`,
+        name: "Christ's Love Christian School",
+        url: `${site}/`,
+        description: 'Private Christian school offering Kindergarten through Grade 7 education rooted in faith and academic excellence.'
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${site}/#webpage`,
+        url: `${site}/`,
+        name: "Christ's Love Christian School — Faith-Centered Education K–7",
+        isPartOf: { '@id': `${site}/#website` },
+        about: { '@id': `${site}/#organization` },
+        datePublished: '2026-06-16',
+        dateModified: '2026-06-16'
+      }
+    ]
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>Christ's Love Christian School — Faith-Centered Education K–7</title>
+        <meta name="description" content="A private Christian school nurturing students from Kindergarten through Grade 7 in academic excellence, character, and faith. Enroll today." />
+        <link rel="canonical" href={`${site}/`} />
+        <meta property="og:title" content="Christ's Love Christian School" />
+        <meta property="og:description" content="Nurturing minds, hearts, and faith from Kindergarten through Grade 7." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${site}/`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
+
 
     {/* ── HERO ── */} 
 <section className="relative flex items-center overflow-hidden bg-midnight" style={{ minHeight: '88vh' }}> 
@@ -169,20 +201,43 @@ export default function HomePage() {
     className="group w-full aspect-[9/16] md:h-[580px] overflow-hidden rounded-lg shadow-lg relative bg-black"
   > 
     <video 
-      src="/assets/media/croppedgideonnamibia.MP4" 
-      /* Removed the translate-y shift that was pushing volume controls off the screen on touch clicks */
-      className="absolute top-0 left-0 w-full h-full object-cover object-top transition-transform duration-300 ease-out md:group-hover:scale-105" 
-      controls
-      loop
-      autoPlay
-      muted
-      playsInline
-    />
-  </motion.div>
+          ref={videoRef}
+          src="/assets/media/croppedgideonnamibia.MP4" 
+          className="absolute top-0 left-0 w-full h-full object-cover object-top transition-transform duration-300 ease-out md:group-hover:scale-105" 
+          controls={false}
+          loop
+          autoPlay
+          muted={isMuted}
+          playsInline
+        />
 
-  {/* Gold Framing Element */}
-  <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" />
-</div>
+        {/* 🔊 EXPECTED POSITION: Floating Center-Bottom Audio Control Overlay Tag */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
+          <button
+            type="button"
+            onClick={toggleMute}
+            className="flex items-center gap-2 bg-black/60 backdrop-blur-md hover:bg-black/80 text-white font-medium text-xs px-4 py-2.5 rounded-full border border-white/20 transition-all shadow-xl active:scale-95"
+          >
+            {isMuted ? (
+              <>
+                <VolumeX size={14} className="text-primary animate-pulse" />
+                <span>TAP TO UNMUTE</span>
+              </>
+            ) : (
+              <>
+                <Volume2 size={14} className="text-emerald-400" />
+                <span>MUTE AUDIO</span>
+              </>
+            )}
+          </button>
+        </div>
+      </motion.div>
+
+      {/* Gold Framing Element */}
+      <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" />
+    </div>
+  );
+}
 
 
             {/* Text Content Block */} 
