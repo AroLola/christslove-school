@@ -189,56 +189,54 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
               
  
-{/* Centered Outer Wrapper - Fixed layout spilling by adding full width with a max boundary */}
-<div className="relative w-full max-w-[480px] mx-auto z-0">
-  
-  {/* The Cropping Container - Aspect Ratio handles mobile and desktop scaling perfectly */}
-  <motion.div 
-    initial={{ opacity: 0, x: -30 }} 
-    whileInView={{ opacity: 1, x: 0 }} 
-    viewport={{ once: true }} 
-    transition={{ duration: 0.5, ease: 'easeOut' }}
-    className="group w-full aspect-[9/16] md:h-[580px] overflow-hidden rounded-lg shadow-lg relative bg-black"
-  > 
-    <video 
-          ref={videoRef}
-          src="/assets/media/croppedgideonnamibia.MP4" 
-          className="absolute top-0 left-0 w-full h-full object-cover object-top transition-transform duration-300 ease-out md:group-hover:scale-105" 
-          controls={false}
-          loop
-          autoPlay
-          muted={isMuted}
-          playsInline
-        />
+      {/* SECTION: Video Component Layout Frame */}
+      <div className="relative w-full max-w-[480px] mx-auto z-0 px-4 md:px-0">
+        
+        {/* The Cropping Container - Added 'group' to handle subtle desktop hover animations */}
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }} 
+          whileInView={{ opacity: 1, x: 0 }} 
+          viewport={{ once: true }} 
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="group w-full aspect-[9/16] md:h-[580px] overflow-hidden rounded-lg shadow-lg relative bg-black"
+        > 
+          {/* Linked the ref, disabled browser-native sliders, and tied muted state to our hook */}
+          <video 
+            ref={videoRef}
+            src="/assets/media/croppedgideonnamibia.MP4" 
+            className="absolute top-0 left-0 w-full h-full object-cover object-top transition-transform duration-300 ease-out md:group-hover:scale-105" 
+            controls={false}
+            loop
+            autoPlay
+            muted={isMuted}
+            playsInline
+          />
 
-        {/* 🔊 EXPECTED POSITION: Floating Center-Bottom Audio Control Overlay Tag */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="flex items-center gap-2 bg-black/60 backdrop-blur-md hover:bg-black/80 text-white font-medium text-xs px-4 py-2.5 rounded-full border border-white/20 transition-all shadow-xl active:scale-95"
-          >
-            {isMuted ? (
-              <>
-                <VolumeX size={14} className="text-primary animate-pulse" />
-                <span>TAP TO UNMUTE</span>
-              </>
-            ) : (
-              <>
-                <Volume2 size={14} className="text-emerald-400" />
-                <span>MUTE AUDIO</span>
-              </>
-            )}
-          </button>
-        </div>
-      </motion.div>
+          {/* UNIFIED FLOATING AUDIO BUTTON: Placed center-bottom on all screen bounds */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-auto">
+            <button
+              type="button"
+              onClick={toggleMute}
+              className="flex items-center gap-2 bg-black/60 backdrop-blur-md hover:bg-black/80 text-white font-medium text-xs px-5 py-2.5 rounded-full border border-white/20 transition-all shadow-2xl active:scale-95 whitespace-nowrap"
+            >
+              {isMuted ? (
+                <>
+                  <VolumeX size={14} className="text-primary animate-pulse" />
+                  <span>TAP TO UNMUTE</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 size={14} className="text-emerald-400" />
+                  <span>MUTE AUDIO</span>
+                </>
+              )}
+            </button>
+          </div>
+        </motion.div>
 
-      {/* Gold Framing Element */}
-      <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" />
-    </div>
-  );
-}
-
+        {/* Gold Framing Element - Added pointer-events-none to prevent click interference */}
+        <div className="absolute -bottom-1 -right-1 w-full h-full border-2 border-primary rounded-lg -z-1 pointer-events-none" />
+      </div>
 
             {/* Text Content Block */} 
             <div className="flex flex-col justify-center"> 
