@@ -21,52 +21,51 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
 
-// Inside ContactPage component state declarations:
-const [supportSending, setSupportSending] = useState(false);
-const [supportSubmitted, setSupportSubmitted] = useState(false);
-const [supportForm, setSupportForm] = useState({ donorName: '', amount: '', reference: '' });
+  // Support Form State & Loading State
+  const [supportSending, setSupportSending] = useState(false);
+  const [supportSubmitted, setSupportSubmitted] = useState(false);
+  const [supportForm, setSupportForm] = useState({ donorName: '', amount: '', reference: '' });
 
-// Connected Web3Forms JavaScript Submitter
-const handleSupportSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setSupportSending(true);
-
-  // Map explicitly matching named form attributes for Web3Forms email layout
-  const formData = {
-    access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE", // Drop your key string here
-    subject: `New Bank Remittance Logged - ${supportForm.donorName}`,
-    "Donor / Organization": supportForm.donorName,
-    "Amount (NAD)": supportForm.amount,
-    "Payment Reference": supportForm.reference,
-    from_name: "School Website Remittance Registry"
+  // 1. ADD THIS BACK - The missing handler for the general contact form
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // If you want Web3Forms here too, add it here later!
   };
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(formData)
-    });
+  // 2. KEEP THIS - Your new bank remittance worker
+  const handleSupportSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSupportSending(true);
 
-    const result = await response.json();
+    const formData = {
+      access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE",
+      subject: `New Bank Remittance Logged - ${supportForm.donorName}`,
+      "Donor / Organization": supportForm.donorName,
+      "Amount (NAD)": supportForm.amount,
+      "Payment Reference": supportForm.reference,
+      from_name: "School Website Remittance Registry"
+    };
 
-    if (result.success) {
-      setSupportSubmitted(true);
-      setSupportForm({ donorName: '', amount: '', reference: '' });
-    } else {
-      console.error("Web3Forms API reject:", result);
-      alert(result.message || "Submission failed. Please check details or email directly.");
+    try {
+      const response = await fetch("https://web3forms.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData)
+      });
+      const result = await response.json();
+      if (result.success) {
+        setSupportSubmitted(true);
+        setSupportForm({ donorName: '', amount: '', reference: '' });
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      alert("Connection lost. Please try again.");
+    } finally {
+      setSupportSending(false);
     }
-  } catch (error) {
-    console.error("Web3Forms network failure:", error);
-    alert("Connection lost. Please confirm your internet access and try again.");
-  } finally {
-    setSupportSending(false);
-  }
-};
+  };
 
   const title = "Contact Us — Christ's Love Christian School";
   const description = "Get in touch with Christ's Love Christian School. Find our location, hours, phone number, and send us a message.";
