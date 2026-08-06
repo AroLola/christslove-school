@@ -189,8 +189,8 @@ export default function ContactPage() {
                 <p className="font-bold text-sm text-primary mb-1.5 font-sans">Official Donation Account Details:</p>
                 <p><span className="text-white/50">Bank:</span> First National Bank (FNB) Namibia</p>
                 <p><span className="text-white/50">Account Name:</span> Christ's Love Christian School - Donations</p>
-                <p><span className="text-white/50">Account No:</span> 62245678901</p>
-                <p><span className="text-white/50">Branch Code:</span> 280-172 (Windhoek Main)</p>
+                <p><span className="text-white/50">Account No:</span> #####</p>
+                <p><span className="text-white/50">Branch Code:</span> ##### (Windhoek Main)</p>
                 
                 {/* Global Wire Routing Additions */}
                 <div className="pt-2 mt-2 border-t border-white/10 space-y-1.5">
