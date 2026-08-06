@@ -1,4 +1,4 @@
- import { Helmet } from '@dr.pogodin/react-helmet';
+import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, BookOpen, Heart, Landmark, Send } from 'lucide-react';
 import { useState } from 'react';
@@ -19,7 +19,7 @@ const site = 'https://christslovechristianschool.info';
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
-  
+
   // Support Form State
   const [supportSubmitted, setSupportSubmitted] = useState(false);
   const [supportForm, setSupportForm] = useState({ donorName: '', amount: '', reference: '' });
@@ -144,8 +144,8 @@ export default function ContactPage() {
                 <p className="font-bold text-sm text-primary mb-1 font-sans">Official School Account Details:</p>
                 <p><span className="text-white/50">Bank:</span> Bank Windhoek</p>
                 <p><span className="text-white/50">Account Name:</span> Christ's Love Christian School</p>
-                <p><span className="text-white/50">Account No:</span> 8004561234</p>
-                <p><span className="text-white/50">Branch Code:</span> 481-972 (Bachbrecht)</p>
+                <p><span className="text-white/50">Account No:</span> ####</p>
+                <p><span className="text-white/50">Branch Code:</span> ###(Bachbrecht)</p>
               </div>
             </motion.div>
 
