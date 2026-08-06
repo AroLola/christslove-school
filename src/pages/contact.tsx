@@ -181,9 +181,9 @@ export default function ContactPage() {
               <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-5 text-primary">
                 <Landmark size={24} />
               </div>
-              <h3 className="font-heading text-2xl text-white mb-3">Financial Contributions</h3>
+              <h3 className="font-heading text-2xl text-white mb-3">Support Our Expansion</h3>
               <p className="text-white/80 leading-relaxed mb-4 text-sm md:text-base">
-                Your direct generosity helps fund learning resource grants, subsidize student tuition pathways, and modernize vital classroom facilities. To secure our operations, all web contributions are routed into a dedicated, isolated development account.
+                We are actively working to expand our facilities. Your direct generosity helps fund building projects; supplement learning resource grants; subsidize student tuition pathways; and, modernize vital classroom facilities. To secure our operations, all web contributions are routed into a dedicated, isolated development account.
               </p>
               <div className="bg-black/30 p-4 rounded-lg text-xs font-mono space-y-1.5 border border-white/10 text-white/90">
                 <p className="font-bold text-sm text-primary mb-1.5 font-sans">Official Donation Account Details:</p>
