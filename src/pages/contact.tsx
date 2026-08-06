@@ -207,7 +207,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSupportSubmit} className="space-y-4">
                   <h3 className="font-heading text-xl text-white mb-1">Log Bank Remittance</h3>
-                  <p className="text-xs text-white/60 mb-3">Submit your transfer information directly to our registry department.</p>
+                  <p className="text-xs text-white/60 mb-3"> Please let us know about your contribution! Submit your transfer information directly to our registry department.</p>
                   
                   <div>
                     <label className="block text-xs font-semibold text-white/80 mb-1">Donor Name / Organization</label>
