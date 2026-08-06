@@ -39,7 +39,7 @@ export default function ContactPage() {
     setSupportSending(true);
 
     const formData = {
-      access_key: "YOUR_WEB3FORMS_ACCESS_KEY_HERE",
+      access_key: "22370a0d-46fa-49a7-b81d-959ab241401d",
       subject: `New Bank Remittance Logged - ${supportForm.donorName}`,
       "Donor / Organization": supportForm.donorName,
       "Amount (NAD)": supportForm.amount,
