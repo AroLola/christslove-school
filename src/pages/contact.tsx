@@ -190,13 +190,13 @@ export default function ContactPage() {
                 <p className="font-bold text-sm text-primary mb-1.5 font-sans">Official Donation Account Details:</p>
                 <p><span className="text-white/50">Bank:</span> First National Bank (FNB) Namibia</p>
                 <p><span className="text-white/50">Account Name:</span> Christ's Love Christian School - Donations</p>
-                <p><span className="text-white/50">Account No:</span> #####</p>
-                <p><span className="text-white/50">Branch Code:</span> ##### (Windhoek Main)</p>
+                {/* <p><span className="text-white/50">Account No:</span> #####</p> */}
+                {/* <p><span className="text-white/50">Branch Code:</span> ##### (Windhoek Main)</p> */}
                 
                 {/* Global Wire Routing Additions */}
                 <div className="pt-2 mt-2 border-t border-white/10 space-y-1.5">
                   <p className="font-bold text-primary font-sans">International Wire (SWIFT) Routing:</p>
-                  <p><span className="text-white/50">SWIFT / BIC:</span> FIRNNANXXXX</p>
+                    {/* <p><span className="text-white/50">SWIFT / BIC:</span> FIRNNANXXXX</p> */}
                   <p><span className="text-white/50">Bank Country:</span> Namibia</p>
                   <p><span className="text-white/50">Bank Physical Address:</span> Floor 3, FNB Freedom Plaza, Independence Avenue, Windhoek, Namibia</p>
                 </div>
