@@ -140,7 +140,7 @@ export default function ContactPage() {
 > 
   <div className="w-full h-[340px] rounded-xl overflow-hidden shadow-2xl bg-black relative border border-white/10"> 
     <video 
-      src="https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/clcslibraryaug26.mp4" 
+      src="https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/clcslibaug2026.mp4" 
       className="w-full h-full object-cover"
       controls 
       loop 
