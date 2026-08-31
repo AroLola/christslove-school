@@ -192,6 +192,19 @@
       ]
     },
     {
+      "id": "cricket-gallery-album",
+      "name": "Cricket Nationals",
+      "media": [
+        { "id": "k-1", "src": "/assets/media/cricket1.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" },
+        { "id": "k-2", "src": "/assets/media/cricket2.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" },
+        { "id": "k-3", "src": "/assets/media/cricket3.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" },
+        { "id": "k-4", "src": "/assets/media/cricket4.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" },
+        { "id": "k-5", "src": "/assets/media/cricket5.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" },
+        { "id": "k-6", "src": "/assets/media/cricket6.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" },
+        { "id": "k-7", "src": "/assets/media/cricket7.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" }
+      ]
+    },
+    {
       "id": "leadership-gallery-album",
       "name": "Leadership",
       "media": [
@@ -276,8 +289,9 @@
         { "id": "v-15", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports2video.mp4", "caption": "Netball Team hurdles to lift each other's spirits." },
          { "id": "v-16", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sports_u15boys_video.mp4", "caption": "Volleyball - Under-15 Boys receiving their Silver medals" },
         { "id": "v-17", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsnetballvideo1.mp4", "caption": "Volleyball - Under-15 Girls. Silver medalists." },
-        { "id": "v-19", "src": "assets/media/clcsu13netballgirls_ingreen_winning17to7.mp4", "caption": "CLCS U-13 Girls Netball Team (Green) - Winning 17 to 7" }
-       ]
+        { "id": "v-19", "src": "assets/media/clcsu13netballgirls_ingreen_winning17to7.mp4", "caption": "CLCS U-13 Girls Netball Team (Green) - Winning 17 to 7" },
+        { "id": "v-20", "src": "assets/media/cricketvideo1.mp4", "caption": "Our Cricket Team accompanies the National Cricket Team" }
+      ]
     }
   ]
 }
