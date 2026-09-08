@@ -154,7 +154,111 @@ export default function HomePage() {
   <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#C98A27]" /> 
 </section>  
 
+   {/* ── Welcome Back ── */} 
+      <section className="py-20 bg-secondary border-b border-white/5 text-white"> 
+        <div className="container mx-auto px-4 lg:px-8"> 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center"> 
+              
+ 
+           {/* SECTION: Video Component Layout Frame */}
+      {/* Added extra padding and margins to accommodate the wider offset boundaries */}
+      <div className="w-full max-w-[480px] mx-auto px-4 md:px-0 mb-6 mt-2">
+        <div className="relative w-full z-0">
+          
+          {/* The Cropping Container */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="group w-full aspect-[9/16] md:h-[580px] overflow-hidden rounded-lg shadow-lg relative bg-black z-10"
+          > 
+            <video 
+              ref={videoRef}
+              src="/assets/media/welcomebackvideo.mp4" 
+              className="absolute top-0 left-0 w-full h-full object-cover object-top transition-transform duration-300 ease-out md:group-hover:scale-105" 
+              controls={false}
+              loop
+              autoPlay
+              muted={isMuted}
+              playsInline
+            />
 
+            {/* UNIFIED FLOATING AUDIO BUTTON */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-auto">
+              <button
+                type="button"
+                onClick={toggleMute}
+                className="flex items-center gap-2 bg-black/60 backdrop-blur-md hover:bg-black/80 text-white font-medium text-xs px-5 py-2.5 rounded-full border border-white/20 transition-all shadow-2xl active:scale-95 whitespace-nowrap"
+              >
+                {isMuted ? (
+                  <>
+                    <VolumeX size={14} className="text-primary animate-pulse" />
+                    <span>TAP TO UNMUTE</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 size={14} className="text-emerald-400" />
+                    <span>MUTE AUDIO</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Gold Framing Element - Configured with strict layout overrides to cover the video bounds fully */}
+          <div 
+            className="absolute top-2 left-2 border-2 border-primary rounded-lg -z-1 pointer-events-none" 
+            style={{ width: 'calc(100% + 4px)', height: 'calc(100% + 4px)' }}
+          />
+        </div>
+      </div>
+
+
+            {/* Text Content Block */} 
+            <div className="flex flex-col justify-center"> 
+              <p className="text-primary font-medium tracking-widest uppercase text-sm mb-3"> 
+                Term 3, 2026 
+              </p> 
+              <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
+                WELCOME BACK TO SCHOOL, CLCS! 
+              </h2> 
+              <p className="text-white/80 text-lg leading-relaxed mb-6"> 
+               Christ’s Love Christian School warmly welcomes all our learners back for Term 3.
+              </p> 
+              <p className="text-white/60 leading-relaxed mb-8"> 
+                We are excited to see our classrooms filled with learning, laughter and growth again. As we begin this new term, we encourage every learner to:
+              </p> 
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"> 
+                {[ 
+                  { icon: BookOpen, label: 'Work hard and stay focused' }, 
+                  { icon: Heart, label: 'Respect and support one another' }, 
+                  { icon: Star, label: 'Take every opportunity to learn and grow together' }, 
+                  { icon: Users, label: 'Community & Family' } 
+                ].map((val) => {
+                  const Icon = val.icon;
+                  return (
+                    <div key={val.label} className="flex items-center gap-3"> 
+                      <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0"> 
+                        <Icon size={16} className="text-primary" /> 
+                      </div> 
+                      <span className="text-white font-medium text-sm">{val.label}</span> 
+                    </div> 
+                  );
+                })} 
+              </div> 
+
+              <div> 
+                <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
+                  Our Story <ChevronRight size={18} /> 
+                </Link> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
+      </section> 
+      
       {/* ── PROGRAMS / GRADES ── */} 
       <section className="py-20 bg-midnight text-white"> 
         <div className="container mx-auto px-4 lg:px-8"> 
