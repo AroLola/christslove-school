@@ -234,8 +234,8 @@ export default function HomePage() {
                 {[ 
                   { icon: BookOpen, label: 'Work hard and stay focused' }, 
                   { icon: Heart, label: 'Respect and support one another' }, 
-                  { icon: Star, label: 'Take every opportunity to learn and grow together' }, 
-                  { icon: Users, label: 'Community & Family' } 
+                  { icon: Star, label: 'Give your best in everything you do' }, 
+                  { icon: Users, label: 'Take every opportunity to learn and grow together' } 
                 ].map((val) => {
                   const Icon = val.icon;
                   return (
