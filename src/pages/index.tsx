@@ -251,7 +251,7 @@ export default function HomePage() {
 
               <div> 
                 <Link to="/about" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"> 
-                  Our Story <ChevronRight size={18} /> 
+                  About CLSC <ChevronRight size={18} /> 
                 </Link> 
               </div> 
             </div> 
