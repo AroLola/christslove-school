@@ -221,13 +221,13 @@ export default function HomePage() {
                 Term 3, 2026 
               </p> 
               <h2 className="font-heading text-4xl md:text-5xl text-white mb-6 leading-tight font-bold"> 
-                WELCOME BACK TO SCHOOL, CLCS! 
+                WELCOME BACK TO SCHOOL, CLCS FAMILY! 
               </h2> 
               <p className="text-white/80 text-lg leading-relaxed mb-6"> 
-               Christ’s Love Christian School warmly welcomes all our learners back for Term 3.
+               Christ’s Love Christian School warmly welcomes all our learners back for Term 3. May God guide and bless our learners, teachers, and families throughout Term 3.  
               </p> 
               <p className="text-white/60 leading-relaxed mb-8"> 
-                We are excited to see our classrooms filled with learning, laughter and growth again. As we begin this new term, we encourage every learner to:
+                Let’s make Term 3 a great one! We are excited to see our classrooms filled with learning, laughter, and growth again. As we begin this new term, we encourage every learner to:
               </p> 
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"> 
