@@ -304,9 +304,9 @@
      {
       "id": "math-quiz",
       "name": "Math Quiz Champions",
-      "description": "CLCS learners win medals during the 2026 Math Quiz competition",
+      "description": "CLCS learners celebrating their medal wins, after the September 2026 Math Quiz competition",
       "media": [
-        { "id": "v-11", "src": "/assets/media/mathquuizvid.mp4", "caption": "Celebrating our Math Quiz champions." }
+        { "id": "v-11", "src": "/assets/media/mathquizvid.mp4", "caption": "Celebrating our Math Quiz champions." }
       ] 
     },
     {
