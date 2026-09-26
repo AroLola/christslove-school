@@ -192,6 +192,29 @@
       ]
     },
     {
+      "id": "math-gallery-album",
+      "name": "Math Quiz Champions",
+      "media": [
+        { "id": "m-1", "src": "/assets/media/mathquizflyer.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-2", "src": "/assets/media/mathquiz1.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-3", "src": "/assets/media/mathquiz2.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-4", "src": "/assets/media/mathquiz3.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-5", "src": "/assets/media/mathquiz4.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-6", "src": "/assets/media/mathquiz5.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-7", "src": "/assets/media/mathquiz6.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-8", "src": "/assets/media/mathquiz7.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-9", "src": "/assets/media/mathquiz8.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-10", "src": "/assets/media/mathquiz9.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-11", "src": "/assets/media/mathquiz10.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-12", "src": "/assets/media/mathquiz11.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-13", "src": "/assets/media/mathquiz12.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-14", "src": "/assets/media/mathquiz13.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-15", "src": "/assets/media/mathquiz14.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-16", "src": "/assets/media/mathquiz15.jpg", "caption": "Maths Quiz September 2026" },
+        { "id": "m-17", "src": "/assets/media/mathquiz16.jpg", "caption": "Maths Quiz September 2026" }
+      ]
+    }, 
+    {
       "id": "cricket-gallery-album",
       "name": "Cricket Nationals",
       "media": [
@@ -276,6 +299,14 @@
       "description": "Prefect's Prayer Circle",
       "media": [
         { "id": "v-11", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prefectsprayercircle.mp4", "caption": "Our School Prefects form a Prayer Circle to pray for the School and learners." }
+      ] 
+    },
+     {
+      "id": "math-quiz",
+      "name": "Math Quiz Champions",
+      "description": "CLCS learners win medals during the 2026 Math Quiz competition",
+      "media": [
+        { "id": "v-11", "src": "/assets/media/mathquuizvid.mp4", "caption": "Celebrating our Math Quiz champions." }
       ] 
     },
     {
