@@ -306,7 +306,15 @@
       "name": "Math Quiz Champions",
       "description": "CLCS learners celebrating their medal wins, after the September 2026 Math Quiz competition",
       "media": [
-        { "id": "v-11", "src": "/assets/media/mathquizvid.mp4", "caption": "Celebrating our Math Quiz champions." }
+        { "id": "v-22", "src": "/assets/media/mathquizvid.mp4", "caption": "Celebrating our Math Quiz champions." }
+      ] 
+    },
+    {
+      "id": "ombo-camp",
+      "name": "Ombo Camp Okahandja",
+      "description": "Grade 3 learners - Ombo Camp, Okahandja",
+      "media": [
+        { "id": "v-21", "src": "/assets/media/grade3trip.mp4", "caption": "Grade 3 Ombo Trip 2026 to Ombo Camp, Okahandja" }
       ] 
     },
     {
