@@ -228,6 +228,15 @@
       ]
     },
     {
+      "id": "football-gallery-album",
+      "name": "Football",
+      "media": [
+        { "id": "f-1", "src": "/assets/media/football1.JPG", "caption": "We showed up, we played with heart, and we delivered. Final score: Athletic Club Football Academy 1 - Christ's Love 6" },
+        { "id": "f-2", "src": "/assets/media/football2.JPG", "caption": "We showed up, we played with heart, and we delivered. Final score: Athletic Club Football Academy 1 - Christ's Love 6" },
+        { "id": "f-3", "src": "/assets/media/football3.JPG", "caption": "We showed up, we played with heart, and we delivered. Final score: Athletic Club Football Academy 1 - Christ's Love 6" }
+      ]
+    },
+    {
       "id": "leadership-gallery-album",
       "name": "Leadership",
       "media": [
