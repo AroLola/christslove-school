@@ -227,6 +227,20 @@
         { "id": "k-7", "src": "/assets/media/cricket7.jpg", "caption": "Our Cricket Team accompanies the National Cricket Team" }
       ]
     },
+     {
+      "id": "trip-gallery-album",
+      "name": "Field Trip",
+      "media": [
+        { "id": "p-1", "src": "/assets/media/trip1.JPG", "caption": "Field trip to the Petting Zoo" },
+        { "id": "p-2", "src": "/assets/media/trip2.JPG", "caption": "Field trip to the Petting Zoo" },
+        { "id": "p-3", "src": "/assets/media/trip3.JPG", "caption": "Field trip to the Petting Zoo" },
+        { "id": "p-4", "src": "/assets/media/trip4.JPG", "caption": "Field trip to the Petting Zoo" },
+        { "id": "p-5", "src": "/assets/media/trip5.JPG", "caption": "Field trip to the Petting Zoo" },
+        { "id": "p-6", "src": "/assets/media/trip6.JPG", "caption": "Field trip to the Petting Zoo" },
+        { "id": "p-7", "src": "/assets/media/trip7.JPG", "caption": "Field trip to the Petting Zoo" },
+        { "id": "p-8", "src": "/assets/media/trip8.JPG", "caption": "Field trip to the Petting Zoo" }
+      ]
+    },
     {
       "id": "football-gallery-album",
       "name": "Football",
@@ -316,6 +330,15 @@
       "description": "CLCS learners celebrating their medal wins, after the September 2026 Math Quiz competition",
       "media": [
         { "id": "v-22", "src": "/assets/media/mathquizvid.mp4", "caption": "Celebrating our Math Quiz champions." }
+      ] 
+    },
+    {
+      "id": "field-trip",
+      "name": "Petting Zoo",
+      "description": "Field trip to the Petting Zoo",
+      "media": [
+        { "id": "v-23", "src": "/assets/media/tripvid1.MP4", "caption": "Petting Zoo" },
+        { "id": "v-24", "src": "/assets/media/tripvid2.MP4", "caption": "Petting Zoo" }
       ] 
     },
     {
