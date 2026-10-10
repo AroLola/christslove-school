@@ -337,8 +337,8 @@
       "name": "Petting Zoo",
       "description": "Field trip to the Petting Zoo",
       "media": [
-        { "id": "v-23", "src": "/assets/media/tripvid1.MP4", "caption": "Petting Zoo" },
-        { "id": "v-24", "src": "/assets/media/tripvid2.MP4", "caption": "Petting Zoo" }
+        { "id": "v-23", "src": "/assets/media/tripvid1.MP4", "caption": "CLCS learners arriving at the Petting Zoo" },
+        { "id": "v-24", "src": "/assets/media/tripvid2.MP4", "caption": "CLCS learners enjoying a swim at the Petting Zoo" }
       ] 
     },
     {
