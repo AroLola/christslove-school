@@ -251,6 +251,22 @@
       ]
     },
     {
+      "id": "cricketleague-gallery-album",
+      "name": "Cricket League",
+      "media": [
+        { "id": "k-8", "src": "/assets/media/cricket8.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-9", "src": "/assets/media/cricket9.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-10", "src": "/assets/media/cricket10.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-11", "src": "/assets/media/cricket11.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-12", "src": "/assets/media/cricket12.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-13", "src": "/assets/media/cricket13.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-14", "src": "/assets/media/cricket14.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-15", "src": "/assets/media/cricket15.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-16", "src": "/assets/media/cricket16.jpg", "caption": "Cricket League - Under 7, 8, and 10" },
+        { "id": "k-17", "src": "/assets/media/cricket17.jpg", "caption": "Cricket League - Under 7, 8, and 10" }
+      ]
+    },
+    {
       "id": "leadership-gallery-album",
       "name": "Leadership",
       "media": [
