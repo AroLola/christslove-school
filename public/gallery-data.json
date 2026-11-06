@@ -387,10 +387,10 @@
       "media": [
         { "id": "v-21", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving1.MP4", "caption": "Prize Giving 2026 Ceremony" },
         { "id": "v-22", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving2.MP4", "caption": "Prize Giving 2026 Ceremony" },
-         { "id": "v-23", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving3.MP4", "caption": "Prize Giving 2026 Ceremony" },
+         { "id": "v-23", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving3.mp4", "caption": "Prize Giving 2026 Ceremony" },
         { "id": "v-24", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving4.MP4", "caption": "Prize Giving 2026 Ceremony" },
          { "id": "v-25", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving5.MP4", "caption": "Prize Giving 2026 Ceremony" },
-        { "id": "v-26", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving6.MP4", "caption": "Prize Giving 2026 Ceremony" }        
+        { "id": "v-26", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving6.mp4", "caption": "Prize Giving 2026 Ceremony" }        
       ]
     }
   ]
