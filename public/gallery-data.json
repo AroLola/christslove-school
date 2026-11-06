@@ -379,6 +379,19 @@
         { "id": "v-19", "src": "assets/media/clcsu13netballgirls_ingreen_winning17to7.mp4", "caption": "CLCS U-13 Girls Netball Team (Green) - Winning 17 to 7" },
         { "id": "v-20", "src": "assets/media/cricketvideo1.mp4", "caption": "Our Cricket Team accompanies the National Cricket Team" }
       ]
+    },
+     {
+      "id": "prize-giving-videos",
+      "name": "Prize Giving 2026",
+      "description": "Highlights from our Prize Giving 2026 Ceremony",
+      "media": [
+        { "id": "v-21", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving1.MP4", "caption": "Prize Giving 2026 Ceremony" },
+        { "id": "v-22", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving2.MP4", "caption": "Prize Giving 2026 Ceremony" },
+         { "id": "v-23", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving3.MP4", "caption": "Prize Giving 2026 Ceremony" },
+        { "id": "v-24", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving4.MP4", "caption": "Prize Giving 2026 Ceremony" },
+         { "id": "v-25", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving5.MP4", "caption": "Prize Giving 2026 Ceremony" },
+        { "id": "v-26", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving6.MP4", "caption": "Prize Giving 2026 Ceremony" }        
+      ]
     }
   ]
 }
