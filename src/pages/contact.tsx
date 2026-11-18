@@ -32,10 +32,34 @@ export default function ContactPage() {
   });
 
   // The missing handler for the general contact form
-  const handleSubmit = (e: React.FormEvent) => {
+   // Handler for the general contact form (logs to Google Sheet & emails inquiries@)
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyIafcLfsgxZU-CKgWEQuiEFgyNxwsTLhM66uCj3QugQqSC6NdWdQlWQdZaUqdSwhwZ/exec";
+
+    const formData = new URLSearchParams();
+    formData.append("name", form.name);
+    formData.append("email", form.email);
+    formData.append("phone", form.phone);
+    formData.append("subject", form.subject);
+    formData.append("message", form.message);
+
+    try {
+      await fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData,
+      });
+
+      setSubmitted(true);
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      alert("Could not send message. Please try again or email inquiries@christslovechristianschool.info directly.");
+    }
   };
+
 
   // Your international-compliant bank remittance worker
   const handleSupportSubmit = async (e: React.FormEvent) => {
