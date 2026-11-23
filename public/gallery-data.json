@@ -400,7 +400,7 @@
      {
       "id": "prize-giving-videos",
       "name": "Prize Giving 2026",
-      "description": "Highlights from our Prize Giving 2026 Ceremony",
+      "description": "Highlights from our Prize Giving 2026 ceremony.",
       "media": [
         { "id": "v-21", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving1.MP4", "caption": "Prize Giving 2026 Ceremony" },
         { "id": "v-22", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving2.MP4", "caption": "Prize Giving 2026 Ceremony" },
@@ -408,6 +408,16 @@
         { "id": "v-24", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving4.MP4", "caption": "Prize Giving 2026 Ceremony" },
          { "id": "v-25", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving5.MP4", "caption": "Prize Giving 2026 Ceremony" },
         { "id": "v-26", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/prizegiving6.mp4", "caption": "Prize Giving 2026 Ceremony" }        
+      ]
+    },
+     {
+      "id": "kindergarte-graduation",
+      "name": "Kindergarten Graduation",
+      "description": "Highlights from our 2026 Kindergarten Graduation ceremony.",
+      "media": [
+      { "id": "v-27", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/grad12026.MP4", "caption": "Kindergarten Graduation 2026" },
+       { "id": "v-28", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/grad22026.MP4", "caption": "Kindergarten Graduation 2026" },
+      { "id": "v-29", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/grad32026.MP4", "caption": "Kindergarten Graduation 2026" }
       ]
     }
   ]
