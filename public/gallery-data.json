@@ -300,6 +300,34 @@
         { "id": "s-2", "src": "assets/media/staff1.jpg", "caption": "Teacher's Day 2025" },
         { "id": "s-3", "src": "assets/media/staff2.jpg", "caption": "Teacher's Day 2025" }
       ]
+    },
+      {
+      "id": "wildlife-sanctuary2-album",
+      "name": "N/a'an ku sê Wildlife Sanctuary - Part 1",
+      "media": [
+        { "id": "z-1", "src": "/assets/media/wildlife1sanctuary1.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-2", "src": "/assets/media/wildlife1sanctuary2.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-3", "src": "/assets/media/wildlife1sanctuary3.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-4", "src": "/assets/media/wildlife1sanctuary4.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-5", "src": "/assets/media/wildlife1sanctuary5.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1."},
+        { "id": "z-6", "src": "/assets/media/wildlife1sanctuary6.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-7", "src": "/assets/media/wildlife1sanctuary7.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-8", "src": "/assets/media/wildlife1sanctuary8.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-9", "src": "/assets/media/wildlife1sanctuary9.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-10", "src": "/assets/media/wildlife1sanctuary10.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-11", "src": "/assets/media/wildlife1sanctuary11.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-12", "src": "/assets/media/wildlife1sanctuary12.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-13", "src": "/assets/media/wildlife1sanctuary13.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-14", "src": "/assets/media/wildlife1sanctuary14.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-15", "src": "/assets/media/wildlife1sanctuary15.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-16", "src": "/assets/media/wildlife1sanctuary16.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-17", "src": "/assets/media/wildlife1sanctuary17.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-18", "src": "/assets/media/wildlife1sanctuary18.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." }, 
+         { "id": "z-19", "src": "/assets/media/wildlife1sanctuary19.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-20", "src": "/assets/media/wildlife1sanctuary20.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1."},
+        { "id": "z-21", "src": "/assets/media/wildlife1sanctuary21.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "z-22", "src": "/assets/media/wildlife1sanctuary22.JPG", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." }
+      ]
     }
   ],
   "videoEvents": [
@@ -384,7 +412,7 @@
     },
     {
       "id": "album-sports-videos",
-      "name": "Sports & Tournaments",
+      "name": "Sports and Tournaments",
       "description": "Highlights from our intense sports competitions, where our teams brought home glorious medals.",
       "media": [
         { "id": "v-12", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/sportsunder13girls.mp4", "caption": "Volleyball - Under-13 Girls bring home Silver medals" },
@@ -421,25 +449,25 @@
       ]
     },
          {
-      "id": "album-sports-videos",
-      "name": "N/a'an ku sê Wildlife Sanctuary",
+      "id": "album-wildlife-sanctuary-1",
+      "name": "N/a'an ku sê Wildlife Sanctuary - Part 1",
       "description": "Grade 6 N/a'an ku sê Wildlife Sanctuary tour, 2026. Part 1.",
       "media": [
-        { "id": "v-30", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary1.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-        { "id": "v-31", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary10.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-         { "id": "v-32", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary11.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-        { "id": "v-33", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary12.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-         { "id": "v-34", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary13.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-        { "id": "v-35", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary14.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-        { "id": "v-36", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary15.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-        { "id": "v-38", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary16.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-         { "id": "v-39", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary17.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" },
-        { "id": "v-40", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary18.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026" }
+        { "id": "v-30", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary1.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "v-31", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary10.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+         { "id": "v-32", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary11.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "v-33", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary12.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+         { "id": "v-34", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary13.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "v-35", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary14.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "v-36", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary15.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "v-38", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary16.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+         { "id": "v-39", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary17.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." },
+        { "id": "v-40", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary18.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 1." }
       ]
     },
     {
-      "id": "album-sports-videos",
-      "name": "N/a'an ku sê Wildlife Sanctuary",
+      "id": "album-wildlife-sanctuary-2",
+      "name": "N/a'an ku sê Wildlife Sanctuary - Part 2",
       "description": "Grade 6 N/a'an ku sê Wildlife Sanctuary tour, 2026. Part 2.",
       "media": [
         { "id": "v-30", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary19.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 2." },
@@ -455,8 +483,8 @@
       ]
       },
      {
-      "id": "album-sports-videos",
-      "name": "N/a'an ku sê Wildlife Sanctuary",
+      "id": "album-wildlife-sanctuary-3",
+      "name": "N/a'an ku sê Wildlife Sanctuary - Part 3",
       "description": "Grade 6 N/a'an ku sê Wildlife Sanctuary tour, 2026. Part 3.",
       "media": [
         { "id": "v-30", "src": "https://pub-bea09e25a003414fa943f6b300b9ba5e.r2.dev/wsanctuary28.MP4", "caption": "Grade 6 - Wildlife Sanctuary tour, 2026. Part 3." },
