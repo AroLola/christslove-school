@@ -125,7 +125,7 @@
       ]
     },
     {
-      "id": "sports-gallery-album",
+      "id": "sports-gallery2-album",
       "name": "Sports",
       "media": [
         { "id": "s-1", "src": "/assets/media/sports1.jpg", "caption": "Athletics Event Highlights" },
@@ -466,7 +466,7 @@
       ] 
     },
     {
-      "id": "album-sports-videos",
+      "id": "album-sports1-videos",
       "name": "Sports and Tournaments",
       "description": "Highlights from our intense sports competitions, where our teams brought home glorious medals.",
       "media": [
